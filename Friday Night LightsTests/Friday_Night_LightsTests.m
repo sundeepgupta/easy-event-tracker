@@ -7,6 +7,13 @@
 //
 
 #import "Friday_Night_LightsTests.h"
+#import "ParticipantsVC.h"
+
+@interface Friday_Night_LightsTests ()
+
+@property (strong, nonatomic) ParticipantsVC *vc;
+
+@end
 
 @implementation Friday_Night_LightsTests
 
@@ -14,19 +21,24 @@
 {
     [super setUp];
     
-    // Set-up code here.
+    self.vc = [[ParticipantsVC alloc] init];
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
+    self.vc = nil;
     
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testNewParticipantButtonPress
 {
-    STFail(@"Unit tests are not implemented yet in Friday Night LightsTests");
+    STAssertNoThrow([self.vc newButtonPress:nil], @"Exception was thrown");
+//    [NSThread sleepForTimeInterval:1.0];
+}
+
+- (void)testSaveNewParticipant {
+    
 }
 
 @end

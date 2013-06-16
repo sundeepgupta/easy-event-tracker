@@ -9,18 +9,12 @@
 #import "AppDelegate.h"
 #import "Model.h"
 
-//TODO - remove these after prototyping
-#import "Participant.h"
-#import "Event.h"
-
-
 @interface AppDelegate ()
 
 @property (strong, nonatomic) Global *global;
 @property (strong, nonatomic) Model *model;
 
 @end
-
 
 
 @implementation AppDelegate
@@ -32,8 +26,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setupModel];
-    [self loadData];
-    
     return YES;
 }
 
@@ -43,21 +35,6 @@
     self.model.managedObjectContext = self.managedObjectContext;
 }
 
-- (void)loadData {
-    [self setupParticipants];
-    [self.model saveContext];
-}
-
-- (void)setupParticipants {
-    Participant *object = [self.model newParticipant];
-    object.name = @"Wayne";
-}
-
-- (void)setupEvents {
-    Event *object = [self.model newEvent];
-    NSDate *date = [NSDate date];
-    object.date = date;
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

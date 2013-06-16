@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		AE0E42BD176D592100A050BE /* ParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42BC176D592100A050BE /* ParticipantsVC.m */; };
 		AE0E42BE176D592100A050BE /* ParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42BC176D592100A050BE /* ParticipantsVC.m */; };
+		AE0E42C1176DFF8900A050BE /* NewParticipantVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* NewParticipantVC.m */; };
+		AE0E42C2176DFF8900A050BE /* NewParticipantVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* NewParticipantVC.m */; };
+		AE25FFDE176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
+		AE25FFDF176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
 		AE89ABE3176D426700C06D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE2176D426700C06D03 /* UIKit.framework */; };
 		AE89ABE5176D426700C06D03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE4176D426700C06D03 /* Foundation.framework */; };
 		AE89ABE7176D426700C06D03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE6176D426700C06D03 /* CoreGraphics.framework */; };
@@ -50,8 +54,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AE0E42BB176D592100A050BE /* ParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantsVC.h; sourceTree = "<group>"; };
-		AE0E42BC176D592100A050BE /* ParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantsVC.m; sourceTree = "<group>"; };
+		AE0E42BB176D592100A050BE /* ParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantsVC.h; path = "Friday Night Lights/ParticipantsVC.h"; sourceTree = "<group>"; };
+		AE0E42BC176D592100A050BE /* ParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantsVC.m; path = "Friday Night Lights/ParticipantsVC.m"; sourceTree = "<group>"; };
+		AE0E42BF176DFF8900A050BE /* NewParticipantVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewParticipantVC.h; path = "Friday Night Lights/NewParticipantVC.h"; sourceTree = "<group>"; };
+		AE0E42C0176DFF8900A050BE /* NewParticipantVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewParticipantVC.m; path = "Friday Night Lights/NewParticipantVC.m"; sourceTree = "<group>"; };
+		AE25FFDC176E2A3700955426 /* DevVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevVC.h; sourceTree = "<group>"; };
+		AE25FFDD176E2A3700955426 /* DevVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevVC.m; sourceTree = "<group>"; };
 		AE89ABDF176D426700C06D03 /* Friday Night Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friday Night Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE89ABE2176D426700C06D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE89ABE4176D426700C06D03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -77,11 +85,11 @@
 		AE89AC22176D498200C06D03 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = "Friday Night Lights/Event.m"; sourceTree = "<group>"; };
 		AE89AC25176D499D00C06D03 /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Participant.h; path = "Friday Night Lights/Participant.h"; sourceTree = "<group>"; };
 		AE89AC26176D499D00C06D03 /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Participant.m; path = "Friday Night Lights/Participant.m"; sourceTree = "<group>"; };
-		AE89AC29176D4C3300C06D03 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone.storyboard; path = "Friday Night Lights/iPhone.storyboard"; sourceTree = "<group>"; };
-		AE89AC2C176D4DEF00C06D03 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Global.h; path = "Friday Night Lights/Global.h"; sourceTree = "<group>"; };
-		AE89AC2D176D4DEF00C06D03 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Global.m; path = "Friday Night Lights/Global.m"; sourceTree = "<group>"; };
-		AE89AC30176D4E5300C06D03 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = "Friday Night Lights/Model.h"; sourceTree = "<group>"; };
-		AE89AC31176D4E5300C06D03 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = "Friday Night Lights/Model.m"; sourceTree = "<group>"; };
+		AE89AC29176D4C3300C06D03 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		AE89AC2C176D4DEF00C06D03 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		AE89AC2D176D4DEF00C06D03 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
+		AE89AC30176D4E5300C06D03 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		AE89AC31176D4E5300C06D03 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,20 +118,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE0E42C3176DFFC300A050BE /* Participants */ = {
+			isa = PBXGroup;
+			children = (
+				AE0E42BF176DFF8900A050BE /* NewParticipantVC.h */,
+				AE0E42C0176DFF8900A050BE /* NewParticipantVC.m */,
+				AE89AC25176D499D00C06D03 /* Participant.h */,
+				AE89AC26176D499D00C06D03 /* Participant.m */,
+				AE0E42BB176D592100A050BE /* ParticipantsVC.h */,
+				AE0E42BC176D592100A050BE /* ParticipantsVC.m */,
+			);
+			name = Participants;
+			sourceTree = "<group>";
+		};
+		AE0E42C4176DFFDA00A050BE /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				AE89AC21176D498200C06D03 /* Event.h */,
+				AE89AC22176D498200C06D03 /* Event.m */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
-				AE89AC2C176D4DEF00C06D03 /* Global.h */,
-				AE89AC2D176D4DEF00C06D03 /* Global.m */,
-				AE89AC30176D4E5300C06D03 /* Model.h */,
-				AE89AC31176D4E5300C06D03 /* Model.m */,
-				AE89AC29176D4C3300C06D03 /* iPhone.storyboard */,
-				AE89AC25176D499D00C06D03 /* Participant.h */,
-				AE89AC26176D499D00C06D03 /* Participant.m */,
-				AE89AC21176D498200C06D03 /* Event.h */,
-				AE89AC22176D498200C06D03 /* Event.m */,
-				AE89ABEA176D426700C06D03 /* Friday Night Lights */,
-				AE89AC0C176D426700C06D03 /* Friday Night LightsTests */,
+				AE89ABEA176D426700C06D03 /* App Control */,
+				AE0E42C4176DFFDA00A050BE /* Events */,
+				AE0E42C3176DFFC300A050BE /* Participants */,
+				AE89AC0C176D426700C06D03 /* Tests */,
 				AE89ABE1176D426700C06D03 /* Frameworks */,
 				AE89ABE0176D426700C06D03 /* Products */,
 			);
@@ -150,16 +173,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AE89ABEA176D426700C06D03 /* Friday Night Lights */ = {
+		AE89ABEA176D426700C06D03 /* App Control */ = {
 			isa = PBXGroup;
 			children = (
 				AE89ABF3176D426700C06D03 /* AppDelegate.h */,
 				AE89ABF4176D426700C06D03 /* AppDelegate.m */,
-				AE0E42BB176D592100A050BE /* ParticipantsVC.h */,
-				AE0E42BC176D592100A050BE /* ParticipantsVC.m */,
 				AE89ABFC176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld */,
+				AE89AC2C176D4DEF00C06D03 /* Global.h */,
+				AE89AC2D176D4DEF00C06D03 /* Global.m */,
+				AE89AC29176D4C3300C06D03 /* iPhone.storyboard */,
+				AE89AC30176D4E5300C06D03 /* Model.h */,
+				AE89AC31176D4E5300C06D03 /* Model.m */,
 				AE89ABEB176D426700C06D03 /* Supporting Files */,
 			);
+			name = "App Control";
 			path = "Friday Night Lights";
 			sourceTree = "<group>";
 		};
@@ -177,13 +204,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AE89AC0C176D426700C06D03 /* Friday Night LightsTests */ = {
+		AE89AC0C176D426700C06D03 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				AE89AC12176D426700C06D03 /* Friday_Night_LightsTests.h */,
 				AE89AC13176D426700C06D03 /* Friday_Night_LightsTests.m */,
+				AE25FFDC176E2A3700955426 /* DevVC.h */,
+				AE25FFDD176E2A3700955426 /* DevVC.m */,
 				AE89AC0D176D426700C06D03 /* Supporting Files */,
 			);
+			name = Tests;
 			path = "Friday Night LightsTests";
 			sourceTree = "<group>";
 		};
@@ -316,6 +346,8 @@
 				AE89AC2E176D4DEF00C06D03 /* Global.m in Sources */,
 				AE89AC32176D4E5300C06D03 /* Model.m in Sources */,
 				AE0E42BD176D592100A050BE /* ParticipantsVC.m in Sources */,
+				AE0E42C1176DFF8900A050BE /* NewParticipantVC.m in Sources */,
+				AE25FFDE176E2A3700955426 /* DevVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +362,8 @@
 				AE89AC2F176D4DEF00C06D03 /* Global.m in Sources */,
 				AE89AC33176D4E5300C06D03 /* Model.m in Sources */,
 				AE0E42BE176D592100A050BE /* ParticipantsVC.m in Sources */,
+				AE0E42C2176DFF8900A050BE /* NewParticipantVC.m in Sources */,
+				AE25FFDF176E2A3700955426 /* DevVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

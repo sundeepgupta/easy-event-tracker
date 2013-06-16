@@ -9,6 +9,7 @@
 #import "ParticipantsVC.h"
 #import "Model.h"
 #import "Participant.h"
+#import "NewParticipantVC.h"
 
 @interface ParticipantsVC ()
 
@@ -38,6 +39,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupDataSource];
+    [self.tableView reloadData];
 }
 
 - (void)setupDataSource {
@@ -77,13 +79,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+
 }
+
+#pragma mark - IB Methods
+
+- (IBAction)newButtonPress:(UIBarButtonItem *)sender {
+    NewParticipantVC *newParticipantVc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([NewParticipantVC class])];
+    newParticipantVc.participant = [self.model newParticipant];
+    [self.navigationController pushViewController:newParticipantVc animated:YES];
+}
+
 
 @end

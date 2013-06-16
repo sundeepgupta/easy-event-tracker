@@ -10,4 +10,7 @@
 
 @interface ParticipantsVC : UITableViewController
 
+
+- (IBAction)newButtonPress:(UIBarButtonItem *)sender;
+
 @end

@@ -9,7 +9,7 @@
 #import "ParticipantsVC.h"
 #import "Model.h"
 #import "Participant.h"
-#import "NewParticipantVC.h"
+#import "ParticipantDetailVC.h"
 
 @interface ParticipantsVC ()
 
@@ -35,6 +35,8 @@
 
     Global *global = [Global sharedGlobal];
     self.model = global.model;
+    
+    self.title = @"Players";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -85,7 +87,7 @@
 #pragma mark - IB Methods
 
 - (IBAction)newButtonPress:(UIBarButtonItem *)sender {
-    NewParticipantVC *newParticipantVc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([NewParticipantVC class])];
+    ParticipantDetailVC *newParticipantVc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([ParticipantDetailVC class])];
     newParticipantVc.participant = [self.model newParticipant];
     [self.navigationController pushViewController:newParticipantVc animated:YES];
 }

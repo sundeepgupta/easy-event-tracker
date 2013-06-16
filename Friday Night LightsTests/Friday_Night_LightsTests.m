@@ -8,10 +8,12 @@
 
 #import "Friday_Night_LightsTests.h"
 #import "ParticipantsVC.h"
+#import "Model.h"
 
 @interface Friday_Night_LightsTests ()
 
 @property (strong, nonatomic) ParticipantsVC *vc;
+@property (strong, nonatomic) Model *model;
 
 @end
 
@@ -22,23 +24,23 @@
     [super setUp];
     
     self.vc = [[ParticipantsVC alloc] init];
+    self.model = [[Model alloc] init];
 }
 
 - (void)tearDown
 {
     self.vc = nil;
+    self.model = nil;
     
     [super tearDown];
 }
 
-- (void)testNewParticipantButtonPress
-{
+- (void)testNewParticipantButtonPress {
     STAssertNoThrow([self.vc newButtonPress:nil], @"Exception was thrown");
-//    [NSThread sleepForTimeInterval:1.0];
 }
 
-- (void)testSaveNewParticipant {
-    
+- (void)testResetStore {
+    STAssertNoThrow([self.model resetStore], nil);
 }
 
 @end

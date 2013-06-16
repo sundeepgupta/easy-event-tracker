@@ -7,9 +7,13 @@
 //
 
 #import "DevVC.h"
+#import "Model.h"
 
 @interface DevVC ()
 
+@property (strong, nonatomic) Model *model;
+
+@property (strong, nonatomic) IBOutlet UITextView *textView;
 @end
 
 @implementation DevVC
@@ -26,7 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	Global *global = [Global sharedGlobal];
+    self.model = global.model;
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +40,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+- (IBAction)deleteStoreButtonPress:(UIButton *)sender {
+    [self.model resetStore];
+    self.textView.text = @"Data deleted.";
+}
+
+
+
+
+
+- (void)viewDidUnload {
+    [self setTextView:nil];
+    [super viewDidUnload];
+}
 @end

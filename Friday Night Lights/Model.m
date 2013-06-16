@@ -10,6 +10,14 @@
 #import "Participant.h"
 #import "Event.h"
 
+@interface Model()
+
+@property (strong, nonatomic) NSPersistentStoreCoordinator *storeCoordinator;
+@property (strong, nonatomic) NSPersistentStore *store;
+@property (strong, nonatomic) NSURL *storeUrl;
+
+@end
+
 @implementation Model
 
 - (Participant *)newParticipant {
@@ -70,11 +78,35 @@
     }
 }
 
+- (void)resetStore {
+    //FROM http://stackoverflow.com/questions/1077810/delete-reset-all-entries-in-core-data Note it does not delete external storage files.
+    
+    [self.managedObjectContext lock];
+    [self.managedObjectContext reset]; 
 
+    [self setupStoreDetails];
+    [self deleteStore];
+    [self addStore];
+    
+    [self.managedObjectContext unlock];
+}
+     
+- (void)setupStoreDetails {
+    self.storeCoordinator = self.managedObjectContext.persistentStoreCoordinator;
+    self.store = self.storeCoordinator.persistentStores.lastObject;
+    self.storeUrl = self.store.URL;
+}
 
+- (void)deleteStore {
+    NSError *error = nil;
+    [self.storeCoordinator removePersistentStore:self.store error:&error];
+    [[NSFileManager defaultManager] removeItemAtURL:self.storeUrl error:&error];
+}
 
-
-
+- (void)addStore {
+    NSError *error = nil;
+    [self.storeCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.storeUrl options:nil error:&error];
+}
 
 
 

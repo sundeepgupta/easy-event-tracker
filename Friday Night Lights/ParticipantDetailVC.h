@@ -1,5 +1,5 @@
 //
-//  NewParticipantVC.h
+//  ParticipantDetailVC.h
 //  Friday Night Lights
 //
 //  Created by Sundeep Gupta on 13-06-16.
@@ -10,7 +10,7 @@
 
 @class Participant;
 
-@interface NewParticipantVC : UITableViewController
+@interface ParticipantDetailVC : UITableViewController
 
 @property (strong, nonatomic) Participant *participant;
 

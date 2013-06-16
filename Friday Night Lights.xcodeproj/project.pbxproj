@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		AE0E42BD176D592100A050BE /* ParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42BC176D592100A050BE /* ParticipantsVC.m */; };
 		AE0E42BE176D592100A050BE /* ParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42BC176D592100A050BE /* ParticipantsVC.m */; };
-		AE0E42C1176DFF8900A050BE /* NewParticipantVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* NewParticipantVC.m */; };
-		AE0E42C2176DFF8900A050BE /* NewParticipantVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* NewParticipantVC.m */; };
+		AE0E42C1176DFF8900A050BE /* ParticipantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */; };
+		AE0E42C2176DFF8900A050BE /* ParticipantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */; };
 		AE25FFDE176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
 		AE25FFDF176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
 		AE89ABE3176D426700C06D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE2176D426700C06D03 /* UIKit.framework */; };
@@ -56,10 +56,10 @@
 /* Begin PBXFileReference section */
 		AE0E42BB176D592100A050BE /* ParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantsVC.h; path = "Friday Night Lights/ParticipantsVC.h"; sourceTree = "<group>"; };
 		AE0E42BC176D592100A050BE /* ParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantsVC.m; path = "Friday Night Lights/ParticipantsVC.m"; sourceTree = "<group>"; };
-		AE0E42BF176DFF8900A050BE /* NewParticipantVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewParticipantVC.h; path = "Friday Night Lights/NewParticipantVC.h"; sourceTree = "<group>"; };
-		AE0E42C0176DFF8900A050BE /* NewParticipantVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewParticipantVC.m; path = "Friday Night Lights/NewParticipantVC.m"; sourceTree = "<group>"; };
-		AE25FFDC176E2A3700955426 /* DevVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevVC.h; sourceTree = "<group>"; };
-		AE25FFDD176E2A3700955426 /* DevVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevVC.m; sourceTree = "<group>"; };
+		AE0E42BF176DFF8900A050BE /* ParticipantDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantDetailVC.h; path = "Friday Night Lights/ParticipantDetailVC.h"; sourceTree = "<group>"; };
+		AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantDetailVC.m; path = "Friday Night Lights/ParticipantDetailVC.m"; sourceTree = "<group>"; };
+		AE25FFDC176E2A3700955426 /* DevVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DevVC.h; path = "Friday Night LightsTests/DevVC.h"; sourceTree = SOURCE_ROOT; };
+		AE25FFDD176E2A3700955426 /* DevVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DevVC.m; path = "Friday Night LightsTests/DevVC.m"; sourceTree = SOURCE_ROOT; };
 		AE89ABDF176D426700C06D03 /* Friday Night Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friday Night Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE89ABE2176D426700C06D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE89ABE4176D426700C06D03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,8 +121,8 @@
 		AE0E42C3176DFFC300A050BE /* Participants */ = {
 			isa = PBXGroup;
 			children = (
-				AE0E42BF176DFF8900A050BE /* NewParticipantVC.h */,
-				AE0E42C0176DFF8900A050BE /* NewParticipantVC.m */,
+				AE0E42BF176DFF8900A050BE /* ParticipantDetailVC.h */,
+				AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */,
 				AE89AC25176D499D00C06D03 /* Participant.h */,
 				AE89AC26176D499D00C06D03 /* Participant.m */,
 				AE0E42BB176D592100A050BE /* ParticipantsVC.h */,
@@ -178,6 +178,8 @@
 			children = (
 				AE89ABF3176D426700C06D03 /* AppDelegate.h */,
 				AE89ABF4176D426700C06D03 /* AppDelegate.m */,
+				AE25FFDC176E2A3700955426 /* DevVC.h */,
+				AE25FFDD176E2A3700955426 /* DevVC.m */,
 				AE89ABFC176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld */,
 				AE89AC2C176D4DEF00C06D03 /* Global.h */,
 				AE89AC2D176D4DEF00C06D03 /* Global.m */,
@@ -209,8 +211,6 @@
 			children = (
 				AE89AC12176D426700C06D03 /* Friday_Night_LightsTests.h */,
 				AE89AC13176D426700C06D03 /* Friday_Night_LightsTests.m */,
-				AE25FFDC176E2A3700955426 /* DevVC.h */,
-				AE25FFDD176E2A3700955426 /* DevVC.m */,
 				AE89AC0D176D426700C06D03 /* Supporting Files */,
 			);
 			name = Tests;
@@ -346,7 +346,7 @@
 				AE89AC2E176D4DEF00C06D03 /* Global.m in Sources */,
 				AE89AC32176D4E5300C06D03 /* Model.m in Sources */,
 				AE0E42BD176D592100A050BE /* ParticipantsVC.m in Sources */,
-				AE0E42C1176DFF8900A050BE /* NewParticipantVC.m in Sources */,
+				AE0E42C1176DFF8900A050BE /* ParticipantDetailVC.m in Sources */,
 				AE25FFDE176E2A3700955426 /* DevVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +362,7 @@
 				AE89AC2F176D4DEF00C06D03 /* Global.m in Sources */,
 				AE89AC33176D4E5300C06D03 /* Model.m in Sources */,
 				AE0E42BE176D592100A050BE /* ParticipantsVC.m in Sources */,
-				AE0E42C2176DFF8900A050BE /* NewParticipantVC.m in Sources */,
+				AE0E42C2176DFF8900A050BE /* ParticipantDetailVC.m in Sources */,
 				AE25FFDF176E2A3700955426 /* DevVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

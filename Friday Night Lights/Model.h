@@ -35,6 +35,6 @@
 
 - (void)saveContext;
 
-
+- (void)resetStore;
 
 @end

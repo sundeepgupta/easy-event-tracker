@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) Participant *participant;
 
+- (void)processNewCustomer;
+
 @end

@@ -37,7 +37,8 @@
 
 - (NSArray *)Participants {
     NSString *entityName = NSStringFromClass([Participant class]);
-    return [self objectsWithEntityName:entityName];
+    NSArray *objects = [self objectsWithEntityName:entityName];
+    return [self sortedObjects:objects byKey:@"name"];
 }
 
 - (NSArray *)objectsWithEntityName:(NSString *)entityName {
@@ -62,6 +63,17 @@
     return results;
 }
 
+- (NSArray *)sortedObjects:(NSArray *)objects byKey:(NSString *)key {
+    NSMutableArray *mutableObjects = objects.mutableCopy;
+    NSArray *descriptors = [self descriptorsFromKey:key];
+    return [mutableObjects sortedArrayUsingDescriptors:descriptors];
+}
+
+- (NSArray *)descriptorsFromKey:(NSString *)key {
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
+    return [NSArray arrayWithObject:sortDescriptor];
+}
+
 
 
 - (void)saveContext
@@ -77,6 +89,9 @@
         }
     }
 }
+
+
+
 
 - (void)resetStore {
     //FROM http://stackoverflow.com/questions/1077810/delete-reset-all-entries-in-core-data Note it does not delete external storage files.

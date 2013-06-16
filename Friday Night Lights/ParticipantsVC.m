@@ -88,7 +88,6 @@
 
 - (IBAction)newButtonPress:(UIBarButtonItem *)sender {
     ParticipantDetailVC *newParticipantVc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([ParticipantDetailVC class])];
-    newParticipantVc.participant = [self.model newParticipant];
     [self.navigationController pushViewController:newParticipantVc animated:YES];
 }
 

@@ -9,11 +9,13 @@
 #import "Friday_Night_LightsTests.h"
 #import "ParticipantsVC.h"
 #import "Model.h"
+#import "ParticipantDetailVC.h"
 
 @interface Friday_Night_LightsTests ()
 
-@property (strong, nonatomic) ParticipantsVC *vc;
+@property (strong, nonatomic) ParticipantsVC *participantsVc;
 @property (strong, nonatomic) Model *model;
+@property (strong, nonatomic) ParticipantDetailVC *participantDetailVc;
 
 @end
 
@@ -23,24 +25,28 @@
 {
     [super setUp];
     
-    self.vc = [[ParticipantsVC alloc] init];
+    self.participantsVc = [[ParticipantsVC alloc] init];
     self.model = [[Model alloc] init];
 }
 
 - (void)tearDown
 {
-    self.vc = nil;
+    self.participantsVc = nil;
     self.model = nil;
     
     [super tearDown];
 }
 
 - (void)testNewParticipantButtonPress {
-    STAssertNoThrow([self.vc newButtonPress:nil], @"Exception was thrown");
+    STAssertNoThrow([self.participantsVc newButtonPress:nil], @"Exception was thrown");
 }
 
 - (void)testResetStore {
     STAssertNoThrow([self.model resetStore], nil);
+}
+
+- (void)testSaveNewParticipant {
+    STAssertNoThrow([self.participantDetailVc processNewCustomer], nil);
 }
 
 @end

@@ -73,9 +73,28 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Participant *objectAtRow = self.dataSource[indexPath.row];
-    cell.textLabel.text = objectAtRow.name;
+    ABAddressBookRef addressBook = [self addressBook];
+    NSString *compositeName = [self nameForParticipant:objectAtRow fromAddressBook:addressBook];
+    
+    cell.textLabel.text = compositeName;
     
     return cell;
+}
+
+- (ABAddressBookRef)addressBook {
+    ABAddressBookRef addressBook;
+    if (&ABAddressBookCreateWithOptions != NULL) {
+        addressBook = ABAddressBookCreateWithOptions(nil, nil);
+    } else { //below iOS 6
+        addressBook = ABAddressBookCreate();
+    }
+    return addressBook;
+}
+
+- (NSString *)nameForParticipant:(Participant *)participant fromAddressBook:(ABAddressBookRef)addressBook{
+    ABRecordID abRecordId = (ABRecordID)participant.abRecordId.intValue;
+    ABRecordRef abRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, abRecordId);
+    return (__bridge NSString *)ABRecordCopyCompositeName(abRecordRef);
 }
 
 #pragma mark - Table view delegate

@@ -2,7 +2,7 @@
 //  Participant.h
 //  Friday Night Lights
 //
-//  Created by Sundeep Gupta on 13-06-15.
+//  Created by Sundeep Gupta on 13-06-16.
 //  Copyright (c) 2013 Sundeep Gupta. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 
 @interface Participant : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * abRecordId;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *events;
 @end

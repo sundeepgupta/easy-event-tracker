@@ -33,4 +33,12 @@
     // Should never be called, but just here for clarity really.
 }
 
+
+
++ (void)showAlertWithTitle:(NSString *)title withMessage:(NSString *)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+
 @end

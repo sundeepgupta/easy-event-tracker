@@ -6,11 +6,12 @@
         <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="events" inverseEntity="Participant" syncable="YES"/>
     </entity>
     <entity name="Participant" representedClassName="Participant" syncable="YES">
-        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="abRecordId" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="participants" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Participant" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Participant" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

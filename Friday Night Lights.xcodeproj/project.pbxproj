@@ -13,6 +13,10 @@
 		AE0E42C2176DFF8900A050BE /* ParticipantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */; };
 		AE25FFDE176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
 		AE25FFDF176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
+		AE25FFE2176E778F00955426 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25FFE0176E778F00955426 /* AddressBook.framework */; };
+		AE25FFE3176E778F00955426 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25FFE1176E778F00955426 /* AddressBookUI.framework */; };
+		AE25FFFE176E8FAB00955426 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFFD176E8FAB00955426 /* Participant.m */; };
+		AE25FFFF176E8FAB00955426 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFFD176E8FAB00955426 /* Participant.m */; };
 		AE89ABE3176D426700C06D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE2176D426700C06D03 /* UIKit.framework */; };
 		AE89ABE5176D426700C06D03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE4176D426700C06D03 /* Foundation.framework */; };
 		AE89ABE7176D426700C06D03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE6176D426700C06D03 /* CoreGraphics.framework */; };
@@ -33,8 +37,6 @@
 		AE89AC20176D458500C06D03 /* Friday_Night_Lights.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE89ABFC176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld */; };
 		AE89AC23176D498200C06D03 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC22176D498200C06D03 /* Event.m */; };
 		AE89AC24176D498200C06D03 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC22176D498200C06D03 /* Event.m */; };
-		AE89AC27176D499D00C06D03 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC26176D499D00C06D03 /* Participant.m */; };
-		AE89AC28176D499D00C06D03 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC26176D499D00C06D03 /* Participant.m */; };
 		AE89AC2A176D4C3300C06D03 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE89AC29176D4C3300C06D03 /* iPhone.storyboard */; };
 		AE89AC2B176D4C3300C06D03 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE89AC29176D4C3300C06D03 /* iPhone.storyboard */; };
 		AE89AC2E176D4DEF00C06D03 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC2D176D4DEF00C06D03 /* Global.m */; };
@@ -60,6 +62,10 @@
 		AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantDetailVC.m; path = "Friday Night Lights/ParticipantDetailVC.m"; sourceTree = "<group>"; };
 		AE25FFDC176E2A3700955426 /* DevVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DevVC.h; path = "Friday Night LightsTests/DevVC.h"; sourceTree = SOURCE_ROOT; };
 		AE25FFDD176E2A3700955426 /* DevVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DevVC.m; path = "Friday Night LightsTests/DevVC.m"; sourceTree = SOURCE_ROOT; };
+		AE25FFE0176E778F00955426 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AE25FFE1176E778F00955426 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		AE25FFFC176E8FAB00955426 /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Participant.h; path = "Friday Night Lights/Participant.h"; sourceTree = "<group>"; };
+		AE25FFFD176E8FAB00955426 /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Participant.m; path = "Friday Night Lights/Participant.m"; sourceTree = "<group>"; };
 		AE89ABDF176D426700C06D03 /* Friday Night Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friday Night Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE89ABE2176D426700C06D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE89ABE4176D426700C06D03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -83,8 +89,6 @@
 		AE89AC13176D426700C06D03 /* Friday_Night_LightsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Friday_Night_LightsTests.m; sourceTree = "<group>"; };
 		AE89AC21176D498200C06D03 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = "Friday Night Lights/Event.h"; sourceTree = "<group>"; };
 		AE89AC22176D498200C06D03 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = "Friday Night Lights/Event.m"; sourceTree = "<group>"; };
-		AE89AC25176D499D00C06D03 /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Participant.h; path = "Friday Night Lights/Participant.h"; sourceTree = "<group>"; };
-		AE89AC26176D499D00C06D03 /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Participant.m; path = "Friday Night Lights/Participant.m"; sourceTree = "<group>"; };
 		AE89AC29176D4C3300C06D03 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		AE89AC2C176D4DEF00C06D03 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		AE89AC2D176D4DEF00C06D03 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE25FFE2176E778F00955426 /* AddressBook.framework in Frameworks */,
+				AE25FFE3176E778F00955426 /* AddressBookUI.framework in Frameworks */,
 				AE89ABE3176D426700C06D03 /* UIKit.framework in Frameworks */,
 				AE89ABE5176D426700C06D03 /* Foundation.framework in Frameworks */,
 				AE89ABE7176D426700C06D03 /* CoreGraphics.framework in Frameworks */,
@@ -123,8 +129,8 @@
 			children = (
 				AE0E42BF176DFF8900A050BE /* ParticipantDetailVC.h */,
 				AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */,
-				AE89AC25176D499D00C06D03 /* Participant.h */,
-				AE89AC26176D499D00C06D03 /* Participant.m */,
+				AE25FFFC176E8FAB00955426 /* Participant.h */,
+				AE25FFFD176E8FAB00955426 /* Participant.m */,
 				AE0E42BB176D592100A050BE /* ParticipantsVC.h */,
 				AE0E42BC176D592100A050BE /* ParticipantsVC.m */,
 			);
@@ -164,6 +170,8 @@
 		AE89ABE1176D426700C06D03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE25FFE0176E778F00955426 /* AddressBook.framework */,
+				AE25FFE1176E778F00955426 /* AddressBookUI.framework */,
 				AE89ABE2176D426700C06D03 /* UIKit.framework */,
 				AE89ABE4176D426700C06D03 /* Foundation.framework */,
 				AE89ABE6176D426700C06D03 /* CoreGraphics.framework */,
@@ -342,12 +350,12 @@
 				AE89ABF5176D426700C06D03 /* AppDelegate.m in Sources */,
 				AE89ABFE176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld in Sources */,
 				AE89AC23176D498200C06D03 /* Event.m in Sources */,
-				AE89AC27176D499D00C06D03 /* Participant.m in Sources */,
 				AE89AC2E176D4DEF00C06D03 /* Global.m in Sources */,
 				AE89AC32176D4E5300C06D03 /* Model.m in Sources */,
 				AE0E42BD176D592100A050BE /* ParticipantsVC.m in Sources */,
 				AE0E42C1176DFF8900A050BE /* ParticipantDetailVC.m in Sources */,
 				AE25FFDE176E2A3700955426 /* DevVC.m in Sources */,
+				AE25FFFE176E8FAB00955426 /* Participant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,12 +366,12 @@
 				AE89AC14176D426700C06D03 /* Friday_Night_LightsTests.m in Sources */,
 				AE89AC20176D458500C06D03 /* Friday_Night_Lights.xcdatamodeld in Sources */,
 				AE89AC24176D498200C06D03 /* Event.m in Sources */,
-				AE89AC28176D499D00C06D03 /* Participant.m in Sources */,
 				AE89AC2F176D4DEF00C06D03 /* Global.m in Sources */,
 				AE89AC33176D4E5300C06D03 /* Model.m in Sources */,
 				AE0E42BE176D592100A050BE /* ParticipantsVC.m in Sources */,
 				AE0E42C2176DFF8900A050BE /* ParticipantDetailVC.m in Sources */,
 				AE25FFDF176E2A3700955426 /* DevVC.m in Sources */,
+				AE25FFFF176E8FAB00955426 /* Participant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

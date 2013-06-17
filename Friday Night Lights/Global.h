@@ -16,4 +16,6 @@
 
 + (id)sharedGlobal;
 
++ (void)showAlertWithTitle:(NSString *)title withMessage:(NSString *)message; 
+
 @end

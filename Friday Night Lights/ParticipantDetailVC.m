@@ -35,13 +35,25 @@
     [super viewDidLoad];
     Global *global = [Global sharedGlobal];
     self.model = global.model;
-    
-    self.title = @"New Player";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-
+    [self setupView];
+    
+    
+    
+    
 }
+
+- (void)setupView {
+    if (self.participant) {
+//        self.nameField.text = self.participant.name;
+        self.doneButton.enabled = NO;
+    } 
+}
+
+
+
 
 -(void) viewWillDisappear:(BOOL)animated {
 //http://stackoverflow.com/questions/1214965/setting-action-for-back-button-in-navigation-controller/3445994#3445994
@@ -87,7 +99,7 @@
 
 - (void)saveParticipant {
     self.participant = [self.model newParticipant];
-    self.participant.name = self.nameField.text;
+//    self.participant.name = self.nameField.text;
     [self.model saveContext];
 }
 

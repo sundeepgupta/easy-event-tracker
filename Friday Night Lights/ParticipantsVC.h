@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface ParticipantsVC : UITableViewController
+@interface ParticipantsVC : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
 
 
 - (IBAction)newButtonPress:(UIBarButtonItem *)sender;

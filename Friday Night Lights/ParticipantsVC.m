@@ -118,34 +118,55 @@
 }
 
 #pragma mark - People Picker delegate methods
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
     [self processSelectedAbRecordRef:person ];
     return NO;
 }
 
 - (void)processSelectedAbRecordRef:(ABRecordRef)abRecordRef {
-    ABRecordType recordType = ABRecordGetRecordType(abRecordRef);
-    if (recordType == kABPersonType) {
-        
-        //TODO - Check if person already exists
-        
-        [self saveNewParticpantFromAbRecordRef:abRecordRef];
-        [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self abRecordTypeIsValid:abRecordRef]) {
+        if ([self abRecordRefIsUnique:abRecordRef]) {
+            [self saveNewParticpantFromAbRecordRef:abRecordRef];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [UIAlertView showAlertWithTitle:@"Duplicate Contact" withMessage:@"The selected contact already exists."];
+        }
     } else {
         [UIAlertView showAlertWithTitle:@"Invalid Selection" withMessage:@"Sorry, only individual contacts can be selected."];
     }
 }
 
+- (BOOL)abRecordTypeIsValid:(ABRecordRef)abRecordRef {
+    BOOL abRecordTypeIsValid = NO;
+    ABRecordType recordType = ABRecordGetRecordType(abRecordRef);
+    if (recordType == kABPersonType) {
+        abRecordTypeIsValid = YES;
+    }
+    return abRecordTypeIsValid;
+}
 
+- (BOOL)abRecordRefIsUnique:(ABRecordRef)abRecordRef {
+    NSNumber *abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
+    BOOL abRecordRefIsUnique = YES;
+    for (Participant *participant in self.dataSource) {
+        if ([participant.abRecordId isEqualToNumber:abRecordId]) {
+            abRecordRefIsUnique = NO;
+        }
+    }
+    return abRecordRefIsUnique;
+}
 
 - (void)saveNewParticpantFromAbRecordRef:(ABRecordRef)abRecordRef {
     [self setupNewParticipantFromAbRecord:abRecordRef];
     [self.model saveContext];
+}
+
+- (void)setupNewParticipantFromAbRecord:(ABRecordRef)abRecordRef {
+    Participant *participant = [self.model newParticipant];
+    
+    participant.abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
+    participant.name = [AddressBookHelper abCompositeNameFromAbRecordRef:abRecordRef];
+
 }
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
@@ -156,16 +177,8 @@
     return NO;
 }
 
-- (void)setupNewParticipantFromAbRecord:(ABRecordRef)abRecordRef {
-    Participant *participant = [self.model newParticipant];
-    
-    NSNumber *abRecordId = [NSNumber numberWithInt:ABRecordGetRecordID(abRecordRef)];
-    participant.abRecordId = abRecordId;
-    
-    NSString *name = (__bridge NSString *)(ABRecordCopyCompositeName(abRecordRef));
-    participant.name = name;
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
 @end

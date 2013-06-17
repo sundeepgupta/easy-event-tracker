@@ -20,4 +20,12 @@
     return addressBook;
 }
 
++ (NSNumber *)abRecordIdFromAbRecordRef:(ABRecordRef)abRecordRef {
+    return  [NSNumber numberWithInt:ABRecordGetRecordID(abRecordRef)];
+}
+
++ (NSString *)abCompositeNameFromAbRecordRef:(ABRecordRef)abRecordRef {
+    return (__bridge NSString *)(ABRecordCopyCompositeName(abRecordRef));
+}
+
 @end

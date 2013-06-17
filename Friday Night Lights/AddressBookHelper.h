@@ -13,5 +13,7 @@
 @interface AddressBookHelper : NSObject
 
 + (ABAddressBookRef)addressBook;
++ (NSNumber *)abRecordIdFromAbRecordRef:(ABRecordRef)abRecordRef;
++ (NSString *)abCompositeNameFromAbRecordRef:(ABRecordRef)abRecordRef;
 
 @end

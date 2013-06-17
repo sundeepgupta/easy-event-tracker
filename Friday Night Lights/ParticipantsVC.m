@@ -10,6 +10,8 @@
 #import "Model.h"
 #import "Participant.h"
 #import "ParticipantDetailVC.h"
+#import "AddressBookHelper.h"
+#import "UIAlertView+Helpers.h"
 
 
 @interface ParticipantsVC ()
@@ -73,7 +75,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Participant *objectAtRow = self.dataSource[indexPath.row];
-    ABAddressBookRef addressBook = [self addressBook];
+    ABAddressBookRef addressBook = [AddressBookHelper addressBook];
     NSString *compositeName = [self nameForParticipant:objectAtRow fromAddressBook:addressBook];
     
     cell.textLabel.text = compositeName;
@@ -81,15 +83,7 @@
     return cell;
 }
 
-- (ABAddressBookRef)addressBook {
-    ABAddressBookRef addressBook;
-    if (&ABAddressBookCreateWithOptions != NULL) {
-        addressBook = ABAddressBookCreateWithOptions(nil, nil);
-    } else { //below iOS 6
-        addressBook = ABAddressBookCreate();
-    }
-    return addressBook;
-}
+
 
 - (NSString *)nameForParticipant:(Participant *)participant fromAddressBook:(ABAddressBookRef)addressBook{
     ABRecordID abRecordId = (ABRecordID)participant.abRecordId.intValue;
@@ -101,11 +95,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Participant *object = [self.dataSource objectAtIndex:indexPath.row];
+    Participant *objectAtIndex = [self.dataSource objectAtIndex:indexPath.row];
     
     NSString *vcId = NSStringFromClass([ParticipantDetailVC class]);
     ParticipantDetailVC *participantDetailVc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
-    participantDetailVc.participant = object;
+    participantDetailVc.participant = objectAtIndex;
     
     [self.navigationController pushViewController:participantDetailVc animated:YES];
 }
@@ -130,17 +124,28 @@
 }
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
-    
-    ABRecordType recordType = ABRecordGetRecordType(person);
-    if (recordType != kABPersonType) {
-        [Global showAlertWithTitle:@"Invalid Selection" withMessage:@"Sorry, only individual contacts can be selected."];
-    } else {
-        [self setupNewParticipantFromAbRecord:person];
-        [self.model saveContext];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-
+    [self processSelectedAbRecordRef:person ];
     return NO;
+}
+
+- (void)processSelectedAbRecordRef:(ABRecordRef)abRecordRef {
+    ABRecordType recordType = ABRecordGetRecordType(abRecordRef);
+    if (recordType == kABPersonType) {
+        
+        //TODO - Check if person already exists
+        
+        [self saveNewParticpantFromAbRecordRef:abRecordRef];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [UIAlertView showAlertWithTitle:@"Invalid Selection" withMessage:@"Sorry, only individual contacts can be selected."];
+    }
+}
+
+
+
+- (void)saveNewParticpantFromAbRecordRef:(ABRecordRef)abRecordRef {
+    [self setupNewParticipantFromAbRecord:abRecordRef];
+    [self.model saveContext];
 }
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker

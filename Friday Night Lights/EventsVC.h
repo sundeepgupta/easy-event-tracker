@@ -1,5 +1,5 @@
 //
-//  ParticipantsVC.h
+//  EventsVC.h
 //  Friday Night Lights
 //
 //  Created by Sundeep Gupta on 13-06-15.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AddressBookUI/AddressBookUI.h>
 
-@interface ParticipantsVC : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
+
+@interface EventsVC : UITableViewController
 
 
 - (IBAction)addButtonPress:(UIBarButtonItem *)sender;

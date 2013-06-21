@@ -35,11 +35,18 @@
     return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.managedObjectContext];
 }
 
+
 #pragma mark - Read
 - (NSArray *)Participants {
     NSString *entityName = NSStringFromClass([Participant class]);
     NSArray *objects = [self objectsWithEntityName:entityName];
     return [self sortedObjects:objects byKey:@"name"];
+}
+
+- (NSArray *)Events {
+    NSString *entityName = NSStringFromClass([Event class]);
+    NSArray *objects = [self objectsWithEntityName:entityName];
+    return objects;
 }
 
 - (NSArray *)objectsWithEntityName:(NSString *)entityName {
@@ -95,6 +102,17 @@
 
 
 #pragma mark - Delete
+- (void)deleteObject:(NSManagedObject *)object {
+    NSError *error;
+    [self.managedObjectContext deleteObject:object];
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error deleting object: %@", [error localizedDescription]);
+    }
+    [self saveContext];
+}
+
+
+
 - (void)resetStore {
     //FROM http://stackoverflow.com/questions/1077810/delete-reset-all-entries-in-core-data Note it does not delete external storage files.
     

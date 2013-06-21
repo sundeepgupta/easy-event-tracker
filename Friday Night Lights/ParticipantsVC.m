@@ -39,7 +39,12 @@
     Global *global = [Global sharedGlobal];
     self.model = global.model;
     
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     self.title = @"Players";
+    
+    UIColor *bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
+    self.view.backgroundColor = bgColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,21 +79,33 @@
     static NSString *CellIdentifier = @"ParticipantsVCCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Participant *objectAtRow = self.dataSource[indexPath.row];
+    Participant *objectAtIndexPath = [self objectAtIndexPath:indexPath];
     ABAddressBookRef addressBook = [AddressBookHelper addressBook];
-    NSString *compositeName = [self nameForParticipant:objectAtRow fromAddressBook:addressBook];
+    NSString *compositeName = [self nameForParticipant:objectAtIndexPath fromAddressBook:addressBook];
     
     cell.textLabel.text = compositeName;
     
     return cell;
 }
 
-
-
 - (NSString *)nameForParticipant:(Participant *)participant fromAddressBook:(ABAddressBookRef)addressBook{
     ABRecordID abRecordId = (ABRecordID)participant.abRecordId.intValue;
     ABRecordRef abRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, abRecordId);
     return (__bridge NSString *)ABRecordCopyCompositeName(abRecordRef);
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSManagedObject *objectAtIndexPath = [self objectAtIndexPath:indexPath];
+        [self.model deleteObject:objectAtIndexPath];
+        [self setupDataSource];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (Participant *)objectAtIndexPath:(NSIndexPath *)indexPath {
+    return self.dataSource[indexPath.row];
 }
 
 #pragma mark - Table view delegate
@@ -106,7 +123,7 @@
 
 
 
-- (IBAction)newButtonPress:(UIBarButtonItem *)sender {    
+- (IBAction)addButtonPress:(UIBarButtonItem *)sender {    
     ABPeoplePickerNavigationController *peoplePicker = [self preparedPeoplePicker];
     [self presentViewController:peoplePicker animated:YES completion:nil];
 }

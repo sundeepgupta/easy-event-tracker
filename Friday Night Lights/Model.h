@@ -19,7 +19,7 @@
 - (Event *)newEvent;
 
 - (NSArray *)Participants;
-
+- (NSArray *)Events;
 
 
 
@@ -35,6 +35,8 @@
 
 - (void)saveContext;
 
+
+- (void)deleteObject:(NSManagedObject *)object;
 - (void)resetStore;
 
 @end

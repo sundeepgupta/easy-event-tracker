@@ -38,7 +38,7 @@
 }
 
 - (void)testNewParticipantButtonPress {
-    STAssertNoThrow([self.participantsVc newButtonPress:nil], @"Exception was thrown");
+    STAssertNoThrow([self.participantsVc addButtonPress:nil], @"Exception was thrown");
 }
 
 - (void)testResetStore {

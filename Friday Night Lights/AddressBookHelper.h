@@ -14,6 +14,6 @@
 
 + (ABAddressBookRef)addressBook;
 + (NSNumber *)abRecordIdFromAbRecordRef:(ABRecordRef)abRecordRef;
-+ (NSString *)abCompositeNameFromAbRecordRef:(ABRecordRef)abRecordRef;
++ (NSString *)abCompositeNameFromAbRecordId:(NSNumber *)abRecordId;
 
 @end

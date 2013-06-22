@@ -23,8 +23,24 @@
 		AE18DD9E1774B0920082FCFE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9C1774B0920082FCFE /* Event.m */; };
 		AE18DDA11774B2840082FCFE /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA01774B2840082FCFE /* EventDetailVC.m */; };
 		AE18DDA21774B2840082FCFE /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA01774B2840082FCFE /* EventDetailVC.m */; };
-		AE18DDA51774C3DE0082FCFE /* EventDetailNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA41774C3DE0082FCFE /* EventDetailNameCell.m */; };
-		AE18DDA61774C3DE0082FCFE /* EventDetailNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA41774C3DE0082FCFE /* EventDetailNameCell.m */; };
+		AE18DDA51774C3DE0082FCFE /* EventAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */; };
+		AE18DDA61774C3DE0082FCFE /* EventAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */; };
+		AE18DDB81774FA7D0082FCFE /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDB11774FA7D0082FCFE /* TDDatePickerController.m */; };
+		AE18DDB91774FA7D0082FCFE /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDB11774FA7D0082FCFE /* TDDatePickerController.m */; };
+		AE18DDBA1774FA7D0082FCFE /* TDDatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE18DDB21774FA7D0082FCFE /* TDDatePickerController.xib */; };
+		AE18DDBB1774FA7D0082FCFE /* TDDatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE18DDB21774FA7D0082FCFE /* TDDatePickerController.xib */; };
+		AE18DDBC1774FA7D0082FCFE /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDB51774FA7D0082FCFE /* TDSemiModalViewController.m */; };
+		AE18DDBD1774FA7D0082FCFE /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDB51774FA7D0082FCFE /* TDSemiModalViewController.m */; };
+		AE18DDBE1774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDB71774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.m */; };
+		AE18DDBF1774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDB71774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.m */; };
+		AE18DDC5177601480082FCFE /* AddEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDC4177601470082FCFE /* AddEventVC.m */; };
+		AE18DDC6177601480082FCFE /* AddEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDC4177601470082FCFE /* AddEventVC.m */; };
+		AE18DDC917760FE50082FCFE /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDC817760FE50082FCFE /* NSString+Helpers.m */; };
+		AE18DDCA17760FE50082FCFE /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDC817760FE50082FCFE /* NSString+Helpers.m */; };
+		AE18DDD117762E4C0082FCFE /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDD017762E4C0082FCFE /* NSDate+Helpers.m */; };
+		AE18DDD217762E4C0082FCFE /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDD017762E4C0082FCFE /* NSDate+Helpers.m */; };
+		AE18DDDD177630E00082FCFE /* EventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDDC177630E00082FCFE /* EventHelper.m */; };
+		AE18DDDE177630E00082FCFE /* EventHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDDC177630E00082FCFE /* EventHelper.m */; };
 		AE25FFDE176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
 		AE25FFDF176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
 		AE25FFE2176E778F00955426 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25FFE0176E778F00955426 /* AddressBook.framework */; };
@@ -247,8 +263,24 @@
 		AE18DD9C1774B0920082FCFE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = "Friday Night Lights/Event.m"; sourceTree = "<group>"; };
 		AE18DD9F1774B2840082FCFE /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDetailVC.h; path = "Friday Night Lights/EventDetailVC.h"; sourceTree = "<group>"; };
 		AE18DDA01774B2840082FCFE /* EventDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventDetailVC.m; path = "Friday Night Lights/EventDetailVC.m"; sourceTree = "<group>"; };
-		AE18DDA31774C3DE0082FCFE /* EventDetailNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDetailNameCell.h; path = "Friday Night Lights/EventDetailNameCell.h"; sourceTree = "<group>"; };
-		AE18DDA41774C3DE0082FCFE /* EventDetailNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventDetailNameCell.m; path = "Friday Night Lights/EventDetailNameCell.m"; sourceTree = "<group>"; };
+		AE18DDA31774C3DE0082FCFE /* EventAttributeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventAttributeCell.h; path = "Friday Night Lights/EventAttributeCell.h"; sourceTree = "<group>"; };
+		AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventAttributeCell.m; path = "Friday Night Lights/EventAttributeCell.m"; sourceTree = "<group>"; };
+		AE18DDB01774FA7D0082FCFE /* TDDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDatePickerController.h; sourceTree = "<group>"; };
+		AE18DDB11774FA7D0082FCFE /* TDDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDatePickerController.m; sourceTree = "<group>"; };
+		AE18DDB21774FA7D0082FCFE /* TDDatePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TDDatePickerController.xib; sourceTree = "<group>"; };
+		AE18DDB31774FA7D0082FCFE /* TDSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSemiModal.h; sourceTree = "<group>"; };
+		AE18DDB41774FA7D0082FCFE /* TDSemiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSemiModalViewController.h; sourceTree = "<group>"; };
+		AE18DDB51774FA7D0082FCFE /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSemiModalViewController.m; sourceTree = "<group>"; };
+		AE18DDB61774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TDSemiModalExtension.h"; sourceTree = "<group>"; };
+		AE18DDB71774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TDSemiModalExtension.m"; sourceTree = "<group>"; };
+		AE18DDC3177601470082FCFE /* AddEventVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddEventVC.h; path = "Friday Night Lights/AddEventVC.h"; sourceTree = "<group>"; };
+		AE18DDC4177601470082FCFE /* AddEventVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddEventVC.m; path = "Friday Night Lights/AddEventVC.m"; sourceTree = "<group>"; };
+		AE18DDC717760FE50082FCFE /* NSString+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Helpers.h"; path = "Friday Night Lights/NSString+Helpers.h"; sourceTree = "<group>"; };
+		AE18DDC817760FE50082FCFE /* NSString+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Helpers.m"; path = "Friday Night Lights/NSString+Helpers.m"; sourceTree = "<group>"; };
+		AE18DDCF17762E4B0082FCFE /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Helpers.h"; path = "Friday Night Lights/NSDate+Helpers.h"; sourceTree = "<group>"; };
+		AE18DDD017762E4C0082FCFE /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Helpers.m"; path = "Friday Night Lights/NSDate+Helpers.m"; sourceTree = "<group>"; };
+		AE18DDDB177630E00082FCFE /* EventHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventHelper.h; path = "Friday Night Lights/EventHelper.h"; sourceTree = "<group>"; };
+		AE18DDDC177630E00082FCFE /* EventHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventHelper.m; path = "Friday Night Lights/EventHelper.m"; sourceTree = "<group>"; };
 		AE25FFDC176E2A3700955426 /* DevVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DevVC.h; path = "Friday Night LightsTests/DevVC.h"; sourceTree = SOURCE_ROOT; };
 		AE25FFDD176E2A3700955426 /* DevVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DevVC.m; path = "Friday Night LightsTests/DevVC.m"; sourceTree = SOURCE_ROOT; };
 		AE25FFE0176E778F00955426 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -477,8 +509,6 @@
 		AE0E42C3176DFFC300A050BE /* Participants */ = {
 			isa = PBXGroup;
 			children = (
-				AE12389B176F71A5009FC5EB /* AddressBookHelper.h */,
-				AE12389C176F71A5009FC5EB /* AddressBookHelper.m */,
 				AE0E42BF176DFF8900A050BE /* ParticipantDetailVC.h */,
 				AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */,
 				AE25FFFC176E8FAB00955426 /* Participant.h */,
@@ -492,31 +522,58 @@
 		AE0E42C4176DFFDA00A050BE /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				AE18DDAF1774FA7D0082FCFE /* TDSemiModalDatePicker */,
 				AE18DD971774ADF50082FCFE /* EventsVC.h */,
 				AE18DD981774ADF50082FCFE /* EventsVC.m */,
 			);
 			name = Events;
 			sourceTree = "<group>";
 		};
-		AE18DD8A17749D050082FCFE /* Categories */ = {
+		AE18DD8A17749D050082FCFE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AE18DDCF17762E4B0082FCFE /* NSDate+Helpers.h */,
+				AE18DDD017762E4C0082FCFE /* NSDate+Helpers.m */,
 				AE1238A3176F76C6009FC5EB /* UIAlertView+Helpers.h */,
 				AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */,
+				AE12389B176F71A5009FC5EB /* AddressBookHelper.h */,
+				AE12389C176F71A5009FC5EB /* AddressBookHelper.m */,
+				AE18DDC717760FE50082FCFE /* NSString+Helpers.h */,
+				AE18DDC817760FE50082FCFE /* NSString+Helpers.m */,
+				AE18DDDB177630E00082FCFE /* EventHelper.h */,
+				AE18DDDC177630E00082FCFE /* EventHelper.m */,
 			);
-			name = Categories;
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		AE18DDAF1774FA7D0082FCFE /* TDSemiModalDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				AE18DDB01774FA7D0082FCFE /* TDDatePickerController.h */,
+				AE18DDB11774FA7D0082FCFE /* TDDatePickerController.m */,
+				AE18DDB21774FA7D0082FCFE /* TDDatePickerController.xib */,
+				AE18DDB31774FA7D0082FCFE /* TDSemiModal.h */,
+				AE18DDB41774FA7D0082FCFE /* TDSemiModalViewController.h */,
+				AE18DDB51774FA7D0082FCFE /* TDSemiModalViewController.m */,
+				AE18DDB61774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.h */,
+				AE18DDB71774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.m */,
+			);
+			name = TDSemiModalDatePicker;
+			path = "Friday Night Lights/TDSemiModalDatePicker";
 			sourceTree = "<group>";
 		};
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
+				AE18DDC3177601470082FCFE /* AddEventVC.h */,
+				AE18DDC4177601470082FCFE /* AddEventVC.m */,
 				AE18DD9F1774B2840082FCFE /* EventDetailVC.h */,
 				AE18DDA01774B2840082FCFE /* EventDetailVC.m */,
-				AE18DDA31774C3DE0082FCFE /* EventDetailNameCell.h */,
-				AE18DDA41774C3DE0082FCFE /* EventDetailNameCell.m */,
+				AE18DDA31774C3DE0082FCFE /* EventAttributeCell.h */,
+				AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */,
 				AE18DD9B1774B0920082FCFE /* Event.h */,
 				AE18DD9C1774B0920082FCFE /* Event.m */,
-				AE18DD8A17749D050082FCFE /* Categories */,
+				AE18DD8A17749D050082FCFE /* Helpers */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE0E42C4176DFFDA00A050BE /* Events */,
 				AE0E42C3176DFFC300A050BE /* Participants */,
@@ -1016,6 +1073,7 @@
 				AEEA9A871770C44D007AE699 /* tabbar-active@2x.png in Resources */,
 				AEEA9A881770C44D007AE699 /* tabbar.png in Resources */,
 				AEEA9A891770C44D007AE699 /* tabbar@2x.png in Resources */,
+				AE18DDBA1774FA7D0082FCFE /* TDDatePickerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,6 +1083,7 @@
 			files = (
 				AE89AC11176D426700C06D03 /* InfoPlist.strings in Resources */,
 				AE89AC2B176D4C3300C06D03 /* iPhone.storyboard in Resources */,
+				AE18DDBB1774FA7D0082FCFE /* TDDatePickerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1066,7 +1125,14 @@
 				AE18DD991774ADF50082FCFE /* EventsVC.m in Sources */,
 				AE18DD9D1774B0920082FCFE /* Event.m in Sources */,
 				AE18DDA11774B2840082FCFE /* EventDetailVC.m in Sources */,
-				AE18DDA51774C3DE0082FCFE /* EventDetailNameCell.m in Sources */,
+				AE18DDA51774C3DE0082FCFE /* EventAttributeCell.m in Sources */,
+				AE18DDB81774FA7D0082FCFE /* TDDatePickerController.m in Sources */,
+				AE18DDBC1774FA7D0082FCFE /* TDSemiModalViewController.m in Sources */,
+				AE18DDBE1774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.m in Sources */,
+				AE18DDC5177601480082FCFE /* AddEventVC.m in Sources */,
+				AE18DDC917760FE50082FCFE /* NSString+Helpers.m in Sources */,
+				AE18DDD117762E4C0082FCFE /* NSDate+Helpers.m in Sources */,
+				AE18DDDD177630E00082FCFE /* EventHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,7 +1154,14 @@
 				AE18DD9A1774ADF50082FCFE /* EventsVC.m in Sources */,
 				AE18DD9E1774B0920082FCFE /* Event.m in Sources */,
 				AE18DDA21774B2840082FCFE /* EventDetailVC.m in Sources */,
-				AE18DDA61774C3DE0082FCFE /* EventDetailNameCell.m in Sources */,
+				AE18DDA61774C3DE0082FCFE /* EventAttributeCell.m in Sources */,
+				AE18DDB91774FA7D0082FCFE /* TDDatePickerController.m in Sources */,
+				AE18DDBD1774FA7D0082FCFE /* TDSemiModalViewController.m in Sources */,
+				AE18DDBF1774FA7D0082FCFE /* UIViewController+TDSemiModalExtension.m in Sources */,
+				AE18DDC6177601480082FCFE /* AddEventVC.m in Sources */,
+				AE18DDCA17760FE50082FCFE /* NSString+Helpers.m in Sources */,
+				AE18DDD217762E4C0082FCFE /* NSDate+Helpers.m in Sources */,
+				AE18DDDE177630E00082FCFE /* EventHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

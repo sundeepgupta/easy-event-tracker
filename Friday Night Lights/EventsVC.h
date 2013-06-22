@@ -12,6 +12,5 @@
 @interface EventsVC : UITableViewController
 
 
-- (IBAction)addButtonPress:(UIBarButtonItem *)sender;
 
 @end

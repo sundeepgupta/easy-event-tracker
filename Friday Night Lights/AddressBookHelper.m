@@ -24,8 +24,11 @@
     return  [NSNumber numberWithInt:ABRecordGetRecordID(abRecordRef)];
 }
 
-+ (NSString *)abCompositeNameFromAbRecordRef:(ABRecordRef)abRecordRef {
-    return (__bridge NSString *)(ABRecordCopyCompositeName(abRecordRef));
++ (NSString *)abCompositeNameFromAbRecordId:(NSNumber *)abRecordId {
+    ABAddressBookRef addressBook = [AddressBookHelper addressBook];
+    NSInteger abRecordIdInteger = abRecordId.intValue;
+    ABRecordRef abRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, abRecordIdInteger);
+    return (__bridge NSString *)ABRecordCopyCompositeName(abRecordRef); 
 }
 
 @end

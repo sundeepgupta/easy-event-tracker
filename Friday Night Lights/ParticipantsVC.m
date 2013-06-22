@@ -79,34 +79,27 @@
     static NSString *CellIdentifier = @"ParticipantsVCCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Participant *objectAtIndexPath = [self objectAtIndexPath:indexPath];
-    ABAddressBookRef addressBook = [AddressBookHelper addressBook];
-    NSString *compositeName = [self nameForParticipant:objectAtIndexPath fromAddressBook:addressBook];
+    Participant *objectAtIndexPath = [self.dataSource objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = compositeName;
+    cell.textLabel.text = [self nameForParticipant:objectAtIndexPath];
     
     return cell;
 }
 
-- (NSString *)nameForParticipant:(Participant *)participant fromAddressBook:(ABAddressBookRef)addressBook{
-    ABRecordID abRecordId = (ABRecordID)participant.abRecordId.intValue;
-    ABRecordRef abRecordRef = ABAddressBookGetPersonWithRecordID(addressBook, abRecordId);
-    return (__bridge NSString *)ABRecordCopyCompositeName(abRecordRef);
+- (NSString *)nameForParticipant:(Participant *)participant {
+    return [AddressBookHelper abCompositeNameFromAbRecordId:participant.abRecordId];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObject *objectAtIndexPath = [self objectAtIndexPath:indexPath];
+        NSManagedObject *objectAtIndexPath = [self.dataSource objectAtIndex:indexPath.row];
         [self.model deleteObject:objectAtIndexPath];
         [self setupDataSource];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
-- (Participant *)objectAtIndexPath:(NSIndexPath *)indexPath {
-    return self.dataSource[indexPath.row];
-}
 
 #pragma mark - Table view delegate
 
@@ -182,7 +175,7 @@
     Participant *participant = [self.model newParticipant];
     
     participant.abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
-    participant.name = [AddressBookHelper abCompositeNameFromAbRecordRef:abRecordRef];
+
 
 }
 

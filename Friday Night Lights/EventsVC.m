@@ -11,6 +11,8 @@
 #import "UIAlertView+Helpers.h"
 #import "Event.h"
 #import "EventDetailVC.h"
+#import "NSDate+Helpers.h"
+#import "AddEventVC.h"
 
 
 @interface EventsVC ()
@@ -79,8 +81,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Event *objectAtIndexPath = [self objectAtIndexPath:indexPath];
+    NSString *dateString = [objectAtIndexPath.date dateAndTimeString];
     
-    cell.textLabel.text = objectAtIndexPath.name;
+    cell.textLabel.text = dateString;
     
     return cell;
 }
@@ -114,23 +117,20 @@
 
 
 
-- (IBAction)addButtonPress:(UIBarButtonItem *)sender {    
-    //present addEvent view
-    
+- (IBAction)addButtonPress:(UIBarButtonItem *)sender {
+    Event *event = [self.model newEvent];
+    UIViewController *vc = [self preparedVcWithEvent:event];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
-
-
-//- (void)saveNewParticpantFromAbRecordRef:(ABRecordRef)abRecordRef {
-//    [self setupNewEventFromAbRecord:abRecordRef];
-//    [self.model saveContext];
-//}
-
-//- (void)setupNewEventFromAbRecord:(ABRecordRef)abRecordRef {
-//    Event *Event = [self.model newEvent];
-//    
-//    Event.abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
-//    Event.name = [AddressBookHelper abCompositeNameFromAbRecordRef:abRecordRef];
-//}
+- (UIViewController *)preparedVcWithEvent:(Event *)event {
+    NSString *ncId = @"AddEventNC";
+    UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:ncId];
+    
+    AddEventVC *vc = (AddEventVC *)nc.topViewController;
+    vc.event = event;
+    
+    return nc;
+}
 
 @end

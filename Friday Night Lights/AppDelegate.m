@@ -36,8 +36,8 @@
     
     //sample data population
 //    Event *event1 = [self.model newEvent];
-//    event1.name = @"Ball hockey";
-//    [self.model saveContext];
+//    event1.date = [NSDate date];
+    [self.model saveContext];
     ///
     
     

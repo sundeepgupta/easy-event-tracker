@@ -53,7 +53,7 @@
 }
 
 - (void)setupDataSource {
-    self.dataSource = [self.model Participants];
+    self.dataSource = [self.model participants];
 }
 
 - (void)didReceiveMemoryWarning
@@ -173,7 +173,6 @@
 
 - (void)setupNewParticipantFromAbRecord:(ABRecordRef)abRecordRef {
     Participant *participant = [self.model newParticipant];
-    
     participant.abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
 
 

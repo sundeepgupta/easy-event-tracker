@@ -94,7 +94,7 @@ NSString * const SECTION_DATA_SOURCE = @"3";
 }
 
 - (NSDictionary *)confirmedParticipantsDataSource {
-    self.confirmedParticipants = [self.model Participants];
+    self.confirmedParticipants = [self.model participants];
     return [NSDictionary dictionaryWithObjectsAndKeys:@"Confirmed Players", SECTION_TITLE_KEY, self.confirmedParticipants, SECTION_DATA_SOURCE, nil];
 }
 

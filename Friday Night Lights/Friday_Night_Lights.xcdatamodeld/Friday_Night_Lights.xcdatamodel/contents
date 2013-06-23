@@ -13,7 +13,7 @@
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="participants" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="Participant" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Participant" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

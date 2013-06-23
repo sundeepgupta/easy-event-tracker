@@ -54,7 +54,7 @@
 }
 
 - (void)setupDataSource {
-    self.dataSource = [self.model Events];
+    self.dataSource = [self.model events];
 }
 
 - (void)didReceiveMemoryWarning

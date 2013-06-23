@@ -18,8 +18,8 @@
 - (Participant *)newParticipant;
 - (Event *)newEvent;
 
-- (NSArray *)Participants;
-- (NSArray *)Events;
+- (NSArray *)participants;
+- (NSArray *)events;
 
 
 

@@ -37,13 +37,13 @@
 
 
 #pragma mark - Read
-- (NSArray *)Participants {
+- (NSArray *)participants {
     NSString *entityName = NSStringFromClass([Participant class]);
     NSArray *objects = [self objectsWithEntityName:entityName];
     return [self sortedObjects:objects byKey:@"name"];
 }
 
-- (NSArray *)Events {
+- (NSArray *)events {
     NSString *entityName = NSStringFromClass([Event class]);
     NSArray *objects = [self objectsWithEntityName:entityName];
     return objects;

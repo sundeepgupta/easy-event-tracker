@@ -71,6 +71,7 @@
 		AE89AC2F176D4DEF00C06D03 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC2D176D4DEF00C06D03 /* Global.m */; };
 		AE89AC32176D4E5300C06D03 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC31176D4E5300C06D03 /* Model.m */; };
 		AE89AC33176D4E5300C06D03 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC31176D4E5300C06D03 /* Model.m */; };
+		AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC565917778DB50073BA2C /* MessageUI.framework */; };
 		AEEA99E71770C44D007AE699 /* alert-bg-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = AEEA99441770C44D007AE699 /* alert-bg-pattern.png */; };
 		AEEA99E81770C44D007AE699 /* alert-bg-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEEA99451770C44D007AE699 /* alert-bg-pattern@2x.png */; };
 		AEEA99E91770C44D007AE699 /* alert-black-button.png in Resources */ = {isa = PBXBuildFile; fileRef = AEEA99461770C44D007AE699 /* alert-black-button.png */; };
@@ -313,6 +314,7 @@
 		AE89AC2D176D4DEF00C06D03 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		AE89AC30176D4E5300C06D03 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		AE89AC31176D4E5300C06D03 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		AEDC565917778DB50073BA2C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AEEA99441770C44D007AE699 /* alert-bg-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-bg-pattern.png"; sourceTree = "<group>"; };
 		AEEA99451770C44D007AE699 /* alert-bg-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-bg-pattern@2x.png"; sourceTree = "<group>"; };
 		AEEA99461770C44D007AE699 /* alert-black-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-black-button.png"; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */,
 				AE25FFE2176E778F00955426 /* AddressBook.framework in Frameworks */,
 				AE25FFE3176E778F00955426 /* AddressBookUI.framework in Frameworks */,
 				AE89ABE3176D426700C06D03 /* UIKit.framework in Frameworks */,
@@ -522,6 +525,14 @@
 		AE0E42C4176DFFDA00A050BE /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				AE18DDC3177601470082FCFE /* AddEventVC.h */,
+				AE18DDC4177601470082FCFE /* AddEventVC.m */,
+				AE18DD9F1774B2840082FCFE /* EventDetailVC.h */,
+				AE18DDA01774B2840082FCFE /* EventDetailVC.m */,
+				AE18DDA31774C3DE0082FCFE /* EventAttributeCell.h */,
+				AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */,
+				AE18DD9B1774B0920082FCFE /* Event.h */,
+				AE18DD9C1774B0920082FCFE /* Event.m */,
 				AE18DDAF1774FA7D0082FCFE /* TDSemiModalDatePicker */,
 				AE18DD971774ADF50082FCFE /* EventsVC.h */,
 				AE18DD981774ADF50082FCFE /* EventsVC.m */,
@@ -565,14 +576,6 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
-				AE18DDC3177601470082FCFE /* AddEventVC.h */,
-				AE18DDC4177601470082FCFE /* AddEventVC.m */,
-				AE18DD9F1774B2840082FCFE /* EventDetailVC.h */,
-				AE18DDA01774B2840082FCFE /* EventDetailVC.m */,
-				AE18DDA31774C3DE0082FCFE /* EventAttributeCell.h */,
-				AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */,
-				AE18DD9B1774B0920082FCFE /* Event.h */,
-				AE18DD9C1774B0920082FCFE /* Event.m */,
 				AE18DD8A17749D050082FCFE /* Helpers */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE0E42C4176DFFDA00A050BE /* Events */,
@@ -596,6 +599,7 @@
 		AE89ABE1176D426700C06D03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEDC565917778DB50073BA2C /* MessageUI.framework */,
 				AE25FFE0176E778F00955426 /* AddressBook.framework */,
 				AE25FFE1176E778F00955426 /* AddressBookUI.framework */,
 				AE89ABE2176D426700C06D03 /* UIKit.framework */,

@@ -13,11 +13,15 @@
 #import "TDDatePickerController.h"
 #import "EventHelper.h"
 #import "NSDate+Helpers.h"
+#import "AddressBookHelper.h"
+#import "Participant.h"
+#import "UIAlertView+Helpers.h"
 
 @interface AddEventVC ()
 
 @property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
+@property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
 
 @property (strong, nonatomic) IBOutlet UITextField *dateValue;
 @property (strong, nonatomic) IBOutlet UITextField *costValue;
@@ -43,6 +47,9 @@
     [super viewDidLoad];
 
     self.title = @"Add Game";
+    
+    Global *global = [Global sharedGlobal];
+    self.model = global.model;
     
     //TODO - Remove once date picker fixed.
     self.event.date = [NSDate date];
@@ -82,7 +89,6 @@
     if ((costFieldString.length == 0) && [replacementString hasPrefix:@"0"]) {
         hasNoLeadingZero = NO;
     }
-    
     
     BOOL hasNoMultipleDecimals = YES;
     if ([replacementString containsString:@"."] && [costFieldString containsString:@"."]) {
@@ -143,12 +149,58 @@
 }
 
 - (IBAction)saveAndInviteButtonPress:(UIButton *)sender {
-    //save the object to the store
-    //invite players
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self saveEvent];
+    [self inviteParticipants];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)saveEvent {
     [self.model saveContext];
+}
+- (void)inviteParticipants {
+    if([MFMessageComposeViewController canSendText]) {
+        [self setupMessageComposeVc];
+        [self presentViewController:self.messageComposeVc animated:YES completion:nil];
+    }
+}
+- (void)setupMessageComposeVc {
+    self.messageComposeVc = [[MFMessageComposeViewController alloc] init];
+    [self setupMessageComposeRecipients];
+    [self setupMessageComposeBody];
+    self.messageComposeVc.messageComposeDelegate = self;
+}
+- (void)setupMessageComposeRecipients {
+    NSArray *participants = [self.model participants];
+    NSArray *mobileNumbers = [self mobileNumbersFromPartipants:participants];
+    self.messageComposeVc.recipients = mobileNumbers;
+}
+- (NSArray *)mobileNumbersFromPartipants:(NSArray *)participants {
+    NSMutableArray *mobileNumbers = [[NSMutableArray alloc] init];
+    
+    for (Participant *participant in participants) {
+        NSString *mobileNumber = [AddressBookHelper mobileNumberFromAbRecordId:participant.abRecordId];
+        
+        if (mobileNumber.length > 0) {
+            [mobileNumbers addObject:mobileNumber];
+        } else {
+            [self handleMissingMobileNumberForParticipant:participant];
+        }
+    }
+    return mobileNumbers;
+}
+- (void)handleMissingMobileNumberForParticipant:(Participant *)participant {
+    NSString *compositeName = [AddressBookHelper abCompositeNameFromAbRecordId:participant.abRecordId];
+    NSString *message = [NSString stringWithFormat:@"%@ doesn't have a mobile number set. Invite won't be sent to him/her.", compositeName];
+    [UIAlertView showAlertWithTitle:@"Woops!" withMessage:message];
+}
+
+- (void)setupMessageComposeBody {
+    NSString *dateString = [self.event.date dateAndTimeString];
+    NSString *body = [NSString stringWithFormat:@"Who's in for hockey on %@ ?", dateString];
+    self.messageComposeVc.body = body;
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

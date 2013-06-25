@@ -20,8 +20,8 @@
 
 - (NSArray *)participants;
 - (NSArray *)events;
-
-
+- (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key;
+- (NSArray *)participantAbRecordIds;
 
 
 

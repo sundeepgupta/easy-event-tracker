@@ -2,33 +2,35 @@
 //  EventDetailVC.m
 //  Friday Night Lights
 //
-//  Created by Sundeep Gupta on 13-06-21.
+//  Created by Sundeep Gupta on 13-06-22.
 //  Copyright (c) 2013 Sundeep Gupta. All rights reserved.
 //
 
 #import "EventDetailVC.h"
 #import "Model.h"
 #import "Event.h"
-#import "EventAttributeCell.h"
-#import "Participant.h"
-#import "AddressBookHelper.h"
-#import "NSDate+Helpers.h"
-#import "TDSemiModal.h"
+#import "NSString+Helpers.h"
 #import "TDDatePickerController.h"
-
-
-NSString * const CELL_LABEL_KEY = @"0";
-NSString * const CELL_VALUE_KEY = @"1";
-NSString * const SECTION_TITLE_KEY = @"2";
-NSString * const SECTION_DATA_SOURCE = @"3";
+#import "EventHelper.h"
+#import "NSDate+Helpers.h"
+#import "AddressBookHelper.h"
+#import "Participant.h"
+#import "UIAlertView+Helpers.h"
+#import "UITableView+Helpers.h"
+#import "MessageHelper.h"
 
 @interface EventDetailVC ()
 
 @property (strong, nonatomic) Model *model;
-@property (strong, nonatomic) NSArray *dataSource;
-@property (strong, nonatomic) NSArray *confirmedParticipants;
-
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
+@property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *dateCell;
+@property (strong, nonatomic) IBOutlet UILabel *dateValue;
+@property (strong, nonatomic) IBOutlet UITextField *costValue;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *confirmedParticipantsCell;
+@property (strong, nonatomic) IBOutlet UILabel *confirmedParticipantsValue;
 
 @end
 
@@ -46,170 +48,147 @@ NSString * const SECTION_DATA_SOURCE = @"3";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.title = @"Game Details";
     
     Global *global = [Global sharedGlobal];
     self.model = global.model;
     
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self setupDataSource];
+    [self addTapRecognizer];
+}
+- (void)addTapRecognizer {
+    //Needed to dismiss keyboard on text field
+    //http://stackoverflow.com/questions/5306240/iphone-dismiss-keyboard-when-touching-outside-of-textfield
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    tap.cancelsTouchesInView = FALSE;
+    [self.view addGestureRecognizer:tap];
+}
+- (void)dismissKeyboard:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {
-    
+    [self setupViewValues];
 }
+- (void)setupViewValues {
+    self.dateValue.text = [self.event.date dateAndTimeString];
+    self.costValue.text = self.event.cost.stringValue;
+    [self setupNumberConfirmedValue];
+}
+- (void)setupNumberConfirmedValue {
+    //get confirmed players
+    //count them
+    //set the value
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self saveEvent];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
-- (void)setupDataSource {
-    NSDictionary *eventAttributesDataSource = [self setupEventAttributesDataSource];
-    NSDictionary *confirmedParticipantsDataSource = [self confirmedParticipantsDataSource];
-    self.dataSource = [NSArray arrayWithObjects:eventAttributesDataSource, confirmedParticipantsDataSource, nil];
-}
-
-- (NSDictionary *)setupEventAttributesDataSource {
-//    NSDictionary *nameCellData = [self nameCellData];
-    NSDictionary *dateCellData = [self dateCellData];
-    NSArray *objects = [NSArray arrayWithObjects:dateCellData, nil];
-    return  [NSDictionary dictionaryWithObjectsAndKeys:@"Event Details", SECTION_TITLE_KEY, objects, SECTION_DATA_SOURCE, nil];
-}
-
-- (NSDictionary *)nameCellData {
-    NSString *label = @"Name";
-    NSString *fieldValue = self.event.name;
-    return [self eventAttributeCellDataWithLabel:label withValue:fieldValue];
-
-}
-- (NSDictionary *)dateCellData {
-    NSString *label = @"Date";
-    NSString *fieldValue = [self.event.date dateAndTimeString];
-    return [self eventAttributeCellDataWithLabel:label withValue:fieldValue];
-}
-
-- (NSDictionary *)eventAttributeCellDataWithLabel:(NSString *)cellId withValue:(NSString *)fieldValue {
-    return [NSDictionary dictionaryWithObjectsAndKeys:cellId, CELL_LABEL_KEY, fieldValue, CELL_VALUE_KEY, nil];
-}
-
-- (NSDictionary *)confirmedParticipantsDataSource {
-    self.confirmedParticipants = [self.model participants];
-    return [NSDictionary dictionaryWithObjectsAndKeys:@"Confirmed Players", SECTION_TITLE_KEY, self.confirmedParticipants, SECTION_DATA_SOURCE, nil];
+- (void)viewDidUnload {
+    [self setDateValue:nil];
+    [self setCostValue:nil];
+    [self setDateCell:nil];
+    [self setConfirmedParticipantsValue:nil];
+    [self setConfirmedParticipantsCell:nil];
+    [super viewDidUnload];
 }
 
 
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+#pragma mark - TextField Delegates
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return self.dataSource.count;
+    return [EventHelper validReplacementString:string forCostFieldString:textField.text];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    NSDictionary *sectionDict = self.dataSource[section];
-    NSArray *sectionDataSource = [sectionDict objectForKey:SECTION_DATA_SOURCE];
-    return sectionDataSource.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{   
-    static NSString *cellId;
-    
-    NSDictionary *sectionDict = self.dataSource[indexPath.section];
-    NSArray *sectionDataSource = [sectionDict objectForKey:SECTION_DATA_SOURCE];
-    
-    switch (indexPath.section) {
-        case 0: { //event attributes
-            cellId = NSStringFromClass([EventAttributeCell class]);
-            EventAttributeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-            
-            NSDictionary *cellDict = sectionDataSource[indexPath.row];
-            NSString *label = [cellDict objectForKey:CELL_LABEL_KEY];
-            NSString *fieldValue = [cellDict objectForKey:CELL_VALUE_KEY];
-            
-            cell.fieldLabel.text = label;
-            cell.fieldValue.text = fieldValue;
-            
-            return cell;
-            break;
-        } case 1: { //confirmed participants
-            Participant *participant = [self.confirmedParticipants objectAtIndex:indexPath.row];
-            NSString *name = [AddressBookHelper abCompositeNameFromAbRecordId:participant.abRecordId];
-            
-            cellId = @"ConfirmedParticipantCell";
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-            cell.textLabel.text = name;
-            return cell;
-            break;
-        }
-            
-        default: {
-            cellId = NSStringFromClass([EventAttributeCell class]);
-            EventAttributeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-            cell.fieldValue.text = self.event.name;
-            return cell;
-            break;
-        }
-    }
-}
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [EventHelper saveCostString:textField.text toEvent:self.event];
 }
 
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //get the object
-    //check if dict?
-    //if dict, is it date?
-    //if date, pop something up.
-    
-    NSDictionary *sectionDict = self.dataSource[indexPath.section];
-    NSArray *sectionDataSource = [sectionDict objectForKey:SECTION_DATA_SOURCE];
-    id objectAtRow = sectionDataSource[indexPath.row];
-    
-    if ([objectAtRow isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *dictAtRow = (NSDictionary *)objectAtRow;
-        NSString *label = [dictAtRow objectForKey:CELL_LABEL_KEY];
-        
-        if ([label isEqualToString:@"Date"]) {
-            
-            [self presentDatePicker];
-            
-        }
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isEqual:self.dateCell]) {
+        [self presentDatePicker];
     }
 }
-             
 - (void)presentDatePicker {
     self.datePickerController = [[TDDatePickerController alloc] initWithNibName:@"TDDatePickerController" bundle:nil];
     self.datePickerController.delegate = self;
-    [self presentSemiModalViewController:self.datePickerController];
+    [self presentSemiModalViewController:self.datePickerController inView:self.navigationController.view];
 }
 
 -(void)datePickerSetDate:(TDDatePickerController*)viewController {
-
+    NSDate *date = viewController.datePicker.date;
+    self.event.date = date;
+    self.dateValue.text =  [date dateAndTimeString];
+    [self resetView];
 }
 -(void)datePickerClearDate:(TDDatePickerController*)viewController {
-    
+    //not being used here
 }
 -(void)datePickerCancel:(TDDatePickerController*)viewController {
+    [self resetView];
+}
+- (void)resetView {
     [self dismissSemiModalViewController:self.datePickerController];
+    [self.tableView deselectSelectedRow];
 }
 
 
+- (IBAction)messageConfirmed:(id)sender {
+    
+}
+
+- (IBAction)messageAll:(id)sender {
+    if([MFMessageComposeViewController canSendText]) {
+        [self setupMessageComposeVc];
+        NSArray *participants = [self.model participants];
+        [self setupMessageComposeRecipientsForParticipants:participants];
+        [self presentViewController:self.messageComposeVc animated:YES completion:nil];
+    } else {
+        [MessageHelper showCantSendTextAlert];
+    }
+}
+
+- (void)setupMessageComposeVc {
+    self.messageComposeVc = [[MFMessageComposeViewController alloc] init];
+    self.messageComposeVc.messageComposeDelegate = self;
+}
+- (void)setupMessageComposeRecipientsForParticipants:(NSArray *)participants {
+    NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
+    self.messageComposeVc.recipients = mobileNumbers;
+}
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {    
+    switch (result) {
+        case MessageComposeResultCancelled: {
+            break;
+        }
+        case MessageComposeResultSent: {
+            break;
+        }
+        case MessageComposeResultFailed: {
+                [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
+            break;
+        }
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)saveEvent {
+    [self.model saveContext];
+}
 
 @end

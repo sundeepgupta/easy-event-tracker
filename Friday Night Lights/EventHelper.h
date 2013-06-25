@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+@class Event, TDDatePickerController;
+
 @interface EventHelper : NSObject
+
++ (BOOL)validReplacementString:(NSString *)replacementString forCostFieldString:(NSString *)costFieldString;
+
++ (void)saveCostString:(NSString *)costString toEvent:(Event *)event;
+
++ (void)presentDatePicker:(TDDatePickerController *)datePickerController InVc:(UIViewController *)vc;
 
 @end

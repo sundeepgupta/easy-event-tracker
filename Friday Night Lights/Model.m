@@ -28,7 +28,9 @@
 
 - (Event *)newEvent {
     NSString *entityName = NSStringFromClass([Event class]);
-    return (Event *)[self newObjectWithEntityName:entityName];
+    Event *event = (Event *)[self newObjectWithEntityName:entityName];
+    event.date = [NSDate date];
+    return event;
 }
 
 - (NSManagedObject *)newObjectWithEntityName:(NSString *)entityName {
@@ -55,9 +57,17 @@
 }
 
 - (NSArray *)objectsWithEntityName:(NSString *)entityName {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:entityName inManagedObjectContext:self.managedObjectContext];
-    NSFetchRequest *fetchRequest = [self fetchRequestWithEntityDescription:entityDescription];
-    return [self resultsFromExecutedFetchRequest:fetchRequest];
+    NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
+    return [self objectsFromExecutedFetchRequest:fetchRequest];
+}
+
+- (NSFetchRequest *)fetchRequestWithEntityName:(NSString *)entityName {
+    NSEntityDescription *entityDescription = [self entityDescriptionWithEntityName:entityName];
+    return [self fetchRequestWithEntityDescription:entityDescription];
+}
+
+- (NSEntityDescription *)entityDescriptionWithEntityName:(NSString *)entityName {
+    return [NSEntityDescription entityForName:entityName inManagedObjectContext:self.managedObjectContext];
 }
 
 - (NSFetchRequest *)fetchRequestWithEntityDescription:(NSEntityDescription *)entityDescription {
@@ -66,7 +76,7 @@
     return fetchRequest;
 }
 
-- (NSArray *)resultsFromExecutedFetchRequest:(NSFetchRequest *)fetchRequest {
+- (NSArray *)objectsFromExecutedFetchRequest:(NSFetchRequest *)fetchRequest {
     NSError *error = nil;
     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
@@ -85,7 +95,29 @@
     return [mutableObjects sortedArrayUsingDescriptors:sortDescriptors];
 }
 
+- (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key {
+    NSString *entityName = NSStringFromClass([Participant class]);
+    NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
+    
+    NSPredicate *predicate = [self predicateWithAttributeValue:value forKey:key];
+    
+    fetchRequest.predicate = predicate;
+    
+    return [self objectsFromExecutedFetchRequest:fetchRequest];
+}
 
+- (NSPredicate *)predicateWithAttributeValue:(NSString *)value forKey:(NSString *)key {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", key, value];
+    return predicate;
+}
+
+- (NSArray *)participantAbRecordIds {
+    NSString *entityName = NSStringFromClass([Participant class]);
+    NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
+    NSArray *properties = @[@"abRecordId"];
+    fetchRequest.propertiesToFetch = properties;
+    return [self objectsFromExecutedFetchRequest:fetchRequest];
+}
 
 
 #pragma mark - Update

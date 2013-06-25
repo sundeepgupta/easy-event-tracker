@@ -21,8 +21,8 @@
 		AE18DD9A1774ADF50082FCFE /* EventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD981774ADF50082FCFE /* EventsVC.m */; };
 		AE18DD9D1774B0920082FCFE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9C1774B0920082FCFE /* Event.m */; };
 		AE18DD9E1774B0920082FCFE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9C1774B0920082FCFE /* Event.m */; };
-		AE18DDA11774B2840082FCFE /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA01774B2840082FCFE /* EventDetailVC.m */; };
-		AE18DDA21774B2840082FCFE /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA01774B2840082FCFE /* EventDetailVC.m */; };
+		AE18DDA11774B2840082FCFE /* EventDetailVCOld.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA01774B2840082FCFE /* EventDetailVCOld.m */; };
+		AE18DDA21774B2840082FCFE /* EventDetailVCOld.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA01774B2840082FCFE /* EventDetailVCOld.m */; };
 		AE18DDA51774C3DE0082FCFE /* EventAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */; };
 		AE18DDA61774C3DE0082FCFE /* EventAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */; };
 		AE18DDB81774FA7D0082FCFE /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DDB11774FA7D0082FCFE /* TDDatePickerController.m */; };
@@ -235,6 +235,12 @@
 		AEEA9A871770C44D007AE699 /* tabbar-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEEA99E41770C44D007AE699 /* tabbar-active@2x.png */; };
 		AEEA9A881770C44D007AE699 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = AEEA99E51770C44D007AE699 /* tabbar.png */; };
 		AEEA9A891770C44D007AE699 /* tabbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEEA99E61770C44D007AE699 /* tabbar@2x.png */; };
+		AEF3E02F17795F70002F1D4C /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E02E17795F70002F1D4C /* EventDetailVC.m */; };
+		AEF3E03017795F70002F1D4C /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E02E17795F70002F1D4C /* EventDetailVC.m */; };
+		AEF3E03317796DB1002F1D4C /* UITableView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E03217796DB1002F1D4C /* UITableView+Helpers.m */; };
+		AEF3E03417796DB1002F1D4C /* UITableView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E03217796DB1002F1D4C /* UITableView+Helpers.m */; };
+		AEF3E037177973C6002F1D4C /* MessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E036177973C6002F1D4C /* MessageHelper.m */; };
+		AEF3E038177973C6002F1D4C /* MessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E036177973C6002F1D4C /* MessageHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,8 +268,8 @@
 		AE18DD981774ADF50082FCFE /* EventsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = EventsVC.m; path = "Friday Night Lights/EventsVC.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AE18DD9B1774B0920082FCFE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = "Friday Night Lights/Event.h"; sourceTree = "<group>"; };
 		AE18DD9C1774B0920082FCFE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = "Friday Night Lights/Event.m"; sourceTree = "<group>"; };
-		AE18DD9F1774B2840082FCFE /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDetailVC.h; path = "Friday Night Lights/EventDetailVC.h"; sourceTree = "<group>"; };
-		AE18DDA01774B2840082FCFE /* EventDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventDetailVC.m; path = "Friday Night Lights/EventDetailVC.m"; sourceTree = "<group>"; };
+		AE18DD9F1774B2840082FCFE /* EventDetailVCOld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDetailVCOld.h; path = "Friday Night Lights/EventDetailVCOld.h"; sourceTree = "<group>"; };
+		AE18DDA01774B2840082FCFE /* EventDetailVCOld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventDetailVCOld.m; path = "Friday Night Lights/EventDetailVCOld.m"; sourceTree = "<group>"; };
 		AE18DDA31774C3DE0082FCFE /* EventAttributeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventAttributeCell.h; path = "Friday Night Lights/EventAttributeCell.h"; sourceTree = "<group>"; };
 		AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventAttributeCell.m; path = "Friday Night Lights/EventAttributeCell.m"; sourceTree = "<group>"; };
 		AE18DDB01774FA7D0082FCFE /* TDDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDatePickerController.h; sourceTree = "<group>"; };
@@ -478,6 +484,12 @@
 		AEEA99E41770C44D007AE699 /* tabbar-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-active@2x.png"; sourceTree = "<group>"; };
 		AEEA99E51770C44D007AE699 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 		AEEA99E61770C44D007AE699 /* tabbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar@2x.png"; sourceTree = "<group>"; };
+		AEF3E02D17795F70002F1D4C /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDetailVC.h; path = "Friday Night Lights/EventDetailVC.h"; sourceTree = "<group>"; };
+		AEF3E02E17795F70002F1D4C /* EventDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventDetailVC.m; path = "Friday Night Lights/EventDetailVC.m"; sourceTree = "<group>"; };
+		AEF3E03117796DB1002F1D4C /* UITableView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+Helpers.h"; path = "Friday Night Lights/UITableView+Helpers.h"; sourceTree = "<group>"; };
+		AEF3E03217796DB1002F1D4C /* UITableView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+Helpers.m"; path = "Friday Night Lights/UITableView+Helpers.m"; sourceTree = "<group>"; };
+		AEF3E035177973C6002F1D4C /* MessageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageHelper.h; path = "Friday Night Lights/MessageHelper.h"; sourceTree = "<group>"; };
+		AEF3E036177973C6002F1D4C /* MessageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageHelper.m; path = "Friday Night Lights/MessageHelper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,8 +539,10 @@
 			children = (
 				AE18DDC3177601470082FCFE /* AddEventVC.h */,
 				AE18DDC4177601470082FCFE /* AddEventVC.m */,
-				AE18DD9F1774B2840082FCFE /* EventDetailVC.h */,
-				AE18DDA01774B2840082FCFE /* EventDetailVC.m */,
+				AE18DD9F1774B2840082FCFE /* EventDetailVCOld.h */,
+				AE18DDA01774B2840082FCFE /* EventDetailVCOld.m */,
+				AEF3E02D17795F70002F1D4C /* EventDetailVC.h */,
+				AEF3E02E17795F70002F1D4C /* EventDetailVC.m */,
 				AE18DDA31774C3DE0082FCFE /* EventAttributeCell.h */,
 				AE18DDA41774C3DE0082FCFE /* EventAttributeCell.m */,
 				AE18DD9B1774B0920082FCFE /* Event.h */,
@@ -543,6 +557,10 @@
 		AE18DD8A17749D050082FCFE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AEF3E035177973C6002F1D4C /* MessageHelper.h */,
+				AEF3E036177973C6002F1D4C /* MessageHelper.m */,
+				AEF3E03117796DB1002F1D4C /* UITableView+Helpers.h */,
+				AEF3E03217796DB1002F1D4C /* UITableView+Helpers.m */,
 				AE18DDCF17762E4B0082FCFE /* NSDate+Helpers.h */,
 				AE18DDD017762E4C0082FCFE /* NSDate+Helpers.m */,
 				AE1238A3176F76C6009FC5EB /* UIAlertView+Helpers.h */,
@@ -1128,7 +1146,7 @@
 				AE18DD9117749F690082FCFE /* StockTableViewController.m in Sources */,
 				AE18DD991774ADF50082FCFE /* EventsVC.m in Sources */,
 				AE18DD9D1774B0920082FCFE /* Event.m in Sources */,
-				AE18DDA11774B2840082FCFE /* EventDetailVC.m in Sources */,
+				AE18DDA11774B2840082FCFE /* EventDetailVCOld.m in Sources */,
 				AE18DDA51774C3DE0082FCFE /* EventAttributeCell.m in Sources */,
 				AE18DDB81774FA7D0082FCFE /* TDDatePickerController.m in Sources */,
 				AE18DDBC1774FA7D0082FCFE /* TDSemiModalViewController.m in Sources */,
@@ -1137,6 +1155,9 @@
 				AE18DDC917760FE50082FCFE /* NSString+Helpers.m in Sources */,
 				AE18DDD117762E4C0082FCFE /* NSDate+Helpers.m in Sources */,
 				AE18DDDD177630E00082FCFE /* EventHelper.m in Sources */,
+				AEF3E02F17795F70002F1D4C /* EventDetailVC.m in Sources */,
+				AEF3E03317796DB1002F1D4C /* UITableView+Helpers.m in Sources */,
+				AEF3E037177973C6002F1D4C /* MessageHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1157,7 +1178,7 @@
 				AE18DD9217749F690082FCFE /* StockTableViewController.m in Sources */,
 				AE18DD9A1774ADF50082FCFE /* EventsVC.m in Sources */,
 				AE18DD9E1774B0920082FCFE /* Event.m in Sources */,
-				AE18DDA21774B2840082FCFE /* EventDetailVC.m in Sources */,
+				AE18DDA21774B2840082FCFE /* EventDetailVCOld.m in Sources */,
 				AE18DDA61774C3DE0082FCFE /* EventAttributeCell.m in Sources */,
 				AE18DDB91774FA7D0082FCFE /* TDDatePickerController.m in Sources */,
 				AE18DDBD1774FA7D0082FCFE /* TDSemiModalViewController.m in Sources */,
@@ -1166,6 +1187,9 @@
 				AE18DDCA17760FE50082FCFE /* NSString+Helpers.m in Sources */,
 				AE18DDD217762E4C0082FCFE /* NSDate+Helpers.m in Sources */,
 				AE18DDDE177630E00082FCFE /* EventHelper.m in Sources */,
+				AEF3E03017795F70002F1D4C /* EventDetailVC.m in Sources */,
+				AEF3E03417796DB1002F1D4C /* UITableView+Helpers.m in Sources */,
+				AEF3E038177973C6002F1D4C /* MessageHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

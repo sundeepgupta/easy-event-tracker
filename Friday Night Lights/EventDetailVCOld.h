@@ -2,17 +2,16 @@
 //  EventDetailVC.h
 //  Friday Night Lights
 //
-//  Created by Sundeep Gupta on 13-06-22.
+//  Created by Sundeep Gupta on 13-06-21.
 //  Copyright (c) 2013 Sundeep Gupta. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
-
 
 @class Event;
 
-@interface EventDetailVC : UITableViewController <MFMessageComposeViewControllerDelegate>
+@interface EventDetailVCOld : UITableViewController
+
 @property (strong, nonatomic) Event *event;
 
 @end

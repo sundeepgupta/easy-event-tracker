@@ -54,6 +54,19 @@
 
 - (void)setupDataSource {
     self.dataSource = [self.model participants];
+    [self setupParticipantNames];
+    [self sortDataSource];
+}
+- (void)setupParticipantNames {
+    for (Participant *participant in self.dataSource) {
+        participant.name = [self nameForParticipant:participant];
+    }
+}
+- (void)sortDataSource {
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSMutableArray *mutableObjects = self.dataSource.mutableCopy;
+    self.dataSource = [mutableObjects sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 - (void)didReceiveMemoryWarning

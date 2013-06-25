@@ -40,13 +40,18 @@
 - (NSArray *)participants {
     NSString *entityName = NSStringFromClass([Participant class]);
     NSArray *objects = [self objectsWithEntityName:entityName];
-    return [self sortedObjects:objects byKey:@"name"];
+        
+    return objects;
 }
 
 - (NSArray *)events {
     NSString *entityName = NSStringFromClass([Event class]);
     NSArray *objects = [self objectsWithEntityName:entityName];
-    return objects;
+    
+    NSArray *sortDescriptors = [self descriptorsFromKey:@"date" isAscending:NO];
+    NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
+    
+    return sortedObjects;
 }
 
 - (NSArray *)objectsWithEntityName:(NSString *)entityName {
@@ -71,16 +76,15 @@
     return results;
 }
 
-- (NSArray *)sortedObjects:(NSArray *)objects byKey:(NSString *)key {
-    NSMutableArray *mutableObjects = objects.mutableCopy;
-    NSArray *descriptors = [self descriptorsFromKey:key];
-    return [mutableObjects sortedArrayUsingDescriptors:descriptors];
-}
-
-- (NSArray *)descriptorsFromKey:(NSString *)key {
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:YES];
+- (NSArray *)descriptorsFromKey:(NSString *)key isAscending:(BOOL)isAscending {
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:isAscending];
     return [NSArray arrayWithObject:sortDescriptor];
 }
+- (NSArray *)sortedObjects:(NSArray *)objects withSortDescriptors:(NSArray *)sortDescriptors {
+    NSMutableArray *mutableObjects = objects.mutableCopy;
+    return [mutableObjects sortedArrayUsingDescriptors:sortDescriptors];
+}
+
 
 
 

@@ -124,14 +124,17 @@
 - (void)presentDatePicker {
     self.datePickerController = [[TDDatePickerController alloc] initWithNibName:@"TDDatePickerController" bundle:nil];
     self.datePickerController.delegate = self;
-    [self presentSemiModalViewController:self.datePickerController];
+    [self presentSemiModalViewController:self.datePickerController inView:self.view];
 }
 
 -(void)datePickerSetDate:(TDDatePickerController*)viewController {
-    
+    NSDate *date = viewController.datePicker.date;
+    self.event.date = date;
+    self.dateValue.text =  [date dateAndTimeString];
+    [self dismissSemiModalViewController:self.datePickerController];
 }
 -(void)datePickerClearDate:(TDDatePickerController*)viewController {
-    
+    //not being used here
 }
 -(void)datePickerCancel:(TDDatePickerController*)viewController {
     [self dismissSemiModalViewController:self.datePickerController];
@@ -151,7 +154,6 @@
 - (IBAction)saveAndInviteButtonPress:(UIButton *)sender {
     [self saveEvent];
     [self inviteParticipants];
-//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)saveEvent {
     [self.model saveContext];
@@ -190,7 +192,7 @@
 - (void)handleMissingMobileNumberForParticipant:(Participant *)participant {
     NSString *compositeName = [AddressBookHelper abCompositeNameFromAbRecordId:participant.abRecordId];
     NSString *message = [NSString stringWithFormat:@"%@ doesn't have a mobile number set. Invite won't be sent to him/her.", compositeName];
-    [UIAlertView showAlertWithTitle:@"Woops!" withMessage:message];
+    [UIAlertView showAlertWithTitle:@"FYI..." withMessage:message];
 }
 
 - (void)setupMessageComposeBody {
@@ -200,7 +202,33 @@
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    void (^completionBlock)(void);
+    
+    switch (result) {
+        case MessageComposeResultCancelled: {
+            completionBlock = ^(void) {
+                nil;
+            };
+            break;
+        }
+        case MessageComposeResultSent: {
+            completionBlock = ^(void) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            };
+            break;
+        }
+        case MessageComposeResultFailed: {
+            completionBlock = ^(void) {
+                [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            };
+            break;
+        }
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:completionBlock];
 }
 
 

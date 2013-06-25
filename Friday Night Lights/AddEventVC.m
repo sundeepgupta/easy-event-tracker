@@ -23,7 +23,7 @@
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
 
-@property (strong, nonatomic) IBOutlet UITextField *dateValue;
+@property (strong, nonatomic) IBOutlet UILabel *dateValue;
 @property (strong, nonatomic) IBOutlet UITextField *costValue;
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *dateCell;
@@ -54,9 +54,21 @@
     //TODO - Remove once date picker fixed.
     self.event.date = [NSDate date];
     self.dateValue.text = [self.event.date dateAndTimeString];
+    
+    [self addTapRecognizer];
 }
 
+- (void)addTapRecognizer {
+    //Needed to dismiss keyboard on text field
+    //http://stackoverflow.com/questions/5306240/iphone-dismiss-keyboard-when-touching-outside-of-textfield
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
+    tap.cancelsTouchesInView = FALSE;
+    [self.view addGestureRecognizer:tap];
+}
 
+- (void)dismissKeyboard:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -131,16 +143,22 @@
     NSDate *date = viewController.datePicker.date;
     self.event.date = date;
     self.dateValue.text =  [date dateAndTimeString];
-    [self dismissSemiModalViewController:self.datePickerController];
+    [self resetView];    
 }
 -(void)datePickerClearDate:(TDDatePickerController*)viewController {
     //not being used here
 }
 -(void)datePickerCancel:(TDDatePickerController*)viewController {
-    [self dismissSemiModalViewController:self.datePickerController];
+    [self resetView];
 }
-
-
+- (void)resetView {
+    [self dismissSemiModalViewController:self.datePickerController];
+    [self deselectDateCell];
+}
+- (void)deselectDateCell {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 - (IBAction)cancelButtonPress:(UIBarButtonItem *)sender {
     [self deleteEvent];

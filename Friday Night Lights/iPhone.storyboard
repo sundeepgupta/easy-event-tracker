@@ -537,12 +537,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="eMi-NF-hpI">
-                                                    <rect key="frame" x="74" y="7" width="206" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IiK-so-7MW">
+                                                    <rect key="frame" x="74" y="11" width="206" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
-                                                </textField>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -551,7 +552,7 @@
                             </tableViewSection>
                             <tableViewSection id="CdU-sU-4xa">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="H2l-35-QZT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="H2l-35-QZT">
                                         <rect key="frame" x="0.0" y="76" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -582,7 +583,7 @@
                             </tableViewSection>
                             <tableViewSection id="hRJ-zF-CWf">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vce-2f-oxQ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vce-2f-oxQ">
                                         <rect key="frame" x="0.0" y="142" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -627,7 +628,7 @@
                     <connections>
                         <outlet property="costValue" destination="6hm-ie-XPB" id="abv-aj-WdB"/>
                         <outlet property="dateCell" destination="TML-c4-KMA" id="ijM-Cn-rN0"/>
-                        <outlet property="dateValue" destination="eMi-NF-hpI" id="1ak-lR-9wf"/>
+                        <outlet property="dateValue" destination="IiK-so-7MW" id="0jY-EY-XXn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0L-lf-o3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -657,17 +658,14 @@
         <class className="AddEventVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEventVC.h"/>
             <relationships>
-                <relationship kind="action" name="cancelButtonPress:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="saveAndInviteButtonPress:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="dateValue" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="DevVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DevVC.h"/>
             <relationships>
-                <relationship kind="action" name="deleteStoreButtonPress:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>

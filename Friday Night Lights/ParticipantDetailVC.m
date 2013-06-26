@@ -33,8 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Global *global = [Global sharedGlobal];
-    self.model = global.model;
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -98,9 +97,9 @@
 }
 
 - (void)saveParticipant {
-    self.participant = [self.model newParticipant];
+    self.participant = [Model newParticipant];
 //    self.participant.name = self.nameField.text;
-    [self.model saveContext];
+    [Model saveContext];
 }
 
 - (void)viewDidUnload {

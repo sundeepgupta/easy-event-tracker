@@ -1,0 +1,147 @@
+//
+//  DesignHelper.m
+//  SalesCase
+//
+//  Created by Sundeep Gupta on 13-06-18.
+//  Copyright (c) 2013 EnhanceTrade. All rights reserved.
+//
+
+#import "DesignHelper.h"
+#import <QuartzCore/QuartzCore.h>
+
+
+@implementation DesignHelper
+
+
++ (void)customizeIpadTheme
+{
+    [self customizeBars];
+    [self customizeBarButtons];
+}
++ (void)customizeIphoneTheme {
+    
+}
+
+
++ (void)customizeBars {
+    //TODO - Need to fix image for full width views (like login page)
+    UIImage *image = [UIImage imageNamed:@"ipad-menubar-right.png"];
+    
+    [self customizeViewClass:[UINavigationBar class] withImage:image];
+    [self customizeTextForViewClass:[UINavigationBar class]];
+    
+    [self customizeViewClass:[UIToolbar class] withImage:image];
+}
+
++ (void)customizeViewClass:(Class)viewClass withImage:(UIImage *)image {
+    if (viewClass == [UINavigationBar class]) {
+        [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    } else if (viewClass == [UIToolbar class]) {
+        [[UIToolbar appearance] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+    }    
+}
+
++ (void)customizeTextForViewClass:(Class)viewClass  {
+    NSDictionary *textAttributes = [self textAttributes];
+    
+    if (viewClass == [UINavigationBar class]) {
+        [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
+    } 
+}
+
++ (NSDictionary *)textAttributes {
+    UIColor *textColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0];
+    UIColor *shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    NSValue *shadowOffset = [NSValue valueWithUIOffset:UIOffsetMake(0, -1)];
+    
+    return [NSDictionary dictionaryWithObjectsAndKeys: textColor, UITextAttributeTextColor, shadowColor, UITextAttributeTextShadowColor, shadowOffset, UITextAttributeTextShadowOffset, nil];
+}
+
++ (void)customizeBarButtons {
+    UIImage *barItemImage = [[UIImage imageNamed:@"ipad-menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barItemImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    UIImage *backButton = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
+}
+
+
+
++ (void)customizeTableView:(UITableView *)tableView {
+    [self addTopShadowToView:tableView];
+    [self addBackgroundToView:tableView];
+}
+
++ (void)addTopShadowToView:(UIView *)view {
+    CGRect shadowFrame = [self shadowFrameFromView:view];
+    CALayer *shadow = [self shadowFromFrame:shadowFrame];
+    [view.layer addSublayer:shadow];
+}
+
++ (CGRect)shadowFrameFromView:(UIView *)view {
+    CGFloat frameWidth;
+    
+    if (view.frame.size.height == 1024) { //LoginVC is using the wrong orientation
+        frameWidth = view.frame.size.height;
+    } else {
+        frameWidth = view.frame.size.width;
+    }
+    CGFloat frameHeight = 5;
+    return CGRectMake(0, 0, frameWidth, frameHeight);
+}
+
++ (CALayer *)shadowFromFrame:(CGRect)frame
+{
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = frame;
+    
+    UIColor* lightColor = [[UIColor blackColor] colorWithAlphaComponent:0.0];
+    UIColor* darkColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    
+    gradient.colors = [NSArray arrayWithObjects:(id)darkColor.CGColor, (id)lightColor.CGColor, nil];
+    
+    return gradient;
+}
+
++ (void)addBackgroundToView:(UIView *)view {
+    UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
+    view.backgroundColor = bgColor;
+    
+    if ([view isKindOfClass:[UITableView class]]) {
+        [self removeBackgroundViewFromTableView:(UITableView *)view];
+    }
+}
+
++ (void)removeBackgroundViewFromTableView:(UITableView *)tableView {
+    tableView.backgroundView = nil;
+}
+
+
+#pragma mark - Table Cells
++ (void)customizeBackgroundForSelectedCell:(UITableViewCell *)cell {
+    UIImage *image = [UIImage imageNamed:@"ipad-list-item-selected.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    cell.selectedBackgroundView = imageView;
+}
++ (void)customizeBackgroundForUnSelectedCell:(UITableViewCell *)cell {
+    UIImage *image = [UIImage imageNamed:@"ipad-list-element.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    cell.backgroundView = imageView;
+    cell.backgroundView.opaque = YES;
+}
+
++ (void)customizeSelectedCellLabel:(UILabel *)label {
+    label.textColor = [UIColor whiteColor];
+    label.shadowColor = [UIColor colorWithRed:25.0/255 green:96.0/255 blue:148.0/255 alpha:1.0];
+    label.shadowOffset = CGSizeMake(0, -1);
+}
++ (void)customizeUnSelectedCellLabel:(UILabel *)label {
+    label.textColor = [UIColor colorWithRed:0.0 green:68.0/255 blue:118.0/255 alpha:1.0];
+    label.shadowColor = [UIColor whiteColor];
+    label.shadowOffset = CGSizeMake(0, 1);
+}
+
+
+
+@end

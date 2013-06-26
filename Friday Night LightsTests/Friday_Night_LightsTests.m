@@ -26,13 +26,13 @@
     [super setUp];
     
     self.participantsVc = [[ParticipantsVC alloc] init];
-    self.model = [[Model alloc] init];
+    Model = [[Model alloc] init];
 }
 
 - (void)tearDown
 {
     self.participantsVc = nil;
-    self.model = nil;
+    Model = nil;
     
     [super tearDown];
 }
@@ -42,7 +42,7 @@
 }
 
 - (void)testResetStore {
-    STAssertNoThrow([self.model resetStore], nil);
+    STAssertNoThrow([Model resetStore], nil);
 }
 
 - (void)testSaveNewParticipant {

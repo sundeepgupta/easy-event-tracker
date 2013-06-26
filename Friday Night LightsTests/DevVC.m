@@ -30,8 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	Global *global = [Global sharedGlobal];
-    self.model = global.model;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,7 +42,7 @@
 
 
 - (IBAction)deleteStoreButtonPress:(UIButton *)sender {
-    [self.model resetStore];
+    [Model resetStore];
     self.textView.text = @"Data deleted.";
 }
 

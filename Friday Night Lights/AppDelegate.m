@@ -28,7 +28,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self setupModel];
     
     [self customizeiPhoneTheme];
     [self configureiPhoneTabBar];
@@ -37,17 +36,11 @@
     //sample data population
 //    Event *event1 = [self.model newEvent];
 //    event1.date = [NSDate date];
-    [self.model saveContext];
+//    [Model saveContext];
     ///
     
     
     return YES;
-}
-
-- (void)setupModel {
-    Global *global = [Global sharedGlobal];
-    self.model = global.model;
-    self.model.managedObjectContext = self.managedObjectContext;
 }
 
 -(void)customizeiPhoneTheme

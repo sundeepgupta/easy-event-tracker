@@ -18,6 +18,7 @@
 #import "UIAlertView+Helpers.h"
 #import "UITableView+Helpers.h"
 #import "MessageHelper.h"
+#import "ParticipantsVC.h"
 
 @interface EventDetailVC ()
 
@@ -51,8 +52,7 @@
 
     self.title = @"Game Details";
     
-    Global *global = [Global sharedGlobal];
-    self.model = global.model;
+
     
     [self addTapRecognizer];
 }
@@ -120,6 +120,10 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if ([cell isEqual:self.dateCell]) {
         [self presentDatePicker];
+    } else if ([cell isEqual:self.confirmedParticipantsCell]) {
+        NSString *vcId = NSStringFromClass([ParticipantsVC class]);
+        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 - (void)presentDatePicker {
@@ -146,14 +150,14 @@
 }
 
 
-- (IBAction)messageConfirmed:(id)sender {
+- (IBAction)messageConfirmedParticipants:(id)sender {
     
 }
 
-- (IBAction)messageAll:(id)sender {
+- (IBAction)messageAllParticipants:(id)sender {
     if([MFMessageComposeViewController canSendText]) {
         [self setupMessageComposeVc];
-        NSArray *participants = [self.model participants];
+        NSArray *participants = [Model participants];
         [self setupMessageComposeRecipientsForParticipants:participants];
         [self presentViewController:self.messageComposeVc animated:YES completion:nil];
     } else {
@@ -188,7 +192,7 @@
 }
 
 - (void)saveEvent {
-    [self.model saveContext];
+    [Model saveContext];
 }
 
 @end

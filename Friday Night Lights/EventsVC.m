@@ -37,8 +37,7 @@
 {
     [super viewDidLoad];
 
-    Global *global = [Global sharedGlobal];
-    self.model = global.model;
+
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -54,7 +53,7 @@
 }
 
 - (void)setupDataSource {
-    self.dataSource = [self.model events];
+    self.dataSource = [Model events];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,7 +91,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObject *objectAtIndexPath = [self objectAtIndexPath:indexPath];
-        [self.model deleteObject:objectAtIndexPath];
+        [Model deleteObject:objectAtIndexPath];
         [self setupDataSource];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -118,7 +117,7 @@
 
 
 - (IBAction)addButtonPress:(UIBarButtonItem *)sender {
-    Event *event = [self.model newEvent];
+    Event *event = [Model newEvent];
     UIViewController *vc = [self preparedVcWithEvent:event];
     [self presentViewController:vc animated:YES completion:nil];
 }

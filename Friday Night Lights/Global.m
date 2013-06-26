@@ -22,7 +22,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        self.model = [[Model alloc] init];
+//        Model = [[Model alloc] init];
 
 
     }

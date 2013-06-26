@@ -51,8 +51,7 @@
 
     self.title = @"Add Game";
     
-    Global *global = [Global sharedGlobal];
-    self.model = global.model;
+
     
     [self setupViewValues];
     
@@ -134,7 +133,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)deleteEvent {
-    [self.model deleteObject:self.event];
+    [Model deleteObject:self.event];
     self.event = nil;
 }
 
@@ -154,7 +153,7 @@
 }
 
 - (void)saveEvent {
-    [self.model saveContext];
+    [Model saveContext];
 }
 
 - (void)inviteParticipants {
@@ -168,7 +167,7 @@
     self.messageComposeVc.messageComposeDelegate = self;
 }
 - (void)setupMessageComposeRecipients {
-    NSArray *participants = [self.model participants];
+    NSArray *participants = [Model participants];
     NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
     self.messageComposeVc.recipients = mobileNumbers;
 }

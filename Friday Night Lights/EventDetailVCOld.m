@@ -47,8 +47,7 @@ NSString * const SECTION_DATA_SOURCE = @"3";
 {
     [super viewDidLoad];
     
-    Global *global = [Global sharedGlobal];
-    self.model = global.model;
+
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -94,7 +93,7 @@ NSString * const SECTION_DATA_SOURCE = @"3";
 }
 
 - (NSDictionary *)confirmedParticipantsDataSource {
-    self.confirmedParticipants = [self.model participants];
+    self.confirmedParticipants = [Model participants];
     return [NSDictionary dictionaryWithObjectsAndKeys:@"Confirmed Players", SECTION_TITLE_KEY, self.confirmedParticipants, SECTION_DATA_SOURCE, nil];
 }
 

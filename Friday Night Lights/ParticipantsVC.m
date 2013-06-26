@@ -12,6 +12,8 @@
 #import "ParticipantDetailVC.h"
 #import "AddressBookHelper.h"
 #import "UIAlertView+Helpers.h"
+#import "DesignHelper.h"
+#import "ParticipantHelper.h"
 
 
 @interface ParticipantsVC ()
@@ -36,37 +38,17 @@
 {
     [super viewDidLoad];
 
-    Global *global = [Global sharedGlobal];
-    self.model = global.model;
-    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"Players";
     
-    UIColor *bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
-    self.view.backgroundColor = bgColor;
+    [DesignHelper addBackgroundToView:self.view];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self setupDataSource];
+    self.dataSource = [ParticipantHelper dataSource]; 
     [self.tableView reloadData];
-}
-
-- (void)setupDataSource {
-    self.dataSource = [self.model participants];
-    [self setupParticipantNames];
-    [self sortDataSource];
-}
-- (void)setupParticipantNames {
-    for (Participant *participant in self.dataSource) {
-        participant.name = [self nameForParticipant:participant];
-    }
-}
-- (void)sortDataSource {
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSMutableArray *mutableObjects = self.dataSource.mutableCopy;
-    self.dataSource = [mutableObjects sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,21 +76,17 @@
     
     Participant *objectAtIndexPath = [self.dataSource objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [self nameForParticipant:objectAtIndexPath];
+    cell.textLabel.text = [ParticipantHelper nameForParticipant:objectAtIndexPath];
     
     return cell;
-}
-
-- (NSString *)nameForParticipant:(Participant *)participant {
-    return [AddressBookHelper abCompositeNameFromAbRecordId:participant.abRecordId];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObject *objectAtIndexPath = [self.dataSource objectAtIndex:indexPath.row];
-        [self.model deleteObject:objectAtIndexPath];
-        [self setupDataSource];
+        [Model deleteObject:objectAtIndexPath];
+        self.dataSource = [ParticipantHelper dataSource];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
@@ -181,11 +159,11 @@
 
 - (void)saveNewParticpantFromAbRecordRef:(ABRecordRef)abRecordRef {
     [self setupNewParticipantFromAbRecord:abRecordRef];
-    [self.model saveContext];
+    [Model saveContext];
 }
 
 - (void)setupNewParticipantFromAbRecord:(ABRecordRef)abRecordRef {
-    Participant *participant = [self.model newParticipant];
+    Participant *participant = [Model newParticipant];
     participant.abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
 
 

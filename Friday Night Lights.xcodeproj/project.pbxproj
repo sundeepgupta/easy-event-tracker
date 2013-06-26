@@ -71,6 +71,13 @@
 		AE89AC2F176D4DEF00C06D03 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC2D176D4DEF00C06D03 /* Global.m */; };
 		AE89AC32176D4E5300C06D03 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC31176D4E5300C06D03 /* Model.m */; };
 		AE89AC33176D4E5300C06D03 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC31176D4E5300C06D03 /* Model.m */; };
+		AEC5DF141779FFF7004C697C /* EventParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */; };
+		AEC5DF151779FFF7004C697C /* EventParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */; };
+		AEC5DF18177A0CAA004C697C /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF17177A0CAA004C697C /* DesignHelper.m */; };
+		AEC5DF19177A0CAA004C697C /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF17177A0CAA004C697C /* DesignHelper.m */; };
+		AEC5DF1B177A0FF8004C697C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC5DF1A177A0FF8004C697C /* QuartzCore.framework */; };
+		AEC5DF1E177A1093004C697C /* ParticipantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF1D177A1093004C697C /* ParticipantHelper.m */; };
+		AEC5DF1F177A1093004C697C /* ParticipantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF1D177A1093004C697C /* ParticipantHelper.m */; };
 		AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC565917778DB50073BA2C /* MessageUI.framework */; };
 		AEEA99E71770C44D007AE699 /* alert-bg-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = AEEA99441770C44D007AE699 /* alert-bg-pattern.png */; };
 		AEEA99E81770C44D007AE699 /* alert-bg-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEEA99451770C44D007AE699 /* alert-bg-pattern@2x.png */; };
@@ -320,6 +327,13 @@
 		AE89AC2D176D4DEF00C06D03 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		AE89AC30176D4E5300C06D03 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		AE89AC31176D4E5300C06D03 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		AEC5DF121779FFF7004C697C /* EventParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventParticipantsVC.h; path = "Friday Night Lights/EventParticipantsVC.h"; sourceTree = "<group>"; };
+		AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventParticipantsVC.m; path = "Friday Night Lights/EventParticipantsVC.m"; sourceTree = "<group>"; };
+		AEC5DF16177A0CAA004C697C /* DesignHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignHelper.h; path = "Friday Night Lights/DesignHelper.h"; sourceTree = "<group>"; };
+		AEC5DF17177A0CAA004C697C /* DesignHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DesignHelper.m; path = "Friday Night Lights/DesignHelper.m"; sourceTree = "<group>"; };
+		AEC5DF1A177A0FF8004C697C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AEC5DF1C177A1093004C697C /* ParticipantHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantHelper.h; path = "Friday Night Lights/ParticipantHelper.h"; sourceTree = "<group>"; };
+		AEC5DF1D177A1093004C697C /* ParticipantHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantHelper.m; path = "Friday Night Lights/ParticipantHelper.m"; sourceTree = "<group>"; };
 		AEDC565917778DB50073BA2C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AEEA99441770C44D007AE699 /* alert-bg-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-bg-pattern.png"; sourceTree = "<group>"; };
 		AEEA99451770C44D007AE699 /* alert-bg-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-bg-pattern@2x.png"; sourceTree = "<group>"; };
@@ -497,6 +511,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC5DF1B177A0FF8004C697C /* QuartzCore.framework in Frameworks */,
 				AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */,
 				AE25FFE2176E778F00955426 /* AddressBook.framework in Frameworks */,
 				AE25FFE3176E778F00955426 /* AddressBookUI.framework in Frameworks */,
@@ -550,6 +565,8 @@
 				AE18DDAF1774FA7D0082FCFE /* TDSemiModalDatePicker */,
 				AE18DD971774ADF50082FCFE /* EventsVC.h */,
 				AE18DD981774ADF50082FCFE /* EventsVC.m */,
+				AEC5DF121779FFF7004C697C /* EventParticipantsVC.h */,
+				AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -557,6 +574,10 @@
 		AE18DD8A17749D050082FCFE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				AEC5DF1C177A1093004C697C /* ParticipantHelper.h */,
+				AEC5DF1D177A1093004C697C /* ParticipantHelper.m */,
+				AEC5DF16177A0CAA004C697C /* DesignHelper.h */,
+				AEC5DF17177A0CAA004C697C /* DesignHelper.m */,
 				AEF3E035177973C6002F1D4C /* MessageHelper.h */,
 				AEF3E036177973C6002F1D4C /* MessageHelper.m */,
 				AEF3E03117796DB1002F1D4C /* UITableView+Helpers.h */,
@@ -617,6 +638,7 @@
 		AE89ABE1176D426700C06D03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEC5DF1A177A0FF8004C697C /* QuartzCore.framework */,
 				AEDC565917778DB50073BA2C /* MessageUI.framework */,
 				AE25FFE0176E778F00955426 /* AddressBook.framework */,
 				AE25FFE1176E778F00955426 /* AddressBookUI.framework */,
@@ -1158,6 +1180,9 @@
 				AEF3E02F17795F70002F1D4C /* EventDetailVC.m in Sources */,
 				AEF3E03317796DB1002F1D4C /* UITableView+Helpers.m in Sources */,
 				AEF3E037177973C6002F1D4C /* MessageHelper.m in Sources */,
+				AEC5DF141779FFF7004C697C /* EventParticipantsVC.m in Sources */,
+				AEC5DF18177A0CAA004C697C /* DesignHelper.m in Sources */,
+				AEC5DF1E177A1093004C697C /* ParticipantHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1190,6 +1215,9 @@
 				AEF3E03017795F70002F1D4C /* EventDetailVC.m in Sources */,
 				AEF3E03417796DB1002F1D4C /* UITableView+Helpers.m in Sources */,
 				AEF3E038177973C6002F1D4C /* MessageHelper.m in Sources */,
+				AEC5DF151779FFF7004C697C /* EventParticipantsVC.m in Sources */,
+				AEC5DF19177A0CAA004C697C /* DesignHelper.m in Sources */,
+				AEC5DF1F177A1093004C697C /* ParticipantHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

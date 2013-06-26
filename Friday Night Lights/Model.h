@@ -12,19 +12,16 @@
 
 @interface Model : NSObject
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
-- (Participant *)newParticipant;
-- (Event *)newEvent;
++ (Participant *)newParticipant;
++ (Event *)newEvent;
 
-- (NSArray *)participants;
-- (NSArray *)events;
-- (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key;
-- (NSArray *)participantAbRecordIds;
-
-
-
++ (NSArray *)participants;
++ (NSArray *)events;
++ (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key;
++ (NSArray *)participantAbRecordIds;
 
 
 
@@ -33,10 +30,13 @@
 
 
 
-- (void)saveContext;
 
 
-- (void)deleteObject:(NSManagedObject *)object;
-- (void)resetStore;
+
++ (void)saveContext;
+
+
++ (void)deleteObject:(NSManagedObject *)object;
++ (void)resetStore;
 
 @end

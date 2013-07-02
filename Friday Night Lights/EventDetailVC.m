@@ -62,7 +62,7 @@
     [DesignHelper addBackgroundToView:self.view];
     
     for (UITableViewCell *cell in self.cells) {
-        [DesignHelper customizeCellText:cell];
+        [DesignHelper customizeCell:cell];
     }
 }
 - (void)addTapRecognizer {
@@ -131,8 +131,10 @@
         [self presentDatePicker];
     } else if ([cell isEqual:self.confirmedParticipantsCell]) {
         NSString *vcId = NSStringFromClass([ParticipantsVC class]);
-        UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+        ParticipantsVC *vc = (ParticipantsVC *)[self.storyboard instantiateViewControllerWithIdentifier:vcId];
+        vc.eventMode = YES;
         [self.navigationController pushViewController:vc animated:YES];
+        [self.tableView deselectSelectedRow];
     }
 }
 - (void)presentDatePicker {

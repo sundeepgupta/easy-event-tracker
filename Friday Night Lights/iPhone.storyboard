@@ -44,6 +44,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="e8o-Gg-MPV" id="wZz-J3-wZT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FgR-lP-rB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -806,9 +809,6 @@
         <class className="AddEventVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEventVC.h"/>
             <relationships>
-                <relationship kind="action" name="cancelButtonPress:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="doneButtonPress:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="saveAndInviteButtonPress:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
@@ -832,6 +832,8 @@
         <class className="EventDetailVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailVC.h"/>
             <relationships>
+                <relationship kind="action" name="messageAllParticipants:"/>
+                <relationship kind="action" name="messageConfirmedParticipants:"/>
                 <relationship kind="outlet" name="confirmedParticipantsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="confirmedParticipantsValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
@@ -849,7 +851,6 @@
         <class className="ParticipantDetailVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantDetailVC.h"/>
             <relationships>
-                <relationship kind="action" name="doneButtonPress:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
                 <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
@@ -859,6 +860,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantsVC.h"/>
             <relationships>
                 <relationship kind="action" name="addButtonPress:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
     </classes>

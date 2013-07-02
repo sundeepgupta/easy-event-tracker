@@ -21,6 +21,7 @@
 @property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) NSArray *dataSource;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @end
 
 @implementation ParticipantsVC
@@ -48,6 +49,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.dataSource = [ParticipantHelper dataSource]; 
     [self.tableView reloadData];
+    
+    if (self.eventMode) {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -181,5 +186,9 @@
 - (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)viewDidUnload {
+    [self setAddButton:nil];
+    [super viewDidUnload];
 }
 @end

@@ -41,7 +41,7 @@
     [DesignHelper addBackgroundToView:self.view];
 
     for (UITableViewCell *cell in self.cells) {
-     [DesignHelper customizeCellText:cell];
+        [DesignHelper customizeCell:cell];
     }
 }
      

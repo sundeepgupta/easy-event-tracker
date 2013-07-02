@@ -42,8 +42,7 @@
     
     self.title = @"Players";
     
-    [DesignHelper addBackgroundToView:self.view];
-    
+    [DesignHelper customizeTableView:self.tableView];    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,6 +76,8 @@
     Participant *objectAtIndexPath = [self.dataSource objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [ParticipantHelper nameForParticipant:objectAtIndexPath];
+    
+    [DesignHelper customizeCell:cell];
     
     return cell;
 }

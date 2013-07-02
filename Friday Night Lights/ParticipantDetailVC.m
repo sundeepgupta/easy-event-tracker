@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *nameField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
 
 @end
 
@@ -34,7 +35,16 @@
 {
     [super viewDidLoad];
 
+    [self customizeDesign];
 }
+- (void)customizeDesign {
+    [DesignHelper addBackgroundToView:self.view];
+
+    for (UITableViewCell *cell in self.cells) {
+     [DesignHelper customizeCellText:cell];
+    }
+}
+     
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupView];

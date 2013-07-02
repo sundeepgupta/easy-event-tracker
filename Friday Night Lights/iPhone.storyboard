@@ -309,8 +309,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="mYN-el-C9B" kind="relationship" relationship="viewControllers" id="4fs-ie-lfM"/>
-                        <segue destination="5Rg-2J-Vqw" kind="relationship" relationship="viewControllers" id="Ic5-Z4-gCd"/>
                         <segue destination="vTM-xf-0aL" kind="relationship" relationship="viewControllers" id="j0v-tE-inD"/>
+                        <segue destination="5Rg-2J-Vqw" kind="relationship" relationship="viewControllers" id="CIQ-qm-khu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oA-aI-daW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,7 +363,7 @@
         <scene sceneID="3J0-Q3-qa1">
             <objects>
                 <navigationController id="vTM-xf-0aL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Players" id="acz-Ws-rLD"/>
+                    <tabBarItem key="tabBarItem" title="Players" image="team.png" id="acz-Ws-rLD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qC0-kv-PpU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -427,7 +427,7 @@
         <scene sceneID="TB1-xm-iRB">
             <objects>
                 <navigationController storyboardIdentifier="EventsNC" id="mYN-el-C9B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Games" id="ENA-k9-GKg"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="calendar.png" id="ENA-k9-GKg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pPK-3I-T8f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -520,12 +520,12 @@
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qIx-zu-aBT">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qIx-zu-aBT">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Send Roll Call">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Send Roll Call" backgroundImage="ipad-list-item-selected.png">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
@@ -565,6 +565,8 @@
                         <outlet property="dateCell" destination="TML-c4-KMA" id="ijM-Cn-rN0"/>
                         <outlet property="dateValue" destination="IiK-so-7MW" id="0jY-EY-XXn"/>
                         <outlet property="inviteButton" destination="qIx-zu-aBT" id="cik-bk-I1D"/>
+                        <outletCollection property="cells" destination="H2l-35-QZT" id="w0a-DL-atq"/>
+                        <outletCollection property="cells" destination="TML-c4-KMA" id="hdi-7a-HyK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0L-lf-o3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -660,7 +662,7 @@
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VFi-Is-DcD">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="99 Confirmed Players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VFi-Is-DcD">
                                                     <rect key="frame" x="15" y="11" width="265" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -686,8 +688,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Text Confirmed Players">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Text Confirmed Players" backgroundImage="ipad-list-item-selected.png">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
@@ -712,8 +714,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Text All Players">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Text All Players" backgroundImage="ipad-list-item-selected.png">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <state key="highlighted">
@@ -744,16 +746,18 @@
                         <outlet property="costValue" destination="geV-z1-cQL" id="diQ-Vs-TFj"/>
                         <outlet property="dateCell" destination="pUA-0n-8ta" id="Rte-kZ-svQ"/>
                         <outlet property="dateValue" destination="eqL-C2-wGi" id="EFq-Bt-2Vs"/>
+                        <outletCollection property="cells" destination="pUA-0n-8ta" id="vlL-8n-HNL"/>
+                        <outletCollection property="cells" destination="dDT-KZ-eQY" id="hBG-ce-Cao"/>
+                        <outletCollection property="cells" destination="F3D-Xd-aad" id="haX-hM-jk3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lto-o8-p3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-524" y="-1561"/>
+            <point key="canvasLocation" x="-536" y="-1561"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="uwS-ax-VGZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jSF-EG-wvk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="" id="y6y-1t-EUx" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0ge-ks-hlX">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -788,18 +792,28 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jSF-EG-wvk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-173" y="-1561"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar.png" width="30" height="30"/>
+        <image name="ipad-list-item-selected.png" width="319" height="67"/>
+        <image name="team.png" width="30" height="30"/>
+    </resources>
     <classes>
         <class className="AddEventVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEventVC.h"/>
             <relationships>
+                <relationship kind="action" name="cancelButtonPress:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="doneButtonPress:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="saveAndInviteButtonPress:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="inviteButton" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="DevVC" superclassName="UIViewController">
@@ -823,16 +837,22 @@
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="EventsVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonPress:" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="ParticipantDetailVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantDetailVC.h"/>
             <relationships>
+                <relationship kind="action" name="doneButtonPress:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="doneButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="nameField" candidateClass="UITextField"/>
+                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="ParticipantsVC" superclassName="UITableViewController">

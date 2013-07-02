@@ -28,8 +28,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateValue;
 @property (strong, nonatomic) IBOutlet UITextField *costValue;
 @property (strong, nonatomic) IBOutlet UIButton *inviteButton;
-
 @property (strong, nonatomic) IBOutlet UITableViewCell *dateCell;
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
 
 
 @end
@@ -51,11 +51,18 @@
 
     self.title = @"Add Game";
     
-
+    [self customizeDesign];
     
     [self setupViewValues];
     
     [self addTapRecognizer];
+}
+- (void)customizeDesign {
+    [DesignHelper addBackgroundToView:self.view];
+    
+    for (UITableViewCell *cell in self.cells) {
+        [DesignHelper customizeCellText:cell];
+    }
 }
 
 - (void)setupViewValues {

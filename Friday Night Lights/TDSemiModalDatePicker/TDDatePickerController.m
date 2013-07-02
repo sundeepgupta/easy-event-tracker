@@ -21,6 +21,7 @@
 	for (UIView* subview in datePicker.subviews) {
 		subview.frame = datePicker.bounds;
 	}
+
 }
 
 -(BOOL)shouldAutorotate {

@@ -37,14 +37,11 @@
 {
     [super viewDidLoad];
 
-
-    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"Games";
     
-    UIColor *bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
-    self.view.backgroundColor = bgColor;
+    [DesignHelper customizeTableView:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,6 +80,8 @@
     NSString *dateString = [objectAtIndexPath.date dateAndTimeString];
     
     cell.textLabel.text = dateString;
+    
+    [DesignHelper customizeCell:cell];
     
     return cell;
 }

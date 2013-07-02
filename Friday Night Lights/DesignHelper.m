@@ -9,76 +9,62 @@
 #import "DesignHelper.h"
 #import <QuartzCore/QuartzCore.h>
 
-
 @implementation DesignHelper
-
-
-+ (void)customizeIpadTheme
-{
-    [self customizeBars];
-    [self customizeBarButtons];
+ 
+#pragma mark - Colors
++ (UIColor *)lightTextColor {
+    return [UIColor whiteColor];
 }
++ (UIColor *)darkTextColor {
+    return [UIColor colorWithRed:0.0 green:68.0/255 blue:118.0/255 alpha:1.0];
+}
++ (UIColor *)lightTextShadowColor {
+    return [UIColor colorWithRed:25.0/255 green:96.0/255 blue:148.0/255 alpha:1.0];
+}
++ (UIColor *)darkTextShadowColor {
+    return  [UIColor whiteColor];
+}
+
 + (void)customizeIphoneTheme {
-    
+    [self customizeStatusBar];
+    [self customizeNavigationBar];
+}
++ (void)customizeStatusBar {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
 }
 
-
-+ (void)customizeBars {
-    //TODO - Need to fix image for full width views (like login page)
-    UIImage *image = [UIImage imageNamed:@"ipad-menubar-right.png"];
++ (void)customizeNavigationBar {
+    UIImage *navBarImage = [[UIImage imageNamed:@"menubar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
     
-    [self customizeViewClass:[UINavigationBar class] withImage:image];
-    [self customizeTextForViewClass:[UINavigationBar class]];
+    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
     
-    [self customizeViewClass:[UIToolbar class] withImage:image];
+    [self customizeNavigationBarButton];
+    [self customizeNavigationBackButton];
 }
-
-+ (void)customizeViewClass:(Class)viewClass withImage:(UIImage *)image {
-    if (viewClass == [UINavigationBar class]) {
-        [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    } else if (viewClass == [UIToolbar class]) {
-        [[UIToolbar appearance] setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-    }    
-}
-
-+ (void)customizeTextForViewClass:(Class)viewClass  {
-    NSDictionary *textAttributes = [self textAttributes];
++ (void)customizeNavigationBarButton {
+    UIImage *barButton = [[UIImage imageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
     
-    if (viewClass == [UINavigationBar class]) {
-        [[UINavigationBar appearance] setTitleTextAttributes:textAttributes];
-    } 
+    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
+                                          barMetrics:UIBarMetricsDefault];
 }
-
-+ (NSDictionary *)textAttributes {
-    UIColor *textColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0];
-    UIColor *shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-    NSValue *shadowOffset = [NSValue valueWithUIOffset:UIOffsetMake(0, -1)];
-    
-    return [NSDictionary dictionaryWithObjectsAndKeys: textColor, UITextAttributeTextColor, shadowColor, UITextAttributeTextShadowColor, shadowOffset, UITextAttributeTextShadowOffset, nil];
-}
-
-+ (void)customizeBarButtons {
-    UIImage *barItemImage = [[UIImage imageNamed:@"ipad-menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
-    [[UIBarButtonItem appearance] setBackgroundImage:barItemImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
++ (void)customizeNavigationBackButton {
     UIImage *backButton = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
+    
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
                                                     barMetrics:UIBarMetricsDefault];
 }
 
 
-
+#pragma mark - Table View
 + (void)customizeTableView:(UITableView *)tableView {
     [self addTopShadowToView:tableView];
     [self addBackgroundToView:tableView];
 }
-
 + (void)addTopShadowToView:(UIView *)view {
     CGRect shadowFrame = [self shadowFrameFromView:view];
     CALayer *shadow = [self shadowFromFrame:shadowFrame];
     [view.layer addSublayer:shadow];
 }
-
 + (CGRect)shadowFrameFromView:(UIView *)view {
     CGFloat frameWidth;
     
@@ -90,7 +76,6 @@
     CGFloat frameHeight = 5;
     return CGRectMake(0, 0, frameWidth, frameHeight);
 }
-
 + (CALayer *)shadowFromFrame:(CGRect)frame
 {
     CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -103,7 +88,6 @@
     
     return gradient;
 }
-
 + (void)addBackgroundToView:(UIView *)view {
     UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
     view.backgroundColor = bgColor;
@@ -112,13 +96,18 @@
         [self removeBackgroundViewFromTableView:(UITableView *)view];
     }
 }
-
 + (void)removeBackgroundViewFromTableView:(UITableView *)tableView {
     tableView.backgroundView = nil;
 }
 
 
 #pragma mark - Table Cells
++ (void)customizeCell:(UITableViewCell *)cell {
+    [self customizeBackgroundForSelectedCell:cell];
+    [self customizeBackgroundForUnSelectedCell:cell];
+
+    [self customizeCellText:cell];
+}
 + (void)customizeBackgroundForSelectedCell:(UITableViewCell *)cell {
     UIImage *image = [UIImage imageNamed:@"ipad-list-item-selected.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -131,16 +120,43 @@
     cell.backgroundView.opaque = YES;
 }
 
-+ (void)customizeSelectedCellLabel:(UILabel *)label {
-    label.textColor = [UIColor whiteColor];
-    label.shadowColor = [UIColor colorWithRed:25.0/255 green:96.0/255 blue:148.0/255 alpha:1.0];
-    label.shadowOffset = CGSizeMake(0, -1);
++ (void)customizeCellText:(UIView *)view {
+    
+    for (UIView *subView in view.subviews) {
+        if ([subView isKindOfClass:[UILabel class]] || [subView isKindOfClass:[UITextField class]]) {
+            [self customizeSelectedCellText:subView];
+            [self customizeUnSelectedCellText:subView];
+        } else {
+            [self customizeCellText:subView];
+        }
+    }
 }
-+ (void)customizeUnSelectedCellLabel:(UILabel *)label {
-    label.textColor = [UIColor colorWithRed:0.0 green:68.0/255 blue:118.0/255 alpha:1.0];
-    label.shadowColor = [UIColor whiteColor];
-    label.shadowOffset = CGSizeMake(0, 1);
++ (void)customizeSelectedCellText:(UIView *)view {
+    if ([view isKindOfClass:[UILabel class]]) {
+        UILabel *castedView = (UILabel *)view;
+        castedView.textColor = [self lightTextColor];
+        castedView.shadowColor = [self lightTextShadowColor];
+        castedView.shadowOffset = CGSizeMake(0, -1);
+    } else if ([view isKindOfClass:[UITextField class]]) {
+        UITextField *castedView = (UITextField *)view;
+        castedView.textColor = [self lightTextColor];
+    }
 }
++ (void)customizeUnSelectedCellText:(UIView *)view {
+    if ([view isKindOfClass:[UILabel class]]) {
+        UILabel *castedView = (UILabel *)view;
+        castedView.textColor = [self darkTextColor];
+        castedView.shadowColor = [self darkTextShadowColor];
+        castedView.shadowOffset = CGSizeMake(0, 1);
+    } else if ([view isKindOfClass:[UITextField class]]) {
+        UITextField *castedView = (UITextField *)view;
+        castedView.textColor = [self darkTextColor];
+    }
+}
+
+
+
+
 
 
 

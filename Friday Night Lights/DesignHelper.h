@@ -10,18 +10,14 @@
 
 @interface DesignHelper : NSObject
 
-+ (void)customizeIpadTheme;
++ (void)customizeIphoneTheme;
++ (void)customizeNavigationBar;
 
 + (void)customizeTableView:(UITableView *)tableView;
+
 + (void)addBackgroundToView:(UIView *)view;
-+ (void)addTopShadowToView:(UIView *)tableView;
-+ (NSDictionary *)textAttributes;
 
-
-+ (void)customizeBackgroundForSelectedCell:(UITableViewCell *)cell;
-+ (void)customizeBackgroundForUnSelectedCell:(UITableViewCell *)cell;
-+ (void)customizeSelectedCellLabel:(UILabel *)label;
-+ (void)customizeUnSelectedCellLabel:(UILabel *)label;
-
++ (void)customizeCell:(UITableViewCell *)cell;
++ (void)customizeCellText:(UIView *)view ;
 
 @end

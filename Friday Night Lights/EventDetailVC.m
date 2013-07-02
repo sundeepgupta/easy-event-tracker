@@ -33,6 +33,8 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *confirmedParticipantsCell;
 @property (strong, nonatomic) IBOutlet UILabel *confirmedParticipantsValue;
 
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
+
 @end
 
 @implementation EventDetailVC
@@ -52,9 +54,16 @@
 
     self.title = @"Game Details";
     
-
+    [self customizeDesign];
     
     [self addTapRecognizer];
+}
+- (void)customizeDesign {
+    [DesignHelper addBackgroundToView:self.view];
+    
+    for (UITableViewCell *cell in self.cells) {
+        [DesignHelper customizeCellText:cell];
+    }
 }
 - (void)addTapRecognizer {
     //Needed to dismiss keyboard on text field

@@ -29,8 +29,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [self customizeiPhoneTheme];
-    [self configureiPhoneTabBar];
+    [DesignHelper customizeIphoneTheme];
     
     
     //sample data population
@@ -41,75 +40,6 @@
     
     
     return YES;
-}
-
--(void)customizeiPhoneTheme
-{
-    [[UIApplication sharedApplication]
-     setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
-    
-    UIImage *navBarImage = [[UIImage imageNamed:@"menubar.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 15, 5, 15)];
-    
-    [[UINavigationBar appearance] setBackgroundImage:navBarImage forBarMetrics:UIBarMetricsDefault];
-    
-    
-    UIImage *barButton = [[UIImage imageNamed:@"menubar-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4, 0, 4)];
-    
-    [[UIBarButtonItem appearance] setBackgroundImage:barButton forState:UIControlStateNormal
-                                          barMetrics:UIBarMetricsDefault];
-    
-    UIImage *backButton = [[UIImage imageNamed:@"back.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 14, 0, 4)];
-    
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backButton forState:UIControlStateNormal
-                                                    barMetrics:UIBarMetricsDefault];
-    
-    
-    UIImage *minImage = [UIImage imageNamed:@"ipad-slider-fill"];
-    UIImage *maxImage = [UIImage imageNamed:@"ipad-slider-track.png"];
-    UIImage *thumbImage = [UIImage imageNamed:@"ipad-slider-handle.png"];
-    
-    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
-    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
-    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
-    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateHighlighted];
-    
-    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    
-    
-    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar-active.png"]];
-    
-}
-
-
--(void)configureiPhoneTabBar
-{
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-	
-    UIViewController *controller1 = [[tabBarController viewControllers] objectAtIndex:0];
-    [self configureTabBarItemWithImageName:@"tab-icon1.png" andText:@"Elements" forViewController:controller1];
-    
-    
-    UIViewController *controller2 = [[tabBarController viewControllers] objectAtIndex:1];
-    [self configureTabBarItemWithImageName:@"tab-icon2.png" andText:@"Elements" forViewController:controller2];
-    
-    
-//    UIViewController *controller3 = [[tabBarController viewControllers] objectAtIndex:2];
-//    [self configureTabBarItemWithImageName:@"tab-icon3.png" andText:@"Other" forViewController:controller3];
-//    
-//    
-//    UIViewController *controller4 = [[tabBarController viewControllers] objectAtIndex:3];
-//    [self configureTabBarItemWithImageName:@"tab-icon4.png" andText:@"Other" forViewController:controller4];
-    
-}
-
--(void)configureTabBarItemWithImageName:(NSString*)imageName andText:(NSString *)itemText forViewController:(UIViewController *)viewController
-{
-    UIImage* icon1 = [UIImage imageNamed:imageName];
-    UITabBarItem *item1 = [[UITabBarItem alloc] initWithTitle:itemText image:icon1 tag:0];
-    [item1 setFinishedSelectedImage:icon1 withFinishedUnselectedImage:icon1];
-    
-    [viewController setTabBarItem:item1];
 }
 
 

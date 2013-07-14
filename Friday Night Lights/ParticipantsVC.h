@@ -11,8 +11,6 @@
 
 @interface ParticipantsVC : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
 
-@property (nonatomic) BOOL eventMode;
-
 - (IBAction)addButtonPress:(UIBarButtonItem *)sender;
 
 @end

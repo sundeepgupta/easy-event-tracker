@@ -203,6 +203,12 @@
 		AE89AC2F176D4DEF00C06D03 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC2D176D4DEF00C06D03 /* Global.m */; };
 		AE89AC32176D4E5300C06D03 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC31176D4E5300C06D03 /* Model.m */; };
 		AE89AC33176D4E5300C06D03 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC31176D4E5300C06D03 /* Model.m */; };
+		AEB6BD711791F315004126B7 /* menubar.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD701791F315004126B7 /* menubar.png */; };
+		AEB6BD721791F315004126B7 /* menubar.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD701791F315004126B7 /* menubar.png */; };
+		AEB6BD741791F330004126B7 /* menubar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD731791F330004126B7 /* menubar-button.png */; };
+		AEB6BD751791F330004126B7 /* menubar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD731791F330004126B7 /* menubar-button.png */; };
+		AEB6BD771791F346004126B7 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD761791F346004126B7 /* back.png */; };
+		AEB6BD781791F346004126B7 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD761791F346004126B7 /* back.png */; };
 		AEC5DF141779FFF7004C697C /* EventParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */; };
 		AEC5DF151779FFF7004C697C /* EventParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */; };
 		AEC5DF18177A0CAA004C697C /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF17177A0CAA004C697C /* DesignHelper.m */; };
@@ -211,6 +217,7 @@
 		AEC5DF1E177A1093004C697C /* ParticipantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF1D177A1093004C697C /* ParticipantHelper.m */; };
 		AEC5DF1F177A1093004C697C /* ParticipantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF1D177A1093004C697C /* ParticipantHelper.m */; };
 		AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC565917778DB50073BA2C /* MessageUI.framework */; };
+		AEE083B81791FA1400371928 /* ConfirmedParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */; };
 		AEF3E02F17795F70002F1D4C /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E02E17795F70002F1D4C /* EventDetailVC.m */; };
 		AEF3E03017795F70002F1D4C /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E02E17795F70002F1D4C /* EventDetailVC.m */; };
 		AEF3E03317796DB1002F1D4C /* UITableView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E03217796DB1002F1D4C /* UITableView+Helpers.m */; };
@@ -362,6 +369,9 @@
 		AE89AC2D176D4DEF00C06D03 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		AE89AC30176D4E5300C06D03 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		AE89AC31176D4E5300C06D03 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		AEB6BD701791F315004126B7 /* menubar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubar.png; sourceTree = "<group>"; };
+		AEB6BD731791F330004126B7 /* menubar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-button.png"; sourceTree = "<group>"; };
+		AEB6BD761791F346004126B7 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		AEC5DF121779FFF7004C697C /* EventParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventParticipantsVC.h; path = "Friday Night Lights/EventParticipantsVC.h"; sourceTree = "<group>"; };
 		AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventParticipantsVC.m; path = "Friday Night Lights/EventParticipantsVC.m"; sourceTree = "<group>"; };
 		AEC5DF16177A0CAA004C697C /* DesignHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignHelper.h; path = "Friday Night Lights/DesignHelper.h"; sourceTree = "<group>"; };
@@ -370,6 +380,8 @@
 		AEC5DF1C177A1093004C697C /* ParticipantHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantHelper.h; path = "Friday Night Lights/ParticipantHelper.h"; sourceTree = "<group>"; };
 		AEC5DF1D177A1093004C697C /* ParticipantHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantHelper.m; path = "Friday Night Lights/ParticipantHelper.m"; sourceTree = "<group>"; };
 		AEDC565917778DB50073BA2C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		AEE083B61791FA1400371928 /* ConfirmedParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedParticipantsVC.h; sourceTree = "<group>"; };
+		AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedParticipantsVC.m; sourceTree = "<group>"; };
 		AEF3E02D17795F70002F1D4C /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDetailVC.h; path = "Friday Night Lights/EventDetailVC.h"; sourceTree = "<group>"; };
 		AEF3E02E17795F70002F1D4C /* EventDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventDetailVC.m; path = "Friday Night Lights/EventDetailVC.m"; sourceTree = "<group>"; };
 		AEF3E03117796DB1002F1D4C /* UITableView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+Helpers.h"; path = "Friday Night Lights/UITableView+Helpers.h"; sourceTree = "<group>"; };
@@ -508,6 +520,9 @@
 		AE4F15611781E6C700650410 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				AEB6BD761791F346004126B7 /* back.png */,
+				AEB6BD731791F330004126B7 /* menubar-button.png */,
+				AEB6BD701791F315004126B7 /* menubar.png */,
 				AE4F15621781E6C700650410 /* alert-black-button.png */,
 				AE4F15631781E6C700650410 /* alert-black-button@2x.png */,
 				AE4F15641781E6C700650410 /* alert-gray-button.png */,
@@ -577,14 +592,14 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
-				AE4F155C1781E6C700650410 /* Resources */,
-				AE18DD8A17749D050082FCFE /* Helpers */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE0E42C4176DFFDA00A050BE /* Events */,
-				AE0E42C3176DFFC300A050BE /* Participants */,
-				AE89AC0C176D426700C06D03 /* Tests */,
 				AE89ABE1176D426700C06D03 /* Frameworks */,
+				AE18DD8A17749D050082FCFE /* Helpers */,
+				AE0E42C3176DFFC300A050BE /* Participants */,
 				AE89ABE0176D426700C06D03 /* Products */,
+				AE4F155C1781E6C700650410 /* Resources */,
+				AE89AC0C176D426700C06D03 /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -626,6 +641,8 @@
 				AE89AC2C176D4DEF00C06D03 /* Global.h */,
 				AE89AC2D176D4DEF00C06D03 /* Global.m */,
 				AE89AC29176D4C3300C06D03 /* iPhone.storyboard */,
+				AEE083B61791FA1400371928 /* ConfirmedParticipantsVC.h */,
+				AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */,
 				AE89AC30176D4E5300C06D03 /* Model.h */,
 				AE89AC31176D4E5300C06D03 /* Model.m */,
 				AE89ABEB176D426700C06D03 /* Supporting Files */,
@@ -812,6 +829,9 @@
 				AE4F161E1781E6C700650410 /* switch-thumb.png in Resources */,
 				AE4F16201781E6C700650410 /* switch-thumb@2x.png in Resources */,
 				AE4F16231781E88700650410 /* team@2x.png in Resources */,
+				AEB6BD711791F315004126B7 /* menubar.png in Resources */,
+				AEB6BD741791F330004126B7 /* menubar-button.png in Resources */,
+				AEB6BD771791F346004126B7 /* back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,6 +908,9 @@
 				AE4F161F1781E6C700650410 /* switch-thumb.png in Resources */,
 				AE4F16211781E6C700650410 /* switch-thumb@2x.png in Resources */,
 				AE4F16241781E88700650410 /* team@2x.png in Resources */,
+				AEB6BD721791F315004126B7 /* menubar.png in Resources */,
+				AEB6BD751791F330004126B7 /* menubar-button.png in Resources */,
+				AEB6BD781791F346004126B7 /* back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,6 +966,7 @@
 				AEC5DF141779FFF7004C697C /* EventParticipantsVC.m in Sources */,
 				AEC5DF18177A0CAA004C697C /* DesignHelper.m in Sources */,
 				AEC5DF1E177A1093004C697C /* ParticipantHelper.m in Sources */,
+				AEE083B81791FA1400371928 /* ConfirmedParticipantsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1075,7 +1099,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Friday Night Lights/Friday Night Lights-Prefix.pch";
 				INFOPLIST_FILE = "Friday Night Lights/Friday Night Lights-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1088,7 +1112,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Friday Night Lights/Friday Night Lights-Prefix.pch";
 				INFOPLIST_FILE = "Friday Night Lights/Friday Night Lights-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

@@ -108,11 +108,11 @@
 
     [self customizeCellText:cell];
 }
-+ (void)customizeBackgroundForSelectedCell:(UITableViewCell *)cell {
-    UIImage *image = [UIImage imageNamed:@"ipad-list-item-selected.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    cell.selectedBackgroundView = imageView;
-}
+    + (void)customizeBackgroundForSelectedCell:(UITableViewCell *)cell {
+        UIImage *image = [UIImage imageNamed:@"ipad-list-item-selected.png"];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        cell.selectedBackgroundView = imageView;
+    }
 + (void)customizeBackgroundForUnSelectedCell:(UITableViewCell *)cell {
     UIImage *image = [UIImage imageNamed:@"ipad-list-element.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];

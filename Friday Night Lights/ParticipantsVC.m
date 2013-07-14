@@ -49,10 +49,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.dataSource = [ParticipantHelper dataSource]; 
     [self.tableView reloadData];
-    
-    if (self.eventMode) {
-        self.navigationItem.leftBarButtonItem = nil;
-    }
 }
 
 - (void)didReceiveMemoryWarning

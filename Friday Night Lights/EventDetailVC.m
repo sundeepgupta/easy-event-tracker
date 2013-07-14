@@ -18,7 +18,8 @@
 #import "UIAlertView+Helpers.h"
 #import "UITableView+Helpers.h"
 #import "MessageHelper.h"
-#import "ParticipantsVC.h"
+#import "ConfirmedParticipantsVC.h"
+
 
 @interface EventDetailVC ()
 
@@ -130,9 +131,8 @@
     if ([cell isEqual:self.dateCell]) {
         [self presentDatePicker];
     } else if ([cell isEqual:self.confirmedParticipantsCell]) {
-        NSString *vcId = NSStringFromClass([ParticipantsVC class]);
-        ParticipantsVC *vc = (ParticipantsVC *)[self.storyboard instantiateViewControllerWithIdentifier:vcId];
-        vc.eventMode = YES;
+        NSString *vcId = NSStringFromClass([ConfirmedParticipantsVC class]);
+        ConfirmedParticipantsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
         [self.navigationController pushViewController:vc animated:YES];
         [self.tableView deselectSelectedRow];
     }

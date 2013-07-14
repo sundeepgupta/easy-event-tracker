@@ -7,14 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "Model.h"
+
 
 //for sample data only
 #import "Event.h"
 
 @interface AppDelegate ()
 
-@property (strong, nonatomic) Global *global;
 @property (strong, nonatomic) Model *model;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "Friday_Night_LightsTests.h"
 #import "ParticipantsVC.h"
-#import "Model.h"
+
 #import "ParticipantDetailVC.h"
 
 @interface Friday_Night_LightsTests ()

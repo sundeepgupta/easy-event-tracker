@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Event;
+
 @interface ConfirmedParticipantsVC : UITableViewController
+
+@property (strong, nonatomic) Event *event;
 
 @end

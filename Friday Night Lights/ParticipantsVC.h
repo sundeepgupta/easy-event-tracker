@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <AddressBookUI/AddressBookUI.h>
 
+@class Event;
+
 @interface ParticipantsVC : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
+
+
+@property BOOL isAddConfirmedMode;
+@property (weak, nonatomic) Event *event;
+
 
 - (IBAction)addButtonPress:(UIBarButtonItem *)sender;
 

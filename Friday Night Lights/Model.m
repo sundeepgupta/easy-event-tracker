@@ -26,24 +26,23 @@
     NSString *entityName = NSStringFromClass([Participant class]);
     return (Participant *)[self newObjectWithEntityName:entityName];
 }
-
 + (Event *)newEvent {
     NSString *entityName = NSStringFromClass([Event class]);
     Event *event = (Event *)[self newObjectWithEntityName:entityName];
     event.date = [NSDate date];
     return event;
 }
-
 + (NSManagedObject *)newObjectWithEntityName:(NSString *)entityName {
     return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:[self moc]];
 }
+
+
 
 
 #pragma mark - Read
 + (NSArray *)participants {
     NSString *entityName = NSStringFromClass([Participant class]);
     NSArray *objects = [self objectsWithEntityName:entityName];
-        
     return objects;
 }
 
@@ -54,6 +53,13 @@
     NSArray *sortDescriptors = [self descriptorsFromKey:@"date" isAscending:NO];
     NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
     
+    return sortedObjects;
+}
+
++ (NSArray *)confirmedParticipantsForEvent:(Event *)event {
+    NSArray *objects = event.participants.allObjects;
+    NSArray *sortDescriptors = [self descriptorsFromKey:@"name" isAscending:YES];
+    NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
     return sortedObjects;
 }
 
@@ -122,6 +128,13 @@
 
 
 #pragma mark - Update
++ (void)addParticipant:(Participant *)participant toEvent:(Event *)event {
+    [event addParticipantsObject:participant];
+}
++ (void)deleteParticipant:(Participant *)participant fromEvent:(Event *)event {
+    [event removeParticipantsObject:participant];
+}
+
 + (void)saveContext
 {
     NSError *error = nil;

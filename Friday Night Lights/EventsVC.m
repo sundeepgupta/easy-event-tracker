@@ -7,7 +7,7 @@
 //
 
 #import "EventsVC.h"
-#import "Model.h"
+
 #import "UIAlertView+Helpers.h"
 #import "Event.h"
 #import "EventDetailVC.h"

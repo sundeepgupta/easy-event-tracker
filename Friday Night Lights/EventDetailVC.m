@@ -7,7 +7,7 @@
 //
 
 #import "EventDetailVC.h"
-#import "Model.h"
+
 #import "Event.h"
 #import "NSString+Helpers.h"
 #import "TDDatePickerController.h"
@@ -133,6 +133,7 @@
     } else if ([cell isEqual:self.confirmedParticipantsCell]) {
         NSString *vcId = NSStringFromClass([ConfirmedParticipantsVC class]);
         ConfirmedParticipantsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+        vc.event = self.event;
         [self.navigationController pushViewController:vc animated:YES];
         [self.tableView deselectSelectedRow];
     }

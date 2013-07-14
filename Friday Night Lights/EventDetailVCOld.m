@@ -7,7 +7,7 @@
 //
 
 #import "EventDetailVCOld.h"
-#import "Model.h"
+
 #import "Event.h"
 #import "EventAttributeCell.h"
 #import "Participant.h"

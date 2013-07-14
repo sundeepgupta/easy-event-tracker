@@ -8,7 +8,7 @@
 
 #import "ParticipantDetailVC.h"
 #import "Participant.h"
-#import "Model.h"
+
 
 @interface ParticipantDetailVC ()
 

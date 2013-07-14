@@ -7,13 +7,14 @@
 //
 
 #import "ParticipantsVC.h"
-#import "Model.h"
+
 #import "Participant.h"
 #import "ParticipantDetailVC.h"
 #import "AddressBookHelper.h"
 #import "UIAlertView+Helpers.h"
 #import "DesignHelper.h"
 #import "ParticipantHelper.h"
+#import "Event.h"
 
 
 @interface ParticipantsVC ()
@@ -39,16 +40,43 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    self.title = @"Players";
-    
     [DesignHelper customizeTableView:self.tableView];    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.dataSource = [ParticipantHelper dataSource]; 
+    [self setupVc];
+    self.dataSource = [ParticipantHelper dataSource];
     [self.tableView reloadData];
+}
+- (void)setupVc {
+    if (self.isAddConfirmedMode) {
+        [self setupVcForAddConfirmedMode];
+    } else {
+        [self setupVcForNormalMode];
+    }
+}
+
+- (void)setupVcForAddConfirmedMode {
+    self.title = @"Add To Confirmed";
+    [self setupRightBarButtons];
+    
+
+}
+- (void)setupRightBarButtons {
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPress)];
+    self.navigationItem.rightBarButtonItem = doneButton;
+}
+
+
+
+- (void)setupVcForNormalMode {
+    self.title = @"Players";
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+- (void)doneButtonPress {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,24 +126,59 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Participant *objectAtIndex = [self.dataSource objectAtIndex:indexPath.row];
+    if (self.isAddConfirmedMode) {
+        [self toggleParticipantConfirmedForIndexPath:indexPath];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else {
+        [self pushNextVcWithParticipantAtIndexPath:indexPath];
+    }
+}
+
+- (void)toggleParticipantConfirmedForIndexPath:(NSIndexPath *)indexPath {
+    Participant *participant = [self.dataSource objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     
+    
+    
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [Model addParticipant:participant toEvent:self.event];
+        
+        
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [Model deleteParticipant:participant fromEvent:self.event];
+        
+    }
+    
+}
+
+- (BOOL)participantIsConfirmed:(Participant *)participant {
+    BOOL isConfirmed = NO;
+    
+
+    
+}
+
+
+- (void)pushNextVcWithParticipantAtIndexPath:(NSIndexPath *)indexPath {
+    Participant *participant = [self.dataSource objectAtIndex:indexPath.row];
     NSString *vcId = NSStringFromClass([ParticipantDetailVC class]);
     ParticipantDetailVC *participantDetailVc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
-    participantDetailVc.participant = objectAtIndex;
-    
+    participantDetailVc.participant = participant;
     [self.navigationController pushViewController:participantDetailVc animated:YES];
 }
 
 
 
-- (IBAction)addButtonPress:(UIBarButtonItem *)sender {    
+- (IBAction)addButtonPress:(UIBarButtonItem *)sender {
     ABPeoplePickerNavigationController *peoplePicker = [self preparedPeoplePicker];
     [self presentViewController:peoplePicker animated:YES completion:nil];
 }
 
 - (ABPeoplePickerNavigationController *)preparedPeoplePicker {
     ABPeoplePickerNavigationController *peoplePicker = [[ABPeoplePickerNavigationController alloc] init];
+    peoplePicker.navigationBar.topItem.title = @"Add To Players";
     peoplePicker.peoplePickerDelegate = self;
     return peoplePicker;
 }

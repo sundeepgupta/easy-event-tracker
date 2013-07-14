@@ -12,14 +12,16 @@
 
 @interface Model : NSObject
 
-//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
-
+#pragma mark - Create
 + (Participant *)newParticipant;
 + (Event *)newEvent;
 
+
+#pragma mark - Read
 + (NSArray *)participants;
 + (NSArray *)events;
++ (NSArray *)confirmedParticipantsForEvent:(Event *)event;
+
 + (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key;
 + (NSArray *)participantAbRecordIds;
 
@@ -27,15 +29,14 @@
 
 
 
-
-
-
-
-
+#pragma mark - Update
++ (void)addParticipant:(Participant *)participant toEvent:(Event *)event;
++ (void)deleteParticipant:(Participant *)participant fromEvent:(Event *)event;
 
 + (void)saveContext;
 
 
+#pragma mark - Delete
 + (void)deleteObject:(NSManagedObject *)object;
 + (void)resetStore;
 

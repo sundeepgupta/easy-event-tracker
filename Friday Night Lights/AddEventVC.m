@@ -7,7 +7,7 @@
 //
 
 #import "AddEventVC.h"
-#import "Model.h"
+
 #import "Event.h"
 #import "NSString+Helpers.h"
 #import "TDDatePickerController.h"

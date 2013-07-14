@@ -8,6 +8,8 @@
 
 #import "ConfirmedParticipantsVC.h"
 #import "ParticipantHelper.h"
+#import "ParticipantsVC.h"
+#import "Participant.h"
 
 @interface ConfirmedParticipantsVC ()
 
@@ -39,8 +41,7 @@
     [self setupDataSource];
 }
 - (void)setupDataSource {
-
-
+    self.dataSource = [Model confirmedParticipantsForEvent:self.event];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,8 +67,11 @@
     static NSString *CellIdentifier = @"ConfirmedParticipantsVCCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-
+    [DesignHelper customizeCell:cell];
     
+    Participant *object = [self.dataSource objectAtIndex:indexPath.row];
+    cell.textLabel.text = [ParticipantHelper nameForParticipant:object];
+
     return cell;
 }
 
@@ -84,10 +88,17 @@
 
     if (editing) {
         [self.navigationItem setLeftBarButtonItem:addButton animated:YES];
-        
     } else {
         [self.navigationItem setLeftBarButtonItem:self.navigationItem.backBarButtonItem animated:YES];
     }
+}
+- (void)addButtonPress {
+    NSString *vcId = @"ParticipantsNC";
+    UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+    ParticipantsVC *vc = nc.viewControllers[0];
+    vc.isAddConfirmedMode = YES;
+    vc.event = self.event;
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 

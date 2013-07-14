@@ -7,7 +7,6 @@
 //
 
 #import "ParticipantHelper.h"
-#import "Model.h"
 #import "Participant.h"
 #import "AddressBookHelper.h"
 

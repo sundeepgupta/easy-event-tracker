@@ -199,8 +199,6 @@
 		AE89AC20176D458500C06D03 /* Friday_Night_Lights.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE89ABFC176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld */; };
 		AE89AC2A176D4C3300C06D03 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE89AC29176D4C3300C06D03 /* iPhone.storyboard */; };
 		AE89AC2B176D4C3300C06D03 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE89AC29176D4C3300C06D03 /* iPhone.storyboard */; };
-		AE89AC2E176D4DEF00C06D03 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC2D176D4DEF00C06D03 /* Global.m */; };
-		AE89AC2F176D4DEF00C06D03 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC2D176D4DEF00C06D03 /* Global.m */; };
 		AE89AC32176D4E5300C06D03 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC31176D4E5300C06D03 /* Model.m */; };
 		AE89AC33176D4E5300C06D03 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = AE89AC31176D4E5300C06D03 /* Model.m */; };
 		AEB6BD711791F315004126B7 /* menubar.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD701791F315004126B7 /* menubar.png */; };
@@ -209,8 +207,6 @@
 		AEB6BD751791F330004126B7 /* menubar-button.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD731791F330004126B7 /* menubar-button.png */; };
 		AEB6BD771791F346004126B7 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD761791F346004126B7 /* back.png */; };
 		AEB6BD781791F346004126B7 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AEB6BD761791F346004126B7 /* back.png */; };
-		AEC5DF141779FFF7004C697C /* EventParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */; };
-		AEC5DF151779FFF7004C697C /* EventParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */; };
 		AEC5DF18177A0CAA004C697C /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF17177A0CAA004C697C /* DesignHelper.m */; };
 		AEC5DF19177A0CAA004C697C /* DesignHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF17177A0CAA004C697C /* DesignHelper.m */; };
 		AEC5DF1B177A0FF8004C697C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC5DF1A177A0FF8004C697C /* QuartzCore.framework */; };
@@ -365,15 +361,11 @@
 		AE89AC12176D426700C06D03 /* Friday_Night_LightsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Friday_Night_LightsTests.h; sourceTree = "<group>"; };
 		AE89AC13176D426700C06D03 /* Friday_Night_LightsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Friday_Night_LightsTests.m; sourceTree = "<group>"; };
 		AE89AC29176D4C3300C06D03 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
-		AE89AC2C176D4DEF00C06D03 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
-		AE89AC2D176D4DEF00C06D03 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		AE89AC30176D4E5300C06D03 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		AE89AC31176D4E5300C06D03 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		AEB6BD701791F315004126B7 /* menubar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menubar.png; sourceTree = "<group>"; };
 		AEB6BD731791F330004126B7 /* menubar-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menubar-button.png"; sourceTree = "<group>"; };
 		AEB6BD761791F346004126B7 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		AEC5DF121779FFF7004C697C /* EventParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventParticipantsVC.h; path = "Friday Night Lights/EventParticipantsVC.h"; sourceTree = "<group>"; };
-		AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventParticipantsVC.m; path = "Friday Night Lights/EventParticipantsVC.m"; sourceTree = "<group>"; };
 		AEC5DF16177A0CAA004C697C /* DesignHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DesignHelper.h; path = "Friday Night Lights/DesignHelper.h"; sourceTree = "<group>"; };
 		AEC5DF17177A0CAA004C697C /* DesignHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DesignHelper.m; path = "Friday Night Lights/DesignHelper.m"; sourceTree = "<group>"; };
 		AEC5DF1A177A0FF8004C697C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -449,8 +441,6 @@
 				AE18DDAF1774FA7D0082FCFE /* TDSemiModalDatePicker */,
 				AE18DD971774ADF50082FCFE /* EventsVC.h */,
 				AE18DD981774ADF50082FCFE /* EventsVC.m */,
-				AEC5DF121779FFF7004C697C /* EventParticipantsVC.h */,
-				AEC5DF131779FFF7004C697C /* EventParticipantsVC.m */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -638,8 +628,6 @@
 				AE25FFDC176E2A3700955426 /* DevVC.h */,
 				AE25FFDD176E2A3700955426 /* DevVC.m */,
 				AE89ABFC176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld */,
-				AE89AC2C176D4DEF00C06D03 /* Global.h */,
-				AE89AC2D176D4DEF00C06D03 /* Global.m */,
 				AE89AC29176D4C3300C06D03 /* iPhone.storyboard */,
 				AEE083B61791FA1400371928 /* ConfirmedParticipantsVC.h */,
 				AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */,
@@ -940,7 +928,6 @@
 				AE89ABF1176D426700C06D03 /* main.m in Sources */,
 				AE89ABF5176D426700C06D03 /* AppDelegate.m in Sources */,
 				AE89ABFE176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld in Sources */,
-				AE89AC2E176D4DEF00C06D03 /* Global.m in Sources */,
 				AE89AC32176D4E5300C06D03 /* Model.m in Sources */,
 				AE0E42BD176D592100A050BE /* ParticipantsVC.m in Sources */,
 				AE0E42C1176DFF8900A050BE /* ParticipantDetailVC.m in Sources */,
@@ -963,7 +950,6 @@
 				AEF3E02F17795F70002F1D4C /* EventDetailVC.m in Sources */,
 				AEF3E03317796DB1002F1D4C /* UITableView+Helpers.m in Sources */,
 				AEF3E037177973C6002F1D4C /* MessageHelper.m in Sources */,
-				AEC5DF141779FFF7004C697C /* EventParticipantsVC.m in Sources */,
 				AEC5DF18177A0CAA004C697C /* DesignHelper.m in Sources */,
 				AEC5DF1E177A1093004C697C /* ParticipantHelper.m in Sources */,
 				AEE083B81791FA1400371928 /* ConfirmedParticipantsVC.m in Sources */,
@@ -976,7 +962,6 @@
 			files = (
 				AE89AC14176D426700C06D03 /* Friday_Night_LightsTests.m in Sources */,
 				AE89AC20176D458500C06D03 /* Friday_Night_Lights.xcdatamodeld in Sources */,
-				AE89AC2F176D4DEF00C06D03 /* Global.m in Sources */,
 				AE89AC33176D4E5300C06D03 /* Model.m in Sources */,
 				AE0E42BE176D592100A050BE /* ParticipantsVC.m in Sources */,
 				AE0E42C2176DFF8900A050BE /* ParticipantDetailVC.m in Sources */,
@@ -999,7 +984,6 @@
 				AEF3E03017795F70002F1D4C /* EventDetailVC.m in Sources */,
 				AEF3E03417796DB1002F1D4C /* UITableView+Helpers.m in Sources */,
 				AEF3E038177973C6002F1D4C /* MessageHelper.m in Sources */,
-				AEC5DF151779FFF7004C697C /* EventParticipantsVC.m in Sources */,
 				AEC5DF19177A0CAA004C697C /* DesignHelper.m in Sources */,
 				AEC5DF1F177A1093004C697C /* ParticipantHelper.m in Sources */,
 			);

@@ -120,6 +120,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [EventHelper saveCostString:textField.text toEvent:self.event];
+    [self saveEvent];
 }
 
 
@@ -148,6 +149,7 @@
     self.event.date = date;
     self.dateValue.text =  [date dateAndTimeString];
     [self resetView];
+    [self saveEvent];
 }
 -(void)datePickerClearDate:(TDDatePickerController*)viewController {
     //not being used here

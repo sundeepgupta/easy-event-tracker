@@ -14,6 +14,7 @@
 @interface ConfirmedParticipantsVC ()
 
 @property (strong, nonatomic) NSArray *dataSource;
+@property (strong, nonatomic) NSArray *confirmedParticipants;
 
 @end
 
@@ -31,17 +32,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"Confirmed";
     
     [DesignHelper customizeTableView:self.tableView];
-    
-    [self setupDataSource];
 }
-- (void)setupDataSource {
-    self.dataSource = [Model confirmedParticipantsForEvent:self.event];
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self setupDataSources];
+
+}
+- (void)setupDataSources {
+    self.dataSource = [Model participants];
+    self.confirmedParticipants = [Model confirmedParticipantsForEvent:self.event];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,46 +74,14 @@
     
     Participant *object = [self.dataSource objectAtIndex:indexPath.row];
     cell.textLabel.text = [ParticipantHelper nameForParticipant:object];
+    
+    for (Participant *confirmedParticipant in self.confirmedParticipants) {
+        if ([object isEqual:confirmedParticipant]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+    }
 
     return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:editing animated:animated];
-    
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPress)];
-
-    if (editing) {
-        [self.navigationItem setLeftBarButtonItem:addButton animated:YES];
-    } else {
-        [self.navigationItem setLeftBarButtonItem:self.navigationItem.backBarButtonItem animated:YES];
-    }
-}
-- (void)addButtonPress {
-    NSString *vcId = @"ParticipantsNC";
-    UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
-    ParticipantsVC *vc = nc.viewControllers[0];
-    vc.isAddConfirmedMode = YES;
-    vc.event = self.event;
-    [self presentViewController:nc animated:YES completion:nil];
-}
-
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
 }
 
 
@@ -118,13 +89,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self toggleParticipantConfirmedForIndexPath:indexPath];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)toggleParticipantConfirmedForIndexPath:(NSIndexPath *)indexPath {
+    Participant *participant = [self.dataSource objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [Model addParticipant:participant toEvent:self.event];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [Model deleteParticipant:participant fromEvent:self.event];
+    }
 }
 
 @end

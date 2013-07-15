@@ -49,35 +49,12 @@
     [self.tableView reloadData];
 }
 - (void)setupVc {
-    if (self.isAddConfirmedMode) {
-        [self setupVcForAddConfirmedMode];
-    } else {
-        [self setupVcForNormalMode];
-    }
-}
-
-- (void)setupVcForAddConfirmedMode {
-    self.title = @"Add To Confirmed";
-    [self setupRightBarButtons];
-    
-
-}
-- (void)setupRightBarButtons {
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonPress)];
-    self.navigationItem.rightBarButtonItem = doneButton;
-}
-
-
-
-- (void)setupVcForNormalMode {
     self.title = @"Players";
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
-- (void)doneButtonPress {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -126,38 +103,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.isAddConfirmedMode) {
-        [self toggleParticipantConfirmedForIndexPath:indexPath];
-        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    } else {
-        [self pushNextVcWithParticipantAtIndexPath:indexPath];
-    }
-}
-
-- (void)toggleParticipantConfirmedForIndexPath:(NSIndexPath *)indexPath {
-    Participant *participant = [self.dataSource objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
-    
-    
-    if (cell.accessoryType == UITableViewCellAccessoryNone) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [Model addParticipant:participant toEvent:self.event];
-        
-        
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        [Model deleteParticipant:participant fromEvent:self.event];
-        
-    }
-    
-}
-
-- (BOOL)participantIsConfirmed:(Participant *)participant {
-    BOOL isConfirmed = NO;
-    
-
-    
+    [self pushNextVcWithParticipantAtIndexPath:indexPath];
 }
 
 

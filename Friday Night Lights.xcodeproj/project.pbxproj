@@ -214,6 +214,8 @@
 		AEC5DF1F177A1093004C697C /* ParticipantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF1D177A1093004C697C /* ParticipantHelper.m */; };
 		AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC565917778DB50073BA2C /* MessageUI.framework */; };
 		AEE083B81791FA1400371928 /* ConfirmedParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */; };
+		AEE083BB17937CBF00371928 /* hockeyStick.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE083B917937CBF00371928 /* hockeyStick.png */; };
+		AEE083BC17937CBF00371928 /* hockeyStick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE083BA17937CBF00371928 /* hockeyStick@2x.png */; };
 		AEF3E02F17795F70002F1D4C /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E02E17795F70002F1D4C /* EventDetailVC.m */; };
 		AEF3E03017795F70002F1D4C /* EventDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E02E17795F70002F1D4C /* EventDetailVC.m */; };
 		AEF3E03317796DB1002F1D4C /* UITableView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF3E03217796DB1002F1D4C /* UITableView+Helpers.m */; };
@@ -374,6 +376,8 @@
 		AEDC565917778DB50073BA2C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AEE083B61791FA1400371928 /* ConfirmedParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedParticipantsVC.h; sourceTree = "<group>"; };
 		AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedParticipantsVC.m; sourceTree = "<group>"; };
+		AEE083B917937CBF00371928 /* hockeyStick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hockeyStick.png; sourceTree = "<group>"; };
+		AEE083BA17937CBF00371928 /* hockeyStick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hockeyStick@2x.png"; sourceTree = "<group>"; };
 		AEF3E02D17795F70002F1D4C /* EventDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventDetailVC.h; path = "Friday Night Lights/EventDetailVC.h"; sourceTree = "<group>"; };
 		AEF3E02E17795F70002F1D4C /* EventDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventDetailVC.m; path = "Friday Night Lights/EventDetailVC.m"; sourceTree = "<group>"; };
 		AEF3E03117796DB1002F1D4C /* UITableView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+Helpers.h"; path = "Friday Night Lights/UITableView+Helpers.h"; sourceTree = "<group>"; };
@@ -489,22 +493,24 @@
 		AE4F155C1781E6C700650410 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AE4F155D1781E6C700650410 /* Tab Bar Icons */,
+				AE4F155D1781E6C700650410 /* Icons */,
 				AE4F15611781E6C700650410 /* Theme */,
 			);
 			name = Resources;
 			path = "Friday Night Lights/Resources";
 			sourceTree = "<group>";
 		};
-		AE4F155D1781E6C700650410 /* Tab Bar Icons */ = {
+		AE4F155D1781E6C700650410 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AEE083B917937CBF00371928 /* hockeyStick.png */,
+				AEE083BA17937CBF00371928 /* hockeyStick@2x.png */,
 				AE4F155E1781E6C700650410 /* calendar.png */,
 				AE4F155F1781E6C700650410 /* calendar@2x.png */,
 				AE4F15601781E6C700650410 /* team.png */,
 				AE4F16221781E88700650410 /* team@2x.png */,
 			);
-			path = "Tab Bar Icons";
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		AE4F15611781E6C700650410 /* Theme */ = {
@@ -820,6 +826,8 @@
 				AEB6BD711791F315004126B7 /* menubar.png in Resources */,
 				AEB6BD741791F330004126B7 /* menubar-button.png in Resources */,
 				AEB6BD771791F346004126B7 /* back.png in Resources */,
+				AEE083BB17937CBF00371928 /* hockeyStick.png in Resources */,
+				AEE083BC17937CBF00371928 /* hockeyStick@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

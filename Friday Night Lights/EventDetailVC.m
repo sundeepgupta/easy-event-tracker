@@ -80,6 +80,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupViewValues];
+    
+    
+    for (UITableViewCell *cell in self.cells) {
+        [DesignHelper customizeCell:cell];
+    }
+    
 }
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];

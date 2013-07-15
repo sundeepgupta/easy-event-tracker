@@ -43,7 +43,11 @@
 + (NSArray *)participants {
     NSString *entityName = NSStringFromClass([Participant class]);
     NSArray *objects = [self objectsWithEntityName:entityName];
-    return objects;
+    
+    NSArray *sortDescriptors = [self descriptorsFromKey:@"name" isAscending:YES];
+    NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
+
+    return sortedObjects;
 }
 
 + (NSArray *)events {
@@ -58,10 +62,31 @@
 
 + (NSArray *)confirmedParticipantsForEvent:(Event *)event {
     NSArray *objects = event.participants.allObjects;
-    NSArray *sortDescriptors = [self descriptorsFromKey:@"name" isAscending:YES];
-    NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
-    return sortedObjects;
+    return objects;
 }
+
++ (NSArray *)unconfirmedParticipantsForEvent:(Event *)event {
+    NSArray *confirmedParticipants = [self confirmedParticipantsForEvent:event];
+    NSArray *allParticipants = [self participants];
+    
+    NSMutableArray *unconfirmedParticipants = [[NSMutableArray alloc] init];
+    
+    for (Participant *participant in allParticipants) {
+        BOOL isConfirmed = NO;
+        for (Participant *confirmedParticipant in confirmedParticipants) {
+            if ([participant isEqual:confirmedParticipant]) {
+                isConfirmed = YES;
+            }
+        }
+        
+        if (!isConfirmed) {
+            [unconfirmedParticipants addObject:participant];
+        }
+    }
+    
+    return unconfirmedParticipants;
+}
+
 
 + (NSInteger)numberOfConfirmedParticipantsForEvent:(Event *)event {
     NSArray *objects = [self confirmedParticipantsForEvent:event];

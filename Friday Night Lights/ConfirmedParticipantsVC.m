@@ -104,6 +104,8 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         [Model deleteParticipant:participant fromEvent:self.event];
     }
+    
+    [Model saveContext];
 }
 
 @end

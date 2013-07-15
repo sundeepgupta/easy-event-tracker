@@ -18,6 +18,7 @@
 #import "UIAlertView+Helpers.h"
 #import "UITableView+Helpers.h"
 #import "MessageHelper.h"
+#import "Helper.h"
 
 @interface AddEventVC ()
  
@@ -55,27 +56,23 @@
     
     [self setupViewValues];
     
-    [self addTapRecognizer];
+    [Helper addTapRecognizerToVc:self];
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];
     
-    for (UITableViewCell *cell in self.cells) {
-        [DesignHelper customizeCellText:cell];
-    }
-}
 
+}
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];
 }
 
-- (void)addTapRecognizer {
-    //Needed to dismiss keyboard on text field
-    //http://stackoverflow.com/questions/5306240/iphone-dismiss-keyboard-when-touching-outside-of-textfield
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
-    tap.cancelsTouchesInView = FALSE;
-    [self.view addGestureRecognizer:tap];
+- (void)viewWillAppear:(BOOL)animated {
+    for (UITableViewCell *cell in self.cells) {
+        [DesignHelper customizeCell:cell];
+    }
 }
+
 
 - (void)dismissKeyboard:(UITapGestureRecognizer *)sender {
     [self.view endEditing:YES];

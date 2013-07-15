@@ -415,7 +415,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="D3E-jI-ttZ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="xEe-by-6Qs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xEe-by-6Qs">
                             <connections>
                                 <action selector="addButtonPress:" destination="Iid-hu-kYI" id="ZYc-78-QUv"/>
                             </connections>
@@ -721,10 +721,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4VT-S8-PQx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="300" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Text All Players" backgroundImage="ipad-list-item-selected.png">
+                                                    <state key="normal" title="Text Unconfirmed Players" backgroundImage="ipad-list-item-selected.png">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -732,7 +732,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="messageAllParticipants:" destination="Ca4-1h-tSi" eventType="touchUpInside" id="nNI-wu-cn5"/>
+                                                        <action selector="messageUnconfirmedParticipants:" destination="Ca4-1h-tSi" eventType="touchUpInside" id="XcH-HC-O4i"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -816,6 +816,8 @@
         <class className="AddEventVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEventVC.h"/>
             <relationships>
+                <relationship kind="action" name="cancelButtonPress:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="saveAndInviteButtonPress:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
@@ -843,8 +845,6 @@
         <class className="EventDetailVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailVC.h"/>
             <relationships>
-                <relationship kind="action" name="messageAllParticipants:"/>
-                <relationship kind="action" name="messageConfirmedParticipants:"/>
                 <relationship kind="outlet" name="confirmedParticipantsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="confirmedParticipantsValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>

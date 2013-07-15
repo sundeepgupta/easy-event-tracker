@@ -19,7 +19,7 @@
 #import "UITableView+Helpers.h"
 #import "MessageHelper.h"
 #import "ConfirmedParticipantsVC.h"
-
+#import "Helper.h"
 
 @interface EventDetailVC ()
 
@@ -57,7 +57,7 @@
     
     [self customizeDesign];
     
-    [self addTapRecognizer];
+    [Helper addTapRecognizerToVc:self];
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];
@@ -66,13 +66,7 @@
         [DesignHelper customizeCell:cell];
     }
 }
-- (void)addTapRecognizer {
-    //Needed to dismiss keyboard on text field
-    //http://stackoverflow.com/questions/5306240/iphone-dismiss-keyboard-when-touching-outside-of-textfield
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
-    tap.cancelsTouchesInView = FALSE;
-    [self.view addGestureRecognizer:tap];
-}
+
 - (void)dismissKeyboard:(UITapGestureRecognizer *)sender {
     [self.view endEditing:YES];
 }
@@ -168,29 +162,44 @@
 
 
 - (IBAction)messageConfirmedParticipants:(id)sender {
-    
+    [self sendMessageToConfirmedParticipants:YES];
 }
-
-- (IBAction)messageAllParticipants:(id)sender {
+- (IBAction)messageUnconfirmedParticipants:(id)sender {
+    [self sendMessageToConfirmedParticipants:NO];
+}
+- (void)sendMessageToConfirmedParticipants:(BOOL)toConfirmedParticipants {
     if([MFMessageComposeViewController canSendText]) {
         [self setupMessageComposeVc];
-        NSArray *participants = [Model participants];
-        [self setupMessageComposeRecipientsForParticipants:participants];
+        
+        if (toConfirmedParticipants) {
+            [self setupMessageConfirmedParticipants];
+        } else {
+            [self setupMessageUnconfirmedParticipants];
+        }
+        
         [self presentViewController:self.messageComposeVc animated:YES completion:nil];
     } else {
         [MessageHelper showCantSendTextAlert];
     }
-}
 
+}
 - (void)setupMessageComposeVc {
     self.messageComposeVc = [[MFMessageComposeViewController alloc] init];
     self.messageComposeVc.messageComposeDelegate = self;
 }
-- (void)setupMessageComposeRecipientsForParticipants:(NSArray *)participants {
+- (void)setupMessageConfirmedParticipants {
+    NSArray *participants = [Model confirmedParticipantsForEvent:self.event];
+    [self setupMessageWithRecipients:participants];
+}
+- (void)setupMessageUnconfirmedParticipants {
+    NSArray *participants = [Model unconfirmedParticipantsForEvent:self.event];
+    [self setupMessageWithRecipients:participants];
+}
+- (void)setupMessageWithRecipients:(NSArray *)participants {
     NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
     self.messageComposeVc.recipients = mobileNumbers;
 }
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {    
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
     switch (result) {
         case MessageComposeResultCancelled: {
             break;
@@ -199,7 +208,7 @@
             break;
         }
         case MessageComposeResultFailed: {
-                [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
+            [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
             break;
         }
         default:

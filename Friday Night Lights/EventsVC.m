@@ -36,8 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"Games";
     

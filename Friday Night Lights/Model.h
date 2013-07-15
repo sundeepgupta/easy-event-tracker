@@ -21,6 +21,7 @@
 + (NSArray *)participants;
 + (NSArray *)events;
 + (NSArray *)confirmedParticipantsForEvent:(Event *)event;
++ (NSArray *)unconfirmedParticipantsForEvent:(Event *)event;
 + (NSInteger)numberOfConfirmedParticipantsForEvent:(Event *)event;
 
 + (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key;

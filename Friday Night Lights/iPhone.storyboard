@@ -665,10 +665,17 @@
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="99 Confirmed Players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VFi-Is-DcD">
-                                                    <rect key="frame" x="15" y="11" width="265" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="88" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VFi-Is-DcD">
+                                                    <rect key="frame" x="20" y="11" width="25" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Confirmed Players" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xz1-H9-4EZ">
+                                                    <rect key="frame" x="53" y="11" width="207" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -822,6 +829,7 @@
         <class className="DevVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DevVC.h"/>
             <relationships>
+                <relationship kind="action" name="deleteStoreButtonPress:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
@@ -835,6 +843,8 @@
         <class className="EventDetailVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailVC.h"/>
             <relationships>
+                <relationship kind="action" name="messageAllParticipants:"/>
+                <relationship kind="action" name="messageConfirmedParticipants:"/>
                 <relationship kind="outlet" name="confirmedParticipantsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="confirmedParticipantsValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
@@ -857,7 +867,6 @@
         <class className="ParticipantsVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantsVC.h"/>
             <relationships>
-                <relationship kind="action" name="addButtonPress:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>

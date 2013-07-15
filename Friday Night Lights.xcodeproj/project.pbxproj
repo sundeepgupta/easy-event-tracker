@@ -212,6 +212,8 @@
 		AEC5DF1B177A0FF8004C697C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEC5DF1A177A0FF8004C697C /* QuartzCore.framework */; };
 		AEC5DF1E177A1093004C697C /* ParticipantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF1D177A1093004C697C /* ParticipantHelper.m */; };
 		AEC5DF1F177A1093004C697C /* ParticipantHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AEC5DF1D177A1093004C697C /* ParticipantHelper.m */; };
+		AED35F93179384A9009D8ADF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AED35F92179384A9009D8ADF /* Icon.png */; };
+		AED35F95179384AE009D8ADF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AED35F94179384AE009D8ADF /* Icon@2x.png */; };
 		AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC565917778DB50073BA2C /* MessageUI.framework */; };
 		AEE083B81791FA1400371928 /* ConfirmedParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */; };
 		AEE083BB17937CBF00371928 /* hockeyStick.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE083B917937CBF00371928 /* hockeyStick.png */; };
@@ -373,6 +375,8 @@
 		AEC5DF1A177A0FF8004C697C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AEC5DF1C177A1093004C697C /* ParticipantHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantHelper.h; path = "Friday Night Lights/ParticipantHelper.h"; sourceTree = "<group>"; };
 		AEC5DF1D177A1093004C697C /* ParticipantHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantHelper.m; path = "Friday Night Lights/ParticipantHelper.m"; sourceTree = "<group>"; };
+		AED35F92179384A9009D8ADF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../../Icon.png; sourceTree = "<group>"; };
+		AED35F94179384AE009D8ADF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../../Icon@2x.png"; sourceTree = "<group>"; };
 		AEDC565917778DB50073BA2C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AEE083B61791FA1400371928 /* ConfirmedParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmedParticipantsVC.h; sourceTree = "<group>"; };
 		AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmedParticipantsVC.m; sourceTree = "<group>"; };
@@ -503,6 +507,8 @@
 		AE4F155D1781E6C700650410 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AED35F94179384AE009D8ADF /* Icon@2x.png */,
+				AED35F92179384A9009D8ADF /* Icon.png */,
 				AEE083B917937CBF00371928 /* hockeyStick.png */,
 				AEE083BA17937CBF00371928 /* hockeyStick@2x.png */,
 				AE4F155E1781E6C700650410 /* calendar.png */,
@@ -828,6 +834,8 @@
 				AEB6BD771791F346004126B7 /* back.png in Resources */,
 				AEE083BB17937CBF00371928 /* hockeyStick.png in Resources */,
 				AEE083BC17937CBF00371928 /* hockeyStick@2x.png in Resources */,
+				AED35F93179384A9009D8ADF /* Icon.png in Resources */,
+				AED35F95179384AE009D8ADF /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -93,9 +93,8 @@
     [self setupNumberConfirmedValue];
 }
 - (void)setupNumberConfirmedValue {
-    //get confirmed players
-    //count them
-    //set the value
+    NSInteger number = [Model numberOfConfirmedParticipantsForEvent:self.event];
+    self.confirmedParticipantsValue.text = [NSString stringWithFormat:@"%d", number];
 }
 
 

@@ -63,6 +63,11 @@
     return sortedObjects;
 }
 
++ (NSInteger)numberOfConfirmedParticipantsForEvent:(Event *)event {
+    NSArray *objects = [self confirmedParticipantsForEvent:event];
+    return objects.count;
+}
+
 + (NSArray *)objectsWithEntityName:(NSString *)entityName {
     NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
     return [self objectsFromExecutedFetchRequest:fetchRequest];

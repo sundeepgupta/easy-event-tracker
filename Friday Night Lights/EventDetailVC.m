@@ -52,11 +52,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.title = @"Game Details";
-    
     [self customizeDesign];
-    
     [Helper addTapRecognizerToVc:self];
 }
 - (void)customizeDesign {
@@ -75,15 +72,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [self setupViewValues];
     
-    
     for (UITableViewCell *cell in self.cells) {
         [DesignHelper customizeCell:cell];
     }
-    
 }
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];
-    self.costValue.text = self.event.cost.stringValue;
+    [EventHelper setupCostValueForTextField:self.costValue forEvent:self.event];
     [self setupNumberConfirmedValue];
 }
 - (void)setupNumberConfirmedValue {
@@ -121,6 +116,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [EventHelper saveCostString:textField.text toEvent:self.event];
     [self saveEvent];
+    [EventHelper setupCostValueForTextField:self.costValue forEvent:self.event];
 }
 
 

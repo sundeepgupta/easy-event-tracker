@@ -37,6 +37,7 @@
     return (isNumbersOnly && hasNoLeadingZero && hasNoMultipleDecimals);
 }
 
+
 + (void)saveCostString:(NSString *)costString toEvent:(Event *)event {
     if (costString.length == 0) {
         event.cost = 0;
@@ -45,10 +46,30 @@
     }
 }
 
+
 + (void)presentDatePicker:(TDDatePickerController *)datePickerController InVc:(UIViewController *)vc {
     datePickerController = [[TDDatePickerController alloc] initWithNibName:@"TDDatePickerController" bundle:nil];
     datePickerController.delegate = vc;
     [vc presentSemiModalViewController:datePickerController inView:vc.view];
+}
+
+
++ (void)setupCostValueForTextField:(UITextField *)textField forEvent:(Event *)event {
+    textField.text = [self costStringForEvent:event];
+}
++ (NSString *)costStringForEvent:(Event *)event {
+    NSString *string = nil;
+    NSInteger integerCost = event.cost.integerValue;
+    if (integerCost != 0) {
+        string = [self stringFromDollarAmount:event.cost.floatValue];
+    }
+    return  string;
+}
++ (NSString *)stringFromDollarAmount:(CGFloat)amount {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    NSString *amountString = [formatter stringFromNumber:[NSNumber numberWithFloat:amount]];
+    return amountString;
 }
 
 

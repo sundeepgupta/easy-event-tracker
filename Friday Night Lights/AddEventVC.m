@@ -99,6 +99,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [EventHelper saveCostString:textField.text toEvent:self.event];
+    [EventHelper setupCostValueForTextField:self.costValue forEvent:self.event];
 }
 
 #pragma mark - Table view delegate

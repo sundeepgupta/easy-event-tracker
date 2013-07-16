@@ -18,4 +18,7 @@
 
 + (void)presentDatePicker:(TDDatePickerController *)datePickerController InVc:(UIViewController *)vc;
 
++ (void)setupCostValueForTextField:(UITextField *)textField forEvent:(Event *)event;
+
+
 @end

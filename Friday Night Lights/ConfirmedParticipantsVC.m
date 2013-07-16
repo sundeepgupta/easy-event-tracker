@@ -8,7 +8,6 @@
 
 #import "ConfirmedParticipantsVC.h"
 #import "ParticipantHelper.h"
-#import "ParticipantsVC.h"
 #import "Participant.h"
 
 @interface ConfirmedParticipantsVC ()
@@ -32,15 +31,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.title = @"Confirmed";
-    
     [DesignHelper customizeTableView:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupDataSources];
-
 }
 - (void)setupDataSources {
     self.dataSource = [Model participants];

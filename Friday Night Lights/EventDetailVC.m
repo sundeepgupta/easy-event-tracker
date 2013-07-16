@@ -58,10 +58,6 @@
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];
-    
-    for (UITableViewCell *cell in self.cells) {
-        [DesignHelper customizeCell:cell];
-    }
 }
 
 - (void)dismissKeyboard:(UITapGestureRecognizer *)sender {
@@ -71,10 +67,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupViewValues];
-    
-    for (UITableViewCell *cell in self.cells) {
-        [DesignHelper customizeCell:cell];
-    }
+    [DesignHelper customizeCells:self.cells];
 }
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];

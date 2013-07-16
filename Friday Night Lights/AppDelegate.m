@@ -27,17 +27,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
     [DesignHelper customizeIphoneTheme];
-    
-    
-    //sample data population
-//    Event *event1 = [self.model newEvent];
-//    event1.date = [NSDate date];
-//    [Model saveContext];
-    ///
-    
-    
+    [TestFlight takeOff:@"2d664d07-3092-40fa-8a38-5ff310a65496"];
     return YES;
 }
 

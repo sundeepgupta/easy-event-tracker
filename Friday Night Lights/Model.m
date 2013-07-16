@@ -64,6 +64,11 @@
     NSArray *objects = event.participants.allObjects;
     return objects;
 }
++ (NSArray *)confirmedEventsForParticipant:(Participant *)participant {
+    NSArray *objects = participant.events.allObjects;
+    return objects;
+}
+
 
 + (NSArray *)unconfirmedParticipantsForEvent:(Event *)event {
     NSArray *confirmedParticipants = [self confirmedParticipantsForEvent:event];
@@ -90,6 +95,11 @@
 
 + (NSInteger)numberOfConfirmedParticipantsForEvent:(Event *)event {
     NSArray *objects = [self confirmedParticipantsForEvent:event];
+    return objects.count;
+}
+
++ (NSInteger)numberOfConfirmedEventsForParticipant:(Participant *)participant {
+    NSArray *objects = [self confirmedEventsForParticipant:participant];
     return objects.count;
 }
 

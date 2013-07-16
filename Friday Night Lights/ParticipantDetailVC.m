@@ -8,14 +8,17 @@
 
 #import "ParticipantDetailVC.h"
 #import "Participant.h"
+#import "ConfirmedEventsVC.h"
 
 
 @interface ParticipantDetailVC ()
 
 @property (strong, nonatomic) Model *model;
 
-@property (strong, nonatomic) IBOutlet UITextField *nameField;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (strong, nonatomic) IBOutlet UITextField *balanceValue;
+@property (strong, nonatomic) IBOutlet UILabel *confirmedEventsValue;
+@property (strong, nonatomic) IBOutlet UITableViewCell *confirmedEventsCell;
+
 @property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
 
 @end
@@ -34,33 +37,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self customizeDesign];
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];
-
-    for (UITableViewCell *cell in self.cells) {
-        [DesignHelper customizeCell:cell];
-    }
 }
-     
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self setupView];
-    
-    
-    
-    
+    [self setupViewValues];
+    [DesignHelper customizeCells:self.cells];
 }
 
-- (void)setupView {
-    if (self.participant) {
-//        self.nameField.text = self.participant.name;
-        self.doneButton.enabled = NO;
-    } 
-}
+- (void)setupViewValues {
+    [self setupNumberOfEventsValue];
 
+}
+- (void)setupNumberOfEventsValue {
+    NSInteger number = [Model numberOfConfirmedEventsForParticipant:self.participant];
+    self.confirmedEventsValue.text = [NSString stringWithFormat:@"%d", number];
+}
 
 
 
@@ -94,17 +89,28 @@
 }
 
 - (BOOL)fieldsAreValid {
-    if (self.nameField.text.length == 0) {
-        return NO;
-    } else {
-        return YES;
-    }
+    
 }
 
 - (void)handleInvalidFields {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name is required." message:@"Please enter a name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
 }
+
+
+#pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isEqual:self.confirmedEventsCell]) {
+        NSString *vcId = NSStringFromClass([ConfirmedEventsVC class]);
+        ConfirmedEventsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+        vc.participant = self.participant;
+        [self.navigationController pushViewController:vc animated:YES];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
 
 - (void)saveParticipant {
     self.participant = [Model newParticipant];
@@ -113,8 +119,22 @@
 }
 
 - (void)viewDidUnload {
-    [self setNameField:nil];
-    [self setDoneButton:nil];
     [super viewDidUnload];
 }
+
+- (IBAction)addMoneyButtonPress:(id)sender {
+}
+
+- (IBAction)textButtonPress:(id)sender {
+}
+
+- (IBAction)emailButtonPress:(id)sender {
+}
+
+- (IBAction)callButtonPress:(id)sender {
+}
+
+
+
+
 @end

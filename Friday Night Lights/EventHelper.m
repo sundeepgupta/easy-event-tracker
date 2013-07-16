@@ -56,7 +56,6 @@
 }
 
 
-
 + (void)setupCostValueForTextField:(UITextField *)textField forEvent:(Event *)event {
     textField.text = [self costStringForEvent:event];
 }

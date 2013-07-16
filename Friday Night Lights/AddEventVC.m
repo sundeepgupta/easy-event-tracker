@@ -68,9 +68,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    for (UITableViewCell *cell in self.cells) {
-        [DesignHelper customizeCell:cell];
-    }
+    [DesignHelper customizeCells:self.cells];
 }
 
 

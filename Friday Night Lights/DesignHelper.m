@@ -102,6 +102,12 @@
 
 
 #pragma mark - Table Cells
++ (void)customizeCells:(NSArray *)cells {
+    for (UITableViewCell *cell in cells) {
+        [self customizeCell:cell];
+    }
+}
+
 + (void)customizeCell:(UITableViewCell *)cell {
     [self customizeBackgroundForSelectedCell:cell];
     [self customizeBackgroundForUnSelectedCell:cell];

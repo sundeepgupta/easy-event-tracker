@@ -17,6 +17,7 @@
 
 + (void)addBackgroundToView:(UIView *)view;
 
++ (void)customizeCells:(NSArray *)cells;
 + (void)customizeCell:(UITableViewCell *)cell;
 + (void)customizeCellText:(UIView *)view ;
 

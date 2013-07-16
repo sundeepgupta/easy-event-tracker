@@ -15,5 +15,6 @@
 @property (nonatomic, retain) NSNumber * amount;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * method;
+@property (nonatomic, retain) NSString * note;
 
 @end

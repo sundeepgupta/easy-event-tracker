@@ -61,8 +61,8 @@
 }
 + (NSString *)costStringForEvent:(Event *)event {
     NSString *string = nil;
-    NSInteger integerCost = event.cost.integerValue;
-    if (integerCost != 0) {
+    CGFloat floatCost = event.cost.floatValue;
+    if (floatCost != 0) {
         string = [self stringFromDollarAmount:event.cost.floatValue];
     }
     return  string;

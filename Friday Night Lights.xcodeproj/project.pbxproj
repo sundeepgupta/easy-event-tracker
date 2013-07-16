@@ -56,8 +56,8 @@
 		AE3256C71794E0F10061BBF1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3256C61794E0F10061BBF1 /* libz.dylib */; };
 		AE3256CA1794E5FA0061BBF1 /* ConfirmedEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */; };
 		AE3256CB1794E5FA0061BBF1 /* ConfirmedEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */; };
-		AE3256CF1794FEFF0061BBF1 /* ParticipantTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256CE1794FEFF0061BBF1 /* ParticipantTransaction.m */; };
-		AE3256D01794FEFF0061BBF1 /* ParticipantTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256CE1794FEFF0061BBF1 /* ParticipantTransaction.m */; };
+		AE3256D31794FFD40061BBF1 /* ParticipantTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256D21794FFD40061BBF1 /* ParticipantTransaction.m */; };
+		AE3256D41794FFD40061BBF1 /* ParticipantTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256D21794FFD40061BBF1 /* ParticipantTransaction.m */; };
 		AE4F15A01781E6C700650410 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155E1781E6C700650410 /* calendar.png */; };
 		AE4F15A11781E6C700650410 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155E1781E6C700650410 /* calendar.png */; };
 		AE4F15A21781E6C700650410 /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155F1781E6C700650410 /* calendar@2x.png */; };
@@ -190,6 +190,8 @@
 		AE4F16211781E6C700650410 /* switch-thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F159F1781E6C700650410 /* switch-thumb@2x.png */; };
 		AE4F16231781E88700650410 /* team@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F16221781E88700650410 /* team@2x.png */; };
 		AE4F16241781E88700650410 /* team@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F16221781E88700650410 /* team@2x.png */; };
+		AE814D5B17950157001E4866 /* ParticipantTransactionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE814D5A17950157001E4866 /* ParticipantTransactionVC.m */; };
+		AE814D5C17950157001E4866 /* ParticipantTransactionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE814D5A17950157001E4866 /* ParticipantTransactionVC.m */; };
 		AE89ABE3176D426700C06D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE2176D426700C06D03 /* UIKit.framework */; };
 		AE89ABE5176D426700C06D03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE4176D426700C06D03 /* Foundation.framework */; };
 		AE89ABE7176D426700C06D03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE6176D426700C06D03 /* CoreGraphics.framework */; };
@@ -297,9 +299,9 @@
 		AE3256C61794E0F10061BBF1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AE3256C81794E5F90061BBF1 /* ConfirmedEventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmedEventsVC.h; path = "Friday Night Lights/ConfirmedEventsVC.h"; sourceTree = "<group>"; };
 		AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmedEventsVC.m; path = "Friday Night Lights/ConfirmedEventsVC.m"; sourceTree = "<group>"; };
-		AE3256CC1794FC470061BBF1 /* Friday_Night_Lights 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Friday_Night_Lights 2.xcdatamodel"; sourceTree = "<group>"; };
-		AE3256CD1794FEFF0061BBF1 /* ParticipantTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantTransaction.h; path = "Friday Night Lights/ParticipantTransaction.h"; sourceTree = "<group>"; };
-		AE3256CE1794FEFF0061BBF1 /* ParticipantTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantTransaction.m; path = "Friday Night Lights/ParticipantTransaction.m"; sourceTree = "<group>"; };
+		AE3256CC1794FC470061BBF1 /* Friday_Night_Lights 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Friday_Night_Lights 2.xcdatamodel"; sourceTree = "<group>"; };
+		AE3256D11794FFD40061BBF1 /* ParticipantTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantTransaction.h; path = "Friday Night Lights/ParticipantTransaction.h"; sourceTree = "<group>"; };
+		AE3256D21794FFD40061BBF1 /* ParticipantTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantTransaction.m; path = "Friday Night Lights/ParticipantTransaction.m"; sourceTree = "<group>"; };
 		AE4F155E1781E6C700650410 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		AE4F155F1781E6C700650410 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar@2x.png"; sourceTree = "<group>"; };
 		AE4F15601781E6C700650410 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
@@ -366,6 +368,8 @@
 		AE4F159E1781E6C700650410 /* switch-thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch-thumb.png"; sourceTree = "<group>"; };
 		AE4F159F1781E6C700650410 /* switch-thumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch-thumb@2x.png"; sourceTree = "<group>"; };
 		AE4F16221781E88700650410 /* team@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "team@2x.png"; sourceTree = "<group>"; };
+		AE814D5917950157001E4866 /* ParticipantTransactionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantTransactionVC.h; path = "Friday Night Lights/ParticipantTransactionVC.h"; sourceTree = "<group>"; };
+		AE814D5A17950157001E4866 /* ParticipantTransactionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantTransactionVC.m; path = "Friday Night Lights/ParticipantTransactionVC.m"; sourceTree = "<group>"; };
 		AE89ABDF176D426700C06D03 /* Friday Night Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friday Night Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE89ABE2176D426700C06D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE89ABE4176D426700C06D03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -451,16 +455,18 @@
 		AE0E42C3176DFFC300A050BE /* Participants */ = {
 			isa = PBXGroup;
 			children = (
-				AE3256CD1794FEFF0061BBF1 /* ParticipantTransaction.h */,
-				AE3256CE1794FEFF0061BBF1 /* ParticipantTransaction.m */,
+				AE814D5917950157001E4866 /* ParticipantTransactionVC.h */,
+				AE814D5A17950157001E4866 /* ParticipantTransactionVC.m */,
 				AE3256C81794E5F90061BBF1 /* ConfirmedEventsVC.h */,
 				AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */,
-				AE0E42BF176DFF8900A050BE /* ParticipantDetailVC.h */,
-				AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */,
 				AE25FFFC176E8FAB00955426 /* Participant.h */,
 				AE25FFFD176E8FAB00955426 /* Participant.m */,
+				AE0E42BF176DFF8900A050BE /* ParticipantDetailVC.h */,
+				AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */,
 				AE0E42BB176D592100A050BE /* ParticipantsVC.h */,
 				AE0E42BC176D592100A050BE /* ParticipantsVC.m */,
+				AE3256D11794FFD40061BBF1 /* ParticipantTransaction.h */,
+				AE3256D21794FFD40061BBF1 /* ParticipantTransaction.m */,
 			);
 			name = Participants;
 			sourceTree = "<group>";
@@ -1022,7 +1028,8 @@
 				AEE083B81791FA1400371928 /* ConfirmedParticipantsVC.m in Sources */,
 				AED35F9C17939871009D8ADF /* Helper.m in Sources */,
 				AE3256CA1794E5FA0061BBF1 /* ConfirmedEventsVC.m in Sources */,
-				AE3256CF1794FEFF0061BBF1 /* ParticipantTransaction.m in Sources */,
+				AE3256D31794FFD40061BBF1 /* ParticipantTransaction.m in Sources */,
+				AE814D5B17950157001E4866 /* ParticipantTransactionVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1058,7 +1065,8 @@
 				AEC5DF1F177A1093004C697C /* ParticipantHelper.m in Sources */,
 				AED35F9D17939871009D8ADF /* Helper.m in Sources */,
 				AE3256CB1794E5FA0061BBF1 /* ConfirmedEventsVC.m in Sources */,
-				AE3256D01794FEFF0061BBF1 /* ParticipantTransaction.m in Sources */,
+				AE3256D41794FFD40061BBF1 /* ParticipantTransaction.m in Sources */,
+				AE814D5C17950157001E4866 /* ParticipantTransactionVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

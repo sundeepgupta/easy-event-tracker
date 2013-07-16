@@ -12,6 +12,7 @@
 #import "ParticipantHelper.h"
 #import "MessageHelper.h"
 #import "UIAlertView+Helpers.h"
+#import "ParticipantTransactionVC.h"
 
 @interface ParticipantDetailVC ()
 
@@ -103,7 +104,11 @@
     [super viewDidUnload];
 }
 
-- (IBAction)addMoneyButtonPress:(id)sender {
+- (IBAction)transactionButtonPress:(id)sender {
+    UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"ParticipantTransactionNC"];
+    ParticipantTransactionVC *vc = (ParticipantTransactionVC *)nc.topViewController;
+    vc.participant = self.participant;
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 - (IBAction)textButtonPress:(id)sender {

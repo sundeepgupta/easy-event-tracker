@@ -16,10 +16,11 @@
         <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="method" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Event" positionX="0" positionY="0" width="128" height="120"/>
         <element name="Participant" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="ParticipantTransaction" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="ParticipantTransaction" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

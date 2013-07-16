@@ -12,5 +12,6 @@
 
 - (NSString *)dateAndTimeString;
 
+- (NSString *)dateString;
 
 @end

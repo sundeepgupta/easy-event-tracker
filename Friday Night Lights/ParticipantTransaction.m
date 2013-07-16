@@ -14,5 +14,6 @@
 @dynamic amount;
 @dynamic date;
 @dynamic method;
+@dynamic note;
 
 @end

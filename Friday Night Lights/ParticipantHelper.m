@@ -37,4 +37,18 @@
     return [AddressBookHelper abCompositeNameFromAbRecordId:abRecordId];
 }
 
+
++ (NSURL *)phoneUrlForParticipant:(Participant *)participant {
+    NSString *mobileNumber = [self mobileNumberForParticipant:participant];
+    NSString *phoneString = [NSString stringWithFormat:@"telprompt://%@", mobileNumber];
+    NSString *escapedString = [phoneString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *phoneUrl = [NSURL URLWithString:escapedString];
+    return phoneUrl;
+}
++ (NSString *)mobileNumberForParticipant:(Participant *)participant {
+    NSNumber *abRecordId = participant.abRecordId;
+    return [AddressBookHelper mobileNumberFromAbRecordId:abRecordId];
+}
+
+
 @end

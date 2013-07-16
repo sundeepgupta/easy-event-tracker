@@ -9,11 +9,14 @@
 #import "ParticipantDetailVC.h"
 #import "Participant.h"
 #import "ConfirmedEventsVC.h"
-
+#import "ParticipantHelper.h"
+#import "MessageHelper.h"
+#import "UIAlertView+Helpers.h"
 
 @interface ParticipantDetailVC ()
 
 @property (strong, nonatomic) Model *model;
+@property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
 
 @property (strong, nonatomic) IBOutlet UITextField *balanceValue;
 @property (strong, nonatomic) IBOutlet UILabel *confirmedEventsValue;
@@ -38,7 +41,7 @@
 {
     [super viewDidLoad];
     [self customizeDesign];
-    
+    self.title = [ParticipantHelper nameForParticipant:self.participant];
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];
@@ -76,29 +79,6 @@
 }
 
 
-- (IBAction)doneButtonPress:(UIBarButtonItem *)sender {
-    [self processNewCustomer];
-}
-
-- (void)processNewCustomer {
-    if ([self fieldsAreValid]) {
-        [self saveParticipant];
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        [self handleInvalidFields];
-    }
-}
-
-- (BOOL)fieldsAreValid {
-    
-}
-
-- (void)handleInvalidFields {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Name is required." message:@"Please enter a name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
-}
-
-
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -127,15 +107,56 @@
 }
 
 - (IBAction)textButtonPress:(id)sender {
-}
-
-- (IBAction)emailButtonPress:(id)sender {
+    [self sendMessage];
 }
 
 - (IBAction)callButtonPress:(id)sender {
+    [self call];
 }
 
+- (void)sendMessage {
+    if([MFMessageComposeViewController canSendText]) {
+        [self setupMessageComposeVc];
+        [self setupMessageParticipants];
+        [self presentViewController:self.messageComposeVc animated:YES completion:nil];
+    } else {
+        [MessageHelper showCantSendTextAlert];
+    }
+}
+- (void)setupMessageComposeVc {
+    self.messageComposeVc = [[MFMessageComposeViewController alloc] init];
+    self.messageComposeVc.messageComposeDelegate = self;
+}
+- (void)setupMessageParticipants {
+    NSArray *participants = @[self.participant];
+    [self setupMessageWithRecipients:participants];
+}
+- (void)setupMessageWithRecipients:(NSArray *)participants {
+    NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
+    self.messageComposeVc.recipients = mobileNumbers;
+}
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    switch (result) {
+        case MessageComposeResultCancelled: {
+            break;
+        }
+        case MessageComposeResultSent: {
+            break;
+        }
+        case MessageComposeResultFailed: {
+            [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
+            break;
+        }
+        default:
+            break;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (void)call {
+    NSURL *url = [ParticipantHelper phoneUrlForParticipant:self.participant];
+    [[UIApplication sharedApplication] openURL:url];
+}
 
 
 @end

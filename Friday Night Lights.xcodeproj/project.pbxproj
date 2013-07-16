@@ -483,24 +483,24 @@
 		AE18DD8A17749D050082FCFE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				AEC5DF1C177A1093004C697C /* ParticipantHelper.h */,
-				AEC5DF1D177A1093004C697C /* ParticipantHelper.m */,
-				AEC5DF16177A0CAA004C697C /* DesignHelper.h */,
-				AEC5DF17177A0CAA004C697C /* DesignHelper.m */,
-				AEF3E035177973C6002F1D4C /* MessageHelper.h */,
-				AEF3E036177973C6002F1D4C /* MessageHelper.m */,
-				AEF3E03117796DB1002F1D4C /* UITableView+Helpers.h */,
-				AEF3E03217796DB1002F1D4C /* UITableView+Helpers.m */,
-				AE18DDCF17762E4B0082FCFE /* NSDate+Helpers.h */,
-				AE18DDD017762E4C0082FCFE /* NSDate+Helpers.m */,
-				AE1238A3176F76C6009FC5EB /* UIAlertView+Helpers.h */,
-				AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */,
 				AE12389B176F71A5009FC5EB /* AddressBookHelper.h */,
 				AE12389C176F71A5009FC5EB /* AddressBookHelper.m */,
-				AE18DDC717760FE50082FCFE /* NSString+Helpers.h */,
-				AE18DDC817760FE50082FCFE /* NSString+Helpers.m */,
+				AEC5DF16177A0CAA004C697C /* DesignHelper.h */,
+				AEC5DF17177A0CAA004C697C /* DesignHelper.m */,
 				AE18DDDB177630E00082FCFE /* EventHelper.h */,
 				AE18DDDC177630E00082FCFE /* EventHelper.m */,
+				AEF3E035177973C6002F1D4C /* MessageHelper.h */,
+				AEF3E036177973C6002F1D4C /* MessageHelper.m */,
+				AE18DDCF17762E4B0082FCFE /* NSDate+Helpers.h */,
+				AE18DDD017762E4C0082FCFE /* NSDate+Helpers.m */,
+				AE18DDC717760FE50082FCFE /* NSString+Helpers.h */,
+				AE18DDC817760FE50082FCFE /* NSString+Helpers.m */,
+				AEC5DF1C177A1093004C697C /* ParticipantHelper.h */,
+				AEC5DF1D177A1093004C697C /* ParticipantHelper.m */,
+				AE1238A3176F76C6009FC5EB /* UIAlertView+Helpers.h */,
+				AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */,
+				AEF3E03117796DB1002F1D4C /* UITableView+Helpers.h */,
+				AEF3E03217796DB1002F1D4C /* UITableView+Helpers.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";

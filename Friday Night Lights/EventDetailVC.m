@@ -7,7 +7,6 @@
 //
 
 #import "EventDetailVC.h"
-
 #import "Event.h"
 #import "NSString+Helpers.h"
 #import "TDDatePickerController.h"
@@ -23,7 +22,6 @@
 
 @interface EventDetailVC ()
 
-@property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
 
@@ -148,10 +146,10 @@
 }
 
 
-- (IBAction)messageConfirmedParticipants:(id)sender {
+- (IBAction)textConfirmedParticipantsButtonPress:(id)sender {
     [self sendMessageToConfirmedParticipants:YES];
 }
-- (IBAction)messageUnconfirmedParticipants:(id)sender {
+- (IBAction)textUnconfirmedParticipantsButtonPress:(id)sender {
     [self sendMessageToConfirmedParticipants:NO];
 }
 - (void)sendMessageToConfirmedParticipants:(BOOL)toConfirmedParticipants {
@@ -168,7 +166,6 @@
     } else {
         [MessageHelper showCantSendTextAlert];
     }
-
 }
 - (void)setupMessageComposeVc {
     self.messageComposeVc = [[MFMessageComposeViewController alloc] init];

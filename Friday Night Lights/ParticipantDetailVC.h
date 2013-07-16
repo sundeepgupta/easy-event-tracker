@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 @class Participant;
 
-@interface ParticipantDetailVC : UITableViewController
+@interface ParticipantDetailVC : UITableViewController <MFMessageComposeViewControllerDelegate>
 
 @property (strong, nonatomic) Participant *participant;
 

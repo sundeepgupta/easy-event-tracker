@@ -16,5 +16,6 @@
 
 + (NSString *)nameForParticipant:(Participant *)participant;
 
++ (NSURL *)phoneUrlForParticipant:(Participant *)participant;
     
 @end

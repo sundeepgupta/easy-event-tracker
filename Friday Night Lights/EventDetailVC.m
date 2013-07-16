@@ -125,7 +125,7 @@
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if ([cell isEqual:self.dateCell]) {
-        [self presentDatePicker];
+        [EventHelper presentDatePickerInVc:self];
     } else if ([cell isEqual:self.confirmedParticipantsCell]) {
         NSString *vcId = NSStringFromClass([ConfirmedParticipantsVC class]);
         ConfirmedParticipantsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
@@ -134,11 +134,7 @@
         [self.tableView deselectSelectedRow];
     }
 }
-- (void)presentDatePicker {
-    self.datePickerController = [[TDDatePickerController alloc] initWithNibName:@"TDDatePickerController" bundle:nil];
-    self.datePickerController.delegate = self;
-    [self presentSemiModalViewController:self.datePickerController inView:self.navigationController.view];
-}
+
 
 -(void)datePickerSetDate:(TDDatePickerController*)viewController {
     NSDate *date = viewController.datePicker.date;

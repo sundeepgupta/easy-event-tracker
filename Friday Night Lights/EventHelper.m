@@ -10,6 +10,8 @@
 #import "NSString+Helpers.h"
 #import "Event.h"
 #import "TDDatePickerController.h"
+#import "EventDetailVC.h"
+#import "AddEventVC.h"
 
 @interface EventHelper ()
 
@@ -37,7 +39,6 @@
     return (isNumbersOnly && hasNoLeadingZero && hasNoMultipleDecimals);
 }
 
-
 + (void)saveCostString:(NSString *)costString toEvent:(Event *)event {
     if (costString.length == 0) {
         event.cost = 0;
@@ -47,11 +48,13 @@
 }
 
 
-+ (void)presentDatePicker:(TDDatePickerController *)datePickerController InVc:(UIViewController *)vc {
-    datePickerController = [[TDDatePickerController alloc] initWithNibName:@"TDDatePickerController" bundle:nil];
++ (void)presentDatePickerInVc:(UIViewController *)vc {
+    TDDatePickerController *datePickerController = [[TDDatePickerController alloc] initWithNibName:@"TDDatePickerController" bundle:nil];
     datePickerController.delegate = vc;
+    [vc setValue:datePickerController forKey:@"datePickerController"];
     [vc presentSemiModalViewController:datePickerController inView:vc.view];
 }
+
 
 
 + (void)setupCostValueForTextField:(UITextField *)textField forEvent:(Event *)event {

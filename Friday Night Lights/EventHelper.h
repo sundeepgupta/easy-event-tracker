@@ -16,7 +16,7 @@
 
 + (void)saveCostString:(NSString *)costString toEvent:(Event *)event;
 
-+ (void)presentDatePicker:(TDDatePickerController *)datePickerController InVc:(UIViewController *)vc;
++ (void)presentDatePickerInVc:(UIViewController *)vc;
 
 + (void)setupCostValueForTextField:(UITextField *)textField forEvent:(Event *)event;
 

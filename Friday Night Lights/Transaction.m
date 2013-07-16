@@ -1,15 +1,15 @@
 //
-//  ParticipantTransaction.m
+//  Transaction.m
 //  Friday Night Lights
 //
 //  Created by Sundeep Gupta on 2013-07-16.
 //  Copyright (c) 2013 Sundeep Gupta. All rights reserved.
 //
 
-#import "ParticipantTransaction.h"
+#import "Transaction.h"
 
 
-@implementation ParticipantTransaction
+@implementation Transaction
 
 @dynamic amount;
 @dynamic date;

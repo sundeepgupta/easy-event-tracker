@@ -1,5 +1,5 @@
 //
-//  ParticipantTransactionVC.h
+//  TransactionDetailVC.h
 //  Friday Night Lights
 //
 //  Created by Sundeep Gupta on 2013-07-16.
@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class Participant;
+@class Participant, Transaction;
 
-@interface ParticipantTransactionVC : UITableViewController
+@interface TransactionDetailVC : UITableViewController
 
+@property (strong, nonatomic) Transaction *transaction;
 @property (strong, nonatomic) Participant *participant;
 
 @end

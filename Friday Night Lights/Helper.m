@@ -11,7 +11,7 @@
 #import "TDDatePickerController.h"
 #import "EventDetailVC.h"
 #import "AddEventVC.h"
-#import "ParticipantTransactionVC.h"
+#import "TransactionDetailVC.h"
 
 
 @interface Helper ()

@@ -1,18 +1,18 @@
 //
-//  ParticipantTransactionVC.m
+//  TransactionDetailVC.m
 //  Friday Night Lights
 //
 //  Created by Sundeep Gupta on 2013-07-16.
 //  Copyright (c) 2013 Sundeep Gupta. All rights reserved.
 //
 
-#import "ParticipantTransactionVC.h"
+#import "TransactionDetailVC.h"
 #import "TDDatePickerController.h"
 #import "Helper.h"
 #import "NSDate+Helpers.h"
 
 
-@interface ParticipantTransactionVC ()
+@interface TransactionDetailVC ()
 
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
 
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation ParticipantTransactionVC
+@implementation TransactionDetailVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

@@ -12,7 +12,8 @@
 #import "ParticipantHelper.h"
 #import "MessageHelper.h"
 #import "UIAlertView+Helpers.h"
-#import "ParticipantTransactionVC.h"
+#import "TransactionDetailVC.h"
+#import "Transaction.h"
 
 @interface ParticipantDetailVC ()
 
@@ -106,10 +107,16 @@
 
 - (IBAction)transactionButtonPress:(id)sender {
     UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"ParticipantTransactionNC"];
-    ParticipantTransactionVC *vc = (ParticipantTransactionVC *)nc.topViewController;
-    vc.participant = self.participant;
+    TransactionDetailVC *vc = (TransactionDetailVC *)nc.topViewController;
+    [self setupTransactionDetailVc:vc];
     [self presentViewController:nc animated:YES completion:nil];
 }
+- (void)setupTransactionDetailVc:(TransactionDetailVC *)vc {
+    vc.participant = self.participant;
+    Transaction *transaction = [Model newTransaction];
+    vc.transaction = transaction;
+}
+
 
 - (IBAction)textButtonPress:(id)sender {
     [self sendMessage];

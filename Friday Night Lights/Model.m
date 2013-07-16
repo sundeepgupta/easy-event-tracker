@@ -9,6 +9,7 @@
 #import "Model.h"
 #import "Participant.h"
 #import "Event.h"
+#import "Transaction.h"
 #import "AppDelegate.h"
 
 @interface Model()
@@ -123,7 +124,12 @@
 
 
 #pragma mark - Transactions
-
++ (Transaction *)newTransaction {
+    NSString *entityName = NSStringFromClass([Transaction class]);
+    Transaction *object = (Transaction *)[self newObjectWithEntityName:entityName];
+    object.date = [NSDate date];
+    return object;
+}
 
 
 

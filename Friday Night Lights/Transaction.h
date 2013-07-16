@@ -1,5 +1,5 @@
 //
-//  ParticipantTransaction.h
+//  Transaction.h
 //  Friday Night Lights
 //
 //  Created by Sundeep Gupta on 2013-07-16.
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface ParticipantTransaction : NSManagedObject
+@interface Transaction : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * amount;
 @property (nonatomic, retain) NSDate * date;

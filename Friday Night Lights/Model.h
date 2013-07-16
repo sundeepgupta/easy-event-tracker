@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class Participant, Event;
+@class Participant, Event, Transaction;
 
 @interface Model : NSObject
 
@@ -35,7 +35,8 @@
 
 
 
-
+#pragma mark - Transactions
++ (Transaction *)newTransaction;
 
 
 

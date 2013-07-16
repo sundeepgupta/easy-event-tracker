@@ -75,9 +75,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Event *objectAtIndexPath = [self objectAtIndexPath:indexPath];
-    NSString *dateString = [objectAtIndexPath.date dateAndTimeString];
-    
-    cell.textLabel.text = dateString;
+
+    cell.textLabel.text = [objectAtIndexPath.date dateAndTimeString];
     
     [DesignHelper customizeCell:cell];
     

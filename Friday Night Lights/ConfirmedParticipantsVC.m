@@ -36,9 +36,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self setupDataSources];
+    [self setupDataSource];
 }
-- (void)setupDataSources {
+- (void)setupDataSource {
     self.dataSource = [Model participants];
     self.confirmedParticipants = [Model confirmedParticipantsForEvent:self.event];
 }

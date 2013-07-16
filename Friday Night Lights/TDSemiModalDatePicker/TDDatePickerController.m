@@ -15,6 +15,9 @@
     [super viewDidLoad];
 
 	datePicker.date = [NSDate date];
+    
+    //SKG
+    [self setupDateMode];
 
 	// we need to set the subview dimensions or it will not always render correctly
 	// http://stackoverflow.com/questions/1088163
@@ -22,6 +25,13 @@
 		subview.frame = datePicker.bounds;
 	}
 
+}
+
+//SKG
+- (void)setupDateMode {
+    if (self.datePickerMode) {
+        datePicker.datePickerMode = self.datePickerMode;
+    }
 }
 
 -(BOOL)shouldAutorotate {

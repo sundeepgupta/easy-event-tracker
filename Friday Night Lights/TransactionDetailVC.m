@@ -10,6 +10,9 @@
 #import "TDDatePickerController.h"
 #import "Helper.h"
 #import "NSDate+Helpers.h"
+#import "Transaction.h"
+#import "TransactionHelper.h"
+#import "UITableView+Helpers.h"
 
 
 @interface TransactionDetailVC ()
@@ -75,46 +78,66 @@
 {
     return [Helper isValidReplacementString:string forAmountFieldString:textField.text];
 }
-//
-//- (void)textFieldDidEndEditing:(UITextField *)textField {
-//    [EventHelper saveCostString:textField.text toEvent:self.event];
-//
-//    [EventHelper setupCostValueForTextField:self.costValue forEvent:self.event];
-//}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.transaction.amount = [Helper amountNumberForTextFieldAmountString:textField.text];
+    self.amountValue.text = [Helper stringForAmountNumber:self.transaction.amount];
+    [self saveTransaction];
+}
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isEqual:self.dateCell]) {
+        [Helper presentDatePickerInVc:self withDateMode:YES];
+    }
 }
 
+#pragma mark - Date Picker Delegates
+-(void)datePickerSetDate:(TDDatePickerController*)viewController {
+    NSDate *date = viewController.datePicker.date;
+    self.transaction.date = date;
+    [self saveTransaction];
+    self.dateValue.text =  [date dateString];
+    [self resetView];
+}
+-(void)datePickerClearDate:(TDDatePickerController*)viewController {
+    //not being used here
+}
+-(void)datePickerCancel:(TDDatePickerController*)viewController {
+    [self resetView];
+}
+- (void)resetView {
+    [self dismissSemiModalViewController:self.datePickerController];
+    [self.tableView deselectSelectedRow];
+}
 
+- (void)saveTransaction {
+    [Model saveContext];
+}
+
+#pragma mark - IB Actions
 - (IBAction)cancelButtonPress:(id)sender {
+    [self deleteTransaction];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (void)deleteTransaction {
+    [Model deleteObject:self.transaction];
+    self.transaction = nil;
+}
+
 
 - (IBAction)doneButtonPress:(id)sender {
-    
-    [Model saveContext];
+    [self saveTransaction];
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-- (void)saveTransaction {
-    
 }
 
 

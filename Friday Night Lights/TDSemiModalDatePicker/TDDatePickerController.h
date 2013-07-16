@@ -17,6 +17,10 @@
 @property (nonatomic, strong) IBOutlet UIDatePicker* datePicker;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
+//SKG
+@property (nonatomic) UIDatePickerMode datePickerMode;
+
+
 -(IBAction)saveDateEdit:(id)sender;
 -(IBAction)clearDateEdit:(id)sender;
 -(IBAction)cancelDateEdit:(id)sender;

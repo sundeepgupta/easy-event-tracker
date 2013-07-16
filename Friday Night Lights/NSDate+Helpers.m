@@ -19,7 +19,7 @@
 
 - (NSString *)dateString {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"eeee MMMM dd"];
+    [dateFormatter setDateFormat:@"MMMM dd, YYYY"];
     return [dateFormatter stringFromDate:self];
 }
 

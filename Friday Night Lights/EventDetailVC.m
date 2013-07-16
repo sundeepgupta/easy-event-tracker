@@ -69,7 +69,7 @@
 }
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];
-    [EventHelper setupCostValueForTextField:self.costValue forEvent:self.event];
+    self.costValue.text = [Helper stringForAmountNumber:self.event.cost];
     [self setupNumberConfirmedValue];
 }
 - (void)setupNumberConfirmedValue {
@@ -101,13 +101,15 @@
 #pragma mark - TextField Delegates
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return [EventHelper validReplacementString:string forCostFieldString:textField.text];
+    return [Helper isValidReplacementString:string forAmountFieldString:textField.text];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [EventHelper saveCostString:textField.text toEvent:self.event];
+    self.event.cost = [Helper amountNumberForTextFieldAmountString:textField.text];
+    
     [self saveEvent];
-    [EventHelper setupCostValueForTextField:self.costValue forEvent:self.event];
+    
+    self.costValue.text = [Helper stringForAmountNumber:self.event.cost];
 }
 
 
@@ -116,7 +118,7 @@
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if ([cell isEqual:self.dateCell]) {
-        [EventHelper presentDatePickerInVc:self];
+        [Helper presentDatePickerInVc:self withDateMode:NO];
     } else if ([cell isEqual:self.confirmedParticipantsCell]) {
         NSString *vcId = NSStringFromClass([ConfirmedParticipantsVC class]);
         ConfirmedParticipantsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];

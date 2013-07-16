@@ -12,9 +12,13 @@
 
 + (void)addTapRecognizerToVc:(UIViewController *)vc;
 
-+ (BOOL)isValidReplacementString:(NSString *)replacementString forAmountFieldString:(NSString *)amountFieldString;
 
-+ (void)saveAmountString:(NSString *)amountString toNumberVariable:(NSNumber *)number ;
++ (BOOL)isValidReplacementString:(NSString *)replacementString forAmountFieldString:(NSString *)amountFieldString;
++ (NSNumber *)amountNumberForTextFieldAmountString:(NSString *)amountString;
++ (NSString *)stringForAmountNumber:(NSNumber *)number;
+
+
++ (void)presentDatePickerInVc:(UIViewController *)vc withDateMode:(BOOL)withDateMode;
 
 
 @end

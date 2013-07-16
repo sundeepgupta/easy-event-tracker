@@ -7,7 +7,6 @@
 //
 
 #import "AddEventVC.h"
-
 #import "Event.h"
 #import "NSString+Helpers.h"
 #import "TDDatePickerController.h"
@@ -22,7 +21,6 @@
 
 @interface AddEventVC ()
  
-@property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
 
@@ -92,12 +90,12 @@
 #pragma mark - TextField Delegates
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return [EventHelper validReplacementString:string forCostFieldString:textField.text];
+    return [Helper isValidReplacementString:string forAmountFieldString:textField.text];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [EventHelper saveCostString:textField.text toEvent:self.event];
-    [EventHelper setupCostValueForTextField:self.costValue forEvent:self.event];
+    self.event.cost = [Helper amountNumberForTextFieldAmountString:textField.text];
+    self.costValue.text = [Helper stringForAmountNumber:self.event.cost];
 }
 
 #pragma mark - Table view delegate
@@ -105,7 +103,7 @@
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if ([cell isEqual:self.dateCell]) {
-        [EventHelper presentDatePickerInVc:self];
+        [Helper presentDatePickerInVc:self withDateMode:NO];
     }
 }
 

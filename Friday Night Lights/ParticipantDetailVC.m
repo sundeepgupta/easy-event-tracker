@@ -38,6 +38,7 @@
 {
     [super viewDidLoad];
     [self customizeDesign];
+    
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];

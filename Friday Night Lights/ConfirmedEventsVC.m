@@ -14,6 +14,7 @@
 @interface ConfirmedEventsVC ()
 
 @property (strong, nonatomic) NSArray *dataSource;
+@property (strong, nonatomic) NSArray *confirmedEvents;
 
 @end
 
@@ -39,7 +40,8 @@
     [self setupDataSource];
 }
 - (void)setupDataSource {
-    self.dataSource = [Model confirmedEventsForParticipant:self.participant];
+    self.dataSource = [Model events];
+    self.confirmedEvents =[Model confirmedEventsForParticipant:self.participant];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,6 +70,12 @@
     Event *object = [self.dataSource objectAtIndex:indexPath.row];
     cell.textLabel.text = [object.date dateAndTimeString];
     
+    for (Event *confirmedEvent in self.confirmedEvents) {
+        if ([object isEqual:confirmedEvent]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+    }
+    
     return cell;
 }
 
@@ -75,7 +83,23 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self toggleParticipantConfirmedForIndexPath:indexPath];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
+- (void)toggleParticipantConfirmedForIndexPath:(NSIndexPath *)indexPath {
+    Event *event = [self.dataSource objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [Model addParticipant:self.participant toEvent:event];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [Model deleteParticipant:self.participant fromEvent:event];
+    }
+    
+    [Model saveContext];
 }
 
 @end

@@ -21,34 +21,14 @@
 
 @implementation Model
 
-#pragma mark - Create
-+ (Participant *)newParticipant {
-    NSString *entityName = NSStringFromClass([Participant class]);
-    return (Participant *)[self newObjectWithEntityName:entityName];
-}
+#pragma mark - Events
 + (Event *)newEvent {
     NSString *entityName = NSStringFromClass([Event class]);
     Event *event = (Event *)[self newObjectWithEntityName:entityName];
     event.date = [NSDate date];
     return event;
 }
-+ (NSManagedObject *)newObjectWithEntityName:(NSString *)entityName {
-    return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:[self moc]];
-}
 
-
-
-
-#pragma mark - Read
-+ (NSArray *)participants {
-    NSString *entityName = NSStringFromClass([Participant class]);
-    NSArray *objects = [self objectsWithEntityName:entityName];
-    
-    NSArray *sortDescriptors = [self descriptorsFromKey:@"name" isAscending:YES];
-    NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
-
-    return sortedObjects;
-}
 
 + (NSArray *)events {
     NSString *entityName = NSStringFromClass([Event class]);
@@ -59,17 +39,10 @@
     
     return sortedObjects;
 }
-
 + (NSArray *)confirmedParticipantsForEvent:(Event *)event {
     NSArray *objects = event.participants.allObjects;
     return objects;
 }
-+ (NSArray *)confirmedEventsForParticipant:(Participant *)participant {
-    NSArray *objects = participant.events.allObjects;
-    return objects;
-}
-
-
 + (NSArray *)unconfirmedParticipantsForEvent:(Event *)event {
     NSArray *confirmedParticipants = [self confirmedParticipantsForEvent:event];
     NSArray *allParticipants = [self participants];
@@ -91,16 +64,69 @@
     
     return unconfirmedParticipants;
 }
-
-
 + (NSInteger)numberOfConfirmedParticipantsForEvent:(Event *)event {
     NSArray *objects = [self confirmedParticipantsForEvent:event];
     return objects.count;
 }
 
+
++ (void)addParticipant:(Participant *)participant toEvent:(Event *)event {
+    [event addParticipantsObject:participant];
+}
++ (void)deleteParticipant:(Participant *)participant fromEvent:(Event *)event {
+    [event removeParticipantsObject:participant];
+}
+
+
+
+#pragma mark - Participants
++ (Participant *)newParticipant {
+    NSString *entityName = NSStringFromClass([Participant class]);
+    return (Participant *)[self newObjectWithEntityName:entityName];
+}
+
+
++ (NSArray *)participants {
+    NSString *entityName = NSStringFromClass([Participant class]);
+    NSArray *objects = [self objectsWithEntityName:entityName];
+    
+    NSArray *sortDescriptors = [self descriptorsFromKey:@"name" isAscending:YES];
+    NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
+
+    return sortedObjects;
+}
++ (NSArray *)confirmedEventsForParticipant:(Participant *)participant {
+    NSArray *objects = participant.events.allObjects;
+    return objects;
+}
 + (NSInteger)numberOfConfirmedEventsForParticipant:(Participant *)participant {
     NSArray *objects = [self confirmedEventsForParticipant:participant];
     return objects.count;
+}
++ (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key {
+    NSString *entityName = NSStringFromClass([Participant class]);
+    NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
+    
+    NSPredicate *predicate = [self predicateWithAttributeValue:value forKey:key];
+    
+    fetchRequest.predicate = predicate;
+    
+    return [self objectsFromExecutedFetchRequest:fetchRequest];
+}
++ (NSArray *)participantAbRecordIds {
+    NSString *entityName = NSStringFromClass([Participant class]);
+    NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
+    NSArray *properties = @[@"abRecordId"];
+    fetchRequest.propertiesToFetch = properties;
+    return [self objectsFromExecutedFetchRequest:fetchRequest];
+}
+
+
+
+
+#pragma mark - Private Methods
++ (NSManagedObject *)newObjectWithEntityName:(NSString *)entityName {
+    return [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:[self moc]];
 }
 
 + (NSArray *)objectsWithEntityName:(NSString *)entityName {
@@ -142,39 +168,16 @@
     return [mutableObjects sortedArrayUsingDescriptors:sortDescriptors];
 }
 
-+ (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key {
-    NSString *entityName = NSStringFromClass([Participant class]);
-    NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
-    
-    NSPredicate *predicate = [self predicateWithAttributeValue:value forKey:key];
-    
-    fetchRequest.predicate = predicate;
-    
-    return [self objectsFromExecutedFetchRequest:fetchRequest];
-}
 
 + (NSPredicate *)predicateWithAttributeValue:(NSString *)value forKey:(NSString *)key {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", key, value];
     return predicate;
 }
 
-+ (NSArray *)participantAbRecordIds {
-    NSString *entityName = NSStringFromClass([Participant class]);
-    NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
-    NSArray *properties = @[@"abRecordId"];
-    fetchRequest.propertiesToFetch = properties;
-    return [self objectsFromExecutedFetchRequest:fetchRequest];
-}
 
 
-#pragma mark - Update
-+ (void)addParticipant:(Participant *)participant toEvent:(Event *)event {
-    [event addParticipantsObject:participant];
-}
-+ (void)deleteParticipant:(Participant *)participant fromEvent:(Event *)event {
-    [event removeParticipantsObject:participant];
-}
 
+#pragma mark - Core Data
 + (void)saveContext
 {
     NSError *error = nil;
@@ -189,9 +192,6 @@
     }
 }
 
-
-
-#pragma mark - Delete
 + (void)deleteObject:(NSManagedObject *)object {
     NSError *error;
     [[self moc] deleteObject:object];
@@ -200,8 +200,6 @@
     }
     [self saveContext];
 }
-
-
 
 + (void)resetStore {
     //FROM http://stackoverflow.com/questions/1077810/delete-reset-all-entries-in-core-data Note it does not delete external storage files.
@@ -217,7 +215,6 @@
     
     [self unlockMoc];
 }
-
 + (void)lockMoc {
     NSManagedObjectContext *moc = [self moc];
     [moc lock];
@@ -227,8 +224,6 @@
     NSManagedObjectContext *moc = [self moc];
     [moc unlock];
 }
-
-
 + (void)deleteStore {
     NSPersistentStoreCoordinator *storeCoordinator = [self storeCoordinator];
     NSPersistentStore *store = storeCoordinator.persistentStores.lastObject;
@@ -242,8 +237,6 @@
     [storeCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error];
 }
 
-
-#pragma mark - Core Data Access
 + (NSManagedObjectContext *)moc {
     UIApplication *app = [UIApplication sharedApplication];
     AppDelegate *appDelegate = (AppDelegate *)app.delegate;

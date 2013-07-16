@@ -12,22 +12,24 @@
 
 @interface Model : NSObject
 
-#pragma mark - Create
-+ (Participant *)newParticipant;
+
+#pragma mark - Events
 + (Event *)newEvent;
 
-
-#pragma mark - Read
-+ (NSArray *)participants;
 + (NSArray *)events;
 + (NSArray *)confirmedParticipantsForEvent:(Event *)event;
-+ (NSArray *)confirmedEventsForParticipant:(Participant *)participant;
-
 + (NSArray *)unconfirmedParticipantsForEvent:(Event *)event;
-
 + (NSInteger)numberOfConfirmedParticipantsForEvent:(Event *)event;
-+ (NSInteger)numberOfConfirmedEventsForParticipant:(Participant *)participant;
 
++ (void)addParticipant:(Participant *)participant toEvent:(Event *)event;
++ (void)deleteParticipant:(Participant *)participant fromEvent:(Event *)event;
+
+#pragma mark - Participants
++ (Participant *)newParticipant;
+
++ (NSArray *)participants;
++ (NSArray *)confirmedEventsForParticipant:(Participant *)participant;
++ (NSInteger)numberOfConfirmedEventsForParticipant:(Participant *)participant;
 + (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key;
 + (NSArray *)participantAbRecordIds;
 
@@ -35,15 +37,16 @@
 
 
 
-#pragma mark - Update
-+ (void)addParticipant:(Participant *)participant toEvent:(Event *)event;
-+ (void)deleteParticipant:(Participant *)participant fromEvent:(Event *)event;
+
+
+
+#pragma mark - Core Data
++ (void)deleteObject:(NSManagedObject *)object;
 
 + (void)saveContext;
 
-
-#pragma mark - Delete
-+ (void)deleteObject:(NSManagedObject *)object;
 + (void)resetStore;
+
+
 
 @end

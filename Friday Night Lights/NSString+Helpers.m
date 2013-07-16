@@ -13,7 +13,7 @@
 - (BOOL)hasNumbersOnly {
     BOOL hasNumbersOnly = NO;
     
-    NSCharacterSet *validCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@".0123456789"];
+    NSCharacterSet *validCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@"-.0123456789"];
     NSCharacterSet *invalidCharacterSet = validCharacterSet.invertedSet;
     NSArray *separatedString = [self componentsSeparatedByCharactersInSet:invalidCharacterSet];
     NSString *validatedString = [separatedString componentsJoinedByString:@""];

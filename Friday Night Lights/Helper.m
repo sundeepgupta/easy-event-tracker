@@ -45,7 +45,17 @@
         hasNoMultipleDecimals = NO;
     }
     
-    return (isNumbersOnly && hasNoLeadingZero && hasNoMultipleDecimals);
+    BOOL hasNoMultipleHyphens = YES;
+    if ([replacementString containsString:@"-"] && [amountFieldString containsString:@"-"]) {
+        hasNoMultipleHyphens = NO;
+    }
+
+    BOOL hasLeadingHyphenOnly = YES;
+    if ((amountFieldString.length > 0) && [replacementString containsString:@"-"]) {
+        hasNoLeadingZero = NO;
+    }
+    
+    return (isNumbersOnly && hasNoLeadingZero && hasNoMultipleDecimals && hasNoMultipleHyphens && hasLeadingHyphenOnly);
 }
 + (NSNumber *)amountNumberForTextFieldAmountString:(NSString *)amountString {
     NSNumber *number = 0;

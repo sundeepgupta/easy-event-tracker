@@ -38,6 +38,7 @@
 #pragma mark - Transactions
 + (Transaction *)newTransactionForParticipant:(Participant *)participant;
 
++ (NSArray *)transactionsForParticipant:(Participant *)participant;
 
 
 

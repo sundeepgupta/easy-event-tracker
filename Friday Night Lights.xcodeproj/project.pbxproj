@@ -194,6 +194,10 @@
 		AE895C0F1795EEBC0055223A /* TransactionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C0D1795EEBC0055223A /* TransactionHelper.m */; };
 		AE895C12179638600055223A /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C11179638600055223A /* Participant.m */; };
 		AE895C13179638600055223A /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C11179638600055223A /* Participant.m */; };
+		AE895C2417965F9E0055223A /* TransactionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C2317965F9E0055223A /* TransactionsVC.m */; };
+		AE895C2517965F9E0055223A /* TransactionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C2317965F9E0055223A /* TransactionsVC.m */; };
+		AE895C28179666820055223A /* TransactionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C27179666820055223A /* TransactionsCell.m */; };
+		AE895C29179666820055223A /* TransactionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C27179666820055223A /* TransactionsCell.m */; };
 		AE89ABE3176D426700C06D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE2176D426700C06D03 /* UIKit.framework */; };
 		AE89ABE5176D426700C06D03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE4176D426700C06D03 /* Foundation.framework */; };
 		AE89ABE7176D426700C06D03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE6176D426700C06D03 /* CoreGraphics.framework */; };
@@ -375,6 +379,10 @@
 		AE895C10179638600055223A /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Participant.h; path = "Friday Night Lights/Participant.h"; sourceTree = "<group>"; };
 		AE895C11179638600055223A /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Participant.m; path = "Friday Night Lights/Participant.m"; sourceTree = "<group>"; };
 		AE895C211796419C0055223A /* UpdatePresentingVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdatePresentingVCDelegate.h; path = "Friday Night Lights/UpdatePresentingVCDelegate.h"; sourceTree = "<group>"; };
+		AE895C2217965F9E0055223A /* TransactionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsVC.h; path = "Friday Night Lights/TransactionsVC.h"; sourceTree = "<group>"; };
+		AE895C2317965F9E0055223A /* TransactionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsVC.m; path = "Friday Night Lights/TransactionsVC.m"; sourceTree = "<group>"; };
+		AE895C26179666810055223A /* TransactionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsCell.h; path = "Friday Night Lights/TransactionsCell.h"; sourceTree = "<group>"; };
+		AE895C27179666820055223A /* TransactionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsCell.m; path = "Friday Night Lights/TransactionsCell.m"; sourceTree = "<group>"; };
 		AE89ABDF176D426700C06D03 /* Friday Night Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friday Night Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE89ABE2176D426700C06D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE89ABE4176D426700C06D03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -648,6 +656,10 @@
 		AE814D6517950E51001E4866 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				AE895C26179666810055223A /* TransactionsCell.h */,
+				AE895C27179666820055223A /* TransactionsCell.m */,
+				AE895C2217965F9E0055223A /* TransactionsVC.h */,
+				AE895C2317965F9E0055223A /* TransactionsVC.m */,
 				AE895C0C1795EEBC0055223A /* TransactionHelper.h */,
 				AE895C0D1795EEBC0055223A /* TransactionHelper.m */,
 				AE814D6117950E4C001E4866 /* Transaction.h */,
@@ -1047,6 +1059,8 @@
 				AE814D6317950E4C001E4866 /* Transaction.m in Sources */,
 				AE895C0E1795EEBC0055223A /* TransactionHelper.m in Sources */,
 				AE895C12179638600055223A /* Participant.m in Sources */,
+				AE895C2417965F9E0055223A /* TransactionsVC.m in Sources */,
+				AE895C28179666820055223A /* TransactionsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,6 +1099,8 @@
 				AE814D6417950E4C001E4866 /* Transaction.m in Sources */,
 				AE895C0F1795EEBC0055223A /* TransactionHelper.m in Sources */,
 				AE895C13179638600055223A /* Participant.m in Sources */,
+				AE895C2517965F9E0055223A /* TransactionsVC.m in Sources */,
+				AE895C29179666820055223A /* TransactionsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

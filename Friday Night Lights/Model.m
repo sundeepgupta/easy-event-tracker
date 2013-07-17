@@ -35,8 +35,7 @@
     NSString *entityName = NSStringFromClass([Event class]);
     NSArray *objects = [self objectsWithEntityName:entityName];
     
-    NSArray *sortDescriptors = [self descriptorsFromKey:@"date" isAscending:NO];
-    NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
+    NSArray *sortedObjects = [self objectsSortedByDate:objects];
     
     return sortedObjects;
 }
@@ -98,7 +97,8 @@
 }
 + (NSArray *)confirmedEventsForParticipant:(Participant *)participant {
     NSArray *objects = participant.events.allObjects;
-    return objects;
+    NSArray *sortedObjects = [self objectsSortedByDate:objects];
+    return sortedObjects;
 }
 + (NSInteger)numberOfConfirmedEventsForParticipant:(Participant *)participant {
     NSArray *objects = [self confirmedEventsForParticipant:participant];
@@ -136,7 +136,11 @@
     return object;
 }
 
-
++ (NSArray *)transactionsForParticipant:(Participant *)participant {
+    NSArray *objects = participant.transactions.allObjects;
+    NSArray *sortedObjects = [self objectsSortedByDate:objects];
+    return sortedObjects;
+}
 
 #pragma mark - Private Methods
 + (NSManagedObject *)newObjectWithEntityName:(NSString *)entityName {
@@ -182,12 +186,16 @@
     return [mutableObjects sortedArrayUsingDescriptors:sortDescriptors];
 }
 
-
 + (NSPredicate *)predicateWithAttributeValue:(NSString *)value forKey:(NSString *)key {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", key, value];
     return predicate;
 }
 
++ (NSArray *)objectsSortedByDate:(NSArray *)objects {
+    NSArray *sortDescriptors = [self descriptorsFromKey:@"date" isAscending:NO];
+    NSArray *sortedObjects = [self sortedObjects:objects withSortDescriptors:sortDescriptors];
+    return sortedObjects;
+}
 
 
 

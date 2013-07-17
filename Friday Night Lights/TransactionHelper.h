@@ -10,6 +10,7 @@
 
 @interface TransactionHelper : NSObject
 
++ (void)presentTransactionDetailVcForVc:(UIViewController *)vc withParticipant:(Participant *)participant;
 
 
 

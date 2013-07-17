@@ -14,6 +14,8 @@
 #import "UIAlertView+Helpers.h"
 #import "TransactionDetailVC.h"
 #import "Transaction.h"
+#import "TransactionsVC.h"
+#import "TransactionHelper.h"
 
 @interface ParticipantDetailVC ()
 
@@ -22,6 +24,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *balanceValue;
 @property (strong, nonatomic) IBOutlet UILabel *confirmedEventsValue;
+@property (strong, nonatomic) IBOutlet UITableViewCell *balanceCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *confirmedEventsCell;
 
 @property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
@@ -89,19 +92,24 @@
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if ([cell isEqual:self.confirmedEventsCell]) {
-        NSString *vcId = NSStringFromClass([ConfirmedEventsVC class]);
-        ConfirmedEventsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
-        vc.participant = self.participant;
-        [self.navigationController pushViewController:vc animated:YES];
-        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self pushConfirmedEventsVc];
+    } else if ([cell isEqual:self.balanceCell]) {
+        [self pushTransactionsVc];
     }
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-
-- (void)saveParticipant {
-    self.participant = [Model newParticipant];
-//    self.participant.name = self.nameField.text;
-    [Model saveContext];
+- (void)pushConfirmedEventsVc {
+    NSString *vcId = NSStringFromClass([ConfirmedEventsVC class]);
+    ConfirmedEventsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+    vc.participant = self.participant;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (void)pushTransactionsVc {
+    NSString *vcId = NSStringFromClass([TransactionsVC class]);
+    TransactionsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+    vc.participant = self.participant;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)viewDidUnload {
@@ -111,15 +119,7 @@
 
 #pragma mark - IB Actions
 - (IBAction)transactionButtonPress:(id)sender {
-    UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"ParticipantTransactionNC"];
-    TransactionDetailVC *vc = (TransactionDetailVC *)nc.topViewController;
-    [self setupTransactionDetailVc:vc];
-    [self presentViewController:nc animated:YES completion:nil];
-}
-- (void)setupTransactionDetailVc:(TransactionDetailVC *)vc {
-    vc.participant = self.participant;
-    Transaction *transaction = [Model newTransactionForParticipant:self.participant];
-    vc.transaction = transaction;
+    [TransactionHelper presentTransactionDetailVcForVc:self withParticipant:self.participant];
 }
 
 

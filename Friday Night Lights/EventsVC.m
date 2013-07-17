@@ -7,7 +7,6 @@
 //
 
 #import "EventsVC.h"
-
 #import "UIAlertView+Helpers.h"
 #import "Event.h"
 #import "EventDetailVC.h"
@@ -17,7 +16,6 @@
 
 @interface EventsVC ()
 
-@property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) NSArray *dataSource;
 
 @end
@@ -36,9 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.title = @"Games";
-    
     [DesignHelper customizeTableView:self.tableView];
 }
 
@@ -58,7 +54,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -98,7 +93,6 @@
 }
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Event *objectAtIndex = [self.dataSource objectAtIndex:indexPath.row];

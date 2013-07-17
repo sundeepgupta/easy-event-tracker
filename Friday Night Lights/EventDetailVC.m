@@ -70,7 +70,7 @@
 }
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];
-    self.costValue.text = [Helper stringForAmountNumber:self.event.cost];
+    self.costValue.text = [Helper formattedStringForAmountNumber:self.event.cost];
     [self setupAmountValues];
 }
 - (void)setupAmountValues {
@@ -83,7 +83,7 @@
 }
 - (void)setupCostPerParticipantValue {
     CGFloat amount = [EventHelper costPerParticipantForEvent:self.event];
-    self.costPerParticipantValue.text = [Helper stringForAmount:amount];
+    self.costPerParticipantValue.text = [Helper formattedStringForAmountFloat:amount];
 }
 
 
@@ -108,13 +108,23 @@
 
 
 #pragma mark - TextField Delegates
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+}
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     return [Helper isValidReplacementString:string forAmountFieldString:textField.text];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    self.event.cost = [Helper amountNumberForTextFieldAmountString:textField.text];
+    NSString *unformattedString = textField.text;
+    NSString *formattedString = [Helper formattedStringForUnformattedAmountString:unformattedString];
+    self.costValue.text = formattedString;
+    
+    NSNumber *number = [Helper numberForFormattedAmountString:formattedString];
+    self.event.cost = number;
+
     [self saveEvent];
     [self setupAmountValues];
 }

@@ -58,14 +58,14 @@
 #pragma mark - Money
 + (NSString *)sumOfTransactionsStringForParticipant:(Participant *)participant {
     CGFloat sum = [self sumOfTransactionsForParticipant:participant];
-    NSString *sumString = [Helper stringForAmount:sum];
+    NSString *sumString = [Helper formattedStringForAmountFloat:sum];
     return sumString;
 }
 
 
 + (NSString *)balanceStringForParticipant:(Participant *)participant {
     CGFloat balance = [self balanceForParticipant:participant];
-    NSString *string = [Helper stringForAmount:balance];
+    NSString *string = [Helper formattedStringForAmountFloat:balance];
     return string;
 }
 + (CGFloat)balanceForParticipant:(Participant *)participant {

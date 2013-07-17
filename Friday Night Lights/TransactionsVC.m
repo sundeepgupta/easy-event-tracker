@@ -72,7 +72,7 @@
     Transaction *object = self.dataSource[indexPath.row];
     
     cell.dateValue.text = [object.date dateString];
-    cell.amountValue.text = [Helper stringForAmountNumber:object.amount];
+    cell.amountValue.text = [Helper formattedStringForAmountNumber:object.amount];
     
     [DesignHelper customizeCell:cell];
     

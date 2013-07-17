@@ -14,9 +14,17 @@
 
 
 + (BOOL)isValidReplacementString:(NSString *)replacementString forAmountFieldString:(NSString *)amountFieldString;
-+ (NSNumber *)amountNumberForTextFieldAmountString:(NSString *)amountString;
-+ (NSString *)stringForAmountNumber:(NSNumber *)number;
-+ (NSString *)stringForAmount:(CGFloat)amount;
+
+
+
+
+
++ (NSString *)formattedStringForUnformattedAmountString:(NSString *)unformattedString;
++ (NSNumber *)numberForFormattedAmountString:(NSString *)string;
++ (NSString *)formattedStringForAmountNumber:(NSNumber *)number;
++ (NSString *)formattedStringForAmountFloat:(CGFloat)aFloat;
+
+
 
 + (void)presentDatePickerInVc:(UIViewController *)vc withDateMode:(BOOL)withDateMode;
 

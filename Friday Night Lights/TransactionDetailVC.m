@@ -99,7 +99,7 @@
 }
 - (void)setupAmountValue {
     if (!self.isNewMode) {
-        self.amountValue.text = [Helper stringForAmountNumber:self.transaction.amount];
+        self.amountValue.text = [Helper formattedStringForAmountNumber:self.transaction.amount];
     }
 }
 
@@ -176,12 +176,12 @@
     //date value being saved in date picker delegate
 }
 - (void)saveAmountValue {
-    self.transaction.amount = [Helper amountNumberForTextFieldAmountString:self.amountValue.text];
+//    self.transaction.amount = [Helper amountNumberForTextFieldAmountString:self.amountValue.text];
 }
 
 
 
-
+//TODO - BUG WHEN EDITING AND SAVING
 -(void) viewWillDisappear:(BOOL)animated {
     //Handle back button press
     //http://stackoverflow.com/a/11394374/1672161

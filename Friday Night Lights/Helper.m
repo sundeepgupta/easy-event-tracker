@@ -57,29 +57,61 @@
     
     return (isNumbersOnly && hasNoLeadingZero && hasNoMultipleDecimals && hasNoMultipleHyphens && hasLeadingHyphenOnly);
 }
-+ (NSNumber *)amountNumberForTextFieldAmountString:(NSString *)amountString {
-    NSNumber *number = 0;
-    if (amountString.length != 0) {
-        number = [NSNumber numberWithFloat:amountString.floatValue];
+
++ (NSString *)formattedStringForUnformattedAmountString:(NSString *)unformattedString {
+    NSNumber *number = [self numberForUnformattedAmountString:unformattedString];
+    NSString *formattedString = [self formattedStringForAmountNumber:number];
+    return formattedString;
+}
++ (NSNumber *)numberForUnformattedAmountString:(NSString *)unformattedString {
+    NSNumber *number;
+    if (unformattedString.length == 0) {
+        number = 0;
+    } else {
+        number = [NSNumber numberWithFloat:unformattedString.floatValue];
     }
-    return  number;
+
+    return number;
 }
 
 
-+ (NSString *)stringForAmountNumber:(NSNumber *)number {
+
++ (NSNumber *)numberForFormattedAmountString:(NSString *)string {
+    NSNumberFormatter *formatter = [self formatterForAmounts];
+    NSNumber *number = [formatter numberFromString:string];
+    return number;
+}
+
++ (NSString *)formattedStringForAmountNumber:(NSNumber *)number {
     NSString *string = nil;
     CGFloat floatNumber = number.floatValue;
     if (floatNumber != 0) {
-        string = [self stringForAmount:floatNumber];
+        string = [self formattedStringForAmountFloat:floatNumber];
     }
     return  string;
 }
-+ (NSString *)stringForAmount:(CGFloat)amount {
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    NSString *amountString = [formatter stringFromNumber:[NSNumber numberWithFloat:amount]];
++ (NSString *)formattedStringForAmountFloat:(CGFloat)aFloat {
+    NSNumber *amountNumber = [NSNumber numberWithFloat:aFloat];
+    NSString *amountString = [self formattedStringForNumber:amountNumber];
     return amountString;
 }
++ (NSString *)formattedStringForNumber:(NSNumber *)number {
+    NSNumberFormatter *formatter = [self formatterForAmounts];
+    NSString *formattedString = [formatter stringFromNumber:number];
+    return formattedString;
+}
+
+
++ (NSNumberFormatter *)formatterForAmounts {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    return formatter;
+}
+
+
+
+
+
 
 
 

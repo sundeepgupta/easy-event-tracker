@@ -94,8 +94,8 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    self.event.cost = [Helper amountNumberForTextFieldAmountString:textField.text];
-    self.costValue.text = [Helper stringForAmountNumber:self.event.cost];
+//    self.event.cost = [Helper amountNumberForTextFieldAmountString:textField.text];
+//    self.costValue.text = [Helper formattedStringForAmountNumber:self.event.cost];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

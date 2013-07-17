@@ -31,6 +31,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *confirmedParticipantsCell;
 @property (strong, nonatomic) IBOutlet UILabel *confirmedParticipantsValue;
+@property (strong, nonatomic) IBOutlet UITextField *costPerParticipantValue;
 
 @property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
 
@@ -70,11 +71,19 @@
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];
     self.costValue.text = [Helper stringForAmountNumber:self.event.cost];
+    [self setupAmountValues];
+}
+- (void)setupAmountValues {
     [self setupNumberConfirmedValue];
+    [self setupCostPerParticipantValue];
 }
 - (void)setupNumberConfirmedValue {
     NSInteger number = [Model numberOfConfirmedParticipantsForEvent:self.event];
     self.confirmedParticipantsValue.text = [NSString stringWithFormat:@"%d", number];
+}
+- (void)setupCostPerParticipantValue {
+    CGFloat amount = [EventHelper costPerParticipantForEvent:self.event];
+    self.costPerParticipantValue.text = [Helper stringForAmount:amount];
 }
 
 
@@ -106,12 +115,14 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     self.event.cost = [Helper amountNumberForTextFieldAmountString:textField.text];
-    
     [self saveEvent];
-    
-    self.costValue.text = [Helper stringForAmountNumber:self.event.cost];
+    [self setupAmountValues];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

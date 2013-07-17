@@ -7,7 +7,7 @@
 //
 
 #import "EventHelper.h"
-
+#import "Event.h"
 
 @interface EventHelper ()
 
@@ -16,6 +16,12 @@
 
 @implementation EventHelper
 
++ (CGFloat)costPerParticipantForEvent:(Event *)event {
+    CGFloat cost = event.cost.floatValue;
+    NSInteger numberOfParticipants = event.participants.count;
+    CGFloat costPerparticipant = cost/numberOfParticipants;
+    return costPerparticipant;
+}
 
 
 

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-
+@class Event;
 
 @interface EventHelper : NSObject
 
-
++ (CGFloat)costPerParticipantForEvent:(Event *)event;
 
 
 

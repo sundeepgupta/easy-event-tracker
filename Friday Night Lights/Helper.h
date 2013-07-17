@@ -16,7 +16,7 @@
 + (BOOL)isValidReplacementString:(NSString *)replacementString forAmountFieldString:(NSString *)amountFieldString;
 + (NSNumber *)amountNumberForTextFieldAmountString:(NSString *)amountString;
 + (NSString *)stringForAmountNumber:(NSNumber *)number;
-
++ (NSString *)stringForAmount:(CGFloat)amount;
 
 + (void)presentDatePickerInVc:(UIViewController *)vc withDateMode:(BOOL)withDateMode;
 

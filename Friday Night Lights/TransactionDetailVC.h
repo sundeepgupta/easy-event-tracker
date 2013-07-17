@@ -14,6 +14,6 @@
 
 @property (strong, nonatomic) Transaction *transaction;
 @property (strong, nonatomic) Participant *participant;
-
+@property (nonatomic) BOOL isNewMode;
 
 @end

@@ -24,6 +24,7 @@
     vc.participant = participant;
     Transaction *transaction = [Model newTransactionForParticipant:participant];
     vc.transaction = transaction;
+    vc.isNewMode = YES;
 }
 
 

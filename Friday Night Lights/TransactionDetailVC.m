@@ -42,7 +42,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Add Funds";
     [self customizeDesign];
     [Helper addTapRecognizerToVc:self];
 }
@@ -56,20 +55,52 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self setupTitle];
+    [self setupBarButtons];
     [self setupViewValues];
     [DesignHelper customizeCells:self.cells];
 }
+- (void)setupTitle {
+    if (self.isNewMode) {
+        self.title = @"Add Transaction";
+    } else {
+        self.title = @"Edit Transaction";
+    }
+}
+- (void)setupBarButtons {
+    [self setupLeftBarButton];
+    [self setupRightBarButton];
+}
+- (void)setupLeftBarButton {
+    if (self.isNewMode) {
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonPress)];
+        [self.navigationItem setLeftBarButtonItem:cancelButton animated:YES];
+    }
+}
+- (void)setupRightBarButton {
+    if (!self.isNewMode) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
+
+
 - (void)setupViewValues {
     [self setupDateValue];
     [self setupAmountValue];
 }
 - (void)setupDateValue {
-    NSDate *date = [NSDate date];
-    NSString *dateString = [date dateString];
-    self.dateValue.text = dateString;
+    NSDate *date;
+    if (self.isNewMode) {
+        date = [NSDate date];
+    } else {
+        date = self.transaction.date;
+    }
+    self.dateValue.text =  [date dateString];
 }
 - (void)setupAmountValue {
-    
+    if (!self.isNewMode) {
+        self.amountValue.text = [Helper stringForAmountNumber:self.transaction.amount];
+    }
 }
 
 
@@ -121,7 +152,7 @@
 
 
 #pragma mark - IB Actions
-- (IBAction)cancelButtonPress:(id)sender {
+- (void)cancelButtonPress {
     [self deleteTransaction];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -146,6 +177,20 @@
 }
 - (void)saveAmountValue {
     self.transaction.amount = [Helper amountNumberForTextFieldAmountString:self.amountValue.text];
+}
+
+
+
+
+-(void) viewWillDisappear:(BOOL)animated {
+    //Handle back button press
+    //http://stackoverflow.com/a/11394374/1672161
+    
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [self saveValues];
+        [Model saveContext];
+    }
+    [super viewWillDisappear:animated];
 }
 
 @end

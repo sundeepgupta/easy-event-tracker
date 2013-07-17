@@ -93,10 +93,16 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  
+    Transaction *object = self.dataSource[indexPath.row];
+    
+    NSString *vcId = NSStringFromClass([TransactionDetailVC class]);
+    TransactionDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+    vc.transaction = object;
+    vc.participant = self.participant;
+    vc.isNewMode = NO;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
-
-
 
 
 #pragma mark - IB

@@ -995,7 +995,7 @@
         <!--Transaction DetailVC-->
         <scene sceneID="avD-wy-X2a">
             <objects>
-                <tableViewController storyboardIdentifier="ParticipantTransactionVC" id="qWV-2i-Nus" customClass="TransactionDetailVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TransactionDetailVC" id="qWV-2i-Nus" customClass="TransactionDetailVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="5XO-c3-tGy">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1067,11 +1067,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="bNb-qR-4eo">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="4qI-Tj-Ags">
-                            <connections>
-                                <action selector="cancelButtonPress:" destination="qWV-2i-Nus" id="yD2-vP-mzO"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="2VK-hQ-Flg">
                             <connections>
                                 <action selector="doneButtonPress:" destination="qWV-2i-Nus" id="Xxx-xf-pkH"/>
@@ -1090,7 +1085,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dha-wO-jbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-487" y="-387"/>
+            <point key="canvasLocation" x="589" y="-957"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Qj-Al-dLA">
@@ -1108,7 +1103,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZC-dJ-4e3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-556" y="-387"/>
+            <point key="canvasLocation" x="520" y="-957"/>
         </scene>
         <!--TransactionsVC-->
         <scene sceneID="ldv-QQ-DjC">
@@ -1174,6 +1169,97 @@
         <image name="ipad-list-item-selected.png" width="319" height="67"/>
         <image name="team.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AddEventVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEventVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="inviteButton" candidateClass="UIButton"/>
+                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="ConfirmedEventsVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfirmedEventsVC.h"/>
+        </class>
+        <class className="ConfirmedParticipantsVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfirmedParticipantsVC.h"/>
+        </class>
+        <class className="DevVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DevVC.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteStoreButtonPress:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="EventAttributeCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventAttributeCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fieldLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="fieldValue" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="EventDetailVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailVC.h"/>
+            <relationships>
+                <relationship kind="action" name="textConfirmedParticipantsButtonPress:"/>
+                <relationship kind="action" name="textUnconfirmedParticipantsButtonPress:"/>
+                <relationship kind="outlet" name="confirmedParticipantsCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="confirmedParticipantsValue" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="costPerParticipantValue" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="EventsVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonPress:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="ParticipantDetailVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantDetailVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="balanceCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="balanceValue" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="confirmedEventsCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="confirmedEventsValue" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="ParticipantsVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonPress:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="TransactionDetailVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TransactionDetailVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="amountValue" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="TransactionsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TransactionsCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="amountValue" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TransactionsVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TransactionsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonPress:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

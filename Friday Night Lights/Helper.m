@@ -75,7 +75,11 @@
 }
 
 
-
++ (NSString *)unformattedStringForFormattedAmountString:(NSString *)formattedString {
+    NSNumber *number = [self numberForFormattedAmountString:formattedString];
+    NSString *unformattedString = number.stringValue;
+    return unformattedString;
+}
 + (NSNumber *)numberForFormattedAmountString:(NSString *)string {
     NSNumberFormatter *formatter = [self formatterForAmounts];
     NSNumber *number = [formatter numberFromString:string];

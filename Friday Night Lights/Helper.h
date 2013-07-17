@@ -24,6 +24,7 @@
 + (NSString *)formattedStringForAmountNumber:(NSNumber *)number;
 + (NSString *)formattedStringForAmountFloat:(CGFloat)aFloat;
 
++ (NSString *)unformattedStringForFormattedAmountString:(NSString *)formattedString;
 
 
 + (void)presentDatePickerInVc:(UIViewController *)vc withDateMode:(BOOL)withDateMode;

@@ -109,7 +109,9 @@
 
 #pragma mark - TextField Delegates
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    
+    NSString *formattedString = textField.text;
+    NSString *unformattedString = [Helper unformattedStringForFormattedAmountString:formattedString];
+    textField.text = unformattedString;
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

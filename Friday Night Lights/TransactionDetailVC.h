@@ -10,9 +10,10 @@
 
 @class Participant, Transaction;
 
-@interface TransactionDetailVC : UITableViewController
+@interface TransactionDetailVC : UITableViewController 
 
 @property (strong, nonatomic) Transaction *transaction;
 @property (strong, nonatomic) Participant *participant;
+
 
 @end

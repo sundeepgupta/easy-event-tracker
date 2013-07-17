@@ -22,7 +22,7 @@
     </entity>
     <elements>
         <element name="Event" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Participant" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Transaction" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Participant" positionX="-180" positionY="30" width="128" height="105"/>
+        <element name="Transaction" positionX="-353" positionY="159" width="128" height="120"/>
     </elements>
 </model>

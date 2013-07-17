@@ -124,6 +124,11 @@
 
 
 #pragma mark - Transactions
++ (Transaction *)newTransactionForParticipant:(Participant *)participant {
+    Transaction *transaction = [self newTransaction];
+    transaction.participant = participant;
+    return transaction;
+}
 + (Transaction *)newTransaction {
     NSString *entityName = NSStringFromClass([Transaction class]);
     Transaction *object = (Transaction *)[self newObjectWithEntityName:entityName];

@@ -45,8 +45,6 @@
 		AE25FFDF176E2A3700955426 /* DevVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFDD176E2A3700955426 /* DevVC.m */; };
 		AE25FFE2176E778F00955426 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25FFE0176E778F00955426 /* AddressBook.framework */; };
 		AE25FFE3176E778F00955426 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25FFE1176E778F00955426 /* AddressBookUI.framework */; };
-		AE25FFFE176E8FAB00955426 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFFD176E8FAB00955426 /* Participant.m */; };
-		AE25FFFF176E8FAB00955426 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25FFFD176E8FAB00955426 /* Participant.m */; };
 		AE3256C01794E0990061BBF1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3256BC1794E0990061BBF1 /* libTestFlight.a */; };
 		AE3256C11794E0990061BBF1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3256BC1794E0990061BBF1 /* libTestFlight.a */; };
 		AE3256C21794E0990061BBF1 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AE3256BD1794E0990061BBF1 /* README.md */; };
@@ -194,6 +192,8 @@
 		AE814D6417950E4C001E4866 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = AE814D6217950E4C001E4866 /* Transaction.m */; };
 		AE895C0E1795EEBC0055223A /* TransactionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C0D1795EEBC0055223A /* TransactionHelper.m */; };
 		AE895C0F1795EEBC0055223A /* TransactionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C0D1795EEBC0055223A /* TransactionHelper.m */; };
+		AE895C12179638600055223A /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C11179638600055223A /* Participant.m */; };
+		AE895C13179638600055223A /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C11179638600055223A /* Participant.m */; };
 		AE89ABE3176D426700C06D03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE2176D426700C06D03 /* UIKit.framework */; };
 		AE89ABE5176D426700C06D03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE4176D426700C06D03 /* Foundation.framework */; };
 		AE89ABE7176D426700C06D03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE89ABE6176D426700C06D03 /* CoreGraphics.framework */; };
@@ -292,8 +292,6 @@
 		AE25FFDD176E2A3700955426 /* DevVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DevVC.m; path = "Friday Night LightsTests/DevVC.m"; sourceTree = SOURCE_ROOT; };
 		AE25FFE0176E778F00955426 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		AE25FFE1176E778F00955426 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
-		AE25FFFC176E8FAB00955426 /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Participant.h; path = "Friday Night Lights/Participant.h"; sourceTree = "<group>"; };
-		AE25FFFD176E8FAB00955426 /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Participant.m; path = "Friday Night Lights/Participant.m"; sourceTree = "<group>"; };
 		AE3256BC1794E0990061BBF1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		AE3256BD1794E0990061BBF1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		AE3256BE1794E0990061BBF1 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -374,6 +372,9 @@
 		AE814D6217950E4C001E4866 /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transaction.m; path = "Friday Night Lights/Transaction.m"; sourceTree = "<group>"; };
 		AE895C0C1795EEBC0055223A /* TransactionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionHelper.h; path = "Friday Night Lights/TransactionHelper.h"; sourceTree = "<group>"; };
 		AE895C0D1795EEBC0055223A /* TransactionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionHelper.m; path = "Friday Night Lights/TransactionHelper.m"; sourceTree = "<group>"; };
+		AE895C10179638600055223A /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Participant.h; path = "Friday Night Lights/Participant.h"; sourceTree = "<group>"; };
+		AE895C11179638600055223A /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Participant.m; path = "Friday Night Lights/Participant.m"; sourceTree = "<group>"; };
+		AE895C211796419C0055223A /* UpdatePresentingVCDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UpdatePresentingVCDelegate.h; path = "Friday Night Lights/UpdatePresentingVCDelegate.h"; sourceTree = "<group>"; };
 		AE89ABDF176D426700C06D03 /* Friday Night Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friday Night Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE89ABE2176D426700C06D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE89ABE4176D426700C06D03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -459,10 +460,10 @@
 		AE0E42C3176DFFC300A050BE /* Participants */ = {
 			isa = PBXGroup;
 			children = (
+				AE895C10179638600055223A /* Participant.h */,
+				AE895C11179638600055223A /* Participant.m */,
 				AE3256C81794E5F90061BBF1 /* ConfirmedEventsVC.h */,
 				AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */,
-				AE25FFFC176E8FAB00955426 /* Participant.h */,
-				AE25FFFD176E8FAB00955426 /* Participant.m */,
 				AE0E42BF176DFF8900A050BE /* ParticipantDetailVC.h */,
 				AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */,
 				AEC5DF1C177A1093004C697C /* ParticipantHelper.h */,
@@ -658,6 +659,7 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
+				AE895C211796419C0055223A /* UpdatePresentingVCDelegate.h */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE0E42C4176DFFDA00A050BE /* Events */,
 				AE89ABE1176D426700C06D03 /* Frameworks */,
@@ -1019,7 +1021,6 @@
 				AE0E42BD176D592100A050BE /* ParticipantsVC.m in Sources */,
 				AE0E42C1176DFF8900A050BE /* ParticipantDetailVC.m in Sources */,
 				AE25FFDE176E2A3700955426 /* DevVC.m in Sources */,
-				AE25FFFE176E8FAB00955426 /* Participant.m in Sources */,
 				AE12389D176F71A5009FC5EB /* AddressBookHelper.m in Sources */,
 				AE1238A5176F76C6009FC5EB /* UIAlertView+Helpers.m in Sources */,
 				AE18DD9117749F690082FCFE /* StockTableViewController.m in Sources */,
@@ -1045,6 +1046,7 @@
 				AE814D5B17950157001E4866 /* TransactionDetailVC.m in Sources */,
 				AE814D6317950E4C001E4866 /* Transaction.m in Sources */,
 				AE895C0E1795EEBC0055223A /* TransactionHelper.m in Sources */,
+				AE895C12179638600055223A /* Participant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1058,7 +1060,6 @@
 				AE0E42BE176D592100A050BE /* ParticipantsVC.m in Sources */,
 				AE0E42C2176DFF8900A050BE /* ParticipantDetailVC.m in Sources */,
 				AE25FFDF176E2A3700955426 /* DevVC.m in Sources */,
-				AE25FFFF176E8FAB00955426 /* Participant.m in Sources */,
 				AE12389E176F71A5009FC5EB /* AddressBookHelper.m in Sources */,
 				AE1238A6176F76C6009FC5EB /* UIAlertView+Helpers.m in Sources */,
 				AE18DD9217749F690082FCFE /* StockTableViewController.m in Sources */,
@@ -1083,6 +1084,7 @@
 				AE814D5C17950157001E4866 /* TransactionDetailVC.m in Sources */,
 				AE814D6417950E4C001E4866 /* Transaction.m in Sources */,
 				AE895C0F1795EEBC0055223A /* TransactionHelper.m in Sources */,
+				AE895C13179638600055223A /* Participant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

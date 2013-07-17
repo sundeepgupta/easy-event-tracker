@@ -7,6 +7,7 @@
 //
 
 #import "Transaction.h"
+#import "Participant.h"
 
 
 @implementation Transaction
@@ -15,5 +16,6 @@
 @dynamic date;
 @dynamic method;
 @dynamic note;
+@dynamic participant;
 
 @end

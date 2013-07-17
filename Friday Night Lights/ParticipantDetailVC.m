@@ -55,8 +55,11 @@
 }
 
 - (void)setupViewValues {
+    [self setupBalanceValue];
     [self setupNumberOfEventsValue];
-
+}
+- (void)setupBalanceValue {
+    self.balanceValue.text = [ParticipantHelper balanceStringForParticipant:self.participant];
 }
 - (void)setupNumberOfEventsValue {
     NSInteger number = [Model numberOfConfirmedEventsForParticipant:self.participant];
@@ -105,6 +108,8 @@
     [super viewDidUnload];
 }
 
+
+#pragma mark - IB Actions
 - (IBAction)transactionButtonPress:(id)sender {
     UINavigationController *nc = [self.storyboard instantiateViewControllerWithIdentifier:@"ParticipantTransactionNC"];
     TransactionDetailVC *vc = (TransactionDetailVC *)nc.topViewController;
@@ -113,7 +118,7 @@
 }
 - (void)setupTransactionDetailVc:(TransactionDetailVC *)vc {
     vc.participant = self.participant;
-    Transaction *transaction = [Model newTransaction];
+    Transaction *transaction = [Model newTransactionForParticipant:self.participant];
     vc.transaction = transaction;
 }
 

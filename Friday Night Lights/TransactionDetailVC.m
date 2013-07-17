@@ -79,11 +79,11 @@
     return [Helper isValidReplacementString:string forAmountFieldString:textField.text];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    self.transaction.amount = [Helper amountNumberForTextFieldAmountString:textField.text];
-    self.amountValue.text = [Helper stringForAmountNumber:self.transaction.amount];
-    [self saveTransaction];
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
+
 
 
 - (void)didReceiveMemoryWarning
@@ -105,7 +105,6 @@
 -(void)datePickerSetDate:(TDDatePickerController*)viewController {
     NSDate *date = viewController.datePicker.date;
     self.transaction.date = date;
-    [self saveTransaction];
     self.dateValue.text =  [date dateString];
     [self resetView];
 }
@@ -120,9 +119,6 @@
     [self.tableView deselectSelectedRow];
 }
 
-- (void)saveTransaction {
-    [Model saveContext];
-}
 
 #pragma mark - IB Actions
 - (IBAction)cancelButtonPress:(id)sender {
@@ -140,5 +136,16 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)saveTransaction {
+    [self saveValues];
+    [Model saveContext];
+}
+- (void)saveValues {
+    [self saveAmountValue];
+    //date value being saved in date picker delegate
+}
+- (void)saveAmountValue {
+    self.transaction.amount = [Helper amountNumberForTextFieldAmountString:self.amountValue.text];
+}
 
 @end

@@ -36,7 +36,7 @@
 
 
 #pragma mark - Transactions
-+ (Transaction *)newTransaction;
++ (Transaction *)newTransactionForParticipant:(Participant *)participant;
 
 
 

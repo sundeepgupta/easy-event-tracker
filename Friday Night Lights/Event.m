@@ -2,7 +2,7 @@
 //  Event.m
 //  Friday Night Lights
 //
-//  Created by Sundeep Gupta on 13-06-21.
+//  Created by Sundeep Gupta on 2013-07-16.
 //  Copyright (c) 2013 Sundeep Gupta. All rights reserved.
 //
 
@@ -14,8 +14,8 @@
 
 @dynamic cost;
 @dynamic date;
-@dynamic venue;
 @dynamic name;
+@dynamic venue;
 @dynamic participants;
 
 @end

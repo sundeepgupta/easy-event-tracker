@@ -9,6 +9,10 @@
 #import "ParticipantHelper.h"
 #import "Participant.h"
 #import "AddressBookHelper.h"
+#import "Transaction.h"
+#import "Helper.h"
+#import "Event.h"
+#import "EventHelper.h"
 
 @implementation ParticipantHelper
 
@@ -49,6 +53,52 @@
     NSNumber *abRecordId = participant.abRecordId;
     return [AddressBookHelper mobileNumberFromAbRecordId:abRecordId];
 }
+
+
+#pragma mark - Money
++ (NSString *)sumOfTransactionsStringForParticipant:(Participant *)participant {
+    CGFloat sum = [self sumOfTransactionsForParticipant:participant];
+    NSString *sumString = [Helper stringForAmount:sum];
+    return sumString;
+}
+
+
++ (NSString *)balanceStringForParticipant:(Participant *)participant {
+    CGFloat balance = [self balanceForParticipant:participant];
+    NSString *string = [Helper stringForAmount:balance];
+    return string;
+}
++ (CGFloat)balanceForParticipant:(Participant *)participant {
+    CGFloat sumOfTransactions = [self sumOfTransactionsForParticipant:participant];
+    CGFloat sumOfEventCosts = [self sumOfEventCostsForParticipant:participant];
+    CGFloat balance = sumOfTransactions - sumOfEventCosts;
+    return balance;
+}
++ (CGFloat)sumOfTransactionsForParticipant:(Participant *)participant {
+    CGFloat sum = 0;
+    NSSet *transactions = participant.transactions;
+    
+    CGFloat amount;
+    for (Transaction *transaction in transactions) {
+        amount = transaction.amount.floatValue;
+        sum = sum + amount;
+    }
+    
+    return sum;
+}
++ (CGFloat)sumOfEventCostsForParticipant:(Participant *)participant {
+    CGFloat sum = 0;
+    NSSet *events = participant.events;
+    
+    CGFloat costPerParticipant;
+    for (Event *event in events) {
+        costPerParticipant = [EventHelper costPerParticipantForEvent:event];
+        sum = sum + costPerParticipant;
+    }
+    
+    return sum;
+}
+
 
 
 @end

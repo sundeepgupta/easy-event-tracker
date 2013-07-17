@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Participant;
 
 @interface Transaction : NSManagedObject
 
@@ -16,5 +17,6 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * method;
 @property (nonatomic, retain) NSString * note;
+@property (nonatomic, retain) Participant *participant;
 
 @end

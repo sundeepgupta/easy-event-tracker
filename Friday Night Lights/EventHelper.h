@@ -12,8 +12,8 @@
 
 @interface EventHelper : NSObject
 
-+ (CGFloat)costPerParticipantForEvent:(Event *)event;
 
-
++ (NSString *)costPerParticipantStringForEvent:(Event *)event;
++ (CGFloat)costPerParticipantFloatForEvent:(Event *)event;
 
 @end

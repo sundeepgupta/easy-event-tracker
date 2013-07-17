@@ -82,8 +82,7 @@
     self.confirmedParticipantsValue.text = [NSString stringWithFormat:@"%d", number];
 }
 - (void)setupCostPerParticipantValue {
-    CGFloat amount = [EventHelper costPerParticipantForEvent:self.event];
-    self.costPerParticipantValue.text = [Helper formattedStringForAmountFloat:amount];
+    self.costPerParticipantValue.text = [EventHelper costPerParticipantStringForEvent:self.event];
 }
 
 
@@ -109,9 +108,7 @@
 
 #pragma mark - TextField Delegates
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    NSString *formattedString = textField.text;
-    NSString *unformattedString = [Helper unformattedStringForFormattedAmountString:formattedString];
-    textField.text = unformattedString;
+    textField.text = [Helper unformattedStringForFormattedAmountString:textField.text];
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -120,8 +117,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSString *unformattedString = textField.text;
-    NSString *formattedString = [Helper formattedStringForUnformattedAmountString:unformattedString];
+    NSString *formattedString = [Helper formattedStringForUnformattedAmountString:textField.text];
     self.costValue.text = formattedString;
     
     NSNumber *number = [Helper numberForFormattedAmountString:formattedString];

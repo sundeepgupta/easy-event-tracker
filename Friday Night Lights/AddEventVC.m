@@ -88,14 +88,21 @@
 }
 
 #pragma mark - TextField Delegates
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    textField.text = [Helper unformattedStringForFormattedAmountString:textField.text];
+}
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     return [Helper isValidReplacementString:string forAmountFieldString:textField.text];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-//    self.event.cost = [Helper amountNumberForTextFieldAmountString:textField.text];
-//    self.costValue.text = [Helper formattedStringForAmountNumber:self.event.cost];
+    NSString *formattedString = [Helper formattedStringForUnformattedAmountString:textField.text];
+    self.costValue.text = formattedString;
+    
+    NSNumber *number = [Helper numberForFormattedAmountString:formattedString];
+    self.event.cost = number;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

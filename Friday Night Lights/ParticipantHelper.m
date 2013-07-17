@@ -92,7 +92,7 @@
     
     CGFloat costPerParticipant;
     for (Event *event in events) {
-        costPerParticipant = [EventHelper costPerParticipantForEvent:event];
+        costPerParticipant = [EventHelper costPerParticipantFloatForEvent:event];
         sum = sum + costPerParticipant;
     }
     

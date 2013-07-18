@@ -13,9 +13,11 @@
 #import "Helper.h"
 #import "Event.h"
 #import "EventHelper.h"
+#import "ParticipantsCell.h"
 
 @implementation ParticipantHelper
 
+#pragma mark - Table View
 + (NSArray *)dataSource {
     NSArray *participants = [Model participants];
     NSArray *participantsWithNames = [self participantsWithNames:participants];
@@ -41,7 +43,14 @@
     return [AddressBookHelper abCompositeNameFromAbRecordId:abRecordId];
 }
 
++ (void)configureCell:(ParticipantsCell *)cell forParticipant:(Participant *)participant {
+    cell.nameValue.text = [self nameForParticipant:participant];
+    cell.balanceValue.text = [self balanceStringForParticipant:participant];
+}
 
+
+
+#pragma mark - Communication
 + (NSURL *)phoneUrlForParticipant:(Participant *)participant {
     NSString *mobileNumber = [self mobileNumberForParticipant:participant];
     NSString *phoneString = [NSString stringWithFormat:@"telprompt://%@", mobileNumber];

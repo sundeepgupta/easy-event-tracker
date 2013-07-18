@@ -9,6 +9,8 @@
 #import "EventHelper.h"
 #import "Event.h"
 #import "Helper.h"
+#import "EventsCell.h"
+#import "NSDate+Helpers.h"
 
 @interface EventHelper ()
 
@@ -16,6 +18,11 @@
 @end
 
 @implementation EventHelper
+
++ (void)configureCell:(EventsCell *)cell forEvent:(Event *)event {
+    cell.dateValue.text = [event.date dateAndTimeString];
+    cell.confirmedParticipantsValue.text = [Helper stringForNumberOfConfirmedParticipantsForEvent:event];
+}
 
 
 + (NSString *)costPerParticipantStringForEvent:(Event *)event {

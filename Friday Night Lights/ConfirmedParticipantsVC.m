@@ -9,6 +9,7 @@
 #import "ConfirmedParticipantsVC.h"
 #import "ParticipantHelper.h"
 #import "Participant.h"
+#import "ParticipantsCell.h"
 
 @interface ConfirmedParticipantsVC ()
 
@@ -64,12 +65,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ConfirmedParticipantsVCCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    [DesignHelper customizeCell:cell];
+    ParticipantsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Participant *object = [self.dataSource objectAtIndex:indexPath.row];
-    cell.textLabel.text = [ParticipantHelper nameForParticipant:object];
+    [ParticipantHelper configureCell:cell forParticipant:object];
     
     for (Participant *confirmedParticipant in self.confirmedParticipants) {
         if ([object isEqual:confirmedParticipant]) {
@@ -77,6 +76,8 @@
         }
     }
 
+    [DesignHelper customizeCell:cell];
+    
     return cell;
 }
 
@@ -90,7 +91,7 @@
 
 - (void)toggleParticipantConfirmedForIndexPath:(NSIndexPath *)indexPath {
     Participant *participant = [self.dataSource objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    ParticipantsCell *cell = (ParticipantsCell *)[self.tableView cellForRowAtIndexPath:indexPath];
 
     if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -100,7 +101,17 @@
         [Model deleteParticipant:participant fromEvent:self.event];
     }
     
+    [self updateVisibleCellsBalances];
+    
     [Model saveContext];
+}
+- (void)updateVisibleCellsBalances {
+    NSArray *cells = self.tableView.visibleCells;
+    for (ParticipantsCell *cell in cells) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Participant *participant = self.dataSource[indexPath.row];
+        cell.balanceValue.text = [ParticipantHelper balanceStringForParticipant:participant];
+    }
 }
 
 @end

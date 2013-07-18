@@ -7,7 +7,6 @@
 //
 
 #import "ParticipantsVC.h"
-
 #import "Participant.h"
 #import "ParticipantDetailVC.h"
 #import "AddressBookHelper.h"
@@ -15,6 +14,7 @@
 #import "DesignHelper.h"
 #import "ParticipantHelper.h"
 #import "Event.h"
+#import "ParticipantsCell.h"
 
 
 @interface ParticipantsVC ()
@@ -77,11 +77,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ParticipantsVCCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ParticipantsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Participant *objectAtIndexPath = [self.dataSource objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [ParticipantHelper nameForParticipant:objectAtIndexPath];
+    Participant *object = [self.dataSource objectAtIndex:indexPath.row];
+    [ParticipantHelper configureCell:cell forParticipant:object];
+
     
     [DesignHelper customizeCell:cell];
     

@@ -10,7 +10,7 @@
 #import "UIAlertView+Helpers.h"
 #import "Event.h"
 #import "EventDetailVC.h"
-#import "NSDate+Helpers.h"
+#import "EventHelper.h"
 #import "AddEventVC.h"
 #import "EventsCell.h"
 #import "Helper.h"
@@ -75,9 +75,7 @@
     EventsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Event *object = [self objectAtIndexPath:indexPath];
-
-    cell.dateValue.text = [object.date dateAndTimeString];
-    cell.confirmedParticipantsValue.text = [Helper stringForNumberOfConfirmedParticipantsForEvent:object];
+    [EventHelper configureCell:cell forEvent:object];
     
     [DesignHelper customizeCell:cell];
     

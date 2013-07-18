@@ -23,6 +23,8 @@
 		AE18BA3E179879CD0014EAEB /* briefcase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE18BA3A179879CD0014EAEB /* briefcase@2x.png */; };
 		AE18BA411798813E0014EAEB /* EventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA401798813D0014EAEB /* EventsCell.m */; };
 		AE18BA421798813E0014EAEB /* EventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA401798813D0014EAEB /* EventsCell.m */; };
+		AE18BA45179888CC0014EAEB /* ParticipantsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA44179888CC0014EAEB /* ParticipantsCell.m */; };
+		AE18BA46179888CC0014EAEB /* ParticipantsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA44179888CC0014EAEB /* ParticipantsCell.m */; };
 		AE18DD9117749F690082FCFE /* StockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9017749F690082FCFE /* StockTableViewController.m */; };
 		AE18DD9217749F690082FCFE /* StockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9017749F690082FCFE /* StockTableViewController.m */; };
 		AE18DD991774ADF50082FCFE /* EventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD981774ADF50082FCFE /* EventsVC.m */; };
@@ -280,6 +282,8 @@
 		AE18BA3A179879CD0014EAEB /* briefcase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "briefcase@2x.png"; sourceTree = "<group>"; };
 		AE18BA3F1798813D0014EAEB /* EventsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsCell.h; path = "Friday Night Lights/EventsCell.h"; sourceTree = "<group>"; };
 		AE18BA401798813D0014EAEB /* EventsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsCell.m; path = "Friday Night Lights/EventsCell.m"; sourceTree = "<group>"; };
+		AE18BA43179888CC0014EAEB /* ParticipantsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantsCell.h; path = "Friday Night Lights/ParticipantsCell.h"; sourceTree = "<group>"; };
+		AE18BA44179888CC0014EAEB /* ParticipantsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantsCell.m; path = "Friday Night Lights/ParticipantsCell.m"; sourceTree = "<group>"; };
 		AE18DD8F17749F690082FCFE /* StockTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockTableViewController.h; sourceTree = "<group>"; };
 		AE18DD9017749F690082FCFE /* StockTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockTableViewController.m; sourceTree = "<group>"; };
 		AE18DD971774ADF50082FCFE /* EventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = EventsVC.h; path = "Friday Night Lights/EventsVC.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -698,6 +702,8 @@
 			children = (
 				AE18BA3F1798813D0014EAEB /* EventsCell.h */,
 				AE18BA401798813D0014EAEB /* EventsCell.m */,
+				AE18BA43179888CC0014EAEB /* ParticipantsCell.h */,
+				AE18BA44179888CC0014EAEB /* ParticipantsCell.m */,
 				AE18BA3817985ED10014EAEB /* Admin */,
 				AE895C211796419C0055223A /* UpdatePresentingVCDelegate.h */,
 				AE89ABEA176D426700C06D03 /* App Control */,
@@ -1095,6 +1101,7 @@
 				AE895C28179666820055223A /* TransactionsCell.m in Sources */,
 				AE18BA3617985EB40014EAEB /* AdminVC.m in Sources */,
 				AE18BA411798813E0014EAEB /* EventsCell.m in Sources */,
+				AE18BA45179888CC0014EAEB /* ParticipantsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,6 +1144,7 @@
 				AE895C29179666820055223A /* TransactionsCell.m in Sources */,
 				AE18BA3717985EB40014EAEB /* AdminVC.m in Sources */,
 				AE18BA421798813E0014EAEB /* EventsCell.m in Sources */,
+				AE18BA46179888CC0014EAEB /* ParticipantsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

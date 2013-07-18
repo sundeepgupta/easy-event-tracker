@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@class Participant;
+@class Participant, ParticipantsCell;
 
 @interface ParticipantHelper : NSObject
 
 + (NSArray *)dataSource;
-
 + (NSString *)nameForParticipant:(Participant *)participant;
++ (void)configureCell:(ParticipantsCell *)cell forParticipant:(Participant *)participant;
+
+
 
 + (NSURL *)phoneUrlForParticipant:(Participant *)participant;
 

@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class Event;
+@class Event, EventsCell;
 
 @interface EventHelper : NSObject
 
++ (void)configureCell:(EventsCell *)cell forEvent:(Event *)event;
 
 + (NSString *)costPerParticipantStringForEvent:(Event *)event;
 + (CGFloat)costPerParticipantFloatForEvent:(Event *)event;

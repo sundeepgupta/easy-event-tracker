@@ -115,13 +115,9 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSString *formattedString = [Helper formattedStringForUnformattedAmountString:textField.text];
-    self.costValue.text = formattedString;
+    self.costValue.text = [Helper formattedStringForUnformattedAmountString:textField.text];
     
-    NSNumber *number = [Helper numberForFormattedAmountString:formattedString];
-    self.event.cost = number;
-
-    [self setupAmountValues];
+    self.event.cost = [Helper numberForFormattedAmountString:textField.text];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -219,23 +215,25 @@
 }
 
 - (void)saveEvent {
-    [self saveValues];
     [Model saveContext];
 }
-- (void)saveValues {
-    self.event.cost = [Helper numberForFormattedAmountString:self.costValue.text];
-}
-
 
 
 -(void) viewWillDisappear:(BOOL)animated {
-    //Handle back button press
+    [super viewWillDisappear:animated];
+    [self assertBackButtonPress];
+    [self endEditing];
+}
+- (void)assertBackButtonPress {
     //http://stackoverflow.com/a/11394374/1672161
     
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
         [self saveEvent];
     }
-    [super viewWillDisappear:animated];
+    
+}
+- (void)endEditing {
+    [self.view.window endEditing: YES];
 }
 
 @end

@@ -98,11 +98,9 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSString *formattedString = [Helper formattedStringForUnformattedAmountString:textField.text];
-    self.costValue.text = formattedString;
+    self.costValue.text = [Helper formattedStringForUnformattedAmountString:textField.text];
     
-    NSNumber *number = [Helper numberForFormattedAmountString:formattedString];
-    self.event.cost = number;
+    self.event.cost = [Helper numberForFormattedAmountString:textField.text];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -205,11 +203,8 @@
 
 
 - (void)saveEvent {
-    [self saveValues];
     [Model saveContext];
 }
-- (void)saveValues {
-    self.event.cost = [Helper numberForFormattedAmountString:self.costValue.text];
-}
+
 
 @end

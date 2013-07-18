@@ -105,15 +105,26 @@
 
 
 #pragma mark - TextField Delegates
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    textField.text = [Helper unformattedStringForFormattedAmountString:textField.text];
+}
+
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     return [Helper isValidReplacementString:string forAmountFieldString:textField.text];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.amountValue.text = [Helper formattedStringForUnformattedAmountString:textField.text];
+    
+    self.transaction.amount = [Helper numberForFormattedAmountString:textField.text];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
+
 
 
 
@@ -168,29 +179,26 @@
 }
 
 - (void)saveTransaction {
-    [self saveValues];
     [Model saveContext];
 }
-- (void)saveValues {
-    [self saveAmountValue];
-    //date value being saved in date picker delegate
-}
-- (void)saveAmountValue {
-//    self.transaction.amount = [Helper amountNumberForTextFieldAmountString:self.amountValue.text];
-}
 
 
 
-//TODO - BUG WHEN EDITING AND SAVING
 -(void) viewWillDisappear:(BOOL)animated {
-    //Handle back button press
+    [super viewWillDisappear:animated];
+    [self assertBackButtonPress];
+    [self endEditing];
+}
+- (void)assertBackButtonPress {
     //http://stackoverflow.com/a/11394374/1672161
     
     if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        [self saveValues];
-        [Model saveContext];
+        [self saveTransaction];
     }
-    [super viewWillDisappear:animated];
+
+}
+- (void)endEditing {
+    [self.view.window endEditing: YES];
 }
 
 @end

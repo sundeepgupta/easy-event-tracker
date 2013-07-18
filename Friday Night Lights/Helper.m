@@ -138,7 +138,36 @@
 
 
 
+#pragma mark - Admin 
++ (NSString *)stringForBankAmount {
+    CGFloat balance = [self bankBalance];
+    NSString *formattedString = [self formattedStringForAmountFloat:balance];
+    return formattedString;
+}
 
++ (CGFloat)bankBalance {
+    NSNumber *transactionSum = [self transactionSum];
+    NSNumber *eventCostSum = [self eventCostSum];
+    CGFloat balance = transactionSum.floatValue - eventCostSum.floatValue;
+    return balance;
+}
+
++ (NSNumber *)transactionSum {
+    NSArray *objects = [Model transactions];
+    NSNumber *sum = [self sumForObjects:objects forKey:@"amount"];
+    return sum;
+}
++ (NSNumber *)eventCostSum {
+    NSArray *objects = [Model events];
+    NSNumber *sum = [self sumForObjects:objects forKey:@"cost"];
+    return sum;
+}
+
++ (NSNumber *)sumForObjects:(NSArray *)objects forKey:(NSString *)key {
+    NSString *keyValueOperator = [NSString stringWithFormat:@"@sum.%@", key];
+    NSNumber *sum = [objects valueForKeyPath:keyValueOperator];
+    return sum;
+}
 
 
 @end

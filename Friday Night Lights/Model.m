@@ -136,6 +136,13 @@
     return object;
 }
 
+
++ (NSArray *)transactions {
+    NSString *entityName = NSStringFromClass([Transaction class]);
+    NSArray *objects = [self objectsWithEntityName:entityName];    
+    return objects;
+}
+
 + (NSArray *)transactionsForParticipant:(Participant *)participant {
     NSArray *objects = participant.transactions.allObjects;
     NSArray *sortedObjects = [self objectsSortedByDate:objects];

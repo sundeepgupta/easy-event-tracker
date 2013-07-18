@@ -14,20 +14,15 @@
 
 
 + (BOOL)isValidReplacementString:(NSString *)replacementString forAmountFieldString:(NSString *)amountFieldString;
-
-
-
-
-
 + (NSString *)formattedStringForUnformattedAmountString:(NSString *)unformattedString;
 + (NSNumber *)numberForFormattedAmountString:(NSString *)string;
 + (NSString *)formattedStringForAmountNumber:(NSNumber *)number;
 + (NSString *)formattedStringForAmountFloat:(CGFloat)aFloat;
-
 + (NSString *)unformattedStringForFormattedAmountString:(NSString *)formattedString;
 
 
 + (void)presentDatePickerInVc:(UIViewController *)vc withDateMode:(BOOL)withDateMode;
 
 
++ (NSString *)stringForBankAmount;
 @end

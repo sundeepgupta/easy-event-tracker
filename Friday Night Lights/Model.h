@@ -24,6 +24,8 @@
 + (void)addParticipant:(Participant *)participant toEvent:(Event *)event;
 + (void)deleteParticipant:(Participant *)participant fromEvent:(Event *)event;
 
+
+
 #pragma mark - Participants
 + (Participant *)newParticipant;
 
@@ -38,6 +40,7 @@
 #pragma mark - Transactions
 + (Transaction *)newTransactionForParticipant:(Participant *)participant;
 
++ (NSArray *)transactions;
 + (NSArray *)transactionsForParticipant:(Participant *)participant;
 
 

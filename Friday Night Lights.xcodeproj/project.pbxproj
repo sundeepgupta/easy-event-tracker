@@ -15,6 +15,8 @@
 		AE12389E176F71A5009FC5EB /* AddressBookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE12389C176F71A5009FC5EB /* AddressBookHelper.m */; };
 		AE1238A5176F76C6009FC5EB /* UIAlertView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */; };
 		AE1238A6176F76C6009FC5EB /* UIAlertView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */; };
+		AE18BA3617985EB40014EAEB /* AdminVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA3517985EB40014EAEB /* AdminVC.m */; };
+		AE18BA3717985EB40014EAEB /* AdminVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA3517985EB40014EAEB /* AdminVC.m */; };
 		AE18DD9117749F690082FCFE /* StockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9017749F690082FCFE /* StockTableViewController.m */; };
 		AE18DD9217749F690082FCFE /* StockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9017749F690082FCFE /* StockTableViewController.m */; };
 		AE18DD991774ADF50082FCFE /* EventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD981774ADF50082FCFE /* EventsVC.m */; };
@@ -266,6 +268,8 @@
 		AE12389C176F71A5009FC5EB /* AddressBookHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddressBookHelper.m; path = "Friday Night Lights/AddressBookHelper.m"; sourceTree = "<group>"; };
 		AE1238A3176F76C6009FC5EB /* UIAlertView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+Helpers.h"; path = "Friday Night Lights/Categories/UIAlertView+Helpers.h"; sourceTree = "<group>"; };
 		AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+Helpers.m"; path = "Friday Night Lights/Categories/UIAlertView+Helpers.m"; sourceTree = "<group>"; };
+		AE18BA3417985EB40014EAEB /* AdminVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminVC.h; path = "Friday Night Lights/AdminVC.h"; sourceTree = "<group>"; };
+		AE18BA3517985EB40014EAEB /* AdminVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdminVC.m; path = "Friday Night Lights/AdminVC.m"; sourceTree = "<group>"; };
 		AE18DD8F17749F690082FCFE /* StockTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockTableViewController.h; sourceTree = "<group>"; };
 		AE18DD9017749F690082FCFE /* StockTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockTableViewController.m; sourceTree = "<group>"; };
 		AE18DD971774ADF50082FCFE /* EventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = EventsVC.h; path = "Friday Night Lights/EventsVC.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -507,6 +511,15 @@
 			name = Events;
 			sourceTree = "<group>";
 		};
+		AE18BA3817985ED10014EAEB /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				AE18BA3417985EB40014EAEB /* AdminVC.h */,
+				AE18BA3517985EB40014EAEB /* AdminVC.m */,
+			);
+			name = Admin;
+			sourceTree = "<group>";
+		};
 		AE18DD8A17749D050082FCFE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +684,7 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
+				AE18BA3817985ED10014EAEB /* Admin */,
 				AE895C211796419C0055223A /* UpdatePresentingVCDelegate.h */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE0E42C4176DFFDA00A050BE /* Events */,
@@ -1061,6 +1075,7 @@
 				AE895C12179638600055223A /* Participant.m in Sources */,
 				AE895C2417965F9E0055223A /* TransactionsVC.m in Sources */,
 				AE895C28179666820055223A /* TransactionsCell.m in Sources */,
+				AE18BA3617985EB40014EAEB /* AdminVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1101,6 +1116,7 @@
 				AE895C13179638600055223A /* Participant.m in Sources */,
 				AE895C2517965F9E0055223A /* TransactionsVC.m in Sources */,
 				AE895C29179666820055223A /* TransactionsCell.m in Sources */,
+				AE18BA3717985EB40014EAEB /* AdminVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

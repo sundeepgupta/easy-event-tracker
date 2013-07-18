@@ -86,9 +86,7 @@
 }
 
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [self saveEvent];
-}
+
 
 
 - (void)didReceiveMemoryWarning
@@ -123,7 +121,6 @@
     NSNumber *number = [Helper numberForFormattedAmountString:formattedString];
     self.event.cost = number;
 
-    [self saveEvent];
     [self setupAmountValues];
 }
 
@@ -153,7 +150,6 @@
     self.event.date = date;
     self.dateValue.text =  [date dateAndTimeString];
     [self resetView];
-    [self saveEvent];
 }
 -(void)datePickerClearDate:(TDDatePickerController*)viewController {
     //not being used here
@@ -223,7 +219,23 @@
 }
 
 - (void)saveEvent {
+    [self saveValues];
     [Model saveContext];
+}
+- (void)saveValues {
+    self.event.cost = [Helper numberForFormattedAmountString:self.costValue.text];
+}
+
+
+
+-(void) viewWillDisappear:(BOOL)animated {
+    //Handle back button press
+    //http://stackoverflow.com/a/11394374/1672161
+    
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
+        [self saveEvent];
+    }
+    [super viewWillDisappear:animated];
 }
 
 @end

@@ -161,9 +161,6 @@
     }
 }
 
-- (void)saveEvent {
-    [Model saveContext];
-}
 
 - (void)inviteParticipants {
     [self setupMessageComposeVc];
@@ -206,5 +203,13 @@
 }
 
 
+
+- (void)saveEvent {
+    [self saveValues];
+    [Model saveContext];
+}
+- (void)saveValues {
+    self.event.cost = [Helper numberForFormattedAmountString:self.costValue.text];
+}
 
 @end

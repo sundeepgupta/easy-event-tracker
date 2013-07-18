@@ -33,7 +33,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *confirmedParticipantsValue;
 @property (strong, nonatomic) IBOutlet UITextField *costPerParticipantValue;
 
-@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *textCells;
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *buttonCells;
 
 @end
 
@@ -57,6 +58,7 @@
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];
+    [DesignHelper removeBorderForGroupedCells:self.buttonCells];
 }
 
 - (void)dismissKeyboard:(UITapGestureRecognizer *)sender {
@@ -66,7 +68,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupViewValues];
-    [DesignHelper customizeCells:self.cells];
+    [DesignHelper customizeCells:self.textCells];
 }
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];

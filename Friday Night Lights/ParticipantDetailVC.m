@@ -27,8 +27,8 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *balanceCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *confirmedEventsCell;
 
-@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
-
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *textCells;
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *buttonCells;
 @end
 
 @implementation ParticipantDetailVC
@@ -50,11 +50,12 @@
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];
+    [DesignHelper removeBorderForGroupedCells:self.buttonCells];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupViewValues];
-    [DesignHelper customizeCells:self.cells];
+    [DesignHelper customizeCells:self.textCells];
 }
 
 - (void)setupViewValues {

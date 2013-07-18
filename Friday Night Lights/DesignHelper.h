@@ -21,4 +21,5 @@
 + (void)customizeCell:(UITableViewCell *)cell;
 + (void)customizeCellText:(UIView *)view ;
 
++ (void)removeBorderForGroupedCells:(NSArray *)cells;
 @end

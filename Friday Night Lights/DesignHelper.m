@@ -160,7 +160,13 @@
     }
 }
 
-
++ (void)removeBorderForGroupedCells:(NSArray *)cells {
+    for (UITableViewCell *cell in cells) {
+        CGRect frame = cell.backgroundView.frame;
+        UIView *view = [[UIView alloc] initWithFrame:frame];
+        cell.backgroundView = view;
+    }
+}
 
 
 

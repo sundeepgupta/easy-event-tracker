@@ -28,8 +28,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *costValue;
 @property (strong, nonatomic) IBOutlet UIButton *inviteButton;
 @property (strong, nonatomic) IBOutlet UITableViewCell *dateCell;
-@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
-
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *textCells;
+@property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *buttonCells;
 
 @end
 
@@ -47,26 +47,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.title = @"Add Game";
-    
     [self customizeDesign];
-    
     [self setupViewValues];
-    
     [Helper addTapRecognizerToVc:self];
 }
 - (void)customizeDesign {
     [DesignHelper addBackgroundToView:self.view];
-    
-
+    [DesignHelper removeBorderForGroupedCells:self.buttonCells];
 }
 - (void)setupViewValues {
     self.dateValue.text = [self.event.date dateAndTimeString];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [DesignHelper customizeCells:self.cells];
+    [DesignHelper customizeCells:self.textCells];
 }
 
 

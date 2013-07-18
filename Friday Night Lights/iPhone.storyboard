@@ -321,8 +321,9 @@
                         <outlet property="dateCell" destination="TML-c4-KMA" id="ijM-Cn-rN0"/>
                         <outlet property="dateValue" destination="IiK-so-7MW" id="0jY-EY-XXn"/>
                         <outlet property="inviteButton" destination="qIx-zu-aBT" id="cik-bk-I1D"/>
-                        <outletCollection property="cells" destination="H2l-35-QZT" id="w0a-DL-atq"/>
-                        <outletCollection property="cells" destination="TML-c4-KMA" id="hdi-7a-HyK"/>
+                        <outletCollection property="textCells" destination="TML-c4-KMA" id="0bQ-5s-vaR"/>
+                        <outletCollection property="textCells" destination="H2l-35-QZT" id="s62-KW-g0J"/>
+                        <outletCollection property="buttonCells" destination="vce-2f-oxQ" id="6tH-Sl-ikW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0L-lf-o3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -540,10 +541,12 @@
                         <outlet property="costValue" destination="geV-z1-cQL" id="diQ-Vs-TFj"/>
                         <outlet property="dateCell" destination="pUA-0n-8ta" id="Rte-kZ-svQ"/>
                         <outlet property="dateValue" destination="eqL-C2-wGi" id="EFq-Bt-2Vs"/>
-                        <outletCollection property="cells" destination="pUA-0n-8ta" id="vlL-8n-HNL"/>
-                        <outletCollection property="cells" destination="dDT-KZ-eQY" id="hBG-ce-Cao"/>
-                        <outletCollection property="cells" destination="F3D-Xd-aad" id="haX-hM-jk3"/>
-                        <outletCollection property="cells" destination="6LO-x1-jyh" id="8GH-Ei-a7m"/>
+                        <outletCollection property="textCells" destination="dDT-KZ-eQY" id="u4e-XC-QzD"/>
+                        <outletCollection property="textCells" destination="6LO-x1-jyh" id="AuC-Fk-fK5"/>
+                        <outletCollection property="textCells" destination="pUA-0n-8ta" id="JPV-Lf-a8j"/>
+                        <outletCollection property="textCells" destination="F3D-Xd-aad" id="DtR-XM-z15"/>
+                        <outletCollection property="buttonCells" destination="UeU-W1-f4B" id="WeM-rm-ftO"/>
+                        <outletCollection property="buttonCells" destination="D4n-h9-gwE" id="xQS-iz-1EH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lto-o8-p3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -752,8 +755,11 @@
                         <outlet property="balanceValue" destination="sXI-N9-27x" id="Vb0-9K-yqY"/>
                         <outlet property="confirmedEventsCell" destination="zUp-dP-6hz" id="oxn-Bq-zwz"/>
                         <outlet property="confirmedEventsValue" destination="vNo-Vl-yyx" id="k2D-Pt-9Dn"/>
-                        <outletCollection property="cells" destination="zUp-dP-6hz" id="esJ-ku-riz"/>
-                        <outletCollection property="cells" destination="rn5-BG-DId" id="Dv8-dU-SeG"/>
+                        <outletCollection property="buttonCells" destination="g98-Kx-5xI" id="Ulp-Iu-6hC"/>
+                        <outletCollection property="buttonCells" destination="YbO-cp-mkG" id="9Rd-qG-Cqf"/>
+                        <outletCollection property="buttonCells" destination="PSQ-2E-GDg" id="Tai-SY-Vfw"/>
+                        <outletCollection property="textCells" destination="zUp-dP-6hz" id="yYz-Qd-iML"/>
+                        <outletCollection property="textCells" destination="rn5-BG-DId" id="OmO-3f-ORM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9d9-vt-Ixz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1046,7 +1052,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bankValue" destination="4Oh-dv-ryj" id="DjM-RF-zh8"/>
-                        <outletCollection property="cells" destination="Y59-rq-ylx" id="3I0-UN-BSs"/>
+                        <outletCollection property="buttonCells" destination="xkL-x7-UBs" id="BWm-D6-JTl"/>
+                        <outletCollection property="textCells" destination="Y59-rq-ylx" id="MwQ-U9-YE9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dOJ-P5-DG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1086,7 +1093,8 @@
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="inviteButton" candidateClass="UIButton"/>
-                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
+                <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
+                <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="AdminVC" superclassName="UITableViewController">
@@ -1094,7 +1102,8 @@
             <relationships>
                 <relationship kind="action" name="messagePlayersButtonPress:"/>
                 <relationship kind="outlet" name="bankValue" candidateClass="UITextField"/>
-                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
+                <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
+                <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="ConfirmedEventsVC" superclassName="UITableViewController">
@@ -1120,7 +1129,8 @@
                 <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
+                <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
+                <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="EventsVC" superclassName="UITableViewController">
@@ -1132,16 +1142,21 @@
         <class className="ParticipantDetailVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantDetailVC.h"/>
             <relationships>
+                <relationship kind="action" name="callButtonPress:"/>
+                <relationship kind="action" name="textButtonPress:"/>
+                <relationship kind="action" name="transactionButtonPress:"/>
                 <relationship kind="outlet" name="balanceCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="balanceValue" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="confirmedEventsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="confirmedEventsValue" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
+                <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
+                <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="ParticipantsVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantsVC.h"/>
             <relationships>
+                <relationship kind="action" name="addButtonPress:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
@@ -1163,6 +1178,9 @@
         </class>
         <class className="TransactionsVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TransactionsVC.h"/>
+            <relationships>
+                <relationship kind="action" name="addButtonPress:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

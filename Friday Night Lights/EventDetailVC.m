@@ -113,8 +113,8 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     self.costValue.text = [Helper formattedStringForUnformattedAmountString:textField.text];
-    
     self.event.cost = [Helper numberForFormattedAmountString:textField.text];
+    [self saveEvent];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -142,6 +142,7 @@
     NSDate *date = viewController.datePicker.date;
     self.event.date = date;
     self.dateValue.text =  [date dateAndTimeString];
+    [self saveEvent];
     [self resetView];
 }
 -(void)datePickerClearDate:(TDDatePickerController*)viewController {
@@ -218,17 +219,9 @@
 
 -(void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self assertBackButtonPress];
     [self endEditing];
 }
-- (void)assertBackButtonPress {
-    //http://stackoverflow.com/a/11394374/1672161
-    
-    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound) {
-        [self saveEvent];
-    }
-    
-}
+
 - (void)endEditing {
     [self.view.window endEditing: YES];
 }

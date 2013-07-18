@@ -99,8 +99,8 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     self.costValue.text = [Helper formattedStringForUnformattedAmountString:textField.text];
-    
     self.event.cost = [Helper numberForFormattedAmountString:textField.text];
+    [self saveEvent];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -122,6 +122,7 @@
     NSDate *date = viewController.datePicker.date;
     self.event.date = date;
     self.dateValue.text =  [date dateAndTimeString];
+    [self saveEvent];
     [self resetView];
 }
 -(void)datePickerClearDate:(TDDatePickerController*)viewController {
@@ -145,14 +146,12 @@
 }
 
 - (IBAction)doneButtonPress:(UIBarButtonItem *)sender {
-    [self saveEvent];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 - (IBAction)saveAndInviteButtonPress:(UIButton *)sender {
     if([MFMessageComposeViewController canSendText]) {
-        [self saveEvent];
         [self inviteParticipants];
     } else {
         [MessageHelper showCantSendTextAlert];

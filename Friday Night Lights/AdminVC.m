@@ -103,4 +103,21 @@
 }
 
 
+- (IBAction)deleteDataButtonPress:(id)sender {
+    [self reqeustDeleteConfirmation];
+}
+- (void)reqeustDeleteConfirmation {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm Delete" message:@"This will delete all data and cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+    [alert show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex == 1) {
+        [Model resetStore];
+    }
+}
+
+
+
+
 @end

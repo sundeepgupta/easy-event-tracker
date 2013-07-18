@@ -12,6 +12,8 @@
 #import "EventDetailVC.h"
 #import "NSDate+Helpers.h"
 #import "AddEventVC.h"
+#import "EventsCell.h"
+#import "Helper.h"
 
 
 @interface EventsVC ()
@@ -35,6 +37,9 @@
 {
     [super viewDidLoad];
     self.title = @"Games";
+    [self customizeDesign];
+}
+- (void)customizeDesign {
     [DesignHelper customizeTableView:self.tableView];
 }
 
@@ -67,11 +72,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"EventsVCCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EventsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Event *objectAtIndexPath = [self objectAtIndexPath:indexPath];
+    Event *object = [self objectAtIndexPath:indexPath];
 
-    cell.textLabel.text = [objectAtIndexPath.date dateAndTimeString];
+    cell.dateValue.text = [object.date dateAndTimeString];
+    cell.confirmedParticipantsValue.text = [Helper stringForNumberOfConfirmedParticipantsForEvent:object];
     
     [DesignHelper customizeCell:cell];
     

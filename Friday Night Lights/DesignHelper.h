@@ -10,6 +10,9 @@
 
 @interface DesignHelper : NSObject
 
++ (UIColor *)customBlueColor;
+
+
 + (void)customizeIphoneTheme;
 + (void)customizeNavigationBar;
 

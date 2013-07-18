@@ -10,6 +10,8 @@
 #import "Event.h"
 #import "EventHelper.h"
 #import "NSDate+Helpers.h"
+#import "Helper.h"
+#import "EventsCell.h"
 
 @interface ConfirmedEventsVC ()
 
@@ -63,18 +65,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ConfirmedEventsVCCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    EventsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    [DesignHelper customizeCell:cell];
+    Event *object = self.dataSource[indexPath.row];
     
-    Event *object = [self.dataSource objectAtIndex:indexPath.row];
-    cell.textLabel.text = [object.date dateAndTimeString];
+    cell.dateValue.text = [object.date dateAndTimeString];
+    cell.confirmedParticipantsValue.text = [Helper stringForNumberOfConfirmedParticipantsForEvent:object];
     
     for (Event *confirmedEvent in self.confirmedEvents) {
         if ([object isEqual:confirmedEvent]) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
     }
+    
+    [DesignHelper customizeCell:cell];
     
     return cell;
 }
@@ -89,7 +93,7 @@
 
 - (void)toggleParticipantConfirmedForIndexPath:(NSIndexPath *)indexPath {
     Event *event = [self.dataSource objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    EventsCell *cell = (EventsCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
     if (cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -98,7 +102,8 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
         [Model deleteParticipant:self.participant fromEvent:event];
     }
-    
+
+    cell.confirmedParticipantsValue.text = [Helper stringForNumberOfConfirmedParticipantsForEvent:event];
     [Model saveContext];
 }
 

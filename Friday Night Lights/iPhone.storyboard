@@ -143,23 +143,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventsVCCell" textLabel="P0y-fz-jVh" style="IBUITableViewCellStyleDefault" id="RWN-8g-ldE">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventsVCCell" id="RWN-8g-ldE" customClass="EventsCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P0y-fz-jVh">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wed May 30 at 12:45 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e2m-hG-xyS">
+                                            <rect key="frame" x="20" y="11" width="207" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="888" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7E3-lM-RgC">
+                                            <rect key="frame" x="235" y="11" width="45" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="confirmedParticipantsValue" destination="7E3-lM-RgC" id="K5S-n1-Oab"/>
+                                    <outlet property="dateValue" destination="e2m-hG-xyS" id="GcO-ej-iey"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -775,23 +786,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConfirmedEventsVCCell" textLabel="q0w-IC-wrb" style="IBUITableViewCellStyleDefault" id="Nah-GH-5OR">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ConfirmedEventsVCCell" id="6oT-vF-d25" customClass="EventsCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q0w-IC-wrb">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wed May 30 at 12:45 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TMT-Kv-aGh">
+                                            <rect key="frame" x="20" y="11" width="207" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="888" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b9B-IN-YiD">
+                                            <rect key="frame" x="235" y="11" width="45" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="confirmedParticipantsValue" destination="b9B-IN-YiD" id="scE-ad-DTF"/>
+                                    <outlet property="dateValue" destination="TMT-Kv-aGh" id="kGj-iV-fap"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1064,7 +1086,7 @@
         <scene sceneID="Owg-6N-ryE">
             <objects>
                 <navigationController id="8lW-8G-AuR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Admin" id="0Mr-QA-2Ms"/>
+                    <tabBarItem key="tabBarItem" title="Admin" image="briefcase.png" id="0Mr-QA-2Ms"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eDX-6B-ixT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1081,6 +1103,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="briefcase.png" width="30" height="30"/>
         <image name="calendar.png" width="30" height="30"/>
         <image name="ipad-list-item-selected.png" width="319" height="67"/>
         <image name="team.png" width="30" height="30"/>
@@ -1100,7 +1123,6 @@
         <class className="AdminVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AdminVC.h"/>
             <relationships>
-                <relationship kind="action" name="messagePlayersButtonPress:"/>
                 <relationship kind="outlet" name="bankValue" candidateClass="UITextField"/>
                 <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
                 <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
@@ -1123,6 +1145,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailVC.h"/>
             <relationships>
                 <relationship kind="action" name="textConfirmedParticipantsButtonPress:"/>
+                <relationship kind="action" name="textUnconfirmedParticipantsButtonPress:"/>
                 <relationship kind="outlet" name="confirmedParticipantsCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="confirmedParticipantsValue" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="costPerParticipantValue" candidateClass="UITextField"/>
@@ -1131,6 +1154,13 @@
                 <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
                 <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
                 <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="EventsCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="confirmedParticipantsValue" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="EventsVC" superclassName="UITableViewController">
@@ -1142,9 +1172,6 @@
         <class className="ParticipantDetailVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantDetailVC.h"/>
             <relationships>
-                <relationship kind="action" name="callButtonPress:"/>
-                <relationship kind="action" name="textButtonPress:"/>
-                <relationship kind="action" name="transactionButtonPress:"/>
                 <relationship kind="outlet" name="balanceCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="balanceValue" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="confirmedEventsCell" candidateClass="UITableViewCell"/>
@@ -1156,7 +1183,6 @@
         <class className="ParticipantsVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantsVC.h"/>
             <relationships>
-                <relationship kind="action" name="addButtonPress:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
@@ -1178,9 +1204,6 @@
         </class>
         <class className="TransactionsVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TransactionsVC.h"/>
-            <relationships>
-                <relationship kind="action" name="addButtonPress:"/>
-            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

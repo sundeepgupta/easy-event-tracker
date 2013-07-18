@@ -116,7 +116,15 @@
 
 
 
-
+#pragma mark - Integer Strings 
++ (NSString *)stringForNumberOfConfirmedParticipantsForEvent:(Event *)event {
+    NSInteger integer = [Model numberOfConfirmedParticipantsForEvent:event];
+    NSString *string = [self stringForInteger:integer];
+    return string;
+}
++ (NSString *)stringForInteger:(NSInteger)integer {
+    return [NSString stringWithFormat:@"%d", integer];
+}
 
 
 

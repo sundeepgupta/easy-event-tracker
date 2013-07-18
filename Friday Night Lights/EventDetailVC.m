@@ -80,8 +80,7 @@
     [self setupCostPerParticipantValue];
 }
 - (void)setupNumberConfirmedValue {
-    NSInteger number = [Model numberOfConfirmedParticipantsForEvent:self.event];
-    self.confirmedParticipantsValue.text = [NSString stringWithFormat:@"%d", number];
+    self.confirmedParticipantsValue.text = [Helper stringForNumberOfConfirmedParticipantsForEvent:self.event];
 }
 - (void)setupCostPerParticipantValue {
     self.costPerParticipantValue.text = [EventHelper costPerParticipantStringForEvent:self.event];

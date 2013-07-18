@@ -17,6 +17,12 @@
 		AE1238A6176F76C6009FC5EB /* UIAlertView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */; };
 		AE18BA3617985EB40014EAEB /* AdminVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA3517985EB40014EAEB /* AdminVC.m */; };
 		AE18BA3717985EB40014EAEB /* AdminVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA3517985EB40014EAEB /* AdminVC.m */; };
+		AE18BA3B179879CD0014EAEB /* briefcase.png in Resources */ = {isa = PBXBuildFile; fileRef = AE18BA39179879CD0014EAEB /* briefcase.png */; };
+		AE18BA3C179879CD0014EAEB /* briefcase.png in Resources */ = {isa = PBXBuildFile; fileRef = AE18BA39179879CD0014EAEB /* briefcase.png */; };
+		AE18BA3D179879CD0014EAEB /* briefcase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE18BA3A179879CD0014EAEB /* briefcase@2x.png */; };
+		AE18BA3E179879CD0014EAEB /* briefcase@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE18BA3A179879CD0014EAEB /* briefcase@2x.png */; };
+		AE18BA411798813E0014EAEB /* EventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA401798813D0014EAEB /* EventsCell.m */; };
+		AE18BA421798813E0014EAEB /* EventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18BA401798813D0014EAEB /* EventsCell.m */; };
 		AE18DD9117749F690082FCFE /* StockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9017749F690082FCFE /* StockTableViewController.m */; };
 		AE18DD9217749F690082FCFE /* StockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD9017749F690082FCFE /* StockTableViewController.m */; };
 		AE18DD991774ADF50082FCFE /* EventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE18DD981774ADF50082FCFE /* EventsVC.m */; };
@@ -270,6 +276,10 @@
 		AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+Helpers.m"; path = "Friday Night Lights/Categories/UIAlertView+Helpers.m"; sourceTree = "<group>"; };
 		AE18BA3417985EB40014EAEB /* AdminVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminVC.h; path = "Friday Night Lights/AdminVC.h"; sourceTree = "<group>"; };
 		AE18BA3517985EB40014EAEB /* AdminVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdminVC.m; path = "Friday Night Lights/AdminVC.m"; sourceTree = "<group>"; };
+		AE18BA39179879CD0014EAEB /* briefcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = briefcase.png; sourceTree = "<group>"; };
+		AE18BA3A179879CD0014EAEB /* briefcase@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "briefcase@2x.png"; sourceTree = "<group>"; };
+		AE18BA3F1798813D0014EAEB /* EventsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsCell.h; path = "Friday Night Lights/EventsCell.h"; sourceTree = "<group>"; };
+		AE18BA401798813D0014EAEB /* EventsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsCell.m; path = "Friday Night Lights/EventsCell.m"; sourceTree = "<group>"; };
 		AE18DD8F17749F690082FCFE /* StockTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockTableViewController.h; sourceTree = "<group>"; };
 		AE18DD9017749F690082FCFE /* StockTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockTableViewController.m; sourceTree = "<group>"; };
 		AE18DD971774ADF50082FCFE /* EventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = EventsVC.h; path = "Friday Night Lights/EventsVC.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -582,6 +592,8 @@
 		AE4F155D1781E6C700650410 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AE18BA39179879CD0014EAEB /* briefcase.png */,
+				AE18BA3A179879CD0014EAEB /* briefcase@2x.png */,
 				AE4F155E1781E6C700650410 /* calendar.png */,
 				AE4F155F1781E6C700650410 /* calendar@2x.png */,
 				AEE083B917937CBF00371928 /* hockeyStick.png */,
@@ -684,6 +696,8 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
+				AE18BA3F1798813D0014EAEB /* EventsCell.h */,
+				AE18BA401798813D0014EAEB /* EventsCell.m */,
 				AE18BA3817985ED10014EAEB /* Admin */,
 				AE895C211796419C0055223A /* UpdatePresentingVCDelegate.h */,
 				AE89ABEA176D426700C06D03 /* App Control */,
@@ -933,6 +947,8 @@
 				AED35F95179384AE009D8ADF /* Icon@2x.png in Resources */,
 				AE3256C21794E0990061BBF1 /* README.md in Resources */,
 				AE3256C41794E0990061BBF1 /* release_notes.md in Resources */,
+				AE18BA3B179879CD0014EAEB /* briefcase.png in Resources */,
+				AE18BA3D179879CD0014EAEB /* briefcase@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,6 +1030,8 @@
 				AEB6BD781791F346004126B7 /* back.png in Resources */,
 				AE3256C31794E0990061BBF1 /* README.md in Resources */,
 				AE3256C51794E0990061BBF1 /* release_notes.md in Resources */,
+				AE18BA3C179879CD0014EAEB /* briefcase.png in Resources */,
+				AE18BA3E179879CD0014EAEB /* briefcase@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,6 +1094,7 @@
 				AE895C2417965F9E0055223A /* TransactionsVC.m in Sources */,
 				AE895C28179666820055223A /* TransactionsCell.m in Sources */,
 				AE18BA3617985EB40014EAEB /* AdminVC.m in Sources */,
+				AE18BA411798813E0014EAEB /* EventsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1117,6 +1136,7 @@
 				AE895C2517965F9E0055223A /* TransactionsVC.m in Sources */,
 				AE895C29179666820055223A /* TransactionsCell.m in Sources */,
 				AE18BA3717985EB40014EAEB /* AdminVC.m in Sources */,
+				AE18BA421798813E0014EAEB /* EventsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

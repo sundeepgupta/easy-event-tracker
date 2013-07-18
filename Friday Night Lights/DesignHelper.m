@@ -24,6 +24,10 @@
 + (UIColor *)darkTextShadowColor {
     return  [UIColor whiteColor];
 }
++ (UIColor *)customBlueColor {
+    return [UIColor colorWithRed:21/255 green:126/255 blue:196/255 alpha:1.0];
+    //#157ec4
+}
 
 + (void)customizeIphoneTheme {
     [self customizeStatusBar];

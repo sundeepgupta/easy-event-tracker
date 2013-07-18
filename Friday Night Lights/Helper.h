@@ -21,6 +21,9 @@
 + (NSString *)unformattedStringForFormattedAmountString:(NSString *)formattedString;
 
 
++ (NSString *)stringForNumberOfConfirmedParticipantsForEvent:(Event *)event;
+
+
 + (void)presentDatePickerInVc:(UIViewController *)vc withDateMode:(BOOL)withDateMode;
 
 

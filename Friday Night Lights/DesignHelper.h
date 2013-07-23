@@ -22,7 +22,9 @@
 
 + (void)customizeCells:(NSArray *)cells;
 + (void)customizeCell:(UITableViewCell *)cell;
-+ (void)customizeCellText:(UIView *)view ;
++ (void)customizeInactiveCell:(UITableViewCell *)cell;
++ (void)customizeTextForCell:(UIView *)view ;
++ (void)customizeTextForInactiveCell:(UIView *)view;
 
 + (void)removeBorderForGroupedCells:(NSArray *)cells;
 @end

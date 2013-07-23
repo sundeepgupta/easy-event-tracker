@@ -18,10 +18,20 @@
 @implementation ParticipantHelper
 
 #pragma mark - Table View
++ (NSArray *)allParticipants {
+    NSArray *participants = [Model participants];
+    NSArray *sortedParticipants = [self sortedWithNamesParticipants:participants];
+    return sortedParticipants;
+}
+
 + (NSArray *)activeParticipants {
     NSArray *participants = [Model participantsWithStatus:STATUS_ACTIVE];
+    NSArray *sortedParticipants = [self sortedWithNamesParticipants:participants];
+    return sortedParticipants;
+}
++ (NSArray *)sortedWithNamesParticipants:(NSArray *)participants {
     NSArray *participantsWithNames = [self participantsWithNames:participants];
-    NSArray *sortedParticipants = [self sortParticipants:participantsWithNames];
+    NSArray *sortedParticipants = [self sortedParticipants:participantsWithNames];
     return sortedParticipants;
 }
 + (NSArray *)participantsWithNames:(NSArray *)participants {
@@ -31,7 +41,7 @@
     }
     return mutableParticipants;
 }
-+ (NSArray *)sortParticipants:(NSArray *)participants {
++ (NSArray *)sortedParticipants:(NSArray *)participants {
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSMutableArray *mutableObjects = participants.mutableCopy;

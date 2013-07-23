@@ -1046,10 +1046,40 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="4yb-9S-qX2">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="GyT-IB-3G8">
+                                        <rect key="frame" x="0.0" y="142" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5RT-ks-k0A">
+                                                    <rect key="frame" x="-21" y="-20" width="343" height="83"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Email Data" backgroundImage="ipad-list-item-selected.png">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="emailDataButtonPress:" destination="WsK-Jx-lRn" eventType="touchUpInside" id="bB8-ov-zdT"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection id="ff9-VW-baR">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dJi-w4-uyX">
-                                        <rect key="frame" x="0.0" y="142" width="320" height="46"/>
+                                        <rect key="frame" x="0.0" y="208" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -1118,109 +1148,6 @@
         <image name="ipad-list-item-selected.png" width="319" height="67"/>
         <image name="team.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="AddEventVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddEventVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inviteButton" candidateClass="UIButton"/>
-                <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
-                <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="AdminVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AdminVC.h"/>
-            <relationships>
-                <relationship kind="action" name="deleteDataButtonPress:"/>
-                <relationship kind="action" name="messagePlayersButtonPress:"/>
-                <relationship kind="outlet" name="bankValue" candidateClass="UITextField"/>
-                <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
-                <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="ConfirmedEventsVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfirmedEventsVC.h"/>
-        </class>
-        <class className="ConfirmedParticipantsVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConfirmedParticipantsVC.h"/>
-        </class>
-        <class className="EventDetailVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailVC.h"/>
-            <relationships>
-                <relationship kind="action" name="textConfirmedParticipantsButtonPress:"/>
-                <relationship kind="action" name="textUnconfirmedParticipantsButtonPress:"/>
-                <relationship kind="outlet" name="confirmedParticipantsCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="confirmedParticipantsValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="costPerParticipantValue" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="costValue" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
-                <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="EventsCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="confirmedParticipantsValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="EventsVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsVC.h"/>
-            <relationships>
-                <relationship kind="action" name="addButtonPress:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="ParticipantDetailVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantDetailVC.h"/>
-            <relationships>
-                <relationship kind="action" name="callButtonPress:"/>
-                <relationship kind="action" name="textButtonPress:"/>
-                <relationship kind="action" name="transactionButtonPress:"/>
-                <relationship kind="outlet" name="balanceCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="balanceValue" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="confirmedEventsCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="confirmedEventsValue" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="buttonCells" candidateClass="UITableViewCell"/>
-                <relationship kind="outletCollection" name="textCells" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="ParticipantsCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="balanceValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameValue" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ParticipantsVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ParticipantsVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="TransactionDetailVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TransactionDetailVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="amountValue" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="dateCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="cells" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="TransactionsCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TransactionsCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="amountValue" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="dateValue" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TransactionsVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TransactionsVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

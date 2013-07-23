@@ -40,7 +40,7 @@
     [self setupDataSource];
 }
 - (void)setupDataSource {
-    self.dataSource = [ParticipantHelper activeParticipants];
+    self.dataSource = [ParticipantHelper allParticipants];
     self.confirmedParticipants = [Model confirmedParticipantsForEvent:self.event];
 }
 
@@ -76,7 +76,11 @@
         }
     }
 
-    [DesignHelper customizeCell:cell];
+    if ([object.status isEqualToString:STATUS_DELETED]) {
+        [DesignHelper customizeInactiveCell:cell];
+    } else {
+        [DesignHelper customizeCell:cell];
+    }
     
     return cell;
 }

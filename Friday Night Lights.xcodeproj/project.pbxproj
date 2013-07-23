@@ -11,6 +11,8 @@
 		AE0E42BE176D592100A050BE /* ParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42BC176D592100A050BE /* ParticipantsVC.m */; };
 		AE0E42C1176DFF8900A050BE /* ParticipantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */; };
 		AE0E42C2176DFF8900A050BE /* ParticipantDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */; };
+		AE0F2C9F179EED8F00EF2CE4 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F2C9E179EED8F00EF2CE4 /* CHCSVParser.m */; };
+		AE0F2CA0179EED8F00EF2CE4 /* CHCSVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F2C9E179EED8F00EF2CE4 /* CHCSVParser.m */; };
 		AE12389D176F71A5009FC5EB /* AddressBookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE12389C176F71A5009FC5EB /* AddressBookHelper.m */; };
 		AE12389E176F71A5009FC5EB /* AddressBookHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE12389C176F71A5009FC5EB /* AddressBookHelper.m */; };
 		AE1238A5176F76C6009FC5EB /* UIAlertView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */; };
@@ -272,11 +274,13 @@
 		AE0E42BC176D592100A050BE /* ParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantsVC.m; path = "Friday Night Lights/ParticipantsVC.m"; sourceTree = "<group>"; };
 		AE0E42BF176DFF8900A050BE /* ParticipantDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticipantDetailVC.h; path = "Friday Night Lights/ParticipantDetailVC.h"; sourceTree = "<group>"; };
 		AE0E42C0176DFF8900A050BE /* ParticipantDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParticipantDetailVC.m; path = "Friday Night Lights/ParticipantDetailVC.m"; sourceTree = "<group>"; };
+		AE0F2C9D179EED8F00EF2CE4 /* CHCSVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCSVParser.h; sourceTree = "<group>"; };
+		AE0F2C9E179EED8F00EF2CE4 /* CHCSVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCSVParser.m; sourceTree = "<group>"; };
 		AE12389B176F71A5009FC5EB /* AddressBookHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddressBookHelper.h; path = "Friday Night Lights/AddressBookHelper.h"; sourceTree = "<group>"; };
 		AE12389C176F71A5009FC5EB /* AddressBookHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddressBookHelper.m; path = "Friday Night Lights/AddressBookHelper.m"; sourceTree = "<group>"; };
 		AE1238A3176F76C6009FC5EB /* UIAlertView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+Helpers.h"; path = "Friday Night Lights/Categories/UIAlertView+Helpers.h"; sourceTree = "<group>"; };
 		AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+Helpers.m"; path = "Friday Night Lights/Categories/UIAlertView+Helpers.m"; sourceTree = "<group>"; };
-		AE160BD7179E024300806430 /* Friday_Night_Lights 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Friday_Night_Lights 3.xcdatamodel"; sourceTree = "<group>"; };
+		AE160BD7179E024300806430 /* Friday_Night_Lights 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Friday_Night_Lights 3.xcdatamodel"; sourceTree = "<group>"; };
 		AE18BA3417985EB40014EAEB /* AdminVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminVC.h; path = "Friday Night Lights/AdminVC.h"; sourceTree = "<group>"; };
 		AE18BA3517985EB40014EAEB /* AdminVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdminVC.m; path = "Friday Night Lights/AdminVC.m"; sourceTree = "<group>"; };
 		AE18BA39179879CD0014EAEB /* briefcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = briefcase.png; sourceTree = "<group>"; };
@@ -532,6 +536,8 @@
 		AE18BA3817985ED10014EAEB /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				AE0F2C9D179EED8F00EF2CE4 /* CHCSVParser.h */,
+				AE0F2C9E179EED8F00EF2CE4 /* CHCSVParser.m */,
 				AE18BA3417985EB40014EAEB /* AdminVC.h */,
 				AE18BA3517985EB40014EAEB /* AdminVC.m */,
 			);
@@ -1109,6 +1115,7 @@
 				AE18BA3617985EB40014EAEB /* AdminVC.m in Sources */,
 				AE18BA411798813E0014EAEB /* EventsCell.m in Sources */,
 				AE18BA45179888CC0014EAEB /* ParticipantsCell.m in Sources */,
+				AE0F2C9F179EED8F00EF2CE4 /* CHCSVParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1152,6 +1159,7 @@
 				AE18BA3717985EB40014EAEB /* AdminVC.m in Sources */,
 				AE18BA421798813E0014EAEB /* EventsCell.m in Sources */,
 				AE18BA46179888CC0014EAEB /* ParticipantsCell.m in Sources */,
+				AE0F2CA0179EED8F00EF2CE4 /* CHCSVParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,10 @@
 + (UIColor *)darkTextColor {
     return [UIColor colorWithRed:0.0 green:68.0/255 blue:118.0/255 alpha:1.0];
 }
++ (UIColor *)inactiveDarkTextColor {
+    return [UIColor colorWithWhite:0.5 alpha:1];
+}
+
 + (UIColor *)lightTextShadowColor {
     return [UIColor colorWithRed:25.0/255 green:96.0/255 blue:148.0/255 alpha:1.0];
 }
@@ -112,17 +116,24 @@
     }
 }
 
++ (void)customizeInactiveCell:(UITableViewCell *)cell {
+    [self customizeBackgroundsForCell:cell];
+    [self customizeTextForInactiveCell:cell];
+}
 + (void)customizeCell:(UITableViewCell *)cell {
+    [self customizeBackgroundsForCell:cell];
+    [self customizeTextForCell:cell];
+}
+
++ (void)customizeBackgroundsForCell:(UITableViewCell *)cell {
     [self customizeBackgroundForSelectedCell:cell];
     [self customizeBackgroundForUnSelectedCell:cell];
-
-    [self customizeCellText:cell];
 }
-    + (void)customizeBackgroundForSelectedCell:(UITableViewCell *)cell {
-        UIImage *image = [UIImage imageNamed:@"ipad-list-item-selected.png"];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        cell.selectedBackgroundView = imageView;
-    }
++ (void)customizeBackgroundForSelectedCell:(UITableViewCell *)cell {
+    UIImage *image = [UIImage imageNamed:@"ipad-list-item-selected.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    cell.selectedBackgroundView = imageView;
+}
 + (void)customizeBackgroundForUnSelectedCell:(UITableViewCell *)cell {
     UIImage *image = [UIImage imageNamed:@"ipad-list-element.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
@@ -130,17 +141,29 @@
     cell.backgroundView.opaque = YES;
 }
 
-+ (void)customizeCellText:(UIView *)view {
-    
++ (void)customizeTextForCell:(UIView *)view {
     for (UIView *subView in view.subviews) {
         if ([subView isKindOfClass:[UILabel class]] || [subView isKindOfClass:[UITextField class]]) {
             [self customizeSelectedCellText:subView];
             [self customizeUnSelectedCellText:subView];
         } else {
-            [self customizeCellText:subView];
+            [self customizeTextForCell:subView];
         }
     }
 }
+
++ (void)customizeTextForInactiveCell:(UIView *)view {
+    for (UIView *subView in view.subviews) {
+        if ([subView isKindOfClass:[UILabel class]] || [subView isKindOfClass:[UITextField class]]) {
+            [self customizeSelectedCellText:subView];
+            [self customizeUnSelectedInactiveCellText:subView];
+        } else {
+            [self customizeTextForInactiveCell:subView];
+        }
+    }
+}
+
+
 + (void)customizeSelectedCellText:(UIView *)view {
     if ([view isKindOfClass:[UILabel class]]) {
         UILabel *castedView = (UILabel *)view;
@@ -163,6 +186,19 @@
         castedView.textColor = [self darkTextColor];
     }
 }
++ (void)customizeUnSelectedInactiveCellText:(UIView *)view {
+    if ([view isKindOfClass:[UILabel class]]) {
+        UILabel *castedView = (UILabel *)view;
+        castedView.textColor = [self inactiveDarkTextColor];
+        castedView.shadowColor = [self darkTextShadowColor];
+        castedView.shadowOffset = CGSizeMake(0, 1);
+    } else if ([view isKindOfClass:[UITextField class]]) {
+        UITextField *castedView = (UITextField *)view;
+        castedView.textColor = [self inactiveDarkTextColor];
+    }
+}
+
+
 
 + (void)removeBorderForGroupedCells:(NSArray *)cells {
     for (UITableViewCell *cell in cells) {

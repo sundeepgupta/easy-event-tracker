@@ -14,6 +14,7 @@
 
 @interface ParticipantHelper : NSObject
 
++ (NSArray *)allParticipants;
 + (NSArray *)activeParticipants;
 + (NSString *)nameForParticipant:(Participant *)participant;
 + (void)configureCell:(ParticipantsCell *)cell forParticipant:(Participant *)participant;

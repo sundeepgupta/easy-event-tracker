@@ -251,6 +251,7 @@
 
     if (buttonIndex == 1) {
         [Model resetStore];
+        [self setupViewValues];
     }
 }
 

@@ -3,15 +3,38 @@
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="cost" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="max_participants" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="min_participants" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="venue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="venueName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="events" inverseEntity="Participant" syncable="YES"/>
+        <relationship name="venue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Venue" inverseName="events" inverseEntity="Venue" syncable="YES"/>
+    </entity>
+    <entity name="Expense" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="expenses" inverseEntity="Participant" syncable="YES"/>
     </entity>
     <entity name="Participant" representedClassName="Participant" syncable="YES">
         <attribute name="abRecordId" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="needsToPay" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="salutation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="participants" inverseEntity="Event" syncable="YES"/>
+        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="participants" inverseEntity="Expense" syncable="YES"/>
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="participant" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="Transaction" representedClassName="Transaction" syncable="YES">
@@ -19,11 +42,35 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="method" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="participant" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Participant" inverseName="transactions" inverseEntity="Participant" syncable="YES"/>
     </entity>
+    <entity name="Venue" syncable="YES">
+        <attribute name="address1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contact" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="max_participants" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="min_participants" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="venue" inverseEntity="Event" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Event" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Participant" positionX="-180" positionY="30" width="128" height="120"/>
-        <element name="Transaction" positionX="-353" positionY="159" width="128" height="120"/>
+        <element name="Event" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="Participant" positionX="-180" positionY="30" width="128" height="240"/>
+        <element name="Transaction" positionX="-353" positionY="159" width="128" height="150"/>
+        <element name="Venue" positionX="160" positionY="192" width="128" height="315"/>
+        <element name="Expense" positionX="160" positionY="192" width="128" height="150"/>
     </elements>
 </model>

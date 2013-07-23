@@ -276,6 +276,7 @@
 		AE12389C176F71A5009FC5EB /* AddressBookHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddressBookHelper.m; path = "Friday Night Lights/AddressBookHelper.m"; sourceTree = "<group>"; };
 		AE1238A3176F76C6009FC5EB /* UIAlertView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+Helpers.h"; path = "Friday Night Lights/Categories/UIAlertView+Helpers.h"; sourceTree = "<group>"; };
 		AE1238A4176F76C6009FC5EB /* UIAlertView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+Helpers.m"; path = "Friday Night Lights/Categories/UIAlertView+Helpers.m"; sourceTree = "<group>"; };
+		AE160BD7179E024300806430 /* Friday_Night_Lights 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Friday_Night_Lights 3.xcdatamodel"; sourceTree = "<group>"; };
 		AE18BA3417985EB40014EAEB /* AdminVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminVC.h; path = "Friday Night Lights/AdminVC.h"; sourceTree = "<group>"; };
 		AE18BA3517985EB40014EAEB /* AdminVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdminVC.m; path = "Friday Night Lights/AdminVC.m"; sourceTree = "<group>"; };
 		AE18BA39179879CD0014EAEB /* briefcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = briefcase.png; sourceTree = "<group>"; };
@@ -1362,10 +1363,11 @@
 		AE89ABFC176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				AE160BD7179E024300806430 /* Friday_Night_Lights 3.xcdatamodel */,
 				AE3256CC1794FC470061BBF1 /* Friday_Night_Lights 2.xcdatamodel */,
 				AE89ABFD176D426700C06D03 /* Friday_Night_Lights.xcdatamodel */,
 			);
-			currentVersion = AE3256CC1794FC470061BBF1 /* Friday_Night_Lights 2.xcdatamodel */;
+			currentVersion = AE160BD7179E024300806430 /* Friday_Night_Lights 3.xcdatamodel */;
 			path = Friday_Night_Lights.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

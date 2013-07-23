@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+#define STATUS_ACTIVE @"Active"
+#define STATUS_DELETED @"Deleted"
+
+
 @interface Helper : NSObject
 
 + (void)addTapRecognizerToVc:(UIViewController *)vc;

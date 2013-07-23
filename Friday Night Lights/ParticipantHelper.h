@@ -7,19 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AddressBookUI/AddressBookUI.h>
+
 
 @class Participant, ParticipantsCell;
 
 @interface ParticipantHelper : NSObject
 
-+ (NSArray *)dataSource;
++ (NSArray *)activeParticipants;
 + (NSString *)nameForParticipant:(Participant *)participant;
 + (void)configureCell:(ParticipantsCell *)cell forParticipant:(Participant *)participant;
 
 
 
 + (NSURL *)phoneUrlForParticipant:(Participant *)participant;
-
++ (Participant *)participantForAbRecordRef:(ABRecordRef)abRecordRef;
 
 
 + (NSString *)sumOfTransactionsStringForParticipant:(Participant *)participant;

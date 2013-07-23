@@ -30,12 +30,14 @@
 + (Participant *)newParticipant;
 
 + (NSArray *)participants;
++ (NSArray *)participantsWithStatus:(NSString *)status;
+
 + (NSArray *)confirmedEventsForParticipant:(Participant *)participant;
 + (NSInteger)numberOfConfirmedEventsForParticipant:(Participant *)participant;
 + (NSArray *)participantsWithAttributeValue:(NSString *)value forKey:(NSString *)key;
 + (NSArray *)participantAbRecordIds;
 
-
++ (void)updateParticipant:(Participant *)participant withStatus:(NSString *)status;
 
 #pragma mark - Transactions
 + (Transaction *)newTransactionForParticipant:(Participant *)participant;

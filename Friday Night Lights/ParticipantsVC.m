@@ -45,11 +45,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupVc];
-    self.dataSource = [ParticipantHelper dataSource];
+    [self setupDataSource];
     [self.tableView reloadData];
 }
 - (void)setupVc {
     self.title = @"Players";
+}
+- (void)setupDataSource {
+    self.dataSource = [ParticipantHelper activeParticipants];
 }
 
 
@@ -91,16 +94,15 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObject *objectAtIndexPath = [self.dataSource objectAtIndex:indexPath.row];
-        [Model deleteObject:objectAtIndexPath];
-        self.dataSource = [ParticipantHelper dataSource];
+        Participant *object = [self.dataSource objectAtIndex:indexPath.row];
+        [Model updateParticipant:object withStatus:STATUS_DELETED];
+        [self setupDataSource];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self pushNextVcWithParticipantAtIndexPath:indexPath];
@@ -137,17 +139,11 @@
 
 - (void)processSelectedAbRecordRef:(ABRecordRef)abRecordRef {
     if ([self abRecordTypeIsValid:abRecordRef]) {
-        if ([self abRecordRefIsUnique:abRecordRef]) {
-            [self saveNewParticpantFromAbRecordRef:abRecordRef];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        } else {
-            [UIAlertView showAlertWithTitle:@"Duplicate Contact" withMessage:@"The selected contact already exists."];
-        }
+        [self handleValidAbRecordRef:abRecordRef];
     } else {
         [UIAlertView showAlertWithTitle:@"Invalid Selection" withMessage:@"Sorry, only individual contacts can be selected."];
     }
 }
-
 - (BOOL)abRecordTypeIsValid:(ABRecordRef)abRecordRef {
     BOOL abRecordTypeIsValid = NO;
     ABRecordType recordType = ABRecordGetRecordType(abRecordRef);
@@ -156,29 +152,45 @@
     }
     return abRecordTypeIsValid;
 }
+- (void)handleValidAbRecordRef:(ABRecordRef)abRecordRef {
+    if ([self abRecordRefIsUnique:abRecordRef]) {
+        [self saveNewParticpantFromAbRecordRef:abRecordRef];
+    } else {
+        [self handleDuplicateAbRecordRef:abRecordRef];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (BOOL)abRecordRefIsUnique:(ABRecordRef)abRecordRef {
     NSNumber *abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
     BOOL abRecordRefIsUnique = YES;
-    for (Participant *participant in self.dataSource) {
+    NSArray *allParticipants = [Model participants];
+    for (Participant *participant in allParticipants) {
         if ([participant.abRecordId isEqualToNumber:abRecordId]) {
             abRecordRefIsUnique = NO;
         }
     }
     return abRecordRefIsUnique;
 }
-
 - (void)saveNewParticpantFromAbRecordRef:(ABRecordRef)abRecordRef {
     [self setupNewParticipantFromAbRecord:abRecordRef];
     [Model saveContext];
 }
-
 - (void)setupNewParticipantFromAbRecord:(ABRecordRef)abRecordRef {
     Participant *participant = [Model newParticipant];
     participant.abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
-
-
 }
+
+- (void)handleDuplicateAbRecordRef:(ABRecordRef)abRecordRef {
+    Participant *participant = [ParticipantHelper participantForAbRecordRef:abRecordRef];
+    if ([participant.status isEqualToString:STATUS_DELETED]) {
+        [UIAlertView showAlertWithTitle:@"Previously Deleted Player" withMessage:@"The selected contact was previously deleted. This contact will be re-activated."];
+        [Model updateParticipant:participant withStatus:STATUS_ACTIVE];
+    } else {
+        [UIAlertView showAlertWithTitle:@"Duplicate Player" withMessage:@"The selected contact is already an active Player."];
+    }
+}
+
 
 - (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker
       shouldContinueAfterSelectingPerson:(ABRecordRef)person

@@ -15,4 +15,5 @@
 #import "DesignHelper.h"
 #import "Model.h"
 #import "TestFlight.h"
+#import "Helper.h"
 #endif

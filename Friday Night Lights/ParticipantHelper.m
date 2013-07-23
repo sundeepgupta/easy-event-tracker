@@ -18,8 +18,8 @@
 @implementation ParticipantHelper
 
 #pragma mark - Table View
-+ (NSArray *)dataSource {
-    NSArray *participants = [Model participants];
++ (NSArray *)activeParticipants {
+    NSArray *participants = [Model participantsWithStatus:STATUS_ACTIVE];
     NSArray *participantsWithNames = [self participantsWithNames:participants];
     NSArray *sortedParticipants = [self sortParticipants:participantsWithNames];
     return sortedParticipants;
@@ -61,6 +61,18 @@
 + (NSString *)mobileNumberForParticipant:(Participant *)participant {
     NSNumber *abRecordId = participant.abRecordId;
     return [AddressBookHelper mobileNumberFromAbRecordId:abRecordId];
+}
+
++ (Participant *)participantForAbRecordRef:(ABRecordRef)abRecordRef {
+    Participant *matchingParticipant;
+    NSNumber *abRecordId = [AddressBookHelper abRecordIdFromAbRecordRef:abRecordRef];
+    NSArray *participants = [Model participants];
+    for (Participant *participant in participants) {
+        if ([participant.abRecordId isEqualToNumber:abRecordId]) {
+            matchingParticipant = participant;
+        }
+    }
+    return matchingParticipant;
 }
 
 

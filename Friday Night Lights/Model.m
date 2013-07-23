@@ -82,7 +82,9 @@
 #pragma mark - Participants
 + (Participant *)newParticipant {
     NSString *entityName = NSStringFromClass([Participant class]);
-    return (Participant *)[self newObjectWithEntityName:entityName];
+    Participant *object = (Participant *)[self newObjectWithEntityName:entityName];
+    object.status = STATUS_ACTIVE;
+    return object;
 }
 
 
@@ -95,6 +97,17 @@
 
     return sortedObjects;
 }
++ (NSArray *)participantsWithStatus:(NSString *)status {
+    NSArray *participants = [self participants];
+    NSMutableArray *filteredParticipants = [[NSMutableArray alloc] init];
+    for (Participant *participant in participants) {
+        if ([participant.status isEqualToString:status]) {
+            [filteredParticipants addObject:participant];
+        }
+    }
+    return filteredParticipants;
+}
+
 + (NSArray *)confirmedEventsForParticipant:(Participant *)participant {
     NSArray *objects = participant.events.allObjects;
     NSArray *sortedObjects = [self objectsSortedByDate:objects];
@@ -109,10 +122,10 @@
     NSFetchRequest *fetchRequest = [self fetchRequestWithEntityName:entityName];
     
     NSPredicate *predicate = [self predicateWithAttributeValue:value forKey:key];
-    
     fetchRequest.predicate = predicate;
     
-    return [self objectsFromExecutedFetchRequest:fetchRequest];
+    NSArray *objects = [self objectsFromExecutedFetchRequest:fetchRequest];
+    return objects;
 }
 + (NSArray *)participantAbRecordIds {
     NSString *entityName = NSStringFromClass([Participant class]);
@@ -121,6 +134,13 @@
     fetchRequest.propertiesToFetch = properties;
     return [self objectsFromExecutedFetchRequest:fetchRequest];
 }
+
+
++ (void)updateParticipant:(Participant *)participant withStatus:(NSString *)status {
+    participant.status = status;
+    [self saveContext];
+}
+
 
 
 #pragma mark - Transactions
@@ -194,7 +214,7 @@
 }
 
 + (NSPredicate *)predicateWithAttributeValue:(NSString *)value forKey:(NSString *)key {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == %@", key, value];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ = %@", key, value];
     return predicate;
 }
 

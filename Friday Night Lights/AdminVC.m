@@ -10,10 +10,15 @@
 #import "MessageHelper.h"
 #import "Helper.h"
 #import "UIAlertView+Helpers.h"
+#import "FileHelper.h"
+#import "CHCSVParser.h"
+
+#define FILENAME @"FNL_Report.csv"
 
 @interface AdminVC ()
 
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
+@property (strong, nonatomic) CHCSVWriter *csvWriter;
 
 
 @property (strong, nonatomic) IBOutlet UITextField *bankValue;
@@ -104,18 +109,74 @@
 
 
 - (IBAction)emailDataButtonPress:(id)sender {
+    [self generateReport];
+    [self emailReport];
+}
+
+- (void)generateReport {
+    [self setupCsvWriter];
+    [self writeCsv];
+}
+- (void)setupCsvWriter {
+    NSString *path = [FileHelper pathForFileName:FILENAME];
+    self.csvWriter = [[CHCSVWriter alloc] initForWritingToCSVFile:path];
+}
+- (void)writeCsv {
     
     
-    
-    
+    [self.csvWriter writeField:@"test write field"];
+    [self.csvWriter writeField:@"2nd field"];
+    [self.csvWriter finishLine];
+    [self.csvWriter writeField:@"2nd line"];
 }
 
 
 
 
+- (void)emailReport {
+    MFMailComposeViewController *mailer = [self setupMailer];
+    [self presentViewController:mailer animated:YES completion:nil];
+}
+- (MFMailComposeViewController *)setupMailer {
+    MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+    [self setupPropertiesforMailer:mailer];
+    return mailer;
+}
+- (void)setupPropertiesforMailer:(MFMailComposeViewController *)mailer {
+    mailer.mailComposeDelegate = self;
+//    [self setupRecipientsForMailer:mailer];
+    [self setupSubjectForMailer:mailer];
+    [self setupAttachmentForMailer:mailer];
+}
+
+//- (void)setupRecipientsForMailer:(MFMailComposeViewController *)mailer
+//{
+//    [self setupToRecipientsForMailer:mailer];
+//}
+
+//- (void)setupToRecipientsForMailer:(MFMailComposeViewController *)mailer
+//{
+//    NSMutableArray *emailStrings = [[NSMutableArray alloc] init];
+//    for (SCEmail *email in self.order.customer.emailList.allObjects) {
+//        [emailStrings addObject:email.address];
+//    }
+//    [mailer setToRecipients:emailStrings];
+//}
+
+- (void)setupSubjectForMailer:(MFMailComposeViewController *)mailer {
+    NSString *subject = @"Friday Night Lights Data";
+    [mailer setSubject:subject];
+}
+- (void)setupAttachmentForMailer:(MFMailComposeViewController *)mailer {
+    NSData *data = [FileHelper dataForFilename:FILENAME];
+    [mailer addAttachmentData:data mimeType:@"text/csv" fileName:FILENAME];
+}
 
 
-
+#pragma mark - MFMailComposerViewController Delegate Methods
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 

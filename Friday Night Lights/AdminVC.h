@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-@interface AdminVC : UITableViewController <MFMessageComposeViewControllerDelegate>
+@interface AdminVC : UITableViewController <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @end

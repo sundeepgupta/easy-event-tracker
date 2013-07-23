@@ -12,8 +12,9 @@
 #import "UIAlertView+Helpers.h"
 #import "FileHelper.h"
 #import "CsvApi.h"
+#import "ParticipantHelper.h"
 
-#define FILENAME @"FNL_Report.csv"
+#define FILENAME @"FNL_Data.csv"
 
 @interface AdminVC ()
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
@@ -120,13 +121,75 @@
     self.csvApi = [[CsvApi alloc] initWithPath:path];
 }
 - (void)writeCsv {
-    NSArray *events = [Model events];
-    for (Event *event in events) {
-        [self.csvApi writeEvent:event];
-    }
-    
+    [self writeAdmin];
+    [self writeEvents];
+    [self writeParticipants];
+    [self.csvApi closeStream];
+}
+- (void)writeAdmin {
+    [self writeSectionTitle:@"TOTAL BALANCE"];
+    NSString *bank = [Helper stringForBankAmount];
+    [self.csvApi writeLineOfFields:@[bank]];
+    [self.csvApi finishSection];
 }
 
+- (void)writeEvents {
+    [self writeEventsHeader];
+    
+    NSArray *events = [Model events];
+    for (Event *event in events) {
+        [self writeEvent:event];
+    }
+    
+    [self.csvApi finishSection];
+}
+- (void)writeEventsHeader {
+    [self writeSectionTitle:@"GAMES"];
+    NSArray *headerStrings = @[@"Date", @"Cost", @"Number Of Players"];
+    [self.csvApi writeLineOfFields:headerStrings];
+    [self.csvApi finishLine];
+}
+- (void)writeEvent:(Event *)event {
+    [self.csvApi writeEvent:event];
+    
+    NSArray *participants = [Model confirmedParticipantsForEvent:event];
+    for (Participant *participant in participants) {
+        [self.csvApi writeNameForParticipant:participant];
+    }
+    [self.csvApi finishLine];
+}
+
+- (void)writeParticipants {
+    [self writeParticipantsHeader];
+    
+    NSArray *participants = [ParticipantHelper allParticipants];
+    for (Participant *participant in participants) {
+        [self writeParticipant:participant];
+    }
+    
+    [self.csvApi finishSection];
+}
+- (void)writeParticipantsHeader {
+    [self writeSectionTitle:@"PLAYERS & TRANSACTIONS"];
+    NSArray *headerStrings = @[@"Name", @"Status", @"Balance"];
+    [self.csvApi writeLineOfFields:headerStrings];
+    [self.csvApi finishLine];
+}
+- (void)writeParticipant:(Participant *)participant {
+    [self.csvApi writeParticipant:participant];
+    
+    NSArray *transactions = [Model transactionsForParticipant:participant];
+    for (Transaction *transaction in transactions) {
+        [self.csvApi writeTransaction:transaction];
+    }
+    [self.csvApi finishLine];
+}
+
+
+- (void)writeSectionTitle:(NSString *)title {
+    [self.csvApi writeField:title];
+    [self.csvApi finishLine];
+}
 
 
 

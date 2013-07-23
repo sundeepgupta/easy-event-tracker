@@ -10,6 +10,10 @@
 #import "CHCSVParser.h"
 #import "Event.h"
 #import "NSDate+Helpers.h"
+#import "ParticipantHelper.h"
+#import "Participant.h"
+#import "Transaction.h"
+
 
 @interface CsvApi ()
 
@@ -31,7 +35,6 @@
 - (void)writeEvent:(Event *)event {
     NSArray *strings = [self stringsForEvent:event];
     [self writeLineOfFields:strings];
-    [self finishLine];
 }
 - (NSArray *)stringsForEvent:(Event *)event {
     NSString *date = [event.date dateAndTimeString];
@@ -41,10 +44,50 @@
     return strings;
 }
 
+- (void)writeNameForParticipant:(Participant *)participant {
+    NSString *name = [ParticipantHelper nameForParticipant:participant];
+    [self writeField:name];
+    [self finishLine];
+}
+
+
+- (void)writeParticipant:(Participant *)participant {
+    NSArray *strings = [self stringsForParticipant:participant];
+    [self writeLineOfFields:strings];
+}
+- (NSArray *)stringsForParticipant:(Participant *)participant {
+    NSString *name = [ParticipantHelper nameForParticipant:participant];
+    NSString *status = participant.status;
+    NSString *balance = [ParticipantHelper balanceStringForParticipant:participant];
+    NSArray *strings = @[name, status, balance];
+    return strings;
+}
+
+
+- (void)writeTransaction:(Transaction *)transaction {
+    NSArray *strings = [self stringsForTransaction:transaction];
+    [self writeLineOfFields:strings];
+}
+- (NSArray *)stringsForTransaction:(Transaction *)transaction {
+    NSString *date = [transaction.date dateString];
+    NSString *amount = [Helper formattedStringForAmountNumber:transaction.amount];
+    NSArray *strings = @[date, amount];
+    return strings;
+}
 
 
 
 
+
+
+
+
+
+- (void)finishSection {
+    [self finishLine];
+    [self finishLine];
+    [self finishLine];
+}
 
 
 

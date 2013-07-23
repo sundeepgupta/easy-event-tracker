@@ -16,10 +16,13 @@
 - (id)initWithPath:(NSString *)path;
 
 - (void)writeEvent:(Event *)event;
+- (void)writeNameForParticipant:(Participant *)participant;
 
+- (void)writeParticipant:(Participant *)participant;
 
+- (void)writeTransaction:(Transaction *)transaction;
 
-
+- (void)finishSection;
 
 
 - (void)writeField:(NSString *)field;

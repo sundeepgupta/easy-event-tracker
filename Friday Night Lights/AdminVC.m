@@ -11,15 +11,13 @@
 #import "Helper.h"
 #import "UIAlertView+Helpers.h"
 #import "FileHelper.h"
-#import "CHCSVParser.h"
+#import "CsvApi.h"
 
 #define FILENAME @"FNL_Report.csv"
 
 @interface AdminVC ()
-
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
-@property (strong, nonatomic) CHCSVWriter *csvWriter;
-
+@property (strong, nonatomic) CsvApi *csvApi;
 
 @property (strong, nonatomic) IBOutlet UITextField *bankValue;
 @property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *textCells;
@@ -114,20 +112,19 @@
 }
 
 - (void)generateReport {
-    [self setupCsvWriter];
+    [self setupCsvApi];
     [self writeCsv];
 }
-- (void)setupCsvWriter {
+- (void)setupCsvApi {
     NSString *path = [FileHelper pathForFileName:FILENAME];
-    self.csvWriter = [[CHCSVWriter alloc] initForWritingToCSVFile:path];
+    self.csvApi = [[CsvApi alloc] initWithPath:path];
 }
 - (void)writeCsv {
+    NSArray *events = [Model events];
+    for (Event *event in events) {
+        [self.csvApi writeEvent:event];
+    }
     
-    
-    [self.csvWriter writeField:@"test write field"];
-    [self.csvWriter writeField:@"2nd field"];
-    [self.csvWriter finishLine];
-    [self.csvWriter writeField:@"2nd line"];
 }
 
 

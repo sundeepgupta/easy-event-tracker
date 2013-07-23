@@ -165,7 +165,7 @@
     self.messageComposeVc.messageComposeDelegate = self;
 }
 - (void)setupMessageComposeRecipients {
-    NSArray *participants = [Model participants];
+    NSArray *participants = [Model participantsWithStatus:STATUS_ACTIVE];
     NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
     self.messageComposeVc.recipients = mobileNumbers;
 }

@@ -40,7 +40,7 @@
     [self setupDataSource];
 }
 - (void)setupDataSource {
-    self.dataSource = [Model participants];
+    self.dataSource = [ParticipantHelper activeParticipants];
     self.confirmedParticipants = [Model confirmedParticipantsForEvent:self.event];
 }
 

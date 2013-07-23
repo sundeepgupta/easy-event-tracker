@@ -40,16 +40,17 @@
     return sortedObjects;
 }
 + (NSArray *)confirmedParticipantsForEvent:(Event *)event {
-    NSArray *objects = event.participants.allObjects;
-    return objects;
+    NSArray *participants = event.participants.allObjects;
+    NSArray *activeParticipants = [self filteredParticipants:participants byStatus:STATUS_ACTIVE];
+    return activeParticipants;
 }
 + (NSArray *)unconfirmedParticipantsForEvent:(Event *)event {
     NSArray *confirmedParticipants = [self confirmedParticipantsForEvent:event];
-    NSArray *allParticipants = [self participants];
+    NSArray *activeParticipants = [self participantsWithStatus:STATUS_ACTIVE];
     
     NSMutableArray *unconfirmedParticipants = [[NSMutableArray alloc] init];
     
-    for (Participant *participant in allParticipants) {
+    for (Participant *participant in activeParticipants) {
         BOOL isConfirmed = NO;
         for (Participant *confirmedParticipant in confirmedParticipants) {
             if ([participant isEqual:confirmedParticipant]) {
@@ -99,13 +100,17 @@
 }
 + (NSArray *)participantsWithStatus:(NSString *)status {
     NSArray *participants = [self participants];
-    NSMutableArray *filteredParticipants = [[NSMutableArray alloc] init];
+    NSArray *filteredParticipants = [self filteredParticipants:participants byStatus:status];
+    return filteredParticipants;
+}
++ (NSArray *)filteredParticipants:(NSArray *)participants byStatus:(NSString *)status {
+    NSMutableArray *filteredObjects = [[NSMutableArray alloc] init];
     for (Participant *participant in participants) {
         if ([participant.status isEqualToString:status]) {
-            [filteredParticipants addObject:participant];
+            [filteredObjects addObject:participant];
         }
     }
-    return filteredParticipants;
+    return filteredObjects;
 }
 
 + (NSArray *)confirmedEventsForParticipant:(Participant *)participant {

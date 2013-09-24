@@ -34,8 +34,8 @@
 }
 
 + (void)customizeIphoneTheme {
-    [self customizeStatusBar];
-    [self customizeNavigationBar];
+//    [self customizeStatusBar];
+//    [self customizeNavigationBar];
 }
 + (void)customizeStatusBar {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
@@ -65,8 +65,8 @@
 
 #pragma mark - Table View
 + (void)customizeTableView:(UITableView *)tableView {
-    [self addTopShadowToView:tableView];
-    [self addBackgroundToView:tableView];
+//    [self addTopShadowToView:tableView];
+//    [self addBackgroundToView:tableView];
 }
 + (void)addTopShadowToView:(UIView *)view {
     CGRect shadowFrame = [self shadowFrameFromView:view];
@@ -97,12 +97,12 @@
     return gradient;
 }
 + (void)addBackgroundToView:(UIView *)view {
-    UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
-    view.backgroundColor = bgColor;
-    
-    if ([view isKindOfClass:[UITableView class]]) {
-        [self removeBackgroundViewFromTableView:(UITableView *)view];
-    }
+//    UIColor* bgColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad-BG-pattern.png"]];
+//    view.backgroundColor = bgColor;
+//    
+//    if ([view isKindOfClass:[UITableView class]]) {
+//        [self removeBackgroundViewFromTableView:(UITableView *)view];
+//    }
 }
 + (void)removeBackgroundViewFromTableView:(UITableView *)tableView {
     tableView.backgroundView = nil;
@@ -111,18 +111,18 @@
 
 #pragma mark - Table Cells
 + (void)customizeCells:(NSArray *)cells {
-    for (UITableViewCell *cell in cells) {
-        [self customizeCell:cell];
-    }
+//    for (UITableViewCell *cell in cells) {
+//        [self customizeCell:cell];
+//    }
 }
 
 + (void)customizeInactiveCell:(UITableViewCell *)cell {
-    [self customizeBackgroundsForCell:cell];
-    [self customizeTextForInactiveCell:cell];
+//    [self customizeBackgroundsForCell:cell];
+//    [self customizeTextForInactiveCell:cell];
 }
 + (void)customizeCell:(UITableViewCell *)cell {
-    [self customizeBackgroundsForCell:cell];
-    [self customizeTextForCell:cell];
+//    [self customizeBackgroundsForCell:cell];
+//    [self customizeTextForCell:cell];
 }
 
 + (void)customizeBackgroundsForCell:(UITableViewCell *)cell {
@@ -201,11 +201,11 @@
 
 
 + (void)removeBorderForGroupedCells:(NSArray *)cells {
-    for (UITableViewCell *cell in cells) {
-        CGRect frame = cell.backgroundView.frame;
-        UIView *view = [[UIView alloc] initWithFrame:frame];
-        cell.backgroundView = view;
-    }
+//    for (UITableViewCell *cell in cells) {
+//        CGRect frame = cell.backgroundView.frame;
+//        UIView *view = [[UIView alloc] initWithFrame:frame];
+//        cell.backgroundView = view;
+//    }
 }
 
 

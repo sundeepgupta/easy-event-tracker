@@ -9,9 +9,6 @@
 #import "AppDelegate.h"
 
 
-//for sample data only
-#import "Event.h"
-
 @interface AppDelegate ()
 
 @property (strong, nonatomic) Model *model;

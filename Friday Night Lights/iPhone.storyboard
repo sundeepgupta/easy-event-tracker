@@ -251,17 +251,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qIx-zu-aBT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qIx-zu-aBT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Send Roll Call">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Send Roll Call"/>
                                                     <connections>
                                                         <action selector="saveAndInviteButtonPress:" destination="YPR-YU-eka" eventType="touchUpInside" id="EPP-4k-Fxk"/>
                                                     </connections>
@@ -361,7 +355,7 @@
                                         <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dDT-KZ-eQY" id="CQ5-gY-HLk">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320.00000000000006" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cost" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g4m-sQ-kHt">
@@ -415,7 +409,7 @@
                                         <rect key="frame" x="0.0" y="251" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6LO-x1-jyh" id="c0B-yc-UpT">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320.00000000000006" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="$/Player" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yNk-On-DdQ">
@@ -449,12 +443,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Rx-70-vHG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Text Confirmed Players" backgroundImage="ipad-list-item-selected.png">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Text Confirmed Players"/>
                                                     <connections>
                                                         <action selector="textConfirmedParticipantsButtonPress:" destination="Ca4-1h-tSi" eventType="touchUpInside" id="eev-C7-0ZO"/>
                                                     </connections>
@@ -470,12 +461,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4VT-S8-PQx">
-                                                    <rect key="frame" x="0.0" y="-1" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Text Unconfirmed Players" backgroundImage="ipad-list-item-selected.png">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Text Unconfirmed Players"/>
                                                     <connections>
                                                         <action selector="textUnconfirmedParticipantsButtonPress:" destination="Ca4-1h-tSi" eventType="touchUpInside" id="Lae-O5-6uC"/>
                                                     </connections>
@@ -606,12 +594,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YT4-w2-uEE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Add Funds" backgroundImage="ipad-list-item-selected.png">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Add Funds"/>
                                                     <connections>
                                                         <action selector="transactionButtonPress:" destination="IjU-xf-cU3" eventType="touchUpInside" id="I5E-oA-p5u"/>
                                                     </connections>
@@ -659,12 +644,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XfV-Sm-TmB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Text" backgroundImage="ipad-list-item-selected.png">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Text"/>
                                                     <connections>
                                                         <action selector="textButtonPress:" destination="IjU-xf-cU3" eventType="touchUpInside" id="4Jr-eA-0GN"/>
                                                     </connections>
@@ -680,12 +662,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7LR-tb-Ehv">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Call" backgroundImage="ipad-list-item-selected.png">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Call"/>
                                                     <connections>
                                                         <action selector="callButtonPress:" destination="IjU-xf-cU3" eventType="touchUpInside" id="lma-w8-uTV"/>
                                                     </connections>
@@ -953,7 +932,7 @@
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y59-rq-ylx" id="eob-5c-mQJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320.00000000000006" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bank" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jc2-bE-9yg">
@@ -984,12 +963,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Znu-oI-y5B">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Text All Players" backgroundImage="ipad-list-item-selected.png">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Text All Players"/>
                                                     <connections>
                                                         <action selector="messagePlayersButtonPress:" destination="WsK-Jx-lRn" eventType="touchUpInside" id="u6j-vq-5qd"/>
                                                     </connections>
@@ -1009,12 +985,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5RT-ks-k0A">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Email Data" backgroundImage="ipad-list-item-selected.png">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Email Data"/>
                                                     <connections>
                                                         <action selector="emailDataButtonPress:" destination="WsK-Jx-lRn" eventType="touchUpInside" id="bB8-ov-zdT"/>
                                                     </connections>
@@ -1037,12 +1010,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c4r-uC-FTl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Delete All Data" backgroundImage="red-item-bg.png">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
+                                                    <state key="normal" title="Delete All Data"/>
                                                     <connections>
                                                         <action selector="deleteDataButtonPress:" destination="WsK-Jx-lRn" eventType="touchUpInside" id="aaW-az-DlJ"/>
                                                     </connections>
@@ -1092,8 +1062,6 @@
     <resources>
         <image name="briefcase.png" width="30" height="30"/>
         <image name="calendar.png" width="30" height="30"/>
-        <image name="ipad-list-item-selected.png" width="319" height="67"/>
-        <image name="red-item-bg.png" width="319" height="67"/>
         <image name="team.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -91,9 +91,7 @@
 + (NSString *)formattedStringForAmountNumber:(NSNumber *)number {
     NSString *string = nil;
     CGFloat floatNumber = number.floatValue;
-    if (floatNumber != 0) {
-        string = [self formattedStringForAmountFloat:floatNumber];
-    }
+    string = [self formattedStringForAmountFloat:floatNumber];
     return  string;
 }
 + (NSString *)formattedStringForAmountFloat:(CGFloat)aFloat {

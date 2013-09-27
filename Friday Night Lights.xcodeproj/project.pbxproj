@@ -67,6 +67,8 @@
 		AE3256C71794E0F10061BBF1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3256C61794E0F10061BBF1 /* libz.dylib */; };
 		AE3256CA1794E5FA0061BBF1 /* ConfirmedEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */; };
 		AE3256CB1794E5FA0061BBF1 /* ConfirmedEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */; };
+		AE41CA8917F398430019948F /* KeyValueLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE41CA8817F398430019948F /* KeyValueLabelView.xib */; };
+		AE41CA8C17F398F80019948F /* KeyValueLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE41CA8B17F398F80019948F /* KeyValueLabelCell.m */; };
 		AE4F15A01781E6C700650410 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155E1781E6C700650410 /* calendar.png */; };
 		AE4F15A11781E6C700650410 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155E1781E6C700650410 /* calendar.png */; };
 		AE4F15A21781E6C700650410 /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155F1781E6C700650410 /* calendar@2x.png */; };
@@ -115,6 +117,7 @@
 		AED35F95179384AE009D8ADF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AED35F94179384AE009D8ADF /* Icon@2x.png */; };
 		AED35F9C17939871009D8ADF /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = AED35F9B17939871009D8ADF /* Helper.m */; };
 		AED35F9D17939871009D8ADF /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = AED35F9B17939871009D8ADF /* Helper.m */; };
+		AED88B4117F460EE004B827E /* EventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED88B4017F460EE004B827E /* EventsCell.xib */; };
 		AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC565917778DB50073BA2C /* MessageUI.framework */; };
 		AEE083B81791FA1400371928 /* ConfirmedParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */; };
 		AEE083BB17937CBF00371928 /* hockeyStick.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE083B917937CBF00371928 /* hockeyStick.png */; };
@@ -196,6 +199,9 @@
 		AE3256C81794E5F90061BBF1 /* ConfirmedEventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmedEventsVC.h; path = "Friday Night Lights/ConfirmedEventsVC.h"; sourceTree = "<group>"; };
 		AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmedEventsVC.m; path = "Friday Night Lights/ConfirmedEventsVC.m"; sourceTree = "<group>"; };
 		AE3256CC1794FC470061BBF1 /* Friday_Night_Lights 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Friday_Night_Lights 2.xcdatamodel"; sourceTree = "<group>"; };
+		AE41CA8817F398430019948F /* KeyValueLabelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KeyValueLabelView.xib; path = "Friday Night Lights/KeyValueLabelView.xib"; sourceTree = "<group>"; };
+		AE41CA8A17F398F70019948F /* KeyValueLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyValueLabelCell.h; path = "Friday Night Lights/KeyValueLabelCell.h"; sourceTree = "<group>"; };
+		AE41CA8B17F398F80019948F /* KeyValueLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyValueLabelCell.m; path = "Friday Night Lights/KeyValueLabelCell.m"; sourceTree = "<group>"; };
 		AE4F155E1781E6C700650410 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		AE4F155F1781E6C700650410 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar@2x.png"; sourceTree = "<group>"; };
 		AE4F15601781E6C700650410 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
@@ -242,6 +248,7 @@
 		AED35F94179384AE009D8ADF /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		AED35F9A17939871009D8ADF /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Helper.h; path = "Friday Night Lights/Helper.h"; sourceTree = "<group>"; };
 		AED35F9B17939871009D8ADF /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "Friday Night Lights/Helper.m"; sourceTree = "<group>"; };
+		AED88B4017F460EE004B827E /* EventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventsCell.xib; path = "Friday Night Lights/EventsCell.xib"; sourceTree = "<group>"; };
 		AEDC565917778DB50073BA2C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AEE083B61791FA1400371928 /* ConfirmedParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmedParticipantsVC.h; path = "Friday Night Lights/ConfirmedParticipantsVC.h"; sourceTree = "<group>"; };
 		AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmedParticipantsVC.m; path = "Friday Night Lights/ConfirmedParticipantsVC.m"; sourceTree = "<group>"; };
@@ -498,6 +505,10 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
+				AE41CA8817F398430019948F /* KeyValueLabelView.xib */,
+				AED88B4017F460EE004B827E /* EventsCell.xib */,
+				AE41CA8A17F398F70019948F /* KeyValueLabelCell.h */,
+				AE41CA8B17F398F80019948F /* KeyValueLabelCell.m */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE41CA8117F30CDE0019948F /* Controllers */,
 				AE41CA8317F30D0B0019948F /* Libraries */,
@@ -658,6 +669,7 @@
 				AE18DDBA1774FA7D0082FCFE /* TDDatePickerController.xib in Resources */,
 				AE4F15A01781E6C700650410 /* calendar.png in Resources */,
 				AE4F15A21781E6C700650410 /* calendar@2x.png in Resources */,
+				AED88B4117F460EE004B827E /* EventsCell.xib in Resources */,
 				AE4F15A41781E6C700650410 /* team.png in Resources */,
 				AE4F16231781E88700650410 /* team@2x.png in Resources */,
 				AEE083BB17937CBF00371928 /* hockeyStick.png in Resources */,
@@ -666,6 +678,7 @@
 				AED35F95179384AE009D8ADF /* Icon@2x.png in Resources */,
 				AE3256C21794E0990061BBF1 /* README.md in Resources */,
 				AE3256C41794E0990061BBF1 /* release_notes.md in Resources */,
+				AE41CA8917F398430019948F /* KeyValueLabelView.xib in Resources */,
 				AE18BA3B179879CD0014EAEB /* briefcase.png in Resources */,
 				AE18BA3D179879CD0014EAEB /* briefcase@2x.png in Resources */,
 				AE18BA5217989E520014EAEB /* Default-568h@2x.png in Resources */,
@@ -747,6 +760,7 @@
 				AE895C12179638600055223A /* Participant.m in Sources */,
 				AE895C2417965F9E0055223A /* TransactionsVC.m in Sources */,
 				AE895C28179666820055223A /* TransactionsCell.m in Sources */,
+				AE41CA8C17F398F80019948F /* KeyValueLabelCell.m in Sources */,
 				AE18BA3617985EB40014EAEB /* AdminVC.m in Sources */,
 				AE18BA411798813E0014EAEB /* EventsCell.m in Sources */,
 				AE18BA45179888CC0014EAEB /* ParticipantsCell.m in Sources */,

@@ -38,9 +38,15 @@
     [super viewDidLoad];
     self.title = @"Games";
     [self customizeDesign];
+    [self setupCellReuseIds];
+    
 }
 - (void)customizeDesign {
     [DesignHelper customizeTableView:self.tableView];
+}
+- (void)setupCellReuseIds {
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([EventsCell class]) bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:NSStringFromClass([EventsCell class])];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,7 +77,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"EventsVCCell";
+    NSString *CellIdentifier = NSStringFromClass([EventsCell class]);
     EventsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     Event *object = [self objectAtIndexPath:indexPath];

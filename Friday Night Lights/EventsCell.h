@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateValue;
 @property (strong, nonatomic) IBOutlet UILabel *confirmedParticipantsValue;
 
++ (void)setupReuseIdForTableView:(UITableView *)tableView;
 
 @end

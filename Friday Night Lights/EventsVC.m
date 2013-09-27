@@ -38,16 +38,13 @@
     [super viewDidLoad];
     self.title = @"Games";
     [self customizeDesign];
-    [self setupCellReuseIds];
+    [EventsCell setupReuseIdForTableView:self.tableView];
     
 }
 - (void)customizeDesign {
     [DesignHelper customizeTableView:self.tableView];
 }
-- (void)setupCellReuseIds {
-    UINib *nib = [UINib nibWithNibName:NSStringFromClass([EventsCell class]) bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:NSStringFromClass([EventsCell class])];
-}
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupDataSource];

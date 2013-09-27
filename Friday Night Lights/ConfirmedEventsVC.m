@@ -35,6 +35,7 @@
     [super viewDidLoad];
     self.title = @"Confirmed";
     [DesignHelper customizeTableView:self.tableView];
+    [EventsCell setupReuseIdForTableView:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,8 +64,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ConfirmedEventsVCCell";
-    EventsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EventsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([EventsCell class])];
     
     Event *object = self.dataSource[indexPath.row];
     [EventHelper configureCell:cell forEvent:object];

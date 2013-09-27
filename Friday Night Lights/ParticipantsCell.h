@@ -12,4 +12,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameValue;
 @property (strong, nonatomic) IBOutlet UILabel *balanceValue;
 
++ (void)setupReuseIdForTableView:(UITableView *)tableView;
+
 @end

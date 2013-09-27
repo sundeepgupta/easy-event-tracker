@@ -77,6 +77,7 @@
 		AE4F15A51781E6C700650410 /* team.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F15601781E6C700650410 /* team.png */; };
 		AE4F16231781E88700650410 /* team@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F16221781E88700650410 /* team@2x.png */; };
 		AE4F16241781E88700650410 /* team@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F16221781E88700650410 /* team@2x.png */; };
+		AE50C1D917F6366400B2044D /* ParticipantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE50C1D817F6366400B2044D /* ParticipantsCell.xib */; };
 		AE814D5B17950157001E4866 /* TransactionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE814D5A17950157001E4866 /* TransactionDetailVC.m */; };
 		AE814D5C17950157001E4866 /* TransactionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE814D5A17950157001E4866 /* TransactionDetailVC.m */; };
 		AE814D6317950E4C001E4866 /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = AE814D6217950E4C001E4866 /* Transaction.m */; };
@@ -206,6 +207,7 @@
 		AE4F155F1781E6C700650410 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar@2x.png"; sourceTree = "<group>"; };
 		AE4F15601781E6C700650410 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
 		AE4F16221781E88700650410 /* team@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "team@2x.png"; sourceTree = "<group>"; };
+		AE50C1D817F6366400B2044D /* ParticipantsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParticipantsCell.xib; path = "Friday Night Lights/ParticipantsCell.xib"; sourceTree = "<group>"; };
 		AE814D5917950157001E4866 /* TransactionDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionDetailVC.h; path = "Friday Night Lights/TransactionDetailVC.h"; sourceTree = "<group>"; };
 		AE814D5A17950157001E4866 /* TransactionDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDetailVC.m; path = "Friday Night Lights/TransactionDetailVC.m"; sourceTree = "<group>"; };
 		AE814D6117950E4C001E4866 /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = "Friday Night Lights/Transaction.h"; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
+				AE50C1D817F6366400B2044D /* ParticipantsCell.xib */,
 				AE41CA8817F398430019948F /* KeyValueLabelView.xib */,
 				AED88B4017F460EE004B827E /* EventsCell.xib */,
 				AE41CA8A17F398F70019948F /* KeyValueLabelCell.h */,
@@ -677,6 +680,7 @@
 				AED35F93179384A9009D8ADF /* Icon.png in Resources */,
 				AED35F95179384AE009D8ADF /* Icon@2x.png in Resources */,
 				AE3256C21794E0990061BBF1 /* README.md in Resources */,
+				AE50C1D917F6366400B2044D /* ParticipantsCell.xib in Resources */,
 				AE3256C41794E0990061BBF1 /* release_notes.md in Resources */,
 				AE41CA8917F398430019948F /* KeyValueLabelView.xib in Resources */,
 				AE18BA3B179879CD0014EAEB /* briefcase.png in Resources */,

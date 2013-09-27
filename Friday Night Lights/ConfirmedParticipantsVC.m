@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
     self.title = @"Confirmed";
+    [ParticipantsCell setupReuseIdForTableView:self.tableView];
     [DesignHelper customizeTableView:self.tableView];
 }
 
@@ -64,8 +65,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ConfirmedParticipantsVCCell";
-    ParticipantsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    ParticipantsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ParticipantsCell class])];
     
     Participant *object = [self.dataSource objectAtIndex:indexPath.row];
     [ParticipantHelper configureCell:cell forParticipant:object];

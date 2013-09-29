@@ -1,29 +1,35 @@
 //
-//  Event.m
+//  Venue.m
 //  Friday Night Lights
 //
 //  Created by Sundeep Gupta on 2013-09-29.
 //  Copyright (c) 2013 Sundeep Gupta. All rights reserved.
 //
 
+#import "Venue.h"
 #import "Event.h"
-#import "Participant.h"
 
 
-@implementation Event
+@implementation Venue
 
-@dynamic cost;
-@dynamic date;
-@dynamic eventDescription;
+@dynamic address1;
+@dynamic address2;
+@dynamic address3;
+@dynamic city;
+@dynamic contact;
+@dynamic country;
+@dynamic latitude;
+@dynamic longitude;
 @dynamic maxParticipants;
 @dynamic minParticipants;
 @dynamic name;
 @dynamic note;
+@dynamic phone;
+@dynamic state;
 @dynamic status;
 @dynamic type;
-@dynamic venueName;
+@dynamic website;
 @dynamic externalId;
-@dynamic participants;
-@dynamic venue;
+@dynamic events;
 
 @end

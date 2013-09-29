@@ -12,4 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateValue;
 @property (strong, nonatomic) IBOutlet UILabel *amountValue;
 
++ (void)setupReuseIdForTableView:(UITableView *)tableView;
+
+
 @end

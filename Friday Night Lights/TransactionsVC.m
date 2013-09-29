@@ -36,6 +36,7 @@
 {
     [super viewDidLoad];
     self.title = @"Transactions";
+    [TransactionsCell setupReuseIdForTableView:self.tableView];
     [DesignHelper customizeTableView:self.tableView];
 }
 
@@ -66,8 +67,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"TransactionsVCCell";
-    TransactionsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TransactionsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TransactionsCell class])];
     
     Transaction *object = self.dataSource[indexPath.row];
     

@@ -1,5 +1,5 @@
 //
-//  Event.h
+//  Expense.h
 //  Friday Night Lights
 //
 //  Created by Sundeep Gupta on 2013-09-29.
@@ -11,24 +11,19 @@
 
 @class Participant;
 
-@interface Event : NSManagedObject
+@interface Expense : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * cost;
+@property (nonatomic, retain) NSNumber * amount;
 @property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSString * eventDescription;
-@property (nonatomic, retain) NSNumber * maxParticipants;
-@property (nonatomic, retain) NSNumber * minParticipants;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * note;
 @property (nonatomic, retain) NSString * status;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSString * venueName;
 @property (nonatomic, retain) NSString * externalId;
 @property (nonatomic, retain) NSSet *participants;
-@property (nonatomic, retain) NSManagedObject *venue;
 @end
 
-@interface Event (CoreDataGeneratedAccessors)
+@interface Expense (CoreDataGeneratedAccessors)
 
 - (void)addParticipantsObject:(Participant *)value;
 - (void)removeParticipantsObject:(Participant *)value;

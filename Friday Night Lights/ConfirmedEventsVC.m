@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) NSArray *dataSource;
 @property (strong, nonatomic) NSArray *confirmedEvents;
+@property (nonatomic) CGFloat cellHeight;
 
 @end
 
@@ -35,7 +36,11 @@
     [super viewDidLoad];
     self.title = @"Confirmed";
     [DesignHelper customizeTableView:self.tableView];
+    [self prepareForTableViewCells];
+}
+- (void)prepareForTableViewCells {
     [EventsCell setupReuseIdForTableView:self.tableView];
+    self.cellHeight = [EventsCell height];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,6 +65,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataSource.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.cellHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

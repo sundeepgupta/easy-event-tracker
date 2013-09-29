@@ -31,6 +31,12 @@
     [tableView registerNib:nib forCellReuseIdentifier:NSStringFromClass([self class])];
 }
 
++ (CGFloat)height {
+    UIView *view = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil][0];
+    CGFloat height = view.frame.size.height;
+    view = nil;
+    return height;
+}
 
 
 @end

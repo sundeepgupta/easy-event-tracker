@@ -22,6 +22,9 @@
 + (void)configureCell:(EventsCell *)cell forEvent:(Event *)event {
     cell.dateValue.text = [event.date dateAndTimeString];
     cell.confirmedParticipantsValue.text = [Helper stringForNumberOfConfirmedParticipantsForEvent:event];
+    cell.nameValue.text = event.name;
+    cell.venueValue.text = event.venueName;
+    cell.costValue.text = [Helper formattedStringForAmountNumber:event.cost];
 }
 
 

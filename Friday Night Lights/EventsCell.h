@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface EventsCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *nameValue;
+@property (strong, nonatomic) IBOutlet UILabel *venueValue;
+@property (strong, nonatomic) IBOutlet UILabel *costValue;
 
 @property (strong, nonatomic) IBOutlet UILabel *dateValue;
 @property (strong, nonatomic) IBOutlet UILabel *confirmedParticipantsValue;
 
 + (void)setupReuseIdForTableView:(UITableView *)tableView;
-
++ (CGFloat)height;
 @end

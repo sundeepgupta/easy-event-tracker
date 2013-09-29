@@ -26,4 +26,9 @@
     // Configure the view for the selected state
 }
 
++ (void)setupReuseIdForTableView:(UITableView *)tableView {
+    UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
+    [tableView registerNib:nib forCellReuseIdentifier:NSStringFromClass([self class])];
+}
+
 @end

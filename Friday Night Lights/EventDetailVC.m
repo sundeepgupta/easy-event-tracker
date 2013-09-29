@@ -25,6 +25,8 @@
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
 
+@property (strong, nonatomic) IBOutlet UITextField *nameValue;
+@property (strong, nonatomic) IBOutlet UITextField *venueValue;
 @property (strong, nonatomic) IBOutlet UITableViewCell *dateCell;
 @property (strong, nonatomic) IBOutlet UILabel *dateValue;
 @property (strong, nonatomic) IBOutlet UITextField *costValue;
@@ -71,6 +73,8 @@
     [DesignHelper customizeCells:self.textCells];
 }
 - (void)setupViewValues {
+    self.nameValue.text = self.event.name;
+    self.venueValue.text = self.event.venueName;
     self.dateValue.text = [self.event.date dateAndTimeString];
     self.costValue.text = [Helper formattedStringForAmountNumber:self.event.cost];
     [self setupAmountValues];
@@ -104,7 +108,9 @@
 
 #pragma mark - TextField Delegates
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    textField.text = [Helper unformattedStringForFormattedAmountString:textField.text];
+    if ([textField isEqual:self.costValue]) {
+        textField.text = [Helper unformattedStringForFormattedAmountString:textField.text];
+    }
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

@@ -73,7 +73,8 @@
 - (NSArray *)stringsForTransaction:(Transaction *)transaction {
     NSString *date = [transaction.date dateString];
     NSString *amount = [Helper formattedStringForAmountNumber:transaction.amount];
-    NSArray *strings = @[date, amount];
+    NSString *note = transaction.note;
+    NSArray *strings = @[date, amount, note];
     return strings;
 }
 

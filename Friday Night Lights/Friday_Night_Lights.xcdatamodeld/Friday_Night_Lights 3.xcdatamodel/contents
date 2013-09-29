@@ -32,7 +32,7 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="playsForFree" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="participatesForFree" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="salutation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>

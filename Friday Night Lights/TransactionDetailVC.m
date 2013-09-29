@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *dateCell;
 @property (strong, nonatomic) IBOutlet UILabel *dateValue;
 @property (strong, nonatomic) IBOutlet UITextField *amountValue;
+@property (strong, nonatomic) IBOutlet UITextView *noteValue;
 
 
 @property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *cells;
@@ -87,6 +88,7 @@
 - (void)setupViewValues {
     [self setupDateValue];
     [self setupAmountValue];
+    [self setupNoteValue];
 }
 - (void)setupDateValue {
     NSDate *date;
@@ -101,6 +103,9 @@
     if (!self.isNewMode) {
         self.amountValue.text = [Helper formattedStringForAmountNumber:self.transaction.amount];
     }
+}
+- (void)setupNoteValue {
+    self.noteValue.text = self.transaction.note;
 }
 
 
@@ -125,6 +130,12 @@
     return YES;
 }
 
+
+#pragma mark - TextView Delegates 
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    self.transaction.note = textView.text;
+    [self saveTransaction];
+}
 
 
 

@@ -243,7 +243,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Send Roll Call"/>
+                                                    <state key="normal" title="Invite All Participants"/>
                                                     <connections>
                                                         <action selector="saveAndInviteButtonPress:" destination="YPR-YU-eka" eventType="touchUpInside" id="EPP-4k-Fxk"/>
                                                     </connections>
@@ -808,12 +808,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection id="wlY-KU-H0D">
-                                <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="oCQ-Cf-RlX">
-                                        <rect key="frame" x="0.0" y="163" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="143" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oCQ-Cf-RlX" id="anf-WY-Omb">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -838,6 +834,34 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="86" id="OLg-fi-ewn">
+                                        <rect key="frame" x="0.0" y="187" width="320" height="86"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OLg-fi-ewn" id="qQZ-Q9-ysi">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Note" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4m-8g-q6i">
+                                                    <rect key="frame" x="13" y="11" width="53" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K29-v4-spb">
+                                                    <rect key="frame" x="74" y="5" width="226" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="qWV-2i-Nus" id="uF0-wp-bgP"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -858,6 +882,7 @@
                         <outlet property="amountValue" destination="Qty-jl-EAl" id="0dc-Qu-cgI"/>
                         <outlet property="dateCell" destination="7vA-Gi-XfA" id="sTm-54-NiE"/>
                         <outlet property="dateValue" destination="ITI-Cq-MbZ" id="SwL-pW-23g"/>
+                        <outlet property="noteValue" destination="K29-v4-spb" id="5dN-4I-k0P"/>
                         <outletCollection property="cells" destination="7vA-Gi-XfA" id="nPP-Ap-uRz"/>
                         <outletCollection property="cells" destination="oCQ-Cf-RlX" id="LUJ-Et-XQZ"/>
                     </connections>

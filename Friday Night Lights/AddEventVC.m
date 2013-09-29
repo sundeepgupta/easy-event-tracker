@@ -196,7 +196,7 @@
 
 - (void)setupMessageComposeBody {
     NSString *dateString = [self.event.date dateAndTimeString];
-    NSString *body = [NSString stringWithFormat:@"Who's in for hockey on %@ ?", dateString];
+    NSString *body = [NSString stringWithFormat:@"The event \"%@\" is confirmed to be held at \"%@\" on %@. Please let me know if you will be participating. Thank you!", self.event.name, self.event.venueName, dateString];
     self.messageComposeVc.body = body;
 }
 

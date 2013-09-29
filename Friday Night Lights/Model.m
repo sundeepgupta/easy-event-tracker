@@ -160,6 +160,7 @@
     NSString *entityName = NSStringFromClass([Transaction class]);
     Transaction *object = (Transaction *)[self newObjectWithEntityName:entityName];
     object.date = [NSDate date];
+    object.note = @"";
     return object;
 }
 

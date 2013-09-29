@@ -145,7 +145,7 @@
 }
 - (void)writeEventsHeader {
     [self writeSectionTitle:@"GAMES"];
-    NSArray *headerStrings = @[@"Date", @"Cost", @"Number Of Players"];
+    NSArray *headerStrings = @[@"Name", @"Venue", @"Cost", @"Date", @"Number Of Players"];
     [self.csvApi writeLineOfFields:headerStrings];
     [self.csvApi finishLine];
 }

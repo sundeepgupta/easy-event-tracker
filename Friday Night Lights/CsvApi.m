@@ -37,10 +37,12 @@
     [self writeLineOfFields:strings];
 }
 - (NSArray *)stringsForEvent:(Event *)event {
+    NSString *name = event.name;
+    NSString *venue = event.venueName;
     NSString *date = [event.date dateAndTimeString];
     NSString *cost = event.cost.stringValue;
     NSString *numberOfParticipants = [NSString stringWithFormat:@"%d", event.participants.count];
-    NSArray *strings = @[date, cost, numberOfParticipants];
+    NSArray *strings = @[name, venue, cost, date, numberOfParticipants];
     return strings;
 }
 

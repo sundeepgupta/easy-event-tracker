@@ -115,13 +115,32 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    return [Helper isValidReplacementString:string forAmountFieldString:textField.text];
+    BOOL shouldChangeCharacters = YES;
+    if ([textField isEqual:self.costValue]) {
+        shouldChangeCharacters = [Helper isValidReplacementString:string forAmountFieldString:textField.text];
+    }
+    return shouldChangeCharacters;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    self.costValue.text = [Helper formattedStringForUnformattedAmountString:textField.text];
-    self.event.cost = [Helper numberForFormattedAmountString:textField.text];
+    if ([textField isEqual:self.costValue]) {
+        [self costValueTextFieldDidEndEditing];
+    } else if ([textField isEqual:self.nameValue]) {
+        [self nameValueTextFieldDidEndEditing];
+    } else if ([textField isEqual:self.venueValue]) {
+        [self venueValueTextFieldDidEndEditing];
+    }
     [self saveEvent];
+}
+- (void)costValueTextFieldDidEndEditing {
+    self.costValue.text = [Helper formattedStringForUnformattedAmountString:self.costValue.text];
+    self.event.cost = [Helper numberForFormattedAmountString:self.costValue.text];
+}
+- (void)nameValueTextFieldDidEndEditing {
+    self.event.name = self.nameValue.text;
+}
+- (void)venueValueTextFieldDidEndEditing {
+    self.event.venueName = self.venueValue.text;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

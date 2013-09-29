@@ -27,6 +27,8 @@
     NSString *entityName = NSStringFromClass([Event class]);
     Event *event = (Event *)[self newObjectWithEntityName:entityName];
     event.date = [NSDate date];
+    event.name = @"";
+    event.venueName = @"";
     return event;
 }
 

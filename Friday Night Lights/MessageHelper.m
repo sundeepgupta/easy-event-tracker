@@ -14,7 +14,7 @@
 @implementation MessageHelper
 
 + (void)showCantSendTextAlert {
-    [UIAlertView showAlertWithTitle:@"Device Can't Send" withMessage:@"It seems that your device is unable to send text messages."];
+    [UIAlertView showAlertWithTitle:@"Text Error" withMessage:@"It seems that your device cannot send text messages."];
 }
 
 + (NSArray *)mobileNumbersFromPartipants:(NSArray *)participants {

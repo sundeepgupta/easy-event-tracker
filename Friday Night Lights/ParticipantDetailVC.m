@@ -162,7 +162,7 @@
             break;
         }
         case MessageComposeResultFailed: {
-            [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
+            [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages."];
             break;
         }
         default:
@@ -173,7 +173,12 @@
 
 - (void)call {
     NSURL *url = [ParticipantHelper phoneUrlForParticipant:self.participant];
-    [[UIApplication sharedApplication] openURL:url];
+    UIApplication *app = [UIApplication sharedApplication];
+    if ([app canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        [UIAlertView showAlertWithTitle:@"Call Error" withMessage:@"It seems that your device cannot make phone calls."];
+    }
 }
 
 

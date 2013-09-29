@@ -19,6 +19,8 @@
 @interface AdminVC ()
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
 @property (strong, nonatomic) CsvApi *csvApi;
+@property (strong, nonatomic) UIAlertView *firstDeleteConfirmation;
+@property (strong, nonatomic) UIAlertView *secondDeleteConfirmation;
 
 @property (strong, nonatomic) IBOutlet UITextField *bankValue;
 @property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *textCells;
@@ -204,24 +206,9 @@
 }
 - (void)setupPropertiesforMailer:(MFMailComposeViewController *)mailer {
     mailer.mailComposeDelegate = self;
-//    [self setupRecipientsForMailer:mailer];
     [self setupSubjectForMailer:mailer];
     [self setupAttachmentForMailer:mailer];
 }
-
-//- (void)setupRecipientsForMailer:(MFMailComposeViewController *)mailer
-//{
-//    [self setupToRecipientsForMailer:mailer];
-//}
-
-//- (void)setupToRecipientsForMailer:(MFMailComposeViewController *)mailer
-//{
-//    NSMutableArray *emailStrings = [[NSMutableArray alloc] init];
-//    for (SCEmail *email in self.order.customer.emailList.allObjects) {
-//        [emailStrings addObject:email.address];
-//    }
-//    [mailer setToRecipients:emailStrings];
-//}
 
 - (void)setupSubjectForMailer:(MFMailComposeViewController *)mailer {
     NSString *subject = @"Friday Night Lights Data";
@@ -241,17 +228,25 @@
 
 
 - (IBAction)deleteDataButtonPress:(id)sender {
-    [self reqeustDeleteConfirmation];
+    [self showFirstDeleteConfirmation];
 }
-- (void)reqeustDeleteConfirmation {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm Delete" message:@"This will delete all data and cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
-    [alert show];
+- (void)showFirstDeleteConfirmation {
+    self.firstDeleteConfirmation = [[UIAlertView alloc] initWithTitle:@"Confirm Delete" message:@"This will delete all data and cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Delete", nil];
+    [self.firstDeleteConfirmation show];
 }
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)showSecondDeleteConfirmation {
+    self.secondDeleteConfirmation = [[UIAlertView alloc] initWithTitle:@"Are You 100% Sure?" message:@"There will be absolutely no way to get your data back. If you haven't already done so, we suggest emailing the data to yourself to serve as a backup before deleting your data." delegate:self cancelButtonTitle:@"No, Cancel" otherButtonTitles:@"Yes, Delete", nil];
+    [self.secondDeleteConfirmation show];
+}
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        [Model resetStore];
-        [self setupViewValues];
+        if ([alertView isEqual:self.firstDeleteConfirmation]) {
+            [self showSecondDeleteConfirmation];
+        } else if ([alertView isEqual:self.secondDeleteConfirmation]) {
+            [Model resetStore];
+            [self setupViewValues];
+        }
     }
 }
 

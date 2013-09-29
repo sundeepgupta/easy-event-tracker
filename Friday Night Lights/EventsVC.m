@@ -37,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Games";
+    self.title = @"Events";
     [self customizeDesign];
     [self prepareForTableViewCells];
 }

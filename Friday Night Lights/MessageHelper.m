@@ -33,8 +33,8 @@
 }
 + (void)handleMissingMobileNumberForParticipant:(Participant *)participant {
     NSString *compositeName = [AddressBookHelper abCompositeNameFromAbRecordId:participant.abRecordId];
-    NSString *message = [NSString stringWithFormat:@"%@ doesn't have a mobile number set. Invite won't be sent to him/her.", compositeName];
-    [UIAlertView showAlertWithTitle:@"FYI..." withMessage:message];
+    NSString *message = [NSString stringWithFormat:@"%@ doesn't have a mobile number set. The text won't be sent to this participant.", compositeName];
+    [UIAlertView showAlertWithTitle:@"Missing Mobile Number" withMessage:message];
 }
 
 @end

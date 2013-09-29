@@ -65,8 +65,6 @@
 		AE3256C71794E0F10061BBF1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE3256C61794E0F10061BBF1 /* libz.dylib */; };
 		AE3256CA1794E5FA0061BBF1 /* ConfirmedEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */; };
 		AE3256CB1794E5FA0061BBF1 /* ConfirmedEventsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */; };
-		AE41CA8917F398430019948F /* KeyValueLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE41CA8817F398430019948F /* KeyValueLabelView.xib */; };
-		AE41CA8C17F398F80019948F /* KeyValueLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE41CA8B17F398F80019948F /* KeyValueLabelCell.m */; };
 		AE4F15A01781E6C700650410 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155E1781E6C700650410 /* calendar.png */; };
 		AE4F15A11781E6C700650410 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155E1781E6C700650410 /* calendar.png */; };
 		AE4F15A21781E6C700650410 /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F155F1781E6C700650410 /* calendar@2x.png */; };
@@ -198,9 +196,6 @@
 		AE3256C81794E5F90061BBF1 /* ConfirmedEventsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmedEventsVC.h; path = "Friday Night Lights/ConfirmedEventsVC.h"; sourceTree = "<group>"; };
 		AE3256C91794E5F90061BBF1 /* ConfirmedEventsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmedEventsVC.m; path = "Friday Night Lights/ConfirmedEventsVC.m"; sourceTree = "<group>"; };
 		AE3256CC1794FC470061BBF1 /* Friday_Night_Lights 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Friday_Night_Lights 2.xcdatamodel"; sourceTree = "<group>"; };
-		AE41CA8817F398430019948F /* KeyValueLabelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KeyValueLabelView.xib; path = "Friday Night Lights/KeyValueLabelView.xib"; sourceTree = "<group>"; };
-		AE41CA8A17F398F70019948F /* KeyValueLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyValueLabelCell.h; path = "Friday Night Lights/KeyValueLabelCell.h"; sourceTree = "<group>"; };
-		AE41CA8B17F398F80019948F /* KeyValueLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyValueLabelCell.m; path = "Friday Night Lights/KeyValueLabelCell.m"; sourceTree = "<group>"; };
 		AE4F155E1781E6C700650410 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		AE4F155F1781E6C700650410 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar@2x.png"; sourceTree = "<group>"; };
 		AE4F15601781E6C700650410 /* team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = team.png; sourceTree = "<group>"; };
@@ -425,6 +420,7 @@
 		AE41CA8517F30DC20019948F /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				AED88B4017F460EE004B827E /* EventsCell.xib */,
 				AE18BA3F1798813D0014EAEB /* EventsCell.h */,
 				AE18BA401798813D0014EAEB /* EventsCell.m */,
 				AE18DDC3177601470082FCFE /* AddEventVC.h */,
@@ -444,6 +440,7 @@
 		AE41CA8617F30E470019948F /* Participants */ = {
 			isa = PBXGroup;
 			children = (
+				AE50C1D817F6366400B2044D /* ParticipantsCell.xib */,
 				AE18BA43179888CC0014EAEB /* ParticipantsCell.h */,
 				AE18BA44179888CC0014EAEB /* ParticipantsCell.m */,
 				AE3256C81794E5F90061BBF1 /* ConfirmedEventsVC.h */,
@@ -505,6 +502,7 @@
 		AE814D6517950E51001E4866 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				AE50C1DA17F638FD00B2044D /* TransactionsCell.xib */,
 				AE895C26179666810055223A /* TransactionsCell.h */,
 				AE895C27179666820055223A /* TransactionsCell.m */,
 				AE895C2217965F9E0055223A /* TransactionsVC.h */,
@@ -516,12 +514,6 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
-				AE50C1D817F6366400B2044D /* ParticipantsCell.xib */,
-				AE50C1DA17F638FD00B2044D /* TransactionsCell.xib */,
-				AE41CA8817F398430019948F /* KeyValueLabelView.xib */,
-				AED88B4017F460EE004B827E /* EventsCell.xib */,
-				AE41CA8A17F398F70019948F /* KeyValueLabelCell.h */,
-				AE41CA8B17F398F80019948F /* KeyValueLabelCell.m */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE41CA8117F30CDE0019948F /* Controllers */,
 				AE41CA8317F30D0B0019948F /* Libraries */,
@@ -692,7 +684,6 @@
 				AE3256C21794E0990061BBF1 /* README.md in Resources */,
 				AE50C1D917F6366400B2044D /* ParticipantsCell.xib in Resources */,
 				AE3256C41794E0990061BBF1 /* release_notes.md in Resources */,
-				AE41CA8917F398430019948F /* KeyValueLabelView.xib in Resources */,
 				AE18BA3B179879CD0014EAEB /* briefcase.png in Resources */,
 				AE18BA3D179879CD0014EAEB /* briefcase@2x.png in Resources */,
 				AE18BA5217989E520014EAEB /* Default-568h@2x.png in Resources */,
@@ -777,7 +768,6 @@
 				AE895C0E1795EEBC0055223A /* TransactionHelper.m in Sources */,
 				AE895C2417965F9E0055223A /* TransactionsVC.m in Sources */,
 				AE895C28179666820055223A /* TransactionsCell.m in Sources */,
-				AE41CA8C17F398F80019948F /* KeyValueLabelCell.m in Sources */,
 				AE18BA3617985EB40014EAEB /* AdminVC.m in Sources */,
 				AE18BA411798813E0014EAEB /* EventsCell.m in Sources */,
 				AE18BA45179888CC0014EAEB /* ParticipantsCell.m in Sources */,

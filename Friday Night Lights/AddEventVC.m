@@ -49,7 +49,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Add Game";
+    self.title = @"Add Event";
     [self customizeDesign];
     [self setupViewValues];
     [Helper addTapRecognizerToVc:self];

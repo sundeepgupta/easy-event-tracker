@@ -49,7 +49,7 @@
     [self.tableView reloadData];
 }
 - (void)setupVc {
-    self.title = @"Players";
+    self.title = @"Participants";
 }
 - (void)setupDataSource {
     self.dataSource = [ParticipantHelper activeParticipants];
@@ -125,7 +125,7 @@
 
 - (ABPeoplePickerNavigationController *)preparedPeoplePicker {
     ABPeoplePickerNavigationController *peoplePicker = [[ABPeoplePickerNavigationController alloc] init];
-    peoplePicker.navigationBar.topItem.title = @"Add To Players";
+    peoplePicker.navigationBar.topItem.title = @"Add To Participants";
     peoplePicker.peoplePickerDelegate = self;
     return peoplePicker;
 }
@@ -183,10 +183,10 @@
 - (void)handleDuplicateAbRecordRef:(ABRecordRef)abRecordRef {
     Participant *participant = [ParticipantHelper participantForAbRecordRef:abRecordRef];
     if ([participant.status isEqualToString:STATUS_DELETED]) {
-        [UIAlertView showAlertWithTitle:@"Previously Deleted Player" withMessage:@"The selected contact was previously deleted. This contact will be re-activated."];
+        [UIAlertView showAlertWithTitle:@"Previously Deleted Participant" withMessage:@"The selected contact was previously deleted. This contact will be re-activated."];
         [Model updateParticipant:participant withStatus:STATUS_ACTIVE];
     } else {
-        [UIAlertView showAlertWithTitle:@"Duplicate Player" withMessage:@"The selected contact is already an active Player."];
+        [UIAlertView showAlertWithTitle:@"Duplicate Participant" withMessage:@"The selected contact is already an active Participant."];
     }
 }
 

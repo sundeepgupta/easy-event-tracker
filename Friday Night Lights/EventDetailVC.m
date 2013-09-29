@@ -54,7 +54,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Game Details";
+    self.title = @"Event Details";
     [self customizeDesign];
     [Helper addTapRecognizerToVc:self];
 }

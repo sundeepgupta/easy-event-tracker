@@ -144,8 +144,8 @@
     [self.csvApi finishSection];
 }
 - (void)writeEventsHeader {
-    [self writeSectionTitle:@"GAMES"];
-    NSArray *headerStrings = @[@"Name", @"Venue", @"Cost", @"Date", @"Number Of Players"];
+    [self writeSectionTitle:@"EVENTS"];
+    NSArray *headerStrings = @[@"Name", @"Venue", @"Cost", @"Date", @"Number Of Participants"];
     [self.csvApi writeLineOfFields:headerStrings];
     [self.csvApi finishLine];
 }
@@ -170,7 +170,7 @@
     [self.csvApi finishSection];
 }
 - (void)writeParticipantsHeader {
-    [self writeSectionTitle:@"PLAYERS & TRANSACTIONS"];
+    [self writeSectionTitle:@"PARTICIPANTS & TRANSACTIONS"];
     NSArray *headerStrings = @[@"Name", @"Status", @"Balance"];
     [self.csvApi writeLineOfFields:headerStrings];
     [self.csvApi finishLine];

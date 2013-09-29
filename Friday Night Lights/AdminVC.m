@@ -14,7 +14,7 @@
 #import "CsvApi.h"
 #import "ParticipantHelper.h"
 
-#define FILENAME @"FNL_Data.csv"
+#define FILENAME @"EET_Data.csv"
 
 @interface AdminVC ()
 @property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
@@ -211,7 +211,11 @@
 }
 
 - (void)setupSubjectForMailer:(MFMailComposeViewController *)mailer {
-    NSString *subject = @"Friday Night Lights Data";
+    NSBundle *bundle = [NSBundle mainBundle];
+    NSDictionary *info = [bundle infoDictionary];
+    NSString *prodName = [info objectForKey:@"CFBundleName"];
+    
+    NSString *subject = [NSString stringWithFormat:@"%@ Data", prodName];
     [mailer setSubject:subject];
 }
 - (void)setupAttachmentForMailer:(MFMailComposeViewController *)mailer {

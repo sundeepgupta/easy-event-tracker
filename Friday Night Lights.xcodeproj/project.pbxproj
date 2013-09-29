@@ -210,7 +210,7 @@
 		AE895C2317965F9E0055223A /* TransactionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsVC.m; path = "Friday Night Lights/TransactionsVC.m"; sourceTree = "<group>"; };
 		AE895C26179666810055223A /* TransactionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionsCell.h; path = "Friday Night Lights/TransactionsCell.h"; sourceTree = "<group>"; };
 		AE895C27179666820055223A /* TransactionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionsCell.m; path = "Friday Night Lights/TransactionsCell.m"; sourceTree = "<group>"; };
-		AE89ABDF176D426700C06D03 /* Friday Night Lights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Friday Night Lights.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE89ABDF176D426700C06D03 /* Easy Event Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Event Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE89ABE2176D426700C06D03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AE89ABE4176D426700C06D03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE89ABE6176D426700C06D03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -527,7 +527,7 @@
 		AE89ABE0176D426700C06D03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AE89ABDF176D426700C06D03 /* Friday Night Lights.app */,
+				AE89ABDF176D426700C06D03 /* Easy Event Tracker.app */,
 				AE89AC04176D426700C06D03 /* Friday Night LightsTests.octest */,
 			);
 			name = Products;
@@ -600,9 +600,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AE89ABDE176D426700C06D03 /* Friday Night Lights */ = {
+		AE89ABDE176D426700C06D03 /* Easy Event Tracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE89AC17176D426700C06D03 /* Build configuration list for PBXNativeTarget "Friday Night Lights" */;
+			buildConfigurationList = AE89AC17176D426700C06D03 /* Build configuration list for PBXNativeTarget "Easy Event Tracker" */;
 			buildPhases = (
 				AE89ABDB176D426700C06D03 /* Sources */,
 				AE89ABDC176D426700C06D03 /* Frameworks */,
@@ -612,9 +612,9 @@
 			);
 			dependencies = (
 			);
-			name = "Friday Night Lights";
+			name = "Easy Event Tracker";
 			productName = "Friday Night Lights";
-			productReference = AE89ABDF176D426700C06D03 /* Friday Night Lights.app */;
+			productReference = AE89ABDF176D426700C06D03 /* Easy Event Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AE89AC03176D426700C06D03 /* Friday Night LightsTests */ = {
@@ -658,7 +658,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AE89ABDE176D426700C06D03 /* Friday Night Lights */,
+				AE89ABDE176D426700C06D03 /* Easy Event Tracker */,
 				AE89AC03176D426700C06D03 /* Friday Night LightsTests */,
 			);
 		};
@@ -822,7 +822,7 @@
 /* Begin PBXTargetDependency section */
 		AE89AC0B176D426700C06D03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AE89ABDE176D426700C06D03 /* Friday Night Lights */;
+			target = AE89ABDE176D426700C06D03 /* Easy Event Tracker */;
 			targetProxy = AE89AC0A176D426700C06D03 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -908,8 +908,8 @@
 		AE89AC18176D426700C06D03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: John Lai (6BZ73W39V5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: John Lai (6BZ73W39V5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Friday Night Lights/Friday Night Lights-Prefix.pch";
 				INFOPLIST_FILE = "Friday Night Lights/Friday Night Lights-Info.plist";
@@ -919,7 +919,7 @@
 					"\"$(SRCROOT)/Friday Night Lights/TestFlightSDK1.2.6\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "157B1F77-9403-40C1-823C-83B4546604EA";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "157B1F77-9403-40C1-823C-83B4546604EA";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -929,8 +929,8 @@
 		AE89AC19176D426700C06D03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Evermight";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Evermight";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Friday Night Lights/Friday Night Lights-Prefix.pch";
 				INFOPLIST_FILE = "Friday Night Lights/Friday Night Lights-Info.plist";
@@ -940,7 +940,7 @@
 					"\"$(SRCROOT)/Friday Night Lights/TestFlightSDK1.2.6\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2FBAF1AD-A0CE-49E7-9B5F-60EF5707D20C";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2FBAF1AD-A0CE-49E7-9B5F-60EF5707D20C";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1001,7 +1001,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE89AC17176D426700C06D03 /* Build configuration list for PBXNativeTarget "Friday Night Lights" */ = {
+		AE89AC17176D426700C06D03 /* Build configuration list for PBXNativeTarget "Easy Event Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AE89AC18176D426700C06D03 /* Debug */,

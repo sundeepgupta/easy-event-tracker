@@ -127,6 +127,7 @@
 		AEF44D3117F88F1E00D478EA /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF44D3017F88F1E00D478EA /* Expense.m */; };
 		AEF44D3417F88F1E00D478EA /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF44D3317F88F1E00D478EA /* Venue.m */; };
 		AEF44D3717F88F1E00D478EA /* Transaction.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF44D3617F88F1E00D478EA /* Transaction.m */; };
+		AEF44D3B17F8E4D200D478EA /* Icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = AEF44D3A17F8E4D200D478EA /* Icon120.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,6 +263,7 @@
 		AEF44D3317F88F1E00D478EA /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Venue.m; path = "Friday Night Lights/Venue.m"; sourceTree = "<group>"; };
 		AEF44D3517F88F1E00D478EA /* Transaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Transaction.h; path = "Friday Night Lights/Transaction.h"; sourceTree = "<group>"; };
 		AEF44D3617F88F1E00D478EA /* Transaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Transaction.m; path = "Friday Night Lights/Transaction.m"; sourceTree = "<group>"; };
+		AEF44D3A17F8E4D200D478EA /* Icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon120.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,6 +480,7 @@
 		AE4F155D1781E6C700650410 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				AEF44D3A17F8E4D200D478EA /* Icon120.png */,
 				AE18BA39179879CD0014EAEB /* briefcase.png */,
 				AE18BA3A179879CD0014EAEB /* briefcase@2x.png */,
 				AE4F155E1781E6C700650410 /* calendar.png */,
@@ -687,6 +690,7 @@
 				AE18BA3B179879CD0014EAEB /* briefcase.png in Resources */,
 				AE18BA3D179879CD0014EAEB /* briefcase@2x.png in Resources */,
 				AE18BA5217989E520014EAEB /* Default-568h@2x.png in Resources */,
+				AEF44D3B17F8E4D200D478EA /* Icon120.png in Resources */,
 				AE18BA5917989F690014EAEB /* Default.png in Resources */,
 				AE50C1DB17F638FD00B2044D /* TransactionsCell.xib in Resources */,
 				AE18BA5B17989F750014EAEB /* Default@2x.png in Resources */,

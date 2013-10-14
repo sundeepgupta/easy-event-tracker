@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
-
+#import "TextMessageManager.h"
 
 @class Event;
 
-@interface EventDetailVC : UITableViewController <MFMessageComposeViewControllerDelegate>
+@interface EventDetailVC : UITableViewController <TextMessageManagerDelegate>
 @property (strong, nonatomic) Event *event;
 
 @end

@@ -23,7 +23,7 @@
 @interface EventDetailVC ()
 
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
-@property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
+@property (strong, nonatomic) TextMessageManager *textMessageManager;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameValue;
 @property (strong, nonatomic) IBOutlet UITextField *venueValue;
@@ -183,60 +183,58 @@
 }
 
 
+#pragma mark - Text Messaging
 - (IBAction)textConfirmedParticipantsButtonPress:(id)sender {
-    [self sendMessageToConfirmedParticipants:YES];
+    [self sendMessageForConfirmedParticipants:YES];
 }
 - (IBAction)textUnconfirmedParticipantsButtonPress:(id)sender {
-    [self sendMessageToConfirmedParticipants:NO];
+    [self sendMessageForConfirmedParticipants:NO];
 }
-- (void)sendMessageToConfirmedParticipants:(BOOL)toConfirmedParticipants {
+- (void)sendMessageForConfirmedParticipants:(BOOL)forConfirmedParticipants {
     if([MFMessageComposeViewController canSendText]) {
-        [self setupMessageComposeVc];
-        
-        if (toConfirmedParticipants) {
-            [self setupMessageConfirmedParticipants];
+        if (forConfirmedParticipants) {
+            [self textParticipantsForConfirmedParticipants:YES];
         } else {
-            [self setupMessageUnconfirmedParticipants];
+            [self textParticipantsForConfirmedParticipants:NO];
         }
-        
-        [self presentViewController:self.messageComposeVc animated:YES completion:nil];
     } else {
         [MessageHelper showCantSendTextAlert];
     }
 }
-- (void)setupMessageComposeVc {
-    self.messageComposeVc = [[MFMessageComposeViewController alloc] init];
-    self.messageComposeVc.messageComposeDelegate = self;
+
+
+
+- (void)textParticipantsForConfirmedParticipants:(BOOL)forConfirmedParticipants {
+    NSArray *recipients = [self recipientsForTextMessageForConfirmedParticipants:forConfirmedParticipants];
+    NSString *body = [self bodyForTextMessage];
+    self.textMessageManager = [[TextMessageManager alloc] initWithRecipients:recipients body:body delegate:self];
+    [self.textMessageManager sendTextMessage];
 }
-- (void)setupMessageConfirmedParticipants {
-    NSArray *participants = [Model confirmedParticipantsForEvent:self.event];
-    [self setupMessageWithRecipients:participants];
-}
-- (void)setupMessageUnconfirmedParticipants {
-    NSArray *participants = [Model unconfirmedParticipantsForEvent:self.event];
-    [self setupMessageWithRecipients:participants];
-}
-- (void)setupMessageWithRecipients:(NSArray *)participants {
-    NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
-    self.messageComposeVc.recipients = mobileNumbers;
-}
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
-    switch (result) {
-        case MessageComposeResultCancelled: {
-            break;
-        }
-        case MessageComposeResultSent: {
-            break;
-        }
-        case MessageComposeResultFailed: {
-            [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
-            break;
-        }
-        default:
-            break;
+- (NSArray *)recipientsForTextMessageForConfirmedParticipants:(BOOL)forConfirmedParticipants {
+    NSArray *participants;
+    if (forConfirmedParticipants) {
+        participants = [Model confirmedParticipantsForEvent:self.event];
+    } else {
+        participants = [Model unconfirmedParticipantsForEvent:self.event];
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSArray *recipients = [MessageHelper mobileNumbersFromPartipants:participants];
+    return recipients;
 }
+- (NSString *)bodyForTextMessage {
+    NSString *dateString = [self.event.date dateAndTimeString];
+    NSString *body = [NSString stringWithFormat:@"In regards to the event \"%@\" to be held at \"%@\" on %@, ", self.event.name, self.event.venueName, dateString];
+    return body;
+}
+
+
+#pragma mark - TextMessageManager Delegates
+- (void)presentMessageComposeVc:(MFMessageComposeViewController *)messageComposeVc {
+    [self presentViewController:messageComposeVc animated:YES completion:nil];
+}
+
+
+
+
 
 - (void)saveEvent {
     [Model saveContext];

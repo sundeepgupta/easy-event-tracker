@@ -17,10 +17,11 @@
 #import "TransactionsVC.h"
 #import "TransactionHelper.h"
 
+
 @interface ParticipantDetailVC ()
 
 @property (strong, nonatomic) Model *model;
-@property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
+@property (strong, nonatomic) TextMessageManager *textMessageManager;
 
 @property (strong, nonatomic) IBOutlet UITextField *balanceValue;
 @property (strong, nonatomic) IBOutlet UILabel *confirmedEventsValue;
@@ -132,44 +133,38 @@
     [self call];
 }
 
+
+
+#pragma mark - Text Messaging
 - (void)sendMessage {
     if([MFMessageComposeViewController canSendText]) {
-        [self setupMessageComposeVc];
-        [self setupMessageParticipants];
-        [self presentViewController:self.messageComposeVc animated:YES completion:nil];
+        [self textParticipants];
     } else {
         [MessageHelper showCantSendTextAlert];
     }
 }
-- (void)setupMessageComposeVc {
-    self.messageComposeVc = [[MFMessageComposeViewController alloc] init];
-    self.messageComposeVc.messageComposeDelegate = self;
+- (void)textParticipants {
+    NSArray *recipients = [self recipientsForTextMessage];
+    NSString *body = [self bodyForTextMessage];
+    self.textMessageManager = [[TextMessageManager alloc] initWithRecipients:recipients body:body delegate:self];
+    [self.textMessageManager sendTextMessage];
 }
-- (void)setupMessageParticipants {
+- (NSArray *)recipientsForTextMessage {
     NSArray *participants = @[self.participant];
-    [self setupMessageWithRecipients:participants];
+    NSArray *recipients = [MessageHelper mobileNumbersFromPartipants:participants];
+    return recipients;
 }
-- (void)setupMessageWithRecipients:(NSArray *)participants {
-    NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
-    self.messageComposeVc.recipients = mobileNumbers;
+- (NSString *)bodyForTextMessage {
+    NSString *name = self.participant.name;
+    NSString *body = [NSString stringWithFormat:@"Dear %@, ", name];
+    return body;
 }
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
-    switch (result) {
-        case MessageComposeResultCancelled: {
-            break;
-        }
-        case MessageComposeResultSent: {
-            break;
-        }
-        case MessageComposeResultFailed: {
-            [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages."];
-            break;
-        }
-        default:
-            break;
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+#pragma mark - TextMessageManager Delegates
+- (void)presentMessageComposeVc:(MFMessageComposeViewController *)messageComposeVc {
+    [self presentViewController:messageComposeVc animated:YES completion:nil];
 }
+
 
 - (void)call {
     NSURL *url = [ParticipantHelper phoneUrlForParticipant:self.participant];

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MessageUI/MessageUI.h>
+#import "TextMessageManager.h"
 
-@interface AdminVC : UITableViewController <MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface AdminVC : UITableViewController <TextMessageManagerDelegate, MFMailComposeViewControllerDelegate>
 
 @end

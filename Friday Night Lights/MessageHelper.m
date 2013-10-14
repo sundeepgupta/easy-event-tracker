@@ -18,7 +18,7 @@
 }
 
 + (NSArray *)mobileNumbersFromPartipants:(NSArray *)participants {
-    NSMutableArray *mobileNumbers = [[NSMutableArray alloc] init];
+    NSMutableArray *mobileNumbers = [NSMutableArray array];
     
     for (Participant *participant in participants) {
         NSString *mobileNumber = [AddressBookHelper mobileNumberFromAbRecordId:participant.abRecordId];

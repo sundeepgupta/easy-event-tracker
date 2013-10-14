@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *bankValue;
 @property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *textCells;
 @property (strong, nonatomic) IBOutletCollection(UITableViewCell) NSArray *buttonCells;
+
+@property (strong, nonatomic) TextMessageManager *textMessageManager;
 @end
 
 @implementation AdminVC
@@ -67,8 +69,8 @@
 }
 
 
-#pragma mark - IB
-- (IBAction)messagePlayersButtonPress:(id)sender {
+#pragma mark - Text Participants
+- (IBAction)textAllParticipantsButtonPress:(id)sender {
     if([MFMessageComposeViewController canSendText]) {
         [self inviteParticipants];
     } else {
@@ -76,49 +78,29 @@
     }
 }
 - (void)inviteParticipants {
+    NSArray *recipients = [self recipientsForTextMessage];
+    NSString *body = [self bodyForTextMessage];
+    self.textMessageManager = [[TextMessageManager alloc] initWithRecipients:recipients body:body delegate:self];
+    [self.textMessageManager sendTextMessage];
+}
+- (NSArray *)recipientsForTextMessage {
     NSArray *participants = [Model participantsWithStatus:STATUS_ACTIVE];
-    if (participants.count > 0) {
-        NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
-        if (mobileNumbers.count > 0) {
-            [self setupMessageComposeVc];
-            [self presentViewController:self.messageComposeVc animated:YES completion:nil];
-        } else {
-            [UIAlertView showAlertWithTitle:@"No Mobile Numbers" withMessage:@"No mobile numbers were found for your participants."];
-        }
-    } else {
-        [UIAlertView showAlertWithTitle:@"No Participants" withMessage:@"No mobile numbers were found for your recipients."];
-    }
+    NSArray *recipients = [MessageHelper mobileNumbersFromPartipants:participants];
+    return recipients;
 }
-- (void)setupMessageComposeVc {
-    self.messageComposeVc = [[MFMessageComposeViewController alloc] init];
-    [self setupMessageComposeRecipients];
-    self.messageComposeVc.messageComposeDelegate = self;
-}
-- (void)setupMessageComposeRecipients {
-    NSArray *participants = [Model participantsWithStatus:STATUS_ACTIVE];
-    NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
-    self.messageComposeVc.recipients = mobileNumbers;
+- (NSString *)bodyForTextMessage {
+    NSString *body = @"Dear Participants, ";
+    return body;
 }
 
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
-    switch (result) {
-        case MessageComposeResultCancelled: {
-            break;
-        }
-        case MessageComposeResultSent: {
-            break;
-        }
-        case MessageComposeResultFailed: {
-            [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
-            break;
-        }
-        default:
-            break;
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
+#pragma mark - TextMessageManager Delegates 
+- (void)presentMessageComposeVc:(MFMessageComposeViewController *)messageComposeVc {
+    [self presentViewController:messageComposeVc animated:YES completion:nil];
 }
 
 
+
+#pragma mark - Email Data
 - (IBAction)emailDataButtonPress:(id)sender {
     [self generateReport];
     [self emailReport];

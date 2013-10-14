@@ -982,7 +982,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Text All Participants"/>
                                                     <connections>
-                                                        <action selector="messagePlayersButtonPress:" destination="WsK-Jx-lRn" eventType="touchUpInside" id="u6j-vq-5qd"/>
+                                                        <action selector="textAllParticipantsButtonPress:" destination="WsK-Jx-lRn" eventType="touchUpInside" id="HNP-Dz-jTh"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

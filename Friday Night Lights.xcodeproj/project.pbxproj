@@ -112,6 +112,7 @@
 		AED35F9C17939871009D8ADF /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = AED35F9B17939871009D8ADF /* Helper.m */; };
 		AED35F9D17939871009D8ADF /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = AED35F9B17939871009D8ADF /* Helper.m */; };
 		AED88B4117F460EE004B827E /* EventsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED88B4017F460EE004B827E /* EventsCell.xib */; };
+		AED96F5317FE267300FFFDA5 /* TextMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AED96F5217FE267300FFFDA5 /* TextMessageManager.m */; };
 		AEDC565A17778DB50073BA2C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEDC565917778DB50073BA2C /* MessageUI.framework */; };
 		AEE083B81791FA1400371928 /* ConfirmedParticipantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */; };
 		AEE083BB17937CBF00371928 /* hockeyStick.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE083B917937CBF00371928 /* hockeyStick.png */; };
@@ -242,6 +243,8 @@
 		AED35F9A17939871009D8ADF /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Helper.h; path = "Friday Night Lights/Helper.h"; sourceTree = "<group>"; };
 		AED35F9B17939871009D8ADF /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Helper.m; path = "Friday Night Lights/Helper.m"; sourceTree = "<group>"; };
 		AED88B4017F460EE004B827E /* EventsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EventsCell.xib; path = "Friday Night Lights/EventsCell.xib"; sourceTree = "<group>"; };
+		AED96F5117FE267300FFFDA5 /* TextMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextMessageManager.h; path = "Friday Night Lights/TextMessageManager.h"; sourceTree = "<group>"; };
+		AED96F5217FE267300FFFDA5 /* TextMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextMessageManager.m; path = "Friday Night Lights/TextMessageManager.m"; sourceTree = "<group>"; };
 		AEDC565917778DB50073BA2C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AEE083B61791FA1400371928 /* ConfirmedParticipantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmedParticipantsVC.h; path = "Friday Night Lights/ConfirmedParticipantsVC.h"; sourceTree = "<group>"; };
 		AEE083B71791FA1400371928 /* ConfirmedParticipantsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmedParticipantsVC.m; path = "Friday Night Lights/ConfirmedParticipantsVC.m"; sourceTree = "<group>"; };
@@ -517,6 +520,8 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
+				AED96F5117FE267300FFFDA5 /* TextMessageManager.h */,
+				AED96F5217FE267300FFFDA5 /* TextMessageManager.m */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE41CA8117F30CDE0019948F /* Controllers */,
 				AE41CA8317F30D0B0019948F /* Libraries */,
@@ -648,6 +653,11 @@
 				CLASSPREFIX = "";
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Sundeep Gupta";
+				TargetAttributes = {
+					AE89ABDE176D426700C06D03 = {
+						DevelopmentTeam = M3NJ52HVCE;
+					};
+				};
 			};
 			buildConfigurationList = AE89ABDA176D426700C06D03 /* Build configuration list for PBXProject "Friday Night Lights" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -776,6 +786,7 @@
 				AE18BA411798813E0014EAEB /* EventsCell.m in Sources */,
 				AE18BA45179888CC0014EAEB /* ParticipantsCell.m in Sources */,
 				AE0F2CA9179F01CE00EF2CE4 /* FileHelper.m in Sources */,
+				AED96F5317FE267300FFFDA5 /* TextMessageManager.m in Sources */,
 				AE0F2CAD179F0C9B00EF2CE4 /* CsvApi.m in Sources */,
 				AE0F2CB1179F248700EF2CE4 /* CHCSVParser.m in Sources */,
 			);
@@ -863,7 +874,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sundeep Gupta (U6Z7XVB628)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sundeep Gupta (U6Z7XVB628)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -895,7 +907,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sundeep Gupta (M3NJ52HVCE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sundeep Gupta (M3NJ52HVCE)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -912,8 +925,8 @@
 		AE89AC18176D426700C06D03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sundeep Gupta (U6Z7XVB628)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sundeep Gupta (U6Z7XVB628)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Friday Night Lights/Friday Night Lights-Prefix.pch";
 				INFOPLIST_FILE = "Friday Night Lights/Friday Night Lights-Info.plist";
@@ -924,7 +937,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "157B1F77-9403-40C1-823C-83B4546604EA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ABE51356-AC82-4E0B-9BCA-8009F7D4982B";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -933,8 +946,8 @@
 		AE89AC19176D426700C06D03 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sundeep Gupta (M3NJ52HVCE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sundeep Gupta (M3NJ52HVCE)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Friday Night Lights/Friday Night Lights-Prefix.pch";
 				INFOPLIST_FILE = "Friday Night Lights/Friday Night Lights-Info.plist";
@@ -945,7 +958,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2FBAF1AD-A0CE-49E7-9B5F-60EF5707D20C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C29F8785-D7CF-4DA4-A468-167CE7C675C8";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

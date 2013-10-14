@@ -76,8 +76,18 @@
     }
 }
 - (void)inviteParticipants {
-    [self setupMessageComposeVc];
-    [self presentViewController:self.messageComposeVc animated:YES completion:nil];
+    NSArray *participants = [Model participantsWithStatus:STATUS_ACTIVE];
+    if (participants.count > 0) {
+        NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
+        if (mobileNumbers.count > 0) {
+            [self setupMessageComposeVc];
+            [self presentViewController:self.messageComposeVc animated:YES completion:nil];
+        } else {
+            [UIAlertView showAlertWithTitle:@"No Mobile Numbers" withMessage:@"No mobile numbers were found for your participants."];
+        }
+    } else {
+        [UIAlertView showAlertWithTitle:@"No Participants" withMessage:@"No mobile numbers were found for your recipients."];
+    }
 }
 - (void)setupMessageComposeVc {
     self.messageComposeVc = [[MFMessageComposeViewController alloc] init];

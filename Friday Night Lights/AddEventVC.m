@@ -22,7 +22,7 @@
 @interface AddEventVC ()
  
 @property (strong, nonatomic) TDDatePickerController* datePickerController;
-@property (strong, nonatomic) MFMessageComposeViewController *messageComposeVc;
+@property (strong, nonatomic) TextMessageManager *textMessageManager;
 
 @property (strong, nonatomic) IBOutlet UITextField *nameValue;
 @property (strong, nonatomic) IBOutlet UITextField *venueValue;
@@ -169,6 +169,8 @@
 }
 
 
+
+#pragma mark - Text Participants
 - (IBAction)saveAndInviteButtonPress:(UIButton *)sender {
     if([MFMessageComposeViewController canSendText]) {
         [self inviteParticipants];
@@ -177,45 +179,27 @@
     }
 }
 
-
 - (void)inviteParticipants {
-    [self setupMessageComposeVc];
-    [self presentViewController:self.messageComposeVc animated:YES completion:nil];
+    NSArray *recipients = [self recipientsForTextMessage];
+    NSString *body = [self bodyForTextMessage];
+    self.textMessageManager = [[TextMessageManager alloc] initWithRecipients:recipients body:body delegate:self];
+    [self.textMessageManager sendTextMessage];
 }
-- (void)setupMessageComposeVc {
-    self.messageComposeVc = [[MFMessageComposeViewController alloc] init];
-    [self setupMessageComposeRecipients];
-    [self setupMessageComposeBody];
-    self.messageComposeVc.messageComposeDelegate = self;
-}
-- (void)setupMessageComposeRecipients {
+- (NSArray *)recipientsForTextMessage {
     NSArray *participants = [Model participantsWithStatus:STATUS_ACTIVE];
-    NSArray *mobileNumbers = [MessageHelper mobileNumbersFromPartipants:participants];
-    self.messageComposeVc.recipients = mobileNumbers;
+    NSArray *recipients = [MessageHelper mobileNumbersFromPartipants:participants];
+    return recipients;
 }
-
-- (void)setupMessageComposeBody {
+- (NSString *)bodyForTextMessage {
     NSString *dateString = [self.event.date dateAndTimeString];
     NSString *body = [NSString stringWithFormat:@"The event \"%@\" is confirmed to be held at \"%@\" on %@. Please let me know if you will be participating. Thank you!", self.event.name, self.event.venueName, dateString];
-    self.messageComposeVc.body = body;
+    return body;
 }
 
-- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {    
-    switch (result) {
-        case MessageComposeResultCancelled: {
-            break;
-        }
-        case MessageComposeResultSent: {
-            break;
-        }
-        case MessageComposeResultFailed: {
-                [UIAlertView showAlertWithTitle:@"Send Error" withMessage:@"There was an error sending the text messages"];
-            break;
-        }
-        default:
-            break;
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+#pragma mark - TextMessageManager Delegates
+- (void)presentMessageComposeVc:(MFMessageComposeViewController *)messageComposeVc {
+    [self presentViewController:messageComposeVc animated:YES completion:nil];
 }
 
 

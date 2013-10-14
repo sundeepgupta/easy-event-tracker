@@ -72,12 +72,12 @@
 #pragma mark - Text Participants
 - (IBAction)textAllParticipantsButtonPress:(id)sender {
     if([MFMessageComposeViewController canSendText]) {
-        [self inviteParticipants];
+        [self textParticipants];
     } else {
         [MessageHelper showCantSendTextAlert];
     }
 }
-- (void)inviteParticipants {
+- (void)textParticipants {
     NSArray *recipients = [self recipientsForTextMessage];
     NSString *body = [self bodyForTextMessage];
     self.textMessageManager = [[TextMessageManager alloc] initWithRecipients:recipients body:body delegate:self];

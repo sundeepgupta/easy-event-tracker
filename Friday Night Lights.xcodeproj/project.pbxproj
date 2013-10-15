@@ -75,6 +75,8 @@
 		AE4F16241781E88700650410 /* team@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE4F16221781E88700650410 /* team@2x.png */; };
 		AE50C1D917F6366400B2044D /* ParticipantsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE50C1D817F6366400B2044D /* ParticipantsCell.xib */; };
 		AE50C1DB17F638FD00B2044D /* TransactionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE50C1DA17F638FD00B2044D /* TransactionsCell.xib */; };
+		AE7BA409180C98ED002B12C1 /* DeletedParticipantsSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7BA407180C98ED002B12C1 /* DeletedParticipantsSummaryCell.m */; };
+		AE7BA40C180C9B73002B12C1 /* DeletedParticipantsSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE7BA40B180C9B73002B12C1 /* DeletedParticipantsSummaryCell.xib */; };
 		AE814D5B17950157001E4866 /* TransactionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE814D5A17950157001E4866 /* TransactionDetailVC.m */; };
 		AE814D5C17950157001E4866 /* TransactionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE814D5A17950157001E4866 /* TransactionDetailVC.m */; };
 		AE895C0E1795EEBC0055223A /* TransactionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE895C0D1795EEBC0055223A /* TransactionHelper.m */; };
@@ -204,6 +206,9 @@
 		AE4F16221781E88700650410 /* team@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "team@2x.png"; sourceTree = "<group>"; };
 		AE50C1D817F6366400B2044D /* ParticipantsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParticipantsCell.xib; path = "Friday Night Lights/ParticipantsCell.xib"; sourceTree = "<group>"; };
 		AE50C1DA17F638FD00B2044D /* TransactionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TransactionsCell.xib; path = "Friday Night Lights/TransactionsCell.xib"; sourceTree = "<group>"; };
+		AE7BA406180C98ED002B12C1 /* DeletedParticipantsSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeletedParticipantsSummaryCell.h; path = "Friday Night Lights/DeletedParticipantsSummaryCell.h"; sourceTree = "<group>"; };
+		AE7BA407180C98ED002B12C1 /* DeletedParticipantsSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeletedParticipantsSummaryCell.m; path = "Friday Night Lights/DeletedParticipantsSummaryCell.m"; sourceTree = "<group>"; };
+		AE7BA40B180C9B73002B12C1 /* DeletedParticipantsSummaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DeletedParticipantsSummaryCell.xib; path = "Friday Night Lights/DeletedParticipantsSummaryCell.xib"; sourceTree = "<group>"; };
 		AE814D5917950157001E4866 /* TransactionDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionDetailVC.h; path = "Friday Night Lights/TransactionDetailVC.h"; sourceTree = "<group>"; };
 		AE814D5A17950157001E4866 /* TransactionDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransactionDetailVC.m; path = "Friday Night Lights/TransactionDetailVC.m"; sourceTree = "<group>"; };
 		AE895C0C1795EEBC0055223A /* TransactionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransactionHelper.h; path = "Friday Night Lights/TransactionHelper.h"; sourceTree = "<group>"; };
@@ -520,6 +525,9 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
+				AE7BA406180C98ED002B12C1 /* DeletedParticipantsSummaryCell.h */,
+				AE7BA407180C98ED002B12C1 /* DeletedParticipantsSummaryCell.m */,
+				AE7BA40B180C9B73002B12C1 /* DeletedParticipantsSummaryCell.xib */,
 				AED96F5117FE267300FFFDA5 /* TextMessageManager.h */,
 				AED96F5217FE267300FFFDA5 /* TextMessageManager.m */,
 				AE89ABEA176D426700C06D03 /* App Control */,
@@ -694,6 +702,7 @@
 				AEE083BC17937CBF00371928 /* hockeyStick@2x.png in Resources */,
 				AED35F93179384A9009D8ADF /* Icon.png in Resources */,
 				AED35F95179384AE009D8ADF /* Icon@2x.png in Resources */,
+				AE7BA40C180C9B73002B12C1 /* DeletedParticipantsSummaryCell.xib in Resources */,
 				AE3256C21794E0990061BBF1 /* README.md in Resources */,
 				AE50C1D917F6366400B2044D /* ParticipantsCell.xib in Resources */,
 				AE3256C41794E0990061BBF1 /* release_notes.md in Resources */,
@@ -750,6 +759,7 @@
 			files = (
 				AE89ABF1176D426700C06D03 /* main.m in Sources */,
 				AE89ABF5176D426700C06D03 /* AppDelegate.m in Sources */,
+				AE7BA409180C98ED002B12C1 /* DeletedParticipantsSummaryCell.m in Sources */,
 				AE89ABFE176D426700C06D03 /* Friday_Night_Lights.xcdatamodeld in Sources */,
 				AEF44D2B17F88F1D00D478EA /* Event.m in Sources */,
 				AE89AC32176D4E5300C06D03 /* Model.m in Sources */,

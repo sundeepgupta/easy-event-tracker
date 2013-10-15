@@ -29,6 +29,13 @@
     NSArray *sortedParticipants = [self sortedWithNamesParticipants:participants];
     return sortedParticipants;
 }
+
++ (NSArray *)deletedParticipants {
+    NSArray *participants = [Model participantsWithStatus:STATUS_DELETED];
+    NSArray *sortedParticipants = [self sortedWithNamesParticipants:participants];
+    return sortedParticipants;
+}
+
 + (NSArray *)sortedWithNamesParticipants:(NSArray *)participants {
     NSArray *participantsWithNames = [self participantsWithNames:participants];
     NSArray *sortedParticipants = [self sortedParticipants:participantsWithNames];

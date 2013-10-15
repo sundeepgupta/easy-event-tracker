@@ -16,6 +16,8 @@
 
 + (NSArray *)allParticipants;
 + (NSArray *)activeParticipants;
++ (NSArray *)deletedParticipants;
+
 + (NSString *)nameForParticipant:(Participant *)participant;
 + (void)configureCell:(ParticipantsCell *)cell forParticipant:(Participant *)participant;
 

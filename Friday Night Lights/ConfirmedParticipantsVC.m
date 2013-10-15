@@ -10,11 +10,13 @@
 #import "ParticipantHelper.h"
 #import "Participant.h"
 #import "ParticipantsCell.h"
+#import "DeletedParticipantsSummaryCell.h"
 
 @interface ConfirmedParticipantsVC ()
 
 @property (strong, nonatomic) NSArray *dataSource;
 @property (strong, nonatomic) NSArray *confirmedParticipants;
+@property (nonatomic) NSInteger deletedParticipantsCount;
 
 @end
 
@@ -34,16 +36,23 @@
     [super viewDidLoad];
     self.title = @"Confirmed";
     [ParticipantsCell setupReuseIdForTableView:self.tableView];
+    [DeletedParticipantsSummaryCell setupReuseIdForTableView:self.tableView];
     [DesignHelper customizeTableView:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self setupDataSource];
+    [self setupDeletedParticipantsCount];
 }
 - (void)setupDataSource {
-    self.dataSource = [ParticipantHelper allParticipants];
+    self.dataSource = [ParticipantHelper activeParticipants];
     self.confirmedParticipants = [Model confirmedParticipantsForEvent:self.event];
 }
+- (void)setupDeletedParticipantsCount {
+    NSArray *deletedParticipants = [ParticipantHelper deletedParticipants];
+    self.deletedParticipantsCount = deletedParticipants.count;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -60,37 +69,65 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataSource.count;
+    NSInteger numberOfRows;
+    if (self.deletedParticipantsCount > 0) {
+        numberOfRows = self.dataSource.count + 1;
+    } else {
+        numberOfRows = self.dataSource.count;
+    }
+    return numberOfRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ParticipantsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ParticipantsCell class])];
+    UITableViewCell *cell;
     
-    Participant *object = [self.dataSource objectAtIndex:indexPath.row];
-    [ParticipantHelper configureCell:cell forParticipant:object];
-    
-    for (Participant *confirmedParticipant in self.confirmedParticipants) {
-        if ([object isEqual:confirmedParticipant]) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        }
-    }
-
-    if ([object.status isEqualToString:STATUS_DELETED]) {
-        [DesignHelper customizeInactiveCell:cell];
+    if (indexPath.row == self.dataSource.count) {
+        cell = [self deletedParticipantsSummaryCell];
     } else {
-        [DesignHelper customizeCell:cell];
+        cell = [self participantsCellForIndexPath:indexPath];
     }
     
     return cell;
+}
+
+- (DeletedParticipantsSummaryCell *)deletedParticipantsSummaryCell {
+    NSString *cellClassName = NSStringFromClass([DeletedParticipantsSummaryCell class]);
+    DeletedParticipantsSummaryCell *deletedParticipantsSummaryCell = [self.tableView dequeueReusableCellWithIdentifier:cellClassName];
+    NSString *countString = [NSString stringWithFormat:@"%d Deleted Participants", self.deletedParticipantsCount];
+    deletedParticipantsSummaryCell.countValue.text = countString;
+    return deletedParticipantsSummaryCell;
+}
+
+- (ParticipantsCell *)participantsCellForIndexPath:(NSIndexPath *)indexPath {
+    ParticipantsCell *participantsCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ParticipantsCell class])];
+    
+    Participant *object = [self.dataSource objectAtIndex:indexPath.row];
+    [ParticipantHelper configureCell:participantsCell forParticipant:object];
+    
+    [self setupAccessoryForParticipantsCell:participantsCell forParticipant:object];
+    
+    return participantsCell;
+}
+- (void)setupAccessoryForParticipantsCell:(ParticipantsCell *)cell forParticipant:(Participant *)participant {
+    for (Participant *confirmedParticipant in self.confirmedParticipants) {
+        if ([participant isEqual:confirmedParticipant]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+    }
 }
 
 
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self toggleParticipantConfirmedForIndexPath:indexPath];
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == self.dataSource.count) {
+        
+    } else {
+        [self toggleParticipantConfirmedForIndexPath:indexPath];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+    
 }
 
 - (void)toggleParticipantConfirmedForIndexPath:(NSIndexPath *)indexPath {
@@ -106,15 +143,17 @@
     }
     
     [self updateVisibleCellsBalances];
-    
     [Model saveContext];
 }
 - (void)updateVisibleCellsBalances {
     NSArray *cells = self.tableView.visibleCells;
-    for (ParticipantsCell *cell in cells) {
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-        Participant *participant = self.dataSource[indexPath.row];
-        cell.balanceValue.text = [ParticipantHelper balanceStringForParticipant:participant];
+    for (UITableViewCell *cell in cells) {
+        if ([cell isKindOfClass:[ParticipantsCell class]]) {
+            ParticipantsCell *castedCell = (ParticipantsCell *)cell;
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:castedCell];
+            Participant *participant = self.dataSource[indexPath.row];
+            castedCell.balanceValue.text = [ParticipantHelper balanceStringForParticipant:participant];
+        }
     }
 }
 

@@ -157,7 +157,9 @@
     } else if ([cell isEqual:self.confirmedParticipantsCell]) {
         NSString *vcId = NSStringFromClass([ConfirmedParticipantsVC class]);
         ConfirmedParticipantsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:vcId];
+        vc.title = @"Confirmed";
         vc.event = self.event;
+        vc.isActiveState = YES;
         [self.navigationController pushViewController:vc animated:YES];
         [self.tableView deselectSelectedRow];
     }

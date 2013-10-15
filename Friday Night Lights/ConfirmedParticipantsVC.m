@@ -34,7 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Confirmed";
     [ParticipantsCell setupReuseIdForTableView:self.tableView];
     [DeletedParticipantsSummaryCell setupReuseIdForTableView:self.tableView];
     [DesignHelper customizeTableView:self.tableView];
@@ -45,7 +44,11 @@
     [self setupDeletedParticipantsCount];
 }
 - (void)setupDataSource {
-    self.dataSource = [ParticipantHelper activeParticipants];
+    if (self.isActiveState) {
+        self.dataSource = [ParticipantHelper activeParticipants];
+    } else {
+        self.dataSource = [ParticipantHelper deletedParticipants];
+    }
     self.confirmedParticipants = [Model confirmedParticipantsForEvent:self.event];
 }
 - (void)setupDeletedParticipantsCount {
@@ -70,7 +73,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger numberOfRows;
-    if (self.deletedParticipantsCount > 0) {
+    if (self.deletedParticipantsCount > 0  &&  self.isActiveState) {
         numberOfRows = self.dataSource.count + 1;
     } else {
         numberOfRows = self.dataSource.count;
@@ -82,7 +85,7 @@
 {
     UITableViewCell *cell;
     
-    if (indexPath.row == self.dataSource.count) {
+    if (indexPath.row == self.dataSource.count  &&  self.isActiveState) {
         cell = [self deletedParticipantsSummaryCell];
     } else {
         cell = [self participantsCellForIndexPath:indexPath];
@@ -121,13 +124,20 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == self.dataSource.count) {
-        
+    if (indexPath.row == self.dataSource.count  &&  self.isActiveState) {
+        [self pushDeletedParticipantsVc];
     } else {
         [self toggleParticipantConfirmedForIndexPath:indexPath];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
     
+}
+
+- (void)pushDeletedParticipantsVc {
+    ConfirmedParticipantsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([ConfirmedParticipantsVC class])];
+    vc.title = @"Deleted";
+    vc.event = self.event;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)toggleParticipantConfirmedForIndexPath:(NSIndexPath *)indexPath {

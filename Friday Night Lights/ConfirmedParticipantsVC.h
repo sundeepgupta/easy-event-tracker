@@ -13,5 +13,6 @@
 @interface ConfirmedParticipantsVC : UITableViewController
 
 @property (strong, nonatomic) Event *event;
+@property (nonatomic) BOOL isActiveState;
 
 @end

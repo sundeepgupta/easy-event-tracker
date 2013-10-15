@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ParticipantsVC.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +24,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    UITabBarController *tbc = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *nc = tbc.viewControllers[1];
+    ParticipantsVC *participantsVc = nc.viewControllers.firstObject;
+    participantsVc.isActiveState = YES;
+    participantsVc.title = @"Participants";
+    
+    
+    
     [DesignHelper customizeIphoneTheme];
     [TestFlight takeOff:@"2d664d07-3092-40fa-8a38-5ff310a65496"];
     return YES;

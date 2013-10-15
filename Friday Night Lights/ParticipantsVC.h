@@ -13,7 +13,7 @@
 
 @interface ParticipantsVC : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
 
-
+@property (nonatomic) BOOL isActiveState;
 
 
 

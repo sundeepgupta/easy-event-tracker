@@ -15,12 +15,15 @@
 #import "ParticipantHelper.h"
 #import "Event.h"
 #import "ParticipantsCell.h"
+#import "DeletedParticipantsSummaryCell.h"
 
 
 @interface ParticipantsVC ()
 
 @property (strong, nonatomic) Model *model;
 @property (strong, nonatomic) NSArray *dataSource;
+@property (nonatomic) NSInteger deletedParticipantsCount;
+
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @end
@@ -40,24 +43,32 @@
 {
     [super viewDidLoad];
     [ParticipantsCell setupReuseIdForTableView:self.tableView];
-    [DesignHelper customizeTableView:self.tableView];    
+    [DeletedParticipantsSummaryCell setupReuseIdForTableView:self.tableView];
+    [self setupAddButton];
+    [DesignHelper customizeTableView:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self setupVc];
     [self setupDataSource];
+    [self setupDeletedParticipantsCount];
     [self.tableView reloadData];
 }
-- (void)setupVc {
-    self.title = @"Participants";
-}
 - (void)setupDataSource {
-    self.dataSource = [ParticipantHelper activeParticipants];
+    if (self.isActiveState) {
+        self.dataSource = [ParticipantHelper activeParticipants];
+    } else {
+        self.dataSource = [ParticipantHelper deletedParticipants];
+    }
 }
-
-
-
-
+- (void)setupDeletedParticipantsCount {
+    NSArray *deletedParticipants = [ParticipantHelper deletedParticipants];
+    self.deletedParticipantsCount = deletedParticipants.count;
+}
+- (void)setupAddButton {
+    if (!self.isActiveState) {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -74,25 +85,60 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataSource.count;
+    NSInteger numberOfRows;
+    if (self.deletedParticipantsCount > 0  &&  self.isActiveState) {
+        numberOfRows = self.dataSource.count + 1;
+    } else {
+        numberOfRows = self.dataSource.count;
+    }
+    return numberOfRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ParticipantsCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ParticipantsCell class])];
+    UITableViewCell *cell;
     
-    Participant *object = [self.dataSource objectAtIndex:indexPath.row];
-    [ParticipantHelper configureCell:cell forParticipant:object];
-
-    
-    [DesignHelper customizeCell:cell];
+    if (indexPath.row == self.dataSource.count  &&  self.isActiveState) {
+        cell = [self deletedParticipantsSummaryCell];
+    } else {
+        cell = [self participantsCellForIndexPath:indexPath];
+    }
     
     return cell;
 }
 
+- (DeletedParticipantsSummaryCell *)deletedParticipantsSummaryCell {
+    NSString *cellClassName = NSStringFromClass([DeletedParticipantsSummaryCell class]);
+    DeletedParticipantsSummaryCell *deletedParticipantsSummaryCell = [self.tableView dequeueReusableCellWithIdentifier:cellClassName];
+    NSString *countString = [NSString stringWithFormat:@"%d Deleted Participants", self.deletedParticipantsCount];
+    deletedParticipantsSummaryCell.countValue.text = countString;
+    return deletedParticipantsSummaryCell;
+}
+
+- (ParticipantsCell *)participantsCellForIndexPath:(NSIndexPath *)indexPath {
+    ParticipantsCell *participantsCell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ParticipantsCell class])];
+    
+    Participant *object = [self.dataSource objectAtIndex:indexPath.row];
+    [ParticipantHelper configureCell:participantsCell forParticipant:object];
+    
+    return participantsCell;
+}
+
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCellEditingStyle editingStyle;
+    if (self.isActiveState) {
+        editingStyle = UITableViewCellEditingStyleDelete;
+    } else {
+        editingStyle =UITableViewCellEditingStyleNone;
+    }
+    return editingStyle;
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete  &&  self.isActiveState) {
         Participant *object = [self.dataSource objectAtIndex:indexPath.row];
         [Model updateParticipant:object withStatus:STATUS_DELETED];
         [self setupDataSource];
@@ -104,7 +150,19 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self pushNextVcWithParticipantAtIndexPath:indexPath];
+    if (indexPath.row == self.dataSource.count  &&  self.isActiveState) {
+        [self pushDeletedParticipantsVc];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else {
+        [self pushNextVcWithParticipantAtIndexPath:indexPath];
+    }
+}
+
+- (void)pushDeletedParticipantsVc {
+    ParticipantsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([ParticipantsVC class])];
+    vc.title = @"Deleted";
+    vc.isActiveState = NO;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

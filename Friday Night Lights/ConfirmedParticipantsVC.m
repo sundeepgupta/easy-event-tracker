@@ -126,6 +126,7 @@
 {
     if (indexPath.row == self.dataSource.count  &&  self.isActiveState) {
         [self pushDeletedParticipantsVc];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
         [self toggleParticipantConfirmedForIndexPath:indexPath];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -137,6 +138,7 @@
     ConfirmedParticipantsVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([ConfirmedParticipantsVC class])];
     vc.title = @"Deleted";
     vc.event = self.event;
+    vc.isActiveState = NO;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

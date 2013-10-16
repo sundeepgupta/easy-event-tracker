@@ -87,6 +87,8 @@
     NSString *entityName = NSStringFromClass([Participant class]);
     Participant *object = (Participant *)[self newObjectWithEntityName:entityName];
     object.status = STATUS_ACTIVE;
+    object.name = @"";
+
     return object;
 }
 

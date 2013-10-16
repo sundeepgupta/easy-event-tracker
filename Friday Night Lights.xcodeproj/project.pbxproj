@@ -362,6 +362,8 @@
 		AE41CA8117F30CDE0019948F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AED96F5117FE267300FFFDA5 /* TextMessageManager.h */,
+				AED96F5217FE267300FFFDA5 /* TextMessageManager.m */,
 				AE895C0C1795EEBC0055223A /* TransactionHelper.h */,
 				AE895C0D1795EEBC0055223A /* TransactionHelper.m */,
 				AEC5DF1C177A1093004C697C /* ParticipantHelper.h */,
@@ -450,6 +452,9 @@
 		AE41CA8617F30E470019948F /* Participants */ = {
 			isa = PBXGroup;
 			children = (
+				AE7BA406180C98ED002B12C1 /* DeletedParticipantsSummaryCell.h */,
+				AE7BA407180C98ED002B12C1 /* DeletedParticipantsSummaryCell.m */,
+				AE7BA40B180C9B73002B12C1 /* DeletedParticipantsSummaryCell.xib */,
 				AE50C1D817F6366400B2044D /* ParticipantsCell.xib */,
 				AE18BA43179888CC0014EAEB /* ParticipantsCell.h */,
 				AE18BA44179888CC0014EAEB /* ParticipantsCell.m */,
@@ -525,11 +530,6 @@
 		AE89ABD6176D426700C06D03 = {
 			isa = PBXGroup;
 			children = (
-				AE7BA406180C98ED002B12C1 /* DeletedParticipantsSummaryCell.h */,
-				AE7BA407180C98ED002B12C1 /* DeletedParticipantsSummaryCell.m */,
-				AE7BA40B180C9B73002B12C1 /* DeletedParticipantsSummaryCell.xib */,
-				AED96F5117FE267300FFFDA5 /* TextMessageManager.h */,
-				AED96F5217FE267300FFFDA5 /* TextMessageManager.m */,
 				AE89ABEA176D426700C06D03 /* App Control */,
 				AE41CA8117F30CDE0019948F /* Controllers */,
 				AE41CA8317F30D0B0019948F /* Libraries */,
@@ -968,7 +968,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C29F8785-D7CF-4DA4-A468-167CE7C675C8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3B02F8B1-6B3D-4EEB-A2FB-0F9C6AAC3CBA";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

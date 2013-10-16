@@ -57,7 +57,11 @@
 
 + (NSString *)nameForParticipant:(Participant *)participant {
     NSNumber *abRecordId = participant.abRecordId;
-    return [AddressBookHelper abCompositeNameFromAbRecordId:abRecordId];
+    NSString *name = [AddressBookHelper abCompositeNameFromAbRecordId:abRecordId];
+    if (!name  ||  name.length == 0) {
+        name = @"_Deleted Contact_";
+    }
+    return name;
 }
 
 + (void)configureCell:(ParticipantsCell *)cell forParticipant:(Participant *)participant {
